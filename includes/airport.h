@@ -16,6 +16,12 @@ class LandTransportPlace{
     public:
         LandTransportPlace(TypeOfTransport type, unsigned distance, unsigned openTime, unsigned closeTime): type(type),
             distance(distance), openTime(openTime), closeTime(closeTime){}
+        TypeOfTransport getType const(){
+            return type;
+        }
+        unsigned getDistance() const{
+            return distance;
+        }
 };
 
 bool operator<(const LandTransportPlace &a, const LandTransportPlace &b) {
