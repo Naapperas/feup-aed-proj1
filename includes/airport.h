@@ -16,7 +16,7 @@ class LandTransportPlace{
         friend ostream& operator <<(ostream& out ,const LandTransportPlace & a);
     public:
         LandTransportPlace(TypeOfTransport type, unsigned distance, std::string openTime, std::string closeTime): type(type), distance(distance), openTime(openTime), closeTime(closeTime){}
-        TypeOfTransport getType const(){
+        TypeOfTransport getType() const{
             return type;
         }
         unsigned int getDistance() const{
