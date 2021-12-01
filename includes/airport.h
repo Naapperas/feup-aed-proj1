@@ -5,22 +5,28 @@
 
 class LandTransportPlace{
         enum TypeOfTransport{
-            METRO,
-            COMBOIO,
-            AUTOCARRO
+            SUBWAY,
+            TRAIN,
+            BUS
         };
         TypeOfTransport type;
-        unsigned distance, openTime, closeTime; // the last two shouldn't be unsigned, need to assign them to another type later
+        unsigned int distance;
+        std::string openTime, closeTime;
         friend bool operator <(const LandTransportPlace & a, const LandTransportPlace & b);
         friend ostream& operator <<(ostream& out ,const LandTransportPlace & a);
     public:
-        LandTransportPlace(TypeOfTransport type, unsigned distance, unsigned openTime, unsigned closeTime): type(type),
-            distance(distance), openTime(openTime), closeTime(closeTime){}
+        LandTransportPlace(TypeOfTransport type, unsigned distance, std::string openTime, std::string closeTime): type(type), distance(distance), openTime(openTime), closeTime(closeTime){}
         TypeOfTransport getType const(){
             return type;
         }
-        unsigned getDistance() const{
+        unsigned int getDistance() const{
             return distance;
+        }
+        std::string getOpenTime() const{
+            return openTime;
+        }
+        std::string getCloseTime() const{
+            return closeTime;
         }
 };
 
