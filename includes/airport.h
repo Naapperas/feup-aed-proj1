@@ -2,6 +2,7 @@
 #define AED2122PROJ_AIRPORT_H
 
 #include <iostream>
+#include "bst.h"
 
 class LandTransportPlace{
         enum TypeOfTransport{
@@ -41,8 +42,10 @@ ostream& operator <<(ostream& out , const LandTransportPlace &a) {
 
 
 class Airport{
-        string cityName;
-        // binary search tree of LandTransportPlace (include bst.h?)
+        std::string name;
+        BST<LandTransportPlace> transportPlaces;
+    public:
+        Airport(std::string name): name(name){}
 };
 
 
