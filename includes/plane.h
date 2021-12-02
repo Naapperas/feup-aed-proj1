@@ -55,6 +55,15 @@ class Plane {
         unsigned getLotation() const {
             return lotation;
         }
+
+        void addCleaningService(CleaningService cleaningService) {
+            upcomingCleaningTasks.push_back(cleaningService);
+        }
+
+        void finishedCleaningService(){
+            pastCleaningTasks.push_back(upcomingCleaningTasks.front()); // archive finished cleaining/maintenence service
+            upcomingCleaningTasks.pop_front(); // erase from deque
+        }
 };
 
 #endif //AED2122PROJ_PLANE_H
