@@ -7,16 +7,19 @@
 
 #include <vector>
 #include <deque>
+#include <list>
 
 #include "./flight.h"
+#include "./passenger.h"
 
 class CleaningService {
 
+    public:
         enum ServiceType {
             MAINTENANCE,
             CLEANING
         };
-
+    private:
         ServiceType serviceType;
         std::string serviceDate, employee;
     public:
@@ -31,16 +34,22 @@ class Plane {
         unsigned capacity, lotation;
 
         std::vector<Flight*> flightPlan;
+        std::list<Passenger> passengers;
         std::deque<CleaningService> upcomingCleaningTasks, pastCleaningTasks;
     public:
         Plane(const std::string& planePlate, unsigned planeCapacity) : plate(planePlate), capacity(planeCapacity), lotation(0) {}
 
         virtual ~Plane() {
+            std::cout << "Plane destructor" << std::endl;
             for (auto flight : flightPlan)
-                if (flight != nullptr) delete flight;
+                if (flight != nullptr) {
+                    std::cout << "Deleting " << flight << " from flight plan of Plane" << std::endl;
+                    delete flight;
+                }
+            this->flightPlan.clear();
         }
 
-    const std::string getPlate() const {
+        const std::string getPlate() const {
             return plate;
         }
 
@@ -64,6 +73,14 @@ class Plane {
             pastCleaningTasks.push_back(upcomingCleaningTasks.front()); // archive finished cleaining/maintenence service
             upcomingCleaningTasks.pop_front(); // erase from deque
         }
+        /**
+         * Adds a flight to this plane's flight plan.
+         *
+         * @param flight a pointer to the new flight to add
+         */
+        void addFlightToPlan(Flight* flight) {
+            this->flightPlan.push_back(flight);
+        };
 };
 
 #endif //AED2122PROJ_PLANE_H
