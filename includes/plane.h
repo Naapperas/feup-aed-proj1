@@ -40,12 +40,9 @@ class Plane {
         Plane(const std::string& planePlate, unsigned planeCapacity) : plate(planePlate), capacity(planeCapacity), lotation(0) {}
 
         virtual ~Plane() {
-            std::cout << "Plane destructor" << std::endl;
             for (auto flight : flightPlan)
-                if (flight != nullptr) {
-                    std::cout << "Deleting " << flight << " from flight plan of Plane" << std::endl;
+                if (flight != nullptr)
                     delete flight;
-                }
             this->flightPlan.clear();
         }
 

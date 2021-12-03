@@ -21,11 +21,7 @@ class Flight {
                                                                duration(duration), plane(plane) { }
 
         virtual ~Flight() {
-            std::cout << "FLight destructor" << std::endl;
-            if (plane != nullptr) {
-                std::cout << "Deleting Flight reference to Plane" << std::endl;
-                delete plane;
-            }
+            // since a plane belongs to many flights, it should be the plane deleting flights;
         }
 
         long getFlightNumber() const {
@@ -60,11 +56,6 @@ class Ticket {
         Ticket(bool hasLuggage, Flight *flight) : hasLuggage(hasLuggage), flight(flight) {}
 
         virtual ~Ticket() {
-            std::cout << "Ticket destructor" << std::endl;
-            if (flight != nullptr) {
-                std::cout << "Deleting Tickets reference to FLight" << std::endl;
-                delete flight;
-            }
         }
 
         bool isHasLuggage() const {

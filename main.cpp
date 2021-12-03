@@ -5,14 +5,12 @@
 int main() {
     std::cout << "Hello, World!" << std::endl;
 
-    int* i = new int(1);
-    std::cout << (i == nullptr) << std::endl;
-    delete i;
-    std::cout << (i == nullptr) << std::endl;
+    Plane* p = new Plane("Plane", 500);
+    Flight* f = new Flight(876234, "", "", "", 300, p);
 
-    Plane p = Plane("Plane", 500);
-    Flight f = Flight(876234, "", "", "", 300, &p);
-    p.addFlightToPlan(&f);
+    p->addFlightToPlan(f);
+
+    delete p;
 
     return 0;
 }
