@@ -8,6 +8,7 @@
 #include <vector>
 #include <deque>
 #include <list>
+#include <algorithm>
 
 #include "./flight.h"
 #include "./passenger.h"
@@ -34,7 +35,6 @@ class Plane {
         unsigned capacity, lotation;
 
         std::vector<Flight*> flightPlan;
-        std::list<Passenger> passengers;
         std::deque<CleaningService> upcomingCleaningTasks, pastCleaningTasks;
     public:
         Plane(const std::string& planePlate, unsigned planeCapacity) : plate(planePlate), capacity(planeCapacity), lotation(0) {}
@@ -62,14 +62,19 @@ class Plane {
             return lotation;
         }
 
+        unsigned increaseLotation() {
+            lotation++;
+        }
+
         void addCleaningService(CleaningService cleaningService) {
             upcomingCleaningTasks.push_back(cleaningService);
         }
 
-        void finishedCleaningService(){
+        void finishedCleaningService() {
             pastCleaningTasks.push_back(upcomingCleaningTasks.front()); // archive finished cleaining/maintenence service
             upcomingCleaningTasks.pop_front(); // erase from deque
         }
+
         /**
          * Adds a flight to this plane's flight plan.
          *
@@ -77,7 +82,24 @@ class Plane {
          */
         void addFlightToPlan(Flight* flight) {
             this->flightPlan.push_back(flight);
-        };
+        }
+
+        bool getPassengerList(long flightNumber, std::vector<Passenger*>& planePassangers) const {
+
+            auto flight_itr = std::find_if(this->flightPlan.begin(), this->flightPlan.end(), [flightNumber](Flight* flight) { return flight->getFlightNumber() == flightNumber; });
+
+            if (flight_itr == this->flightPlan.end())
+                return false;
+
+            planePassangers.clear();
+
+            auto flight = *flight_itr;
+
+            for (auto passenger : flight->getPassengers())
+                planePassangers.push_back(passenger);
+
+            return true;
+        }
 };
 
 #endif //AED2122PROJ_PLANE_H
