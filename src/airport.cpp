@@ -24,3 +24,7 @@ void Airport::readFile(ifstream & f){
         transportPlaces.insert(LandTransportPlace(tt, distance, open, close));
     }
 }
+
+void Airport::printTransportPlaces() {
+    transportPlaces.printTree();
+}

@@ -40,7 +40,7 @@ bool operator<(const LandTransportPlace &a, const LandTransportPlace &b) {
 }
 
 ostream& operator <<(ostream& out , const LandTransportPlace &a) {
-    out << a.type << ' ' << a.distance << "m " << "Open from: " << a.openTime << ' to ' << a.closeTime << endl;
+    out << a.type << ' ' << a.distance << "m " << "Open from: " << a.openTime << " to " << a.closeTime << endl;
     return out;
 }
 
@@ -53,6 +53,7 @@ class Airport{
         void readFile(ifstream &f);
     public:
         Airport(std::string name);
+        void printTransportPlaces();
 };
 
 
