@@ -1,18 +1,22 @@
 #ifndef AED2122PROJ_AIRPORT_H
 #define AED2122PROJ_AIRPORT_H
 
-#include <iostream>
+#include <fstream>
+#include <sstream>
 #include "bst.h"
 
 class LandTransportPlace{
+    public:
         enum TypeOfTransport{
             SUBWAY,
             TRAIN,
             BUS
         };
+    private:
         TypeOfTransport type;
         unsigned int distance;
         std::string openTime, closeTime;
+
         friend bool operator <(const LandTransportPlace & a, const LandTransportPlace & b);
         friend ostream& operator <<(ostream& out ,const LandTransportPlace & a);
     public:
@@ -42,10 +46,13 @@ ostream& operator <<(ostream& out , const LandTransportPlace &a) {
 
 
 class Airport{
+    private:
         std::string name;
         BST<LandTransportPlace> transportPlaces;
+
+        void readFile(ifstream &f);
     public:
-        Airport(std::string name): name(name){}
+        Airport(std::string name);
 };
 
 
