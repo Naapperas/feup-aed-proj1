@@ -1,6 +1,6 @@
 #include "../includes/airport.h"
 
-std::vector<std::string> typePrint = {"Subway", "Train", "Bus"};
+const std::vector<std::string> LandTransportPlace::typePrint = {"Subway", "Train", "Bus"};
 
 Airport::Airport(std::string name):name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
     unsigned n;
