@@ -66,6 +66,10 @@ class Plane {
             lotation++;
         }
 
+        unsigned increaseLotation(unsigned n){
+            lotation += n;
+        }
+
         void addCleaningService(CleaningService cleaningService) {
             upcomingCleaningTasks.push_back(cleaningService);
         }
