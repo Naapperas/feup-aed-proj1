@@ -79,10 +79,19 @@ class Flight {
             return plane;
         }
 
-        void addPassenger(Passenger* passenger, bool hasLuggage) {
+        void addPassenger(Passenger* passenger) {
             if (plane->getLotation() < plane->getCapacity()) {
-                this->passengers.push_back(new Ticket(hasLuggage, this, passenger));
+                this->passengers.push_back(new Ticket(passenger->hasLuggage(), this, passenger));
                 plane->increaseLotation();
+            }
+        }
+
+        void addPassengersGroup(const std::vector<Passenger*> & group){
+            if(plane->getLotation() + group.size() < plane->getCapacity()) {
+                for (auto passenger: group){
+                    this->passengers.push_back(new Ticket(passenger->hasLuggage(), this, passenger));
+                }
+                plane->increaseLotation(group.size());
             }
         }
 
