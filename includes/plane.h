@@ -63,11 +63,11 @@ class Plane {
             return lotation;
         }
 
-        unsigned increaseLotation() {
+        void increaseLotation() {
             lotation++;
         }
 
-        unsigned increaseLotation(unsigned n){
+        void increaseLotation(unsigned n){
             lotation += n;
         }
 
@@ -85,26 +85,9 @@ class Plane {
          *
          * @param flight a pointer to the new flight to add
          */
-        void addFlightToPlan(Flight* flight) {
-            this->flightPlan.push_back(flight);
-        }
+        void addFlightToPlan(Flight* flight);
 
-        bool getPassengerList(long flightNumber, std::vector<Passenger*>& planePassangers) const {
-
-            auto flight_itr = std::find_if(this->flightPlan.begin(), this->flightPlan.end(), [flightNumber](Flight* flight) { return flight->getFlightNumber() == flightNumber; });
-
-            if (flight_itr == this->flightPlan.end())
-                return false;
-
-            planePassangers.clear();
-
-            auto flight = *flight_itr;
-
-            for (auto passenger : flight->getPassengers())
-                planePassangers.push_back(passenger);
-
-            return true;
-        }
+        bool getPassengerList(long flightNumber, std::vector<Passenger*>& planePassangers) const;
 };
 
 #endif //AED2122PROJ_PLANE_H
