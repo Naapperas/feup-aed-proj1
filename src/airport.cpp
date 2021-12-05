@@ -1,8 +1,11 @@
 #include "../includes/airport.h"
 
 Airport::Airport(std::string name):name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
-    ifstream transportPlacesFile(name + ".txt");
-    readFile(transportPlacesFile);
+    // do things
+}
+
+Airport::Airport(std::string name, ifstream&f):name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
+    readFile(f);
 }
 
 void Airport::readFile(ifstream & f){

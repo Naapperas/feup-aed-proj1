@@ -52,7 +52,8 @@ class Airport{
 
         void readFile(ifstream &f);
     public:
-        Airport(std::string name);
+        Airport(std::string name); // when there is no file to read from (create airport from scratch)
+        Airport(std::string name, ifstream &f); // when there is a file (existing airport)
         void printTransportPlaces();
 };
 
