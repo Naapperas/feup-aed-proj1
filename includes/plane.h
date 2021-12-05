@@ -9,6 +9,7 @@
 #include <deque>
 #include <list>
 #include <algorithm>
+#include <string>
 
 #include "./flight.h"
 #include "./passenger.h"
