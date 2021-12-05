@@ -19,6 +19,10 @@ class Luggage {
             items.push_back(this);
         }
 
+        int getId() const {
+            return this->id;
+        }
+
         static const Luggage& getLuggage(int luggageId);
 
 };

@@ -78,6 +78,12 @@ class Plane {
             pastCleaningTasks.push_back(upcomingCleaningTasks.front()); // archive finished cleaining/maintenence service
             upcomingCleaningTasks.pop_front(); // erase from deque
         }
+
+        int getId() const {
+            return this->id;
+        }
+
+        static const Plane& getPlane(int planeId);
 };
 
 #endif //AED2122PROJ_PLANE_H

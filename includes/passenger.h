@@ -37,6 +37,10 @@ public:
         return this->age;
     }
 
+    int getId() const {
+        return this->id;
+    }
+
     const Luggage& getLuggage() const;
 
     static const Passenger& getPassenger(int passengerId);

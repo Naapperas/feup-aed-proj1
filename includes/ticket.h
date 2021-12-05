@@ -28,6 +28,10 @@ class Ticket {
 
         const Passenger& getPassenger() const;
 
+        int getId() const {
+            return this->id;
+        }
+
         static const Ticket& getTicket(int ticketId);
 
 };

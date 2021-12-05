@@ -3,6 +3,7 @@
 //
 
 #include "../includes/flight.h"
+#include "../includes/plane.h"
 
 int Flight::CURRENT_FLIGHT_ID = 1;
 std::vector<Flight*> Flight::items = std::vector<Flight*>();
@@ -14,4 +15,15 @@ const Flight& Flight::getFlight(int flightId) {
         return *(*flight);
 
     throw "No flight with given id";
+}
+
+const Plane& Flight::getPlane() const {
+    try {
+        return Plane::getPlane(this->planeId);
+    } catch (char* err) {
+        // no luggage found for the given user, what happened?
+        // should never enter this block, add just for safety
+
+        throw "Passanger with no luggage found";
+    }
 }

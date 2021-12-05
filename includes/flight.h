@@ -49,6 +49,10 @@ class Flight {
             return duration;
         }
 
+        int getId() const {
+            return this->id;
+        }
+
         const Plane& getPlane() const;
 
         static const Flight& getFlight(int f);
