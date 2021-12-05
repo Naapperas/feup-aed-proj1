@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <sstream>
+#include <vector>
 #include "bst.h"
 
 class LandTransportPlace{
@@ -13,6 +14,7 @@ class LandTransportPlace{
             BUS
         };
     private:
+        static const std::vector<std::string> typePrint;
         TypeOfTransport type;
         unsigned int distance;
         std::string openTime, closeTime;
@@ -40,7 +42,7 @@ bool operator<(const LandTransportPlace &a, const LandTransportPlace &b) {
 }
 
 ostream& operator <<(ostream& out , const LandTransportPlace &a) {
-    out << a.type << ' ' << a.distance << "m " << "Open from: " << a.openTime << " to " << a.closeTime << endl;
+    out << a.typePrint.at(a.type) << ' ' << a.distance << "m " << "Open from: " << a.openTime << " to " << a.closeTime << endl;
     return out;
 }
 
@@ -50,10 +52,12 @@ class Airport{
         std::string name;
         BST<LandTransportPlace> transportPlaces;
 
-        void readFile(ifstream &f);
+        void readFile(std::ifstream &f);
+        void writeToFile();
+        void readInput(unsigned n);
     public:
         Airport(std::string name); // when there is no file to read from (create airport from scratch)
-        Airport(std::string name, ifstream &f); // when there is a file (existing airport)
+        Airport(std::string name, std::ifstream &f); // when there is a file (existing airport)
         void printTransportPlaces();
 };
 

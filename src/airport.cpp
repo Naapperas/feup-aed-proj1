@@ -1,14 +1,20 @@
 #include "../includes/airport.h"
 
+std::vector<std::string> typePrint = {"Subway", "Train", "Bus"};
+
 Airport::Airport(std::string name):name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
-    // do things
+    unsigned n;
+    std::cout << "How many transport places do you wish to add?";
+    std::cin >> n;
+    readInput(n);
+    writeToFile();
 }
 
-Airport::Airport(std::string name, ifstream&f):name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
+Airport::Airport(std::string name, std::ifstream&f):name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
     readFile(f);
 }
 
-void Airport::readFile(ifstream & f){
+void Airport::readFile(std::ifstream & f){
     while (!f.eof()){
         std::string line;
         getline(cin, line);
@@ -17,10 +23,34 @@ void Airport::readFile(ifstream & f){
         unsigned distance;
         std::string open, close, transport;
         ss >> transport >> distance >> open >> close;
-        // hopefully just a temporary solution
-        if (transport == "SUBWAY")
+        if (transport == "Subway")
             tt = LandTransportPlace::SUBWAY;
-        else if (transport == "TRAIN")
+        else if (transport == "Train")
+            tt = LandTransportPlace::TRAIN;
+        else
+            tt = LandTransportPlace::BUS;
+        transportPlaces.insert(LandTransportPlace(tt, distance, open, close));
+    }
+}
+
+void Airport::writeToFile() {
+    std::ofstream f(name+".txt");
+    // do things I guess
+    f.close();
+}
+
+void Airport::readInput(unsigned int n) {
+    for (int i = 0; i < n; i++) {
+        std::string place;
+        getline(cin, place);
+        stringstream ss(place);
+        LandTransportPlace::TypeOfTransport tt;
+        unsigned distance;
+        std::string open, close, transport;
+        ss >> transport >> distance >> open >> close;
+        if (transport == "Subway")
+            tt = LandTransportPlace::SUBWAY;
+        else if (transport == "Train")
             tt = LandTransportPlace::TRAIN;
         else
             tt = LandTransportPlace::BUS;
