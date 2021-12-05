@@ -5,6 +5,7 @@
 #include "../includes/ticket.h"
 
 int Ticket::CURRENT_TICKET_ID = 1;
+std::vector<Ticket*> Ticket::items = std::vector<Ticket*>();
 
 const Ticket& Ticket::getTicket(int ticketId) {
     auto ticket = std::find_if(Ticket::items.begin(), Ticket::items.end(), [ticketId](Ticket* t) { return t->id == ticketId; });

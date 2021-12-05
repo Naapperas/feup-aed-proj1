@@ -5,9 +5,10 @@
 #include "../includes/flight.h"
 
 int Flight::CURRENT_FLIGHT_ID = 1;
+std::vector<Flight*> Flight::items = std::vector<Flight*>();
 
 const Flight& Flight::getFlight(int flightId) {
-    auto flight = std::find_if(Flight::items.begin(), Flight::items.end(), [flightId](Flight* l) { return l->id == flightId; });
+    auto flight = std::find_if(Flight::items.begin(), Flight::items.end(), [flightId](Flight* f) { return f->id == flightId; });
 
     if (flight != Flight::items.end())
         return *(*flight);

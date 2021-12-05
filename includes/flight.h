@@ -7,6 +7,7 @@
 
 #include <vector>
 #include <string>
+#include <algorithm>
 
 class Plane;
 
@@ -48,9 +49,9 @@ class Flight {
             return duration;
         }
 
-        Plane getPlane() const;
+        const Plane& getPlane() const;
 
-        static const Flight& getFlight(int flightId);
+        static const Flight& getFlight(int f);
 };
 
 #endif //AED2122PROJ_FLIGHT_H

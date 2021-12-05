@@ -5,6 +5,7 @@
 #include "../includes/passenger.h"
 
 int Passenger::CURRENT_PASSENGER_ID = 1;
+std::vector<Passenger*> Passenger::items = std::vector<Passenger*>();
 
 const Luggage& Passenger::getLuggage() const {
     if (this->luggageId == -1)

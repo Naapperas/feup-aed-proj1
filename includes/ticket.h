@@ -13,22 +13,22 @@
 
 class Ticket {
 
-    static int CURRENT_TICKET_ID;
-    int id;
-    static std::vector<Ticket*> items;
+        static int CURRENT_TICKET_ID;
+        int id;
+        static std::vector<Ticket*> items;
 
-    int flightId;
-    int passengerId;
-public:
-    Ticket(int flightId, int passengerId) : id(CURRENT_TICKET_ID++), flightId(flightId), passengerId(passengerId) {
-        items.push_back(this);
-    }
+        int flightId;
+        int passengerId;
+    public:
+        Ticket(int flightId, int passengerId) : id(CURRENT_TICKET_ID++), flightId(flightId), passengerId(passengerId) {
+            items.push_back(this);
+        }
 
-    const Flight& getFlight() const;
+        const Flight& getFlight() const;
 
-    const Passenger& getPassenger() const;
+        const Passenger& getPassenger() const;
 
-    static const Ticket& getTicket(int ticketId);
+        static const Ticket& getTicket(int ticketId);
 
 };
 
