@@ -1,15 +1,15 @@
 #include "../includes/airport.h"
 
-Airport::Airport(std::string name):name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
+Airport::Airport(std::string name) : name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
     // do things
 }
 
-Airport::Airport(std::string name, ifstream&f):name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
+Airport::Airport(std::string name, ifstream&f) : name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
     readFile(f);
 }
 
 void Airport::readFile(ifstream & f){
-    while (!f.eof()){
+    while (!f.eof()) {
         std::string line;
         getline(cin, line);
         stringstream ss(line);

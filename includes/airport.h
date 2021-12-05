@@ -5,7 +5,7 @@
 #include <sstream>
 #include "bst.h"
 
-class LandTransportPlace{
+class LandTransportPlace {
     public:
         enum TypeOfTransport{
             SUBWAY,
@@ -21,15 +21,19 @@ class LandTransportPlace{
         friend ostream& operator <<(ostream& out ,const LandTransportPlace & a);
     public:
         LandTransportPlace(TypeOfTransport type, unsigned distance, std::string openTime, std::string closeTime): type(type), distance(distance), openTime(openTime), closeTime(closeTime){}
+
         TypeOfTransport getType() const{
             return type;
         }
+
         unsigned int getDistance() const{
             return distance;
         }
+
         std::string getOpenTime() const{
             return openTime;
         }
+
         std::string getCloseTime() const{
             return closeTime;
         }
@@ -45,7 +49,7 @@ ostream& operator <<(ostream& out , const LandTransportPlace &a) {
 }
 
 
-class Airport{
+class Airport {
     private:
         std::string name;
         BST<LandTransportPlace> transportPlaces;
@@ -56,7 +60,5 @@ class Airport{
         Airport(std::string name, ifstream &f); // when there is a file (existing airport)
         void printTransportPlaces();
 };
-
-
 
 #endif //AED2122PROJ_AIRPORT_H
