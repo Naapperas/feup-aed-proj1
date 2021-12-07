@@ -256,7 +256,7 @@ template <class Comparable>
 void BST<Comparable>::printTree(BinaryNode<Comparable>* t) const {
     if(t != NULL) {
         printTree(t->left);
-        cout << t->element << endl;
+        cout << t->element << '\n';
         printTree(t->right);
     }
 }
