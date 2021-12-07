@@ -13,8 +13,9 @@ class LandTransportPlace {
             TRAIN,
             BUS
         };
-    private:
         static const std::vector<std::string> typePrint;
+    private:
+
         TypeOfTransport type;
         unsigned int distance;
         std::string openTime, closeTime;

@@ -20,18 +20,19 @@ Airport::Airport(std::string name, const std::ifstream& f) : id(CURRENT_AIRPORT_
 void Airport::readFile(const std::ifstream & f) {
     while (!f.eof()) {
         std::string line;
-        getline(cin, line);
+        getline(f, line);
         stringstream ss(line);
         LandTransportPlace::TypeOfTransport tt;
         unsigned distance;
         std::string open, close, transport;
         ss >> transport >> distance >> open >> close;
-        if (transport == "Subway")
+        if (transport == LandTransportPlace::typePrint.at(0))
             tt = LandTransportPlace::SUBWAY;
-        else if (transport == "Train")
+        else if (transport == LandTransportPlace::typePrint.at(1))
             tt = LandTransportPlace::TRAIN;
-        else
+        else if (transport == LandTransportPlace::typePrint.at(2))
             tt = LandTransportPlace::BUS;
+        else
         transportPlaces.insert(LandTransportPlace(tt, distance, open, close));
     }
 }
