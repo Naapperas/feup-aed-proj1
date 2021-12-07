@@ -13,11 +13,11 @@ Airport::Airport(std::string name) : id(CURRENT_AIRPORT_ID++), name(name), trans
     writeToFile();
 }
 
-Airport::Airport(std::string name, const std::ifstream& f) : id(CURRENT_AIRPORT_ID++), name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
+Airport::Airport(std::string name, std::ifstream& f) : id(CURRENT_AIRPORT_ID++), name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
     readFile(f);
 }
 
-void Airport::readFile(const std::ifstream & f) {
+void Airport::readFile(std::ifstream & f) {
     while (!f.eof()) {
         std::string line;
         getline(f, line);
