@@ -60,12 +60,12 @@ class Airport {
         std::string name;
         BST<LandTransportPlace> transportPlaces;
 
-        void readFile(const std::ifstream &f);
+        void readFile(std::ifstream &f);
         void writeToFile();
         void readInput(unsigned n);
     public:
         Airport(std::string name); // when there is no file to read from (create airport from scratch)
-        Airport(std::string name, const std::ifstream &f); // when there is a file (existing airport)
+        Airport(std::string name, std::ifstream &f); // when there is a file (existing airport)
         void printTransportPlaces();
 
         static const Airport& getAirport();

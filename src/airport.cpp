@@ -17,10 +17,10 @@ Airport::Airport(std::string name, const std::ifstream& f) : id(CURRENT_AIRPORT_
     readFile(f);
 }
 
-void Airport::readFile(const std::ifstream & f) {
+void Airport::readFile(std::ifstream & f) {
     while (!f.eof()) {
         std::string line;
-        getline(cin, line);
+        f >> line;
         stringstream ss(line);
         LandTransportPlace::TypeOfTransport tt;
         unsigned distance;
