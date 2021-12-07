@@ -2,7 +2,10 @@
 
 const std::vector<std::string> LandTransportPlace::typePrint = {"Subway", "Train", "Bus"};
 
-Airport::Airport(std::string name):name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
+int Airport::CURRENT_AIRPORT_ID = 1;
+std::vector<Airport*> Airport::items = std::vector<Airport*>();
+
+Airport::Airport(std::string name) : id(CURRENT_AIRPORT_ID++), name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
     unsigned n;
     std::cout << "How many transport places do you wish to add?";
     std::cin >> n;
@@ -10,12 +13,12 @@ Airport::Airport(std::string name):name(name), transportPlaces(LandTransportPlac
     writeToFile();
 }
 
-Airport::Airport(std::string name, std::ifstream&f):name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
+Airport::Airport(std::string name, const std::ifstream& f) : id(CURRENT_AIRPORT_ID++), name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
     readFile(f);
 }
 
-void Airport::readFile(std::ifstream & f){
-    while (!f.eof()){
+void Airport::readFile(const std::ifstream & f) {
+    while (!f.eof()) {
         std::string line;
         getline(cin, line);
         stringstream ss(line);
