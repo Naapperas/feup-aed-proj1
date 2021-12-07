@@ -4,6 +4,7 @@
 
 #include "../includes/flight.h"
 #include "../includes/plane.h"
+#include "../includes/airport.h"
 
 int Flight::CURRENT_FLIGHT_ID = 1;
 std::vector<Flight*> Flight::items = std::vector<Flight*>();
@@ -25,5 +26,27 @@ const Plane& Flight::getPlane() const {
         // should never enter this block, add just for safety
 
         throw "Passanger with no luggage found";
+    }
+}
+
+const Airport& Flight::getDestinationAirport() const {
+    try {
+        return Airport::getAirport(this->destinationAirportId);
+    } catch (char* err) {
+        // no luggage found for the given user, what happened?
+        // should never enter this block, add just for safety
+
+        throw "No destination airport found";
+    }
+}
+
+const Airport& Flight::getOriginAirport() const {
+    try {
+        return Airport::getAirport(this->originAirportId);
+    } catch (char* err) {
+        // no luggage found for the given user, what happened?
+        // should never enter this block, add just for safety
+
+        throw "No origin airport found";
     }
 }

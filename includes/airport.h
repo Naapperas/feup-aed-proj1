@@ -63,7 +63,7 @@ class Airport {
         Airport(std::string name, std::ifstream &f); // when there is a file (existing airport)
         void printTransportPlaces() const;
 
-        static const Airport& getAirport();
+        static const Airport& getAirport(int airportId);
 };
 
 #endif //AED2122PROJ_AIRPORT_H

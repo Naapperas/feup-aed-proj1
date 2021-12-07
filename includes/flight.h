@@ -10,6 +10,7 @@
 #include <algorithm>
 
 class Plane;
+class Airport;
 
 class Flight {
 
@@ -20,7 +21,7 @@ class Flight {
         long flightNumber;
         std::string departureDate, destination, origin;
         unsigned duration;
-        int planeId;
+        int planeId, destinationAirportId, originAirportId;
     public:
         Flight(long flightNumber, const std::string &departureDate, const std::string &destination,
            const std::string &origin, unsigned int duration, int planeId) : id(CURRENT_FLIGHT_ID++), flightNumber(flightNumber), departureDate(departureDate),
@@ -54,6 +55,10 @@ class Flight {
         }
 
         const Plane& getPlane() const;
+
+        const Airport& getDestinationAirport() const;
+
+        const Airport& getOriginAirport() const;
 
         static const Flight& getFlight(int f);
 };
