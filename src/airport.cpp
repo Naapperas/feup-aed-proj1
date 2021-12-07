@@ -11,10 +11,12 @@ Airport::Airport(std::string name) : id(CURRENT_AIRPORT_ID++), name(name), trans
     std::cin >> n;
     readInput(n);
     writeToFile();
+    items.push_back(this);
 }
 
 Airport::Airport(std::string name, std::ifstream& f) : id(CURRENT_AIRPORT_ID++), name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
     readFile(f);
+    items.push_back(this);
 }
 
 void Airport::readFile(std::ifstream & f) {
