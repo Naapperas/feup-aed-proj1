@@ -9,6 +9,8 @@
 #include <string>
 #include <algorithm>
 
+#include "./passenger.h"
+
 class Plane;
 class Airport;
 
@@ -19,14 +21,14 @@ class Flight {
         static std::vector<Flight*> items;
 
         long flightNumber;
-        std::string departureDate, destination, origin;
-        unsigned duration;
+        std::string departureDate;
+        unsigned duration, lotation;
+        std::vector<int> passengers;
         int planeId, destinationAirportId, originAirportId;
     public:
         Flight(long flightNumber, const std::string &departureDate, const std::string &destination,
            const std::string &origin, unsigned int duration, int planeId) : id(CURRENT_FLIGHT_ID++), flightNumber(flightNumber), departureDate(departureDate),
-                                                               destination(destination), origin(origin),
-                                                               duration(duration), planeId(planeId) {
+                                                               duration(duration), planeId(planeId), lotation(0) {
             items.push_back(this);
         }
 
@@ -38,21 +40,21 @@ class Flight {
             return departureDate;
         }
 
-        const std::string& getDestination() const {
-            return destination;
-        }
-
-        const std::string& getOrigin() const {
-            return origin;
-        }
-
         unsigned int getDuration() const {
             return duration;
         }
 
+        unsigned getLotation() const {
+            return lotation;
+        }
+
+        [[nodiscard]]
         int getId() const {
             return this->id;
         }
+
+        void addTicket(const Passenger& passenger) { this->addTicket(passenger.getId()); };
+        void addTicket(int passengerId);
 
         const Plane& getPlane() const;
 

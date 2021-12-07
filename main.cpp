@@ -12,12 +12,19 @@ int main() {
     Luggage l = Luggage();
     Passenger p = Passenger("Nuno", 19, l.getId());
 
-    Plane pl = Plane("A307", "33-ER-44", 200);
+    int i = -1;
+    {
+        Plane pl = Plane("A307", "33-ER-44", 200);
 
-    Flight f = Flight(123456789, "amanhã", "ali", "aqui", 1, pl.getId());
+        Flight f = Flight(123456789, "amanhã", "ali", "aqui", 1, pl.getId());
 
-    Ticket t = Ticket(f.getId(), p.getId());
+        Ticket t = Ticket(f.getId(), p.getId());
+        i = t.getId();
+    }
 
+    auto ticket = Ticket::getTicket(i);
+
+    std::cout << ticket.getPassenger().getName() << std::endl;
 
     std::ifstream aaa("Porto.txt");
     Airport a("Porto", aaa);

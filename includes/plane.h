@@ -37,16 +37,16 @@ class Plane {
         static std::vector<Plane*> items;
 
         std::string type, plate;
-        unsigned capacity, lotation;
+        unsigned capacity;
 
         std::vector<int> flightPlan;
         std::deque<CleaningService> upcomingCleaningTasks, pastCleaningTasks;
     public:
-        Plane(const std::string& type, const std::string& planePlate, unsigned planeCapacity) : id(CURRENT_PLANE_ID++), type(type), plate(planePlate), capacity(planeCapacity), lotation(0) {
+        Plane(const std::string& type, const std::string& planePlate, unsigned planeCapacity) : id(CURRENT_PLANE_ID++), type(type), plate(planePlate), capacity(planeCapacity) {
             items.push_back(this);
         }
 
-        const std::string getPlate() const {
+        const std::string& getPlate() const {
             return plate;
         }
 
@@ -54,20 +54,8 @@ class Plane {
             return capacity;
         }
 
-        const std::vector<int> getFlightPlan() const {
+        const std::vector<int>& getFlightPlan() const {
             return flightPlan;
-        }
-
-        unsigned getLotation() const {
-            return lotation;
-        }
-
-        void increaseLotation() {
-            lotation++;
-        }
-
-        void increaseLotation(unsigned n){
-            lotation += n;
         }
 
         void addCleaningService(const CleaningService& cleaningService) {
@@ -79,6 +67,8 @@ class Plane {
             upcomingCleaningTasks.pop_front(); // erase from deque
         }
 
+        // mark as no discard because we always want to use a given object's id for something
+        [[nodiscard]]
         int getId() const {
             return this->id;
         }
