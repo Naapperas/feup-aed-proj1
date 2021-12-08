@@ -1,4 +1,5 @@
 #include "../includes/airport.h"
+#include "../includes/flight.h"
 
 const std::vector<std::string> LandTransportPlace::typePrint = {"Subway", "Train", "Bus"};
 
@@ -78,6 +79,21 @@ void Airport::printTransportPlaces() const {
     transportPlaces.printTree();
 
     std::cout << std::endl;
+}
+
+bool Airport::purchaseTicket(Flight& flight, const Passenger& passenger) {
+
+    Ticket t(passenger);
+
+    return flight.addPassenger(t);
+}
+
+void Airport::landPlane(const Plane &plane) {
+    this->landedPlanes.emplace_back(plane);
+}
+
+void Airport::planeDeparture(const Plane &plane) {
+    // this->landedPlanes.erase(std::find(this->landedPlanes.begin(), this->landedPlanes.end(), plane));
 }
 
 bool operator<(const LandTransportPlace &a, const LandTransportPlace &b) {

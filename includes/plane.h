@@ -91,6 +91,11 @@ class Plane {
             pastCleaningTasks.push_back(upcomingCleaningTasks.front()); // archive finished cleaining/maintenence service
             upcomingCleaningTasks.pop_front(); // erase from deque
         }
+
+        /**
+         * Performs the flight currently associated with this plane
+         */
+        void fly();
 };
 
 #endif //AED2122PROJ_PLANE_H

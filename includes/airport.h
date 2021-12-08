@@ -4,7 +4,13 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+
 #include "bst.h"
+#include "plane.h"
+#include "ticket.h"
+#include "passenger.h"
+//#include "flight.h"
+class Flight;
 
 class LandTransportPlace {
     public:
@@ -46,9 +52,14 @@ class LandTransportPlace {
         }
 };
 
+/**
+ * Represents an Airport where planes can land and passengers can buy tickets for flights
+ */
 class Airport {
         std::string name;
+
         BST<LandTransportPlace> transportPlaces;
+        std::vector<Plane> landedPlanes; // needs to allow random removal, vector > list for insertion/removal
 
         void readFile(std::ifstream &f);
         void writeToFile();
@@ -56,7 +67,14 @@ class Airport {
     public:
         Airport(std::string name); // when there is no file to read from (create airport from scratch)
         Airport(std::string name, std::ifstream &f); // when there is a file (existing airport)
+
         void printTransportPlaces() const;
+
+        bool purchaseTicket(Flight& flight, const Passenger& passenger);
+
+        void landPlane(const Plane& plane);
+        void planeDeparture(const Plane& plane);
+
 };
 
 #endif //AED2122PROJ_AIRPORT_H

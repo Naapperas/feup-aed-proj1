@@ -102,14 +102,14 @@ class Flight {
          *
          * @param ticket the ticket of the passanger wanting to board this flight
          */
-        void addPassenger(const Ticket& ticket);
+        bool addPassenger(const Ticket& ticket);
 
         /**
          * Adds the list of passengers given as argument, only if there is still enough space left for the entire group.
          *
          * @param tickets the tickets of the group wanting to board the flight
          */
-        void addPassengers(const std::vector<Ticket>& tickets);
+        bool addPassengers(const std::vector<Ticket>& tickets);
 
         /**
          * Returns the plane associated with this flight.
