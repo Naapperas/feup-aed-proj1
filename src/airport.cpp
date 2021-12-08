@@ -4,11 +4,17 @@
 const std::vector<std::string> LandTransportPlace::typePrint = {"Subway", "Train", "Bus"};
 
 Airport::Airport(std::string name) : name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
-    unsigned n;
-    std::cout << "How many transport places do you wish to add?";
-    std::cin >> n;
-    readInput(n);
-    writeToFile();
+
+    std::ifstream f{name+".txt"};
+    if (f.is_open())
+        this->readFile(f);
+    else {
+        unsigned n;
+        std::cout << "How many transport places do you wish to add?";
+        std::cin >> n;
+        readInput(n);
+        writeToFile();
+    }
 }
 
 Airport::Airport(std::string name, std::ifstream& f) : name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
