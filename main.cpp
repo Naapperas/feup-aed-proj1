@@ -1,38 +1,32 @@
 #include <iostream>
 
-#include "./includes/luggage.h"
-#include "./includes/passenger.h"
-#include "./includes/ticket.h"
 #include "./includes/plane.h"
-#include "./includes/airport.h"
+#include "includes/airport.h"
+#include "includes/flight.h"
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
 
-    Luggage l = Luggage();
-    Passenger p = Passenger("Nuno", 19, l.getId());
+    Plane p1{"J900", "oupas", 2}, p2{"B550", "adeus", 2}, p3{"A340", "ola", 2};
 
-    int i = -1;
-    {
-        Plane pl = Plane("A307", "33-ER-44", 200);
+    Airport a{"Porto"};
+    a.landPlane(p1);
+    a.landPlane(p2);
 
-        Flight f = Flight(123456789, "amanhã", "ali", "aqui", 1, pl.getId());
+    Airport b{"Lisbon"};
+    b.landPlane(p3);
 
-        Ticket t = Ticket(f.getId(), p.getId());
-        i = t.getId();
-    }
+    Flight f{"today", 3600, p1, a, b};
 
-    auto ticket = Ticket::getTicket(i);
+    Passenger pass1{"Nuno", 19};
+    Passenger pass2{"Afonso", 39};
 
-    std::cout << ticket.getPassenger().getName() << std::endl;
+    auto t1 = a.purchaseTicket(f, pass1);
+    auto t2 = a.purchaseTicket(f, pass2);
 
-    std::ifstream aaa("Porto.txt");
-    Airport a("Porto", aaa);
-    //Airport a("Porto");
+    f.addPassenger(t1), f.addPassenger(t2);
 
-    a.printTransportPlaces();
-
-
+    f.getPlane().fly();
 
     return 0;
 }

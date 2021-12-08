@@ -1,22 +1,24 @@
 #include "../includes/airport.h"
+#include "../includes/flight.h"
 
 const std::vector<std::string> LandTransportPlace::typePrint = {"Subway", "Train", "Bus"};
 
-int Airport::CURRENT_AIRPORT_ID = 1;
-std::vector<Airport*> Airport::items = std::vector<Airport*>();
+Airport::Airport(std::string name) : name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
 
-Airport::Airport(std::string name) : id(CURRENT_AIRPORT_ID++), name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
-    unsigned n;
-    std::cout << "How many transport places do you wish to add?";
-    std::cin >> n;
-    readInput(n);
-    writeToFile();
-    items.push_back(this);
+    std::ifstream f{name+".txt"};
+    if (f.is_open())
+        this->readFile(f);
+    else {
+        unsigned n;
+        std::cout << "How many transport places do you wish to add?";
+        std::cin >> n;
+        readInput(n);
+        writeToFile();
+    }
 }
 
-Airport::Airport(std::string name, std::ifstream& f) : id(CURRENT_AIRPORT_ID++), name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
+Airport::Airport(std::string name, std::ifstream& f) : name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
     readFile(f);
-    items.push_back(this);
 }
 
 void Airport::readFile(std::ifstream & f) {
@@ -83,6 +85,24 @@ void Airport::printTransportPlaces() const {
     transportPlaces.printTree();
 
     std::cout << std::endl;
+}
+
+Ticket Airport::purchaseTicket(Flight& flight, const Passenger& passenger) {
+
+    if (flight.getLotation() < flight.getPlane().getCapacity()) {
+        Ticket t(passenger);
+
+        return t;
+    }
+    throw "Plane is at max capacity";
+}
+
+void Airport::landPlane(const Plane &plane) {
+    this->landedPlanes.emplace_back(plane);
+}
+
+void Airport::planeDeparture(const Plane &plane) {
+    // this->landedPlanes.erase(std::find(this->landedPlanes.begin(), this->landedPlanes.end(), plane));
 }
 
 bool operator<(const LandTransportPlace &a, const LandTransportPlace &b) {

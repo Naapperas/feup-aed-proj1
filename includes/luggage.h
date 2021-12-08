@@ -5,25 +5,17 @@
 #ifndef AED2122PROJ_LUGGAGE_H
 #define AED2122PROJ_LUGGAGE_H
 
-#include <vector>
-#include <algorithm>
-
+/**
+ * Luggage that can be carried arround or be owned by a passenger.
+ */
 class Luggage {
 
-        static int CURRENT_LUGGAGE_ID;
-        int id;
-        static std::vector<Luggage*> items;
+    // no useful data on luggages ?
+
+    friend bool operator==(const Luggage& a, const Luggage& b) { return &a == &b; };
 
     public:
-        Luggage() : id(CURRENT_LUGGAGE_ID++) {
-            items.push_back(this);
-        }
-
-        int getId() const {
-            return this->id;
-        }
-
-        static const Luggage& getLuggage(int luggageId);
+        Luggage() {}
 
 };
 

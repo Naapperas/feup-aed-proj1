@@ -8,12 +8,11 @@
 #include <vector>
 #include <deque>
 #include <list>
-#include <algorithm>
 #include <string>
 
-#include "./flight.h"
-#include "./passenger.h"
-
+/**
+ * Represents a maintenance/cleaning service that can be performed on a plane.
+ */
 class CleaningService {
 
     public:
@@ -25,55 +24,80 @@ class CleaningService {
         ServiceType serviceType;
         std::string serviceDate, employee;
     public:
-        CleaningService(ServiceType serviceType, const std::string &serviceDate, const std::string &employee) : serviceType(
-                serviceType), serviceDate(serviceDate), employee(employee) {}
+        CleaningService(ServiceType serviceType, const std::string& serviceDate, const std::string& employee) :
+        serviceType(serviceType), serviceDate(serviceDate), employee(employee) {}
 
 };
 
+/**
+ * Represents an airship that can be used to perform a flight.
+ */
 class Plane {
-
-        static int CURRENT_PLANE_ID;
-        int id;
-        static std::vector<Plane*> items;
 
         std::string type, plate;
         unsigned capacity;
 
-        std::vector<int> flightPlan;
         std::deque<CleaningService> upcomingCleaningTasks, pastCleaningTasks;
     public:
-        Plane(const std::string& type, const std::string& planePlate, unsigned planeCapacity) : id(CURRENT_PLANE_ID++), type(type), plate(planePlate), capacity(planeCapacity) {
-            items.push_back(this);
+        /**
+         * Creates a plane.
+         *
+         * @param type the type of the plane
+         * @param planePlate the plate associated with this plane
+         * @param planeCapacity the capacity of this plane
+         */
+        Plane(const std::string& type, const std::string& planePlate, unsigned planeCapacity) : type(type), plate(planePlate), capacity(planeCapacity) {}
+
+        /**
+         * Returns the type of this airship.
+         *
+         * @return the type of this airship
+         */
+        const std::string& getType() {
+            return type;
         }
 
+        /**
+         * Returns the plate of this airplane.
+         *
+         * @return the plate of this airplane
+         */
         const std::string& getPlate() const {
             return plate;
         }
 
+        /**
+         * Returns the capacity of this plane.
+         *
+         * @return the capacity of this plane
+         */
         unsigned int getCapacity() const {
             return capacity;
         }
 
-        const std::vector<int>& getFlightPlan() const {
-            return flightPlan;
-        }
-
+        /**
+         * Adds a cleaning service to be performed on this plane.
+         *
+         * @param cleaningService the cleaning service to be performed on this plane
+         */
         void addCleaningService(const CleaningService& cleaningService) {
             upcomingCleaningTasks.push_back(cleaningService);
         }
 
+        /**
+         * Finishes a pre-scheduled cleaning service.
+         */
         void finishedCleaningService() {
             pastCleaningTasks.push_back(upcomingCleaningTasks.front()); // archive finished cleaining/maintenence service
             upcomingCleaningTasks.pop_front(); // erase from deque
         }
 
-        // mark as no discard because we always want to use a given object's id for something
-        [[nodiscard]]
-        int getId() const {
-            return this->id;
-        }
+        /**
+         * Performs the flight currently associated with this plane
+         */
+        void fly() const {
 
-        static const Plane& getPlane(int planeId);
+        };
 };
 
 #endif //AED2122PROJ_PLANE_H
