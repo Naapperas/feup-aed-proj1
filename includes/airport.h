@@ -47,11 +47,6 @@ class LandTransportPlace {
 };
 
 class Airport {
-
-        static int CURRENT_AIRPORT_ID;
-        int id;
-        static std::vector<Airport*> items;
-
         std::string name;
         BST<LandTransportPlace> transportPlaces;
 
@@ -62,8 +57,6 @@ class Airport {
         Airport(std::string name); // when there is no file to read from (create airport from scratch)
         Airport(std::string name, std::ifstream &f); // when there is a file (existing airport)
         void printTransportPlaces() const;
-
-        static const Airport& getAirport(int airportId);
 };
 
 #endif //AED2122PROJ_AIRPORT_H
