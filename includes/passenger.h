@@ -6,27 +6,20 @@
 #define AED2122PROJ_PASSENGER_H
 
 #include <string>
-#include <vector>
 
 #include "./luggage.h"
 
 class Passenger {
 
-    static int CURRENT_PASSENGER_ID;
-    int id;
-    static std::vector<Passenger*> items;
-
     std::string name;
     unsigned age; // don't know if it's necessary
-    int luggageId = -1; // optional
+    Luggage l; // optional
 public:
 
-    Passenger(std::string name, unsigned age) : id(CURRENT_PASSENGER_ID++), name(name), age(age) {
-        items.push_back(this);
-    }
+    Passenger(const std::string& name, unsigned age) : name(name), age(age) {}
 
-    Passenger(std::string name, unsigned age, int luggageId) : Passenger(name, age) {
-        this->luggageId = luggageId;
+    Passenger(const std::string& name, unsigned age, const Luggage& luggage) : Passenger(name, age) {
+        this->l = luggage;
     }
 
     std::string getName() const{
@@ -37,13 +30,9 @@ public:
         return this->age;
     }
 
-    int getId() const {
-        return this->id;
-    }
-
-    const Luggage& getLuggage() const;
-
-    static const Passenger& getPassenger(int passengerId);
+    const Luggage& getLuggage() const {
+        return this->l;
+    };
 };
 
 #endif //AED2122PROJ_PASSENGER_H

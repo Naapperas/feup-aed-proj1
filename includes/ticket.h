@@ -5,35 +5,17 @@
 #ifndef AED2122PROJ_TICKET_H
 #define AED2122PROJ_TICKET_H
 
-#include <vector>
-#include <string>
-
 #include "./passenger.h"
-#include "./flight.h"
 
 class Ticket {
 
-        static int CURRENT_TICKET_ID;
-        int id;
-        static std::vector<Ticket*> items;
-
-        int flightId;
-        int passengerId;
+        Passenger p;
     public:
-        Ticket(int flightId, int passengerId) : id(CURRENT_TICKET_ID++), flightId(flightId), passengerId(passengerId) {
-            items.push_back(this);
-        }
+        Ticket(const Passenger& p) : p(p) {}
 
-        const Flight& getFlight() const;
-
-        const Passenger& getPassenger() const;
-
-        int getId() const {
-            return this->id;
-        }
-
-        static const Ticket& getTicket(int ticketId);
-
+        const Passenger& getPassenger() const {
+            return this->p;
+        };
 };
 
 #endif //AED2122PROJ_TICKET_H

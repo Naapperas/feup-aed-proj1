@@ -3,53 +3,19 @@
 //
 
 #include "../includes/flight.h"
-#include "../includes/plane.h"
-#include "../includes/airport.h"
-#include "../includes/ticket.h"
 
-int Flight::CURRENT_FLIGHT_ID = 1;
-std::vector<Flight*> Flight::items = std::vector<Flight*>();
+long Flight::CURRENT_FLIGHT_NUMBER = 1;
 
-const Flight& Flight::getFlight(int flightId) {
-    auto flight = std::find_if(Flight::items.begin(), Flight::items.end(), [flightId](Flight* f) { return f->id == flightId; });
-
-    if (flight != Flight::items.end())
-        return *(*flight);
-
-    throw "No flight with given id";
-}
-
-const Plane& Flight::getPlane() const {
-    try {
-        return Plane::getPlane(this->planeId);
-    } catch (char* err) {
-        // no luggage found for the given user, what happened?
-        // should never enter this block, add just for safety
-
-        throw "Passanger with no luggage found";
+void Flight::addPassenger(const Ticket& ticket) {
+    if (this->lotation < this->getPlane().getCapacity()) {
+        this->passengers.emplace_back(ticket.getPassenger());
+        this->lotation++;
     }
 }
 
-const Airport& Flight::getDestinationAirport() const {
-    try {
-        return Airport::getAirport(this->destinationAirportId);
-    } catch (char* err) {
-
-        throw "No destination airport found";
+void Flight::addPassengers(const std::vector<Ticket>& tickets) {
+    if (this->lotation + tickets.size() < this->getPlane().getCapacity()) {
+        for (auto ticket : tickets)
+            this->addPassenger(ticket);
     }
-}
-
-const Airport& Flight::getOriginAirport() const {
-    try {
-        return Airport::getAirport(this->originAirportId);
-    } catch (char* err) {
-
-        throw "No origin airport found";
-    }
-}
-
-void Flight::addTicket(int passengerId) {
-    Ticket t(this->getId(), passengerId);
-    this->passengers.push_back(t.getId());
-    lotation++;
 }
