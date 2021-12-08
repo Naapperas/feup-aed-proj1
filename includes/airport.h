@@ -12,6 +12,10 @@
 //#include "flight.h"
 class Flight;
 
+class FLightPlan {
+
+};
+
 class LandTransportPlace {
     public:
         enum TypeOfTransport{
@@ -70,7 +74,7 @@ class Airport {
 
         void printTransportPlaces() const;
 
-        bool purchaseTicket(Flight& flight, const Passenger& passenger);
+        Ticket purchaseTicket(Flight& flight, const Passenger& passenger);
 
         void landPlane(const Plane& plane);
         void planeDeparture(const Plane& plane);

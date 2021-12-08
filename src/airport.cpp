@@ -87,11 +87,14 @@ void Airport::printTransportPlaces() const {
     std::cout << std::endl;
 }
 
-bool Airport::purchaseTicket(Flight& flight, const Passenger& passenger) {
+Ticket Airport::purchaseTicket(Flight& flight, const Passenger& passenger) {
 
-    Ticket t(passenger);
+    if (flight.getLotation() < flight.getPlane().getCapacity()) {
+        Ticket t(passenger);
 
-    return flight.addPassenger(t);
+        return t;
+    }
+    throw "Plane is at max capacity";
 }
 
 void Airport::landPlane(const Plane &plane) {

@@ -95,7 +95,9 @@ class Plane {
         /**
          * Performs the flight currently associated with this plane
          */
-        void fly();
+        void fly() const {
+
+        };
 };
 
 #endif //AED2122PROJ_PLANE_H
