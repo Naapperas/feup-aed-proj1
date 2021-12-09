@@ -17,9 +17,6 @@ Airport::Airport(std::string name) : name(name), transportPlaces(LandTransportPl
     }
 }
 
-Airport::Airport(std::string name, std::ifstream& f) : name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
-    readFile(f);
-}
 
 void Airport::readFile(std::ifstream & f) {
     while (!f.eof()) {
