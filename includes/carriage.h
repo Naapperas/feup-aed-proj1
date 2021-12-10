@@ -5,6 +5,7 @@
 #ifndef AED2122PROJ_CARRIAGE_H
 #define AED2122PROJ_CARRIAGE_H
 
+#include <string>
 #include <stack>
 #include <vector>
 
@@ -36,7 +37,7 @@ public:
         if (freeStack() != -1)
             carriage[freeStack()].push(luggage);
         else
-            throw "Full Carriage";
+            throw std::string("Full Carriage");
     }
 
     bool carriageFull() const{

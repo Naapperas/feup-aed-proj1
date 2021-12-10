@@ -1,8 +1,6 @@
 #ifndef AED2122PROJ_AIRPORT_H
 #define AED2122PROJ_AIRPORT_H
 
-#include <fstream>
-#include <sstream>
 #include <vector>
 
 #include "bst.h"
@@ -63,7 +61,8 @@ class Airport {
         std::string name;
 
         BST<LandTransportPlace> transportPlaces;
-        std::vector<Plane> landedPlanes; // needs to allow random removal, vector > list for insertion/removal
+        std::list<Plane> landedPlanes; // list for insertion/removal
+        std::vector<Flight> flights;
 
         void readFile(std::ifstream &f);
         void writeToFile();

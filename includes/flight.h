@@ -125,7 +125,7 @@ class Flight {
          *
          * @return the destination airport for this flight
          */
-        const Airport& getDestinationAirport() const {
+        Airport& getDestinationAirport() {
             return this->destiny;
         };
 
@@ -134,9 +134,11 @@ class Flight {
          *
          * @return the origin airport for this flight
          */
-        const Airport& getOriginAirport() const {
+        Airport& getOriginAirport() {
             return this->origin;
         };
+
+        void execute();
 };
 
 #endif //AED2122PROJ_FLIGHT_H

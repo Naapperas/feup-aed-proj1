@@ -1,3 +1,6 @@
+#include <fstream>
+#include <sstream>
+
 #include "../includes/airport.h"
 #include "../includes/flight.h"
 
@@ -16,7 +19,6 @@ Airport::Airport(std::string name) : name(name), transportPlaces(LandTransportPl
         writeToFile();
     }
 }
-
 
 void Airport::readFile(std::ifstream & f) {
     while (!f.eof()) {
@@ -91,15 +93,24 @@ Ticket Airport::purchaseTicket(Flight& flight, const Passenger& passenger) {
 
         return t;
     }
-    throw "Plane is at max capacity";
+
+    throw std::string("Plane is at max capacity");
 }
 
 void Airport::landPlane(const Plane &plane) {
+
+    if (std::find(this->landedPlanes.begin(), this->landedPlanes.end(), plane) != this->landedPlanes.end())
+        throw std::string("Can't land already landed plane");
+
     this->landedPlanes.emplace_back(plane);
 }
 
-void Airport::planeDeparture(const Plane &plane) {
-    // this->landedPlanes.erase(std::find(this->landedPlanes.begin(), this->landedPlanes.end(), plane));
+void Airport::planeDeparture(const Plane& plane) {
+
+    if (std::find(this->landedPlanes.begin(), this->landedPlanes.end(), plane) == this->landedPlanes.end())
+        throw std::string("Can't take off if not landed at airport");
+
+    this->landedPlanes.remove(plane);
 }
 
 bool operator<(const LandTransportPlace &a, const LandTransportPlace &b) {

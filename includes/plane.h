@@ -10,6 +10,9 @@
 #include <list>
 #include <string>
 
+#include "passenger.h"
+#include "luggage.h"
+
 /**
  * Represents a maintenance/cleaning service that can be performed on a plane.
  */
@@ -38,6 +41,12 @@ class Plane {
         unsigned capacity;
 
         std::deque<CleaningService> upcomingCleaningTasks, pastCleaningTasks;
+
+        // this should provide fast insertion removal (simulating transporting passengers + cargo, we don't care about searching them)
+        std::list<Passenger> planePassengers;
+        std::list<Luggage> planeLuggage;
+
+        friend bool operator==(const Plane& a, const Plane& b);
     public:
         /**
          * Creates a plane.
@@ -92,12 +101,8 @@ class Plane {
             upcomingCleaningTasks.pop_front(); // erase from deque
         }
 
-        /**
-         * Performs the flight currently associated with this plane
-         */
-        void fly() const {
-
-        };
+        void addLuggage(const Luggage& planeLuggage);
+        void addPassenger(const Passenger& passenger);
 };
 
 #endif //AED2122PROJ_PLANE_H

@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "./includes/plane.h"
+#include "includes/plane.h"
 #include "includes/airport.h"
 #include "includes/flight.h"
 
@@ -25,8 +25,6 @@ int main() {
     auto t2 = a.purchaseTicket(f, pass2);
 
     f.addPassenger(t1), f.addPassenger(t2);
-
-    f.getPlane().fly();
 
     return 0;
 }

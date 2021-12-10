@@ -23,3 +23,9 @@ bool Flight::addPassengers(const std::vector<Ticket>& tickets) {
     }
     return false;
 }
+
+void Flight::execute() {
+    this->getOriginAirport().planeDeparture(this->getPlane());
+    // do some processing here...
+    this->getDestinationAirport().landPlane(this->getPlane());
+}
