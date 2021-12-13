@@ -62,7 +62,6 @@ class Airport {
 
         BST<LandTransportPlace> transportPlaces;
         std::list<Plane> landedPlanes; // list for insertion/removal
-        std::vector<Flight> flights;
 
         void readFile(std::ifstream &f);
         void writeToFile();
