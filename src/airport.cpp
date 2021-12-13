@@ -4,6 +4,15 @@
 #include "../includes/airport.h"
 #include "../includes/flight.h"
 
+bool FlightPlan::addFlightToPlan(const Flight &f) {
+
+    for (const auto& flight : this->plan)
+        if (flight == f) return false;
+
+    this->plan.push_back(f);
+    return true;
+}
+
 const std::vector<std::string> LandTransportPlace::typePrint = {"Subway", "Train", "Bus"};
 
 Airport::Airport(std::string name) : name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {

@@ -26,5 +26,7 @@ int main() {
 
     f.addPassenger(t1), f.addPassenger(t2);
 
+    f.execute();
+
     return 0;
 }

@@ -30,6 +30,10 @@ class Flight {
         Plane plane;
         Airport origin, destiny;
 
+        friend bool operator==(const Flight& a, const Flight& b) {
+            return a.flightNumber == b.flightNumber;
+        };
+
     public:
         /**
          * Creates a new flight.
