@@ -127,6 +127,6 @@ bool operator<(const LandTransportPlace &a, const LandTransportPlace &b) {
 }
 
 ostream& operator <<(ostream& out , const LandTransportPlace &a) {
-    out << LandTransportPlace::typePrint.at(a.type) << ' ' << a.distance << "m " << "Open from: " << a.openTime << " to " << a.closeTime << endl;
+    out << LandTransportPlace::typePrint.at(a.type) << ' ' << a.distance << "m " << "Open from: " << a.openTime << " to " << a.closeTime;
     return out;
 }
