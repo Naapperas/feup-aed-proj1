@@ -32,6 +32,15 @@ class FlightPlan {
             this->plan.pop_front();
         }
 
+        /**
+         * Returns the plane associated with this flightPlan.
+         *
+         * @return the plane associated with this flightPlan
+         */
+        const Plane& getPlane() const {
+            return this->plane;
+        }
+
 };
 
 /**
