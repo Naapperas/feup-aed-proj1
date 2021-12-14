@@ -3,22 +3,23 @@
 //
 
 
+#include <iostream>
 #include "../includes/luggageTransport.h"
 
+void LuggageTransport::addCarriage() {
+    carriages.push_back(Carriage(numberStacks, stackCapacity));
+    numberCarriages++;
+}
+
 void LuggageTransport::addLuggage(const Luggage& luggage){
-    bool addedLuggage = false;
+    Carriage& lastCarriage = carriages.back();
 
-    for(auto carriage : carriages){
-        if (!carriage.carriageFull()) {
-            carriage.addLuggage(luggage);
-            addedLuggage = true;
-            break;
-        }
-    }
-
-    if (!addedLuggage){
+    if (lastCarriage.carriageFull()) {
         this->addCarriage();
-        carriages[carriages.size() - 1].addLuggage(luggage);
+        carriages.back().addLuggage(luggage);
+    }
+    else{
+        lastCarriage.addLuggage(luggage);
     }
 }
 
@@ -26,12 +27,9 @@ std::list<Luggage> LuggageTransport::getCargo() {
     std::list<Luggage> tmp;
 
     for (auto& carriage : this->carriages) {
-
-        auto carriageCargo = carriage.removeLuggage();
-
-        for (auto& lugagage : carriageCargo)
-            tmp.push_back(lugagage);
+        carriage.removeLuggage(tmp);
     }
 
+    carriages.erase(carriages.begin()++, carriages.end());
     return tmp;
 };

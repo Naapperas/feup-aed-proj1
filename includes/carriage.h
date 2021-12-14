@@ -8,6 +8,7 @@
 #include <string>
 #include <stack>
 #include <vector>
+#include <list>
 
 #include "./luggage.h"
 
@@ -17,53 +18,24 @@ class Carriage{
     const unsigned numberStacks;
     const unsigned stackCapacity;
     vector<stack<Luggage>> carriage;
-public:
-    Carriage(unsigned numberStacks, unsigned stackCapacity) : numberStacks(numberStacks), stackCapacity(stackCapacity) {}
 
     bool stackFull(unsigned& i) const{
         return carriage[i].size() == stackCapacity;
     }
 
-    unsigned freeStack() const{
-        for (unsigned i = 0; i < numberStacks; i++){
-            if (!stackFull(i))
-                return i;
+    void emptyStack(unsigned& i, std::list<Luggage>& ret){
+        while (!carriage[i].empty()){
+            ret.push_back(carriage[i].top());
+            carriage[i].pop();
         }
-
-        return -1; // full Carriage
     }
 
-    void addLuggage(const Luggage& luggage){
-
-        auto freeStack = this->freeStack();
-
-        if (freeStack != -1)
-            carriage[freeStack].push(luggage);
-        else
-            throw std::string("Full Carriage");
-    }
-
-    bool carriageFull() const{
-        for (unsigned i = 0; i < numberStacks; i++){
-            if (!stackFull(i))
-                return false;
-        }
-
-        return true;
-    }
-
-    std::vector<Luggage> removeLuggage() {
-        std::vector<Luggage> ret;
-
-        for (auto it = carriage.rbegin(); it != carriage.rend(); it++) {
-            while (it->size() > 0) {
-                ret.push_back(it->top());
-                it->pop();
-            }
-        }
-
-        return ret;
-    };
+public:
+    Carriage(unsigned numberStacks, unsigned stackCapacity) : numberStacks(numberStacks), stackCapacity(stackCapacity) {}
+    unsigned freeStack() const;
+    void addLuggage(const Luggage& luggage);
+    bool carriageFull() const;
+    void removeLuggage(std::list<Luggage>& tmp);
 };
 
 #endif //AED2122PROJ_CARRIAGE_H

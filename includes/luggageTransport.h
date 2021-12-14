@@ -14,18 +14,16 @@
 class LuggageTransport{
     const unsigned numberStacks;
     const unsigned stackCapacity;
-    std::vector<Carriage> carriages;
+    std::list<Carriage> carriages;
+    unsigned numberCarriages;
 public:
-    LuggageTransport(unsigned numberStacks, unsigned stackCapacity) : numberStacks(numberStacks), stackCapacity(stackCapacity){}
-
-    void addCarriage() {
-        carriages.push_back(Carriage(numberStacks, stackCapacity));
+    LuggageTransport(unsigned numberStacks, unsigned stackCapacity) : numberStacks(numberStacks), stackCapacity(stackCapacity){
+        addCarriage();
+        numberStacks = 1;
     }
-
+    void addCarriage();
     void addLuggage(const Luggage& luggage);
-
     std::list<Luggage> getCargo();
-
 };
 
 #endif //AED2122PROJ_LUGGAGETRANSPORT_H
