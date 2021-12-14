@@ -11,6 +11,7 @@
 #include <queue>
 #include <string>
 #include <fstream>
+#include <sstream>
 
 #include "passenger.h"
 #include "luggage.h"
@@ -50,6 +51,10 @@ class Plane {
         std::list<Passenger> planePassengers;
         std::list<Luggage> planeLuggage;
 
+        /**
+         * Deletes a register of a cleaning service from the dedicated file
+         * @param service cleaning service to be removed
+         */
         void deleteRegisterCleaningService(const CleaningService& service);
 
         friend bool operator==(const Plane& a, const Plane& b);

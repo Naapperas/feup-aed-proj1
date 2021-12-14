@@ -14,7 +14,24 @@ std::ostream& operator <<(std::ostream& out , const CleaningService &a) {
 
 void Plane::deleteRegisterCleaningService(const CleaningService &service) {
     std::queue<std::string> servicesToKeep;
-
+    std::string serviceToRemove;
+    serviceToRemove += this->plate + " ";
+    std::stringstream ss;
+    ss << service;
+    serviceToRemove += ss.str();
+    std::ifstream serviceFile{"cleaning.txt"};
+    while(!serviceFile.eof()){
+        std::string currentService;
+        getline(serviceFile, currentService);
+        if (currentService!=serviceToRemove)
+            servicesToKeep.push(currentService);
+    }
+    serviceFile.close();
+    while(!servicesToKeep.empty()){
+        std::ofstream serviceFileWrite{"cleaning.txt"};
+        serviceFileWrite << servicesToKeep.front() << '\n';
+        servicesToKeep.pop();
+    }
 }
 
 void Plane::addPassenger(const Passenger &passenger) {
