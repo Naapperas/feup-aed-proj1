@@ -17,6 +17,7 @@ class Airline {
 
         std::list<FlightPlan> flightPlans;
         std::vector<Plane> ownedPlanes;
+        std::vector<Flight> upcomingFlights;
 
         std::string airlineName;
     public:

@@ -40,6 +40,7 @@ class Menu {
         static int showAdminMenu();
         static int showClientMenu();
         static void endProgram();
+        static void listFlights();
 
 };
 

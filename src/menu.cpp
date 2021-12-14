@@ -32,9 +32,10 @@ void Menu::init() {
                             break;
                         case BOARD:
                             break;
-                        case CLIENT_BACK:
-                            break;
                         case CLIENT_FLIGHTS:
+                            Menu::listFlights();
+                            break;
+                        case CLIENT_BACK:
                             break;
                         default:
                             std::cout << "Invalid option, returning to main menu\n\n";
@@ -85,7 +86,7 @@ int Menu::showAdminMenu() {
     int option;
 
     std::cout << "\tHello administrator, what would you like to do?\n\n";
-    std::cout << "\t[1] Purchase new plane\n\t[2] Create new frlight\n\t[3] Back\n\n";
+    std::cout << "\t[1] Purchase new plane\n\t[2] Create new flight\n\t[3] Back\n\n";
     std::cout << "\t> ";
     std::cin >> option;
 
@@ -103,7 +104,7 @@ int Menu::showClientMenu() {
     int option;
 
     std::cout << "\t3Hello client, what would you like to do?\n\n";
-    std::cout << "\t[1] Purchase ticket\n\t[2] Board plane\n\t[3] Back\n\n";
+    std::cout << "\t[1] Purchase ticket\n\t[2] Board plane\n\t[3] See all available flights\n\t[4] Back\n\n";
     std::cout << "\t> ";
     std::cin >> option;
 
@@ -135,4 +136,8 @@ int Menu::showInitialMenu(const std::string& airlineName) {
 void Menu::endProgram() {
     std::cout << "Program terminated, see you soon :) [press ENTER to quit]" << std::endl;
     if (std::cin.peek() == '\n') std::cin.ignore(100, '\n'); // 100 chars should be enought to ignore
+}
+
+void Menu::listFlights() {
+
 }
