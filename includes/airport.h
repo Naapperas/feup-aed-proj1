@@ -8,6 +8,7 @@
 #include "plane.h"
 #include "ticket.h"
 #include "passenger.h"
+#include "luggageTransport.h"
 //#include "flight.h"
 class Flight;
 
@@ -65,6 +66,7 @@ class LandTransportPlace {
         friend bool operator <(const LandTransportPlace & a, const LandTransportPlace & b);
         friend ostream& operator <<(ostream& out ,const LandTransportPlace & a);
     public:
+
         /**
          * Creates a new LandTransportPlace
          * @param type Type of transport (SUBWAY, TRAIN or BUS)
@@ -73,6 +75,7 @@ class LandTransportPlace {
          * @param closeTime Time of last departure (last bus leaving at 23:00 for example)
          */
         LandTransportPlace(TypeOfTransport type, unsigned distance, const std::string& openTime, const std::string& closeTime): type(type), distance(distance), openTime(openTime), closeTime(closeTime) {}
+
         /**
          * Return this place's transport type (SUBWAY, TRAIN or BUS)
          * @return this place's transport type (SUBWAY, TRAIN or BUS)
@@ -80,6 +83,7 @@ class LandTransportPlace {
         TypeOfTransport getType() const{
             return type;
         }
+
         /**
          * Return this place's transport type as a string (the corresponding strings to each type are stored in typePrint)
          * @return this place's transport type as a string
@@ -87,6 +91,7 @@ class LandTransportPlace {
         std::string getTypeString() const{
             return typePrint.at(type);
         }
+
         /**
          * Return this place's distance to it's nearby airport
          * @return this place's distance to it's nearby airport
@@ -94,6 +99,7 @@ class LandTransportPlace {
         unsigned int getDistance() const{
             return distance;
         }
+
         /**
          * Return this place's open time (time of first departure)
          * @return this place's open time (time of first departure)
@@ -101,6 +107,7 @@ class LandTransportPlace {
         std::string getOpenTime() const{
             return openTime;
         }
+
         /**
          * Return this place's close time (time of last departure)
          * @return this place's close time (time of last departure)
@@ -118,28 +125,36 @@ class Airport {
 
         BST<LandTransportPlace> transportPlaces;
         std::list<Plane> landedPlanes; // list for insertion/removal
-        std::vector<FlightPlan> flightPlans;
+
+        std::queue<Luggage> luggageTransportBelt;
+        LuggageTransport transport{4, 5};
 
         /**
          * Get information on this airport's land transport places from a text file to transportPlaces
          * @param f file containing information on this airport's land transport places
          */
         void readFile(std::ifstream &f);
+
         /**
          * Store the information on transportPlaces in a text file <name>.txt
          */
         void writeToFile();
+
         /**
          * Get information on this airport's land transport places from user input to transportPlaces
          * @param n number of land transport places
          */
         void readInput(unsigned n);
+
+        void loadLuggageToTransport();
     public:
+
         /**
          * Creates a new airport
          * @param name Name of the airport
          */
         Airport(std::string name);
+
         /**
          * Print the information in transportPlaces to the console
          */
@@ -147,9 +162,40 @@ class Airport {
 
         Ticket purchaseTicket(Flight& flight, const Passenger& passenger);
 
+        /**
+         * Emplaces some luggage on this airport's transaport belt to be carried to a plane by the Luggage Transportation Service
+         *
+         * @param l the luggage to transport
+         */
+        void addLuggageToTransportBelt(const Luggage& l);
+
+        /**
+         *  Lands a plane at this airport
+         *
+         * @param plane the plane to land
+         */
         void landPlane(const Plane& plane);
+
+        /**
+         * Makes a plane take off from this location
+         *
+         * @param plane the plane taking off
+         */
         void planeDeparture(const Plane& plane);
 
+        /**
+         * Loads the cargo to the given plane.
+         *
+         * @param plane the plane that should have cargo loaded
+         */
+        void loadCargo(Plane& plane);
+
+        /**
+         * Offloads this plane's cargo to be delivered at this airport
+         *
+         * @param plane the plane whose cargo should be offloaded
+         */
+        void offloadCargo(Plane& plane);
 };
 
 #endif //AED2122PROJ_AIRPORT_H

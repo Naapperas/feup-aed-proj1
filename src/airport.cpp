@@ -30,6 +30,8 @@ Airport::Airport(std::string name) : name(name), transportPlaces(LandTransportPl
 }
 
 void Airport::readFile(std::ifstream & f) {
+    //TODO: maybe change how we store information on files ?
+
     while (!f.eof()) {
         std::string line;
         getline(f, line);
@@ -51,6 +53,8 @@ void Airport::readFile(std::ifstream & f) {
 }
 
 void Airport::writeToFile() {
+    //TODO: maybe change how we store information on files ?
+
     std::ofstream f(name+".txt");
     for(auto it = transportPlaces.begin(); it != transportPlaces.end(); it++){
         f << (*it).getTypeString() << ' ' << (*it).getDistance() << ' ' << (*it).getOpenTime() << ' ' << (*it).getCloseTime() << '\n';
@@ -59,6 +63,8 @@ void Airport::writeToFile() {
 }
 
 void Airport::readInput(unsigned int n) {
+    //TODO: maybe change how we store information on files ?
+
     std::cin.ignore(1);
     for (int i = 0; i < n; i++) {
         std::cout << "Write here: ";
@@ -120,6 +126,32 @@ void Airport::planeDeparture(const Plane& plane) {
         throw std::string("Can't take off if not landed at airport");
 
     this->landedPlanes.remove(plane);
+}
+
+void Airport::addLuggageToTransportBelt(const Luggage& l) {
+    this->luggageTransportBelt.emplace(l);
+}
+
+void Airport::loadLuggageToTransport() {
+    auto &luggage = this->luggageTransportBelt.front();
+    this->luggageTransportBelt.pop();
+
+    this->transport.addLuggage(luggage);
+}
+
+void Airport::loadCargo(Plane &plane) {
+
+    auto flightCargo = this->transport.getCargo();
+
+    for (auto& luggage : flightCargo)
+        plane.addLuggage(luggage);
+
+}
+
+void Airport::offloadCargo(Plane &plane) {
+
+    //TODO: to be implemented
+
 }
 
 bool operator<(const LandTransportPlace &a, const LandTransportPlace &b) {

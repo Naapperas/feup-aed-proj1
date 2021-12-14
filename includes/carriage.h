@@ -16,7 +16,7 @@ using namespace std;
 class Carriage{
     const unsigned numberStacks;
     const unsigned stackCapacity;
-    vector<stack<Luggage*>> carriage;
+    vector<stack<Luggage>> carriage;
 public:
     Carriage(unsigned numberStacks, unsigned stackCapacity) : numberStacks(numberStacks), stackCapacity(stackCapacity) {}
 
@@ -33,9 +33,12 @@ public:
         return -1; // full Carriage
     }
 
-    void addLuggage(Luggage* luggage){
-        if (freeStack() != -1)
-            carriage[freeStack()].push(luggage);
+    void addLuggage(const Luggage& luggage){
+
+        auto freeStack = this->freeStack();
+
+        if (freeStack != -1)
+            carriage[freeStack].push(luggage);
         else
             throw std::string("Full Carriage");
     }
@@ -48,6 +51,19 @@ public:
 
         return true;
     }
+
+    std::vector<Luggage> removeLuggage() {
+        std::vector<Luggage> ret;
+
+        for (auto it = carriage.rbegin(); it != carriage.rend(); it++) {
+            while (it->size() > 0) {
+                ret.push_back(it->top());
+                it->pop();
+            }
+        }
+
+        return ret;
+    };
 };
 
 #endif //AED2122PROJ_CARRIAGE_H

@@ -3,11 +3,12 @@
 #include "includes/plane.h"
 #include "includes/airport.h"
 #include "includes/flight.h"
+#include "includes/airline.h"
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
 
-    Plane p1{"J900", "oupas", 2}, p2{"B550", "adeus", 2}, p3{"A340", "ola", 2};
+    Plane p1{"J900", "oupas", 2, 100}, p2{"B550", "adeus", 2, 100}, p3{"A340", "ola", 2, 100};
 
     Airport a{"Porto"};
     a.landPlane(p1);

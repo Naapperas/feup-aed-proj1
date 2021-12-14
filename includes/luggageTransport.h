@@ -6,36 +6,26 @@
 #define AED2122PROJ_LUGGAGETRANSPORT_H
 
 #include <vector>
+#include <list>
 
-#include "./carriage.h"
-
-using namespace std;
+#include "luggage.h"
+#include "carriage.h"
 
 class LuggageTransport{
     const unsigned numberStacks;
     const unsigned stackCapacity;
-    vector<Carriage*> carriages;
+    std::vector<Carriage> carriages;
 public:
     LuggageTransport(unsigned numberStacks, unsigned stackCapacity) : numberStacks(numberStacks), stackCapacity(stackCapacity){}
 
-    void addCarriage(){
-        carriages.push_back(new Carriage(numberStacks, stackCapacity));
+    void addCarriage() {
+        carriages.push_back(Carriage(numberStacks, stackCapacity));
     }
 
-    void addLuggage(Luggage* luggage){
-        bool addedLuggage = false;
-        for(auto carriage : carriages){
-            if (!carriage->carriageFull()) {
-                carriage->addLuggage(luggage);
-                addedLuggage = true;
-                break;
-            }
-        }
-        if (!addedLuggage){
-            this->addCarriage();
-            carriages[carriages.size() - 1]->addLuggage(luggage);
-        }
-    }
+    void addLuggage(const Luggage& luggage);
+
+    std::list<Luggage> getCargo();
+
 };
 
 #endif //AED2122PROJ_LUGGAGETRANSPORT_H

@@ -120,7 +120,7 @@ class Flight {
          *
          * @return the plane associated with this flight
          */
-        const Plane& getPlane() const {
+        Plane& getPlane() {
             return this->plane;
         };
 

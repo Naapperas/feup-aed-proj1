@@ -4,6 +4,7 @@
 #include <algorithm>
 
 #include "../includes/airline.h"
+#include "../includes/flight.h"
 
 bool Airline::addPlaneToAirlineFleet(const Plane& plane) {
 
@@ -17,17 +18,21 @@ bool Airline::addPlaneToAirlineFleet(const Plane& plane) {
 
 bool Airline::addFlightToPlane(const Plane& plane, const Flight& flight) {
 
-    this->addPlaneToAirlineFleet(plane); // might return false, just ensure we have the plane on the fleet
+    bool ret = this->addPlaneToAirlineFleet(plane); // might return false, just ensure we have the plane on the fleet
 
     std::find_if(this->flightPlans.begin(), this->flightPlans.end(), [plane](const FlightPlan& fp){ return fp.getPlane() == plane; })->addFlightToPlan(flight);
+
+    return ret;
 };
 
 bool Airline::addFlightsToPlane(const Plane& plane, const std::list<Flight>& flights) {
 
-    this->addPlaneToAirlineFleet(plane); // might return false, just ensure we have the plane on the fleet
+    bool ret = this->addPlaneToAirlineFleet(plane); // might return false, just ensure we have the plane on the fleet
 
     auto fp = std::find_if(this->flightPlans.begin(), this->flightPlans.end(), [plane](const FlightPlan& fp){ return fp.getPlane() == plane; });
 
     for (const auto& flight : flights)
         fp->addFlightToPlan(flight);
+
+    return ret;
 };

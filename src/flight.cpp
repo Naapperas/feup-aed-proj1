@@ -25,7 +25,26 @@ bool Flight::addPassengers(const std::vector<Ticket>& tickets) {
 }
 
 void Flight::execute() {
-    this->getOriginAirport().planeDeparture(this->getPlane());
+
+    auto &origin = this->getOriginAirport(), &destination = this->getDestinationAirport();
+    auto &plane = this->getPlane();
+
+    for (auto& passenger : this->passengers)
+        origin.addLuggageToTransportBelt(passenger.getLuggage());
+
+    origin.loadCargo(plane);
+
+    plane.boardPassengers(this->passengers);
+
+    origin.planeDeparture(plane);
     // do some processing here...
-    this->getDestinationAirport().landPlane(this->getPlane());
+
+    // pass the time
+
+    destination.landPlane(plane);
+
+    //TODO: what to do here with the passengers
+    plane.unboardPassengers();
+
+    destination.offloadCargo(plane);
 }

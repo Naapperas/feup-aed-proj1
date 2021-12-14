@@ -38,7 +38,7 @@ class CleaningService {
 class Plane {
 
         std::string type, plate;
-        unsigned capacity;
+        unsigned capacity, cargoCapacity;
 
         std::deque<CleaningService> upcomingCleaningTasks, pastCleaningTasks;
 
@@ -54,8 +54,9 @@ class Plane {
          * @param type the type of the plane
          * @param planePlate the plate associated with this plane
          * @param planeCapacity the capacity of this plane
+         * @param cargoCapcity the cargoCapacity of this plane
          */
-        Plane(const std::string& type, const std::string& planePlate, unsigned planeCapacity) : type(type), plate(planePlate), capacity(planeCapacity) {}
+        Plane(const std::string& type, const std::string& planePlate, unsigned planeCapacity, unsigned cargoCapcity) : type(type), plate(planePlate), capacity(planeCapacity), cargoCapacity(cargoCapcity) {}
 
         /**
          * Returns the type of this airship.
@@ -103,6 +104,19 @@ class Plane {
 
         void addLuggage(const Luggage& planeLuggage);
         void addPassenger(const Passenger& passenger);
+
+        /**
+         * Boards the given collection of passengers on the plane.
+         *
+         * @param passengers the passengers to board
+         */
+        void boardPassengers(std::vector<Passenger>& passengers);
+
+        /**
+         * Unboards this plane's passengers.
+         */
+        void unboardPassengers();
+
 };
 
 #endif //AED2122PROJ_PLANE_H
