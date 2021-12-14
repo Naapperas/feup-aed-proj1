@@ -20,7 +20,7 @@ class Airline {
 
         std::string airlineName;
     public:
-        explicit Airline(const std::string& name) : airlineName(name) {}
+        explicit Airline(const std::string& name);
 
         bool addPlaneToAirlineFleet(const Plane& plane);
 

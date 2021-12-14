@@ -13,7 +13,6 @@ bool FlightPlan::addFlightToPlan(const Flight &f) {
     return true;
 }
 
-const std::vector<std::string> LandTransportPlace::typePrint = {"Subway", "Train", "Bus"};
 
 Airport::Airport(std::string name) : name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
 
@@ -153,6 +152,9 @@ void Airport::offloadCargo(Plane &plane) {
     //TODO: to be implemented
 
 }
+
+
+const std::vector<std::string> LandTransportPlace::typePrint = {"Subway", "Train", "Bus"};
 
 bool operator<(const LandTransportPlace &a, const LandTransportPlace &b) {
     return (a.distance < b.distance);

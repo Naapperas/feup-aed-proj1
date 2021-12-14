@@ -8,7 +8,9 @@
 #include <vector>
 #include <deque>
 #include <list>
+#include <queue>
 #include <string>
+#include <fstream>
 
 #include "passenger.h"
 #include "luggage.h"
@@ -26,6 +28,8 @@ class CleaningService {
     private:
         ServiceType serviceType;
         std::string serviceDate, employee;
+        static const std::vector<std::string> typePrint;
+        friend std::ostream& operator <<(std::ostream& out ,const CleaningService & a);
     public:
         CleaningService(ServiceType serviceType, const std::string& serviceDate, const std::string& employee) :
         serviceType(serviceType), serviceDate(serviceDate), employee(employee) {}
@@ -46,7 +50,10 @@ class Plane {
         std::list<Passenger> planePassengers;
         std::list<Luggage> planeLuggage;
 
+        void deleteRegisterCleaningService(const CleaningService& service);
+
         friend bool operator==(const Plane& a, const Plane& b);
+        friend std::ostream& operator <<(std::ostream& out ,const Plane& a);
     public:
         /**
          * Creates a plane.
@@ -95,12 +102,24 @@ class Plane {
         }
 
         /**
+         * Register a cleaning service to it's dedicated file
+         * To be used together with addCleaningService
+         * @param cleaningService cleaning service to be registered
+         */
+        void registerCleaningservice(const CleaningService& cleaningService){
+            std::ofstream serviceFile{"cleaning.txt"};
+            serviceFile  << this->plate <<  " " << cleaningService;
+        }
+
+        /**
          * Finishes a pre-scheduled cleaning service.
          */
         void finishedCleaningService() {
-            pastCleaningTasks.push_back(upcomingCleaningTasks.front()); // archive finished cleaining/maintenence service
+            pastCleaningTasks.push_back(upcomingCleaningTasks.front()); // archive finished cleaning/maintenence service
+            deleteRegisterCleaningService(upcomingCleaningTasks.front()); // delete finished service from file
             upcomingCleaningTasks.pop_front(); // erase from deque
         }
+
 
         void addLuggage(const Luggage& planeLuggage);
         void addPassenger(const Passenger& passenger);
