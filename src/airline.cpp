@@ -4,7 +4,6 @@
 #include <algorithm>
 
 #include "../includes/airline.h"
-#include "../includes/flight.h"
 
 bool Airline::addPlaneToAirlineFleet(const Plane& plane) {
 
