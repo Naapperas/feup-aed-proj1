@@ -148,6 +148,9 @@ class Airport {
          */
         void readInput(unsigned n);
 
+        /**
+         * Carry luggage from the conveyor belt to the luggageTransport
+         */
         void loadLuggageToTransport();
     public:
 
@@ -165,7 +168,7 @@ class Airport {
         Ticket purchaseTicket(Flight& flight, const Passenger& passenger);
 
         /**
-         * Emplaces some luggage on this airport's transaport belt to be carried to a plane by the Luggage Transportation Service
+         * Emplaces some luggage on this airport's transport belt to be carried to a plane by the Luggage Transportation Service
          *
          * @param l the luggage to transport
          */

@@ -104,8 +104,8 @@ class Plane {
          * Finishes a pre-scheduled cleaning service.
          */
         void finishedCleaningService() {
-            pastCleaningTasks.push_back(upcomingCleaningTasks.front()); // archive finished cleaning/maintenence service
-            upcomingCleaningTasks.pop_front(); // erase from deque
+            pastCleaningTasks.push_back(upcomingCleaningTasks.front());
+            upcomingCleaningTasks.pop_front();
         }
 
 
@@ -123,6 +123,11 @@ class Plane {
          * Unboards this plane's passengers.
          */
         void unboardPassengers();
+
+        /**
+         * Unload luggage from the plane
+         */
+        void offLoadCargo(); // New method
 
         /**
          * Serializes this plane's cleaning services to the given file.
