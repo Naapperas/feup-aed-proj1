@@ -101,16 +101,6 @@ class Plane {
         }
 
         /**
-         * Register a cleaning service to it's dedicated file
-         * To be used together with addCleaningService
-         * @param cleaningService cleaning service to be registered
-         */
-        void registerCleaningservice(const CleaningService& cleaningService){
-            std::ofstream serviceFile{"cleaning.txt"};
-            serviceFile  << this->plate <<  " " << cleaningService;
-        }
-
-        /**
          * Finishes a pre-scheduled cleaning service.
          */
         void finishedCleaningService() {

@@ -10,6 +10,7 @@ bool FlightPlan::addFlightToPlan(const Flight &f) {
         if (flight == f) return false;
 
     this->plan.push_back(f);
+    this->plan.sort([](const Flight&a, const Flight&b){return a.getDepartureDate()<b.getDepartureDate();}); // keep flights ordered by date
     return true;
 }
 
