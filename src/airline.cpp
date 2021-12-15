@@ -36,6 +36,7 @@ Airline::Airline(const std::string &name) : airlineName(name) {
     if (!planeFile.is_open())
         std::ofstream serviceFileNew{"cleaning.txt"};
     else{
+        bool upcoming;
         while(!serviceFile.eof()){
             std::string currentService;
             getline(serviceFile,currentService);
@@ -43,8 +44,13 @@ Airline::Airline(const std::string &name) : airlineName(name) {
             if (currentService.empty())
                 continue;
 
-            if (currentService == "[PAST CLEANING TASKS]" or currentService == "[UPCOMING CLEANING TASKS]")
+            if (currentService == "[PAST CLEANING TASKS]")
                 continue;
+
+            if (currentService == "[UPCOMING CLEANING TASKS]"){
+                upcoming=true;
+                continue;
+            }
 
             std::stringstream ss(currentService);
             std::string planePlate, type, date, employee;
@@ -57,6 +63,9 @@ Airline::Airline(const std::string &name) : airlineName(name) {
             else
                 continue;
             std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){return p.getPlate() == planePlate;})->addCleaningService(CleaningService(st, date, employee));
+            // check if service was finished prior to this execution of the program and set to finish if so
+            if (!upcoming)
+                std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){return p.getPlate() == planePlate;})->finishedCleaningService();
         }
     }
 }
