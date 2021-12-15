@@ -16,13 +16,30 @@ class LuggageTransport{
     const unsigned stackCapacity;
     std::list<Carriage> carriages;
     unsigned numberCarriages;
+    friend ostream& operator <<(std::ostream& out , const LuggageTransport &a);
 public:
+
+    /**
+     * Creates a new luggage transport system
+     * @param numberStacks Number of stacks for carriage
+     * @param stackCapacity Number of pieces each stack can take
+     */
     LuggageTransport(unsigned numberStacks, unsigned stackCapacity) : numberStacks(numberStacks), stackCapacity(stackCapacity){
         addCarriage();
-        numberStacks = 1;
     }
+
+    /**
+     * When the luggage transport system gets full, add a new carriage
+     */
     void addCarriage();
+
+
     void addLuggage(const Luggage& luggage);
+
+    /**
+     * Besides clearing each carriage the system uses, it only leaves the system with one empty carriage
+     * @return Returns the luggage of the passengers so it can be loaded into the plane
+     */
     std::list<Luggage> getCargo();
 };
 

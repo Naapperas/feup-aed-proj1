@@ -8,7 +8,6 @@
 
 void LuggageTransport::addCarriage() {
     carriages.push_back(Carriage(numberStacks, stackCapacity));
-    numberCarriages++;
 }
 
 void LuggageTransport::addLuggage(const Luggage& luggage){
@@ -33,3 +32,8 @@ std::list<Luggage> LuggageTransport::getCargo() {
     carriages.erase(carriages.begin()++, carriages.end());
     return tmp;
 };
+
+std::ostream& operator <<(std::ostream& out , const LuggageTransport &a) {
+    out << "Each carriage has " << a.numberStacks << " stacks, each stack can fit up to " << a.stackCapacity << "pieces off luggage."<< '\n';
+    return out;
+}
