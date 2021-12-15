@@ -50,10 +50,10 @@ Airline::Airline(const std::string &name) : airlineName(name) {
             std::string planePlate, type, date, employee;
             ss >> planePlate >> type >> date >> employee;
             CleaningService::ServiceType st;
-            if (type=="Maintenance")
-                st=CleaningService::MAINTENANCE;
-            else if(type=="Cleaning")
-                st=CleaningService::CLEANING;
+            if (type == "Maintenance")
+                st = CleaningService::MAINTENANCE;
+            else if(type == "Cleaning")
+                st = CleaningService::CLEANING;
             else
                 continue;
             std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){return p.getPlate() == planePlate;})->addCleaningService(CleaningService(st, date, employee));
@@ -135,6 +135,10 @@ void Airline::purchasePlane() {
 void Airline::storePlanes() const {
     ofstream planeFile("planes.txt");
 
+    // reset cleaning service's file
+    ofstream serviceFile("cleaning.txt");
+    serviceFile << "";
+
     if (planeFile.is_open())
         for (const auto& plane : this->ownedPlanes) {
             this->storeCleaningServices(plane);
@@ -144,7 +148,7 @@ void Airline::storePlanes() const {
 
 void Airline::storeCleaningServices(const Plane &plane) const {
 
-    ofstream serviceFile("cleaning.txt");
+    ofstream serviceFile("cleaning.txt", std::ios_base::app);
 
     plane.storeCleaningServices(serviceFile);
 }
