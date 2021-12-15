@@ -161,7 +161,7 @@ void Airport::loadCargo(Plane &plane) {
 void Airport::offloadCargo(Plane &plane) {
 
     //TODO: to be implemented
-
+    plane.offLoadCargo();
 }
 
 

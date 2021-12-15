@@ -50,3 +50,7 @@ void Plane::storeCleaningServices(std::ofstream& ofstream) const {
         ofstream << this->getPlate() << ' ' << service;
 }
 
+void Plane::offLoadCargo() {
+    this->planeLuggage.clear();
+}
+
