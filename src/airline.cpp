@@ -19,11 +19,15 @@ Airline::Airline(const std::string &name) : airlineName(name) {
         while(!planeFile.eof()){
             std::string currentPlane;
             getline(planeFile,currentPlane);
+
+            if (currentPlane.empty())
+                continue;
+
             std::stringstream ss(currentPlane);
             std::string type, plate;
             unsigned capacity, cargoCapacity;
             ss >> type >> plate >> capacity >> cargoCapacity;
-            ownedPlanes.push_back(Plane(type, plate, capacity, cargoCapacity));
+            ownedPlanes.emplace_back(type, plate, capacity, cargoCapacity);
         }
     }
 
@@ -35,9 +39,13 @@ Airline::Airline(const std::string &name) : airlineName(name) {
         while(!serviceFile.eof()){
             std::string currentService;
             getline(serviceFile,currentService);
+
+            if (currentService.empty())
+                continue;
+
             std::stringstream ss(currentService);
-            std::string plane, type, date, employee;
-            ss >> plane >>  type >> date >> employee;
+            std::string planePlate, type, date, employee;
+            ss >> planePlate >> type >> date >> employee;
             CleaningService::ServiceType st;
             if (type=="Maintenance")
                 st=CleaningService::MAINTENANCE;
@@ -45,7 +53,7 @@ Airline::Airline(const std::string &name) : airlineName(name) {
                 st=CleaningService::CLEANING;
             else
                 continue;
-            std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [plane](const Plane& p){return p.getPlate()==plane;})->addCleaningService(CleaningService(st, date, employee));
+            std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){return p.getPlate() == planePlate;})->addCleaningService(CleaningService(st, date, employee));
         }
     }
 
@@ -89,6 +97,16 @@ void Airline::listCurrentFlights() const {
 
     for (const auto& flight : this->upcomingFlights)
         std::cout << '\t' << flight.getFlightNumber() << " - Departing " << flight.getDepartureDate() << "; Duration: " << flight.getDuration() << '\n';
+
+    std::cout << std::endl;
+};
+
+void Airline::listCurrentPlanes() const {
+
+    std::cout << "Planes in fleet:\n" << std::endl;
+
+    for (const auto& plane : this->ownedPlanes)
+        std::cout << '\t' << plane.getType() << " Plate nº" << plane.getPlate() << "\n\t\tCapacity: " << plane.getCapacity() << '\n';
 
     std::cout << std::endl;
 };

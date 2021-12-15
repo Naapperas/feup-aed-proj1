@@ -51,6 +51,9 @@ void Menu::init() {
                             break;
                         case ADMIN_FLIGHT:
                             break;
+                        case ADMIN_PLANES:
+                            Menu::listPlanes();
+                            break;
                         case ADMIN_BACK:
                             break;
                         default:
@@ -86,7 +89,7 @@ int Menu::showAdminMenu() {
     int option;
 
     std::cout << "\tHello administrator, what would you like to do?\n\n";
-    std::cout << "\t[1] Purchase new plane\n\t[2] Create new flight\n\t[3] Back\n\n";
+    std::cout << "\t[1] Purchase new plane\n\t[2] Create new flight\n\t[3] List current fleet\n\t[4] Back\n\n";
     std::cout << "\t> ";
     std::cin >> option;
 
@@ -140,4 +143,8 @@ void Menu::endProgram() {
 
 void Menu::listFlights() {
     Airline::getInstance().listCurrentFlights(); // generate the call in menu, delegate it to Airline
+}
+
+void Menu::listPlanes() {
+    Airline::getInstance().listCurrentPlanes(); // generate the call in menu, delegate it to Airline
 }

@@ -75,7 +75,7 @@ class Plane {
          *
          * @return the type of this airship
          */
-        const std::string& getType() {
+        const std::string& getType() const {
             return type;
         }
 

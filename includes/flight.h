@@ -142,6 +142,11 @@ class Flight {
             return this->origin;
         };
 
+        /**
+         * Executes this flight.
+         *
+         * Efectively, this function transfers luggage from the passengers to the airport and then to the plane while boarding said passengers. Then the plane is transfered from the origin airport to the destination airport and cargo is offloaded.
+         */
         void execute();
 };
 

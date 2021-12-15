@@ -32,14 +32,11 @@ class Airline {
         bool addFlightsToPlane(const Plane& plane, const std::list<Flight>& flights);
 
         static void setInstance(Airline* instance) {
-
-            std::cout << instance << std::endl;
-
             if (Airline::instance == NULL)
                 Airline::instance = instance;
         }
 
-        static Airline getInstance() {
+        static Airline& getInstance() {
 
             if (Airline::instance == NULL)
                 throw std::string("Error");
@@ -48,6 +45,7 @@ class Airline {
         }
 
         void listCurrentFlights() const;
+        void listCurrentPlanes() const;
 
         const std::string& getName() const {
             return this->airlineName;

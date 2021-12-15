@@ -48,7 +48,7 @@ void Plane::boardPassengers(std::vector<Passenger> &passengers) {
 }
 
 void Plane::unboardPassengers() {
-
+    this->planePassengers.clear();
 }
 
 bool operator==(const Plane& a, const Plane& b) { // required for lists to work
