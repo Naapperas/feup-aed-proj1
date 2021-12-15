@@ -42,6 +42,8 @@ class FlightPlan {
             return this->plane;
         }
 
+        bool removeFlight(long flightNumber);
+
 };
 
 /**

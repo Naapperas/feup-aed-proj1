@@ -37,6 +37,8 @@ class Airline {
 
         bool addFlightsToPlane(const Plane& plane, const std::list<Flight>& flights);
 
+        bool cancelFlight(long flightNumber);
+
         static void setInstance(Airline* instance) {
             if (Airline::instance == NULL)
                 Airline::instance = instance;

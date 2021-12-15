@@ -14,6 +14,16 @@ bool FlightPlan::addFlightToPlan(const Flight &f) {
     return true;
 }
 
+bool FlightPlan::removeFlight(long flightNumber) {
+    for (auto it = plan.begin(); it != plan.end(); it++){
+        if ((*it).getFlightNumber() == flightNumber){
+            plan.erase(it);
+            return true;
+        }
+    }
+    return false;
+}
+
 
 Airport::Airport(std::string name) : name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
 
