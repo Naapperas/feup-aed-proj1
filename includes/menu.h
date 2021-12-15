@@ -33,6 +33,8 @@ class Menu {
             CLIENT_BACK
        };
 
+        static void waitForPrompt(const std::string& prompt);
+
     public:
 
         static void init();

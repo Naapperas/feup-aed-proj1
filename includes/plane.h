@@ -51,12 +51,6 @@ class Plane {
         std::list<Passenger> planePassengers;
         std::list<Luggage> planeLuggage;
 
-        /**
-         * Deletes a register of a cleaning service from the dedicated file
-         * @param service cleaning service to be removed
-         */
-        void deleteRegisterCleaningService(const CleaningService& service);
-
         friend bool operator==(const Plane& a, const Plane& b);
         friend std::ostream& operator <<(std::ostream& out ,const Plane& a);
     public:
@@ -121,7 +115,6 @@ class Plane {
          */
         void finishedCleaningService() {
             pastCleaningTasks.push_back(upcomingCleaningTasks.front()); // archive finished cleaning/maintenence service
-            //deleteRegisterCleaningService(upcomingCleaningTasks.front()); // delete finished service from file
             upcomingCleaningTasks.pop_front(); // erase from deque
         }
 

@@ -15,9 +15,9 @@ void Menu::init() {
 
     while (!Menu::exitApplication) {
 
-        int option = Menu::showInitialMenu(Airline::getInstance().getName());
-
         std::cout << std::string(100, '\n');
+
+        int option = Menu::showInitialMenu(Airline::getInstance().getName());
 
         switch (option) {
             case CLIENT:
@@ -87,6 +87,8 @@ int Menu::showAdminMenu() {
         return ADMIN_BACK;
     }
 
+    std::cout << std::string(100, '\n');
+
     int option;
 
     std::cout << "\tHello administrator, what would you like to do?\n\n";
@@ -138,18 +140,25 @@ int Menu::showInitialMenu(const std::string& airlineName) {
 }
 
 void Menu::endProgram() {
-    std::cout << "Program terminated, see you soon :) [press ENTER to quit]" << std::endl;
-    if (std::cin.peek() == '\n') std::cin.ignore(100, '\n'); // 100 chars should be enough to ignore
+    Menu::waitForPrompt("\tProgram terminated, see you soon :) [press ENTER to quit]");
 }
 
 void Menu::listFlights() {
     Airline::getInstance().listCurrentFlights(); // generate the call in menu, delegate it to Airline
+    Menu::waitForPrompt("\t[press ENTER to continue]");
 }
 
 void Menu::listPlanes() {
     Airline::getInstance().listCurrentPlanes(); // generate the call in menu, delegate it to Airline
+    Menu::waitForPrompt("\t[press ENTER to continue]");
 }
 
 void Menu::purchasePlane() {
     Airline::getInstance().purchasePlane();
+}
+
+void Menu::waitForPrompt(const std::string &prompt) {
+    std::cout << prompt << std::endl;
+    std::cin.get();
+    if (std::cin.peek() == '\n') std::cin.ignore(100, '\n'); // 100 chars should be enough to ignore
 }

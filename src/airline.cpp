@@ -104,10 +104,10 @@ void Airline::listCurrentFlights() const {
 
 void Airline::listCurrentPlanes() const {
 
-    std::cout << "Planes in fleet:\n" << std::endl;
+    std::cout << "\n\tPlanes in fleet:\n" << std::endl;
 
     for (const auto& plane : this->ownedPlanes)
-        std::cout << '\t' << plane.getType() << " Plate nº" << plane.getPlate() << "\n\t\tCapacity: " << plane.getCapacity() << '\n';
+        std::cout << "\t\t" << plane.getType() << " Plate nº" << plane.getPlate() << "\n\t\t\tCapacity: " << plane.getCapacity() << '\n';
 
     std::cout << std::endl;
 };

@@ -11,7 +11,7 @@
 #include "airport.h"
 
 /**
- * The central point of the application, this is supposed to represent the airline for whom the application is being built for
+ * The central point of the application, this is supposed to represent the airline for whom the application is being built for.
  */
 class Airline {
 
