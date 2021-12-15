@@ -15,7 +15,7 @@ void Menu::init() {
 
     while (!Menu::exitApplication) {
 
-        int option = Menu::showInitialMenu("Bogos Binted");
+        int option = Menu::showInitialMenu(Airline::getInstance().getName());
 
         std::cout << std::string(100, '\n');
 
@@ -135,9 +135,9 @@ int Menu::showInitialMenu(const std::string& airlineName) {
 
 void Menu::endProgram() {
     std::cout << "Program terminated, see you soon :) [press ENTER to quit]" << std::endl;
-    if (std::cin.peek() == '\n') std::cin.ignore(100, '\n'); // 100 chars should be enought to ignore
+    if (std::cin.peek() == '\n') std::cin.ignore(100, '\n'); // 100 chars should be enough to ignore
 }
 
 void Menu::listFlights() {
-
+    Airline::getInstance().listCurrentFlights(); // generate the call in menu, delegate it to Airline
 }

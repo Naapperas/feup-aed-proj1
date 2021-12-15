@@ -1,0 +1,289 @@
+\hypertarget{class_b_s_t}{}\doxysection{BST\texorpdfstring{$<$}{<} Comparable \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_b_s_t}\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_b_s_t_a3185a79cf472271f122a97d0f59022d1}{BST}} (const Comparable \&not\+Found)
+\item 
+\mbox{\hyperlink{class_b_s_t_a163232cc6ffcbd1a51707efcc3fa36ca}{BST}} (const \mbox{\hyperlink{class_b_s_t}{BST}} \&rhs)
+\item 
+const Comparable \& \mbox{\hyperlink{class_b_s_t_aa52491ff35aec517961937a17a9fa493}{find\+Min}} () const
+\item 
+const Comparable \& \mbox{\hyperlink{class_b_s_t_a03485f3b0b150f1e69a12c28d26d8092}{find\+Max}} () const
+\item 
+const Comparable \& \mbox{\hyperlink{class_b_s_t_aaf4eb6869f68db0069534f7b2dfbe53b}{find}} (const Comparable \&x) const
+\item 
+bool \mbox{\hyperlink{class_b_s_t_a10fd737b2be62437023407fdc123f728}{is\+Empty}} () const
+\item 
+void \mbox{\hyperlink{class_b_s_t_a91e830925c48040d4c4dbb7d971c3bfe}{print\+Tree}} () const
+\item 
+void \mbox{\hyperlink{class_b_s_t_a050d829503a88714c4ad0773cf6d3af6}{make\+Empty}} ()
+\item 
+bool \mbox{\hyperlink{class_b_s_t_aea895bc48c9533dfcd2e01d227e01f33}{insert}} (const Comparable \&x)
+\item 
+bool \mbox{\hyperlink{class_b_s_t_a63a3529c7070687c4a3e5a417c625715}{remove}} (const Comparable \&x)
+\item 
+const \mbox{\hyperlink{class_b_s_t}{BST}} \& \mbox{\hyperlink{class_b_s_t_aa80c39f454c89d4a202be3d1445823f3}{operator=}} (const \mbox{\hyperlink{class_b_s_t}{BST}} \&rhs)
+\item 
+\mbox{\hyperlink{classiterator_b_s_t}{iterator\+BST}}$<$ Comparable $>$ \mbox{\hyperlink{class_b_s_t_af6fa3f43aa69a00d21d206af7aef1df2}{begin}} () const
+\item 
+\mbox{\hyperlink{classiterator_b_s_t}{iterator\+BST}}$<$ Comparable $>$ \mbox{\hyperlink{class_b_s_t_ad82db657678438b8f76f328e1b5016f3}{end}} () const
+\item 
+int \mbox{\hyperlink{class_b_s_t_ab1508dacbb3eb2e76b26192b37fbd2f6}{size}} (const Comparable \&el) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_b_s_t_aab3993acac2ab24a0b59edb0c3acc775}{BSTItr\+In$<$ Comparable $>$}}
+\item 
+class \mbox{\hyperlink{class_b_s_t_a45a55df6f11541416d4ea7684c575c1a}{BSTItr\+Pre$<$ Comparable $>$}}
+\item 
+class \mbox{\hyperlink{class_b_s_t_a5dc153694be266f6e772659486219da7}{BSTItr\+Post$<$ Comparable $>$}}
+\item 
+class \mbox{\hyperlink{class_b_s_t_a26ff00bc0d87069aed877f10fd3c80a8}{BSTItr\+Level$<$ Comparable $>$}}
+\item 
+class \mbox{\hyperlink{class_b_s_t_a278ee25d21f1cfa6df9566723aaaaab5}{iterator\+BST$<$ Comparable $>$}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class Comparable$>$\newline
+class BST$<$ Comparable $>$}
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00031}{31}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_b_s_t_a3185a79cf472271f122a97d0f59022d1}\label{class_b_s_t_a3185a79cf472271f122a97d0f59022d1}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!BST@{BST}}
+\index{BST@{BST}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{BST()}{BST()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+\mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$\+::\mbox{\hyperlink{class_b_s_t}{BST}} (\begin{DoxyParamCaption}\item[{const Comparable \&}]{not\+Found }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00070}{70}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+\mbox{\Hypertarget{class_b_s_t_a163232cc6ffcbd1a51707efcc3fa36ca}\label{class_b_s_t_a163232cc6ffcbd1a51707efcc3fa36ca}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!BST@{BST}}
+\index{BST@{BST}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{BST()}{BST()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+\mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$\+::\mbox{\hyperlink{class_b_s_t}{BST}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00074}{74}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+\mbox{\Hypertarget{class_b_s_t_abf3125f968641c8726101c5dd18f36be}\label{class_b_s_t_abf3125f968641c8726101c5dd18f36be}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!````~BST@{$\sim$BST}}
+\index{````~BST@{$\sim$BST}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$BST()}{~BST()}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+\mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$\+::$\sim$\mbox{\hyperlink{class_b_s_t}{BST}}}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00079}{79}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_b_s_t_af6fa3f43aa69a00d21d206af7aef1df2}\label{class_b_s_t_af6fa3f43aa69a00d21d206af7aef1df2}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!begin@{begin}}
+\index{begin@{begin}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+\mbox{\hyperlink{classiterator_b_s_t}{iterator\+BST}}$<$ Comparable $>$ \mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$\+::begin}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00137}{137}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+\mbox{\Hypertarget{class_b_s_t_ad82db657678438b8f76f328e1b5016f3}\label{class_b_s_t_ad82db657678438b8f76f328e1b5016f3}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!end@{end}}
+\index{end@{end}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+\mbox{\hyperlink{classiterator_b_s_t}{iterator\+BST}}$<$ Comparable $>$ \mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$\+::end}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00144}{144}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+\mbox{\Hypertarget{class_b_s_t_aaf4eb6869f68db0069534f7b2dfbe53b}\label{class_b_s_t_aaf4eb6869f68db0069534f7b2dfbe53b}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!find@{find}}
+\index{find@{find}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+const Comparable \& \mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$\+::find (\begin{DoxyParamCaption}\item[{const Comparable \&}]{x }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00104}{104}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+\mbox{\Hypertarget{class_b_s_t_a03485f3b0b150f1e69a12c28d26d8092}\label{class_b_s_t_a03485f3b0b150f1e69a12c28d26d8092}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!findMax@{findMax}}
+\index{findMax@{findMax}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{findMax()}{findMax()}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+const Comparable \& \mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$\+::find\+Max}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00099}{99}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+\mbox{\Hypertarget{class_b_s_t_aa52491ff35aec517961937a17a9fa493}\label{class_b_s_t_aa52491ff35aec517961937a17a9fa493}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!findMin@{findMin}}
+\index{findMin@{findMin}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{findMin()}{findMin()}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+const Comparable \& \mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$\+::find\+Min}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00094}{94}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+\mbox{\Hypertarget{class_b_s_t_aea895bc48c9533dfcd2e01d227e01f33}\label{class_b_s_t_aea895bc48c9533dfcd2e01d227e01f33}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!insert@{insert}}
+\index{insert@{insert}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+bool \mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$\+::insert (\begin{DoxyParamCaption}\item[{const Comparable \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00084}{84}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+\mbox{\Hypertarget{class_b_s_t_a10fd737b2be62437023407fdc123f728}\label{class_b_s_t_a10fd737b2be62437023407fdc123f728}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+bool \mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$\+::is\+Empty}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00114}{114}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+\mbox{\Hypertarget{class_b_s_t_a050d829503a88714c4ad0773cf6d3af6}\label{class_b_s_t_a050d829503a88714c4ad0773cf6d3af6}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!makeEmpty@{makeEmpty}}
+\index{makeEmpty@{makeEmpty}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{makeEmpty()}{makeEmpty()}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+void \mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$\+::make\+Empty}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00109}{109}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+\mbox{\Hypertarget{class_b_s_t_aa80c39f454c89d4a202be3d1445823f3}\label{class_b_s_t_aa80c39f454c89d4a202be3d1445823f3}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+const \mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$ \& \mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00128}{128}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+\mbox{\Hypertarget{class_b_s_t_a91e830925c48040d4c4dbb7d971c3bfe}\label{class_b_s_t_a91e830925c48040d4c4dbb7d971c3bfe}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!printTree@{printTree}}
+\index{printTree@{printTree}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{printTree()}{printTree()}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+void \mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$\+::print\+Tree}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00120}{120}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+\mbox{\Hypertarget{class_b_s_t_a63a3529c7070687c4a3e5a417c625715}\label{class_b_s_t_a63a3529c7070687c4a3e5a417c625715}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!remove@{remove}}
+\index{remove@{remove}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+bool \mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$\+::remove (\begin{DoxyParamCaption}\item[{const Comparable \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00089}{89}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+\mbox{\Hypertarget{class_b_s_t_ab1508dacbb3eb2e76b26192b37fbd2f6}\label{class_b_s_t_ab1508dacbb3eb2e76b26192b37fbd2f6}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!size@{size}}
+\index{size@{size}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+int \mbox{\hyperlink{class_b_s_t}{BST}}$<$ Comparable $>$\+::size (\begin{DoxyParamCaption}\item[{const Comparable \&}]{el }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00153}{153}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_b_s_t_aab3993acac2ab24a0b59edb0c3acc775}\label{class_b_s_t_aab3993acac2ab24a0b59edb0c3acc775}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!BSTItrIn$<$ Comparable $>$@{BSTItrIn$<$ Comparable $>$}}
+\index{BSTItrIn$<$ Comparable $>$@{BSTItrIn$<$ Comparable $>$}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{BSTItrIn$<$ Comparable $>$}{BSTItrIn< Comparable >}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+friend class \mbox{\hyperlink{class_b_s_t_itr_in}{BSTItr\+In}}$<$ Comparable $>$\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00043}{43}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+\mbox{\Hypertarget{class_b_s_t_a26ff00bc0d87069aed877f10fd3c80a8}\label{class_b_s_t_a26ff00bc0d87069aed877f10fd3c80a8}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!BSTItrLevel$<$ Comparable $>$@{BSTItrLevel$<$ Comparable $>$}}
+\index{BSTItrLevel$<$ Comparable $>$@{BSTItrLevel$<$ Comparable $>$}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{BSTItrLevel$<$ Comparable $>$}{BSTItrLevel< Comparable >}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+friend class \mbox{\hyperlink{class_b_s_t_itr_level}{BSTItr\+Level}}$<$ Comparable $>$\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00043}{43}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+\mbox{\Hypertarget{class_b_s_t_a5dc153694be266f6e772659486219da7}\label{class_b_s_t_a5dc153694be266f6e772659486219da7}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!BSTItrPost$<$ Comparable $>$@{BSTItrPost$<$ Comparable $>$}}
+\index{BSTItrPost$<$ Comparable $>$@{BSTItrPost$<$ Comparable $>$}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{BSTItrPost$<$ Comparable $>$}{BSTItrPost< Comparable >}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+friend class \mbox{\hyperlink{class_b_s_t_itr_post}{BSTItr\+Post}}$<$ Comparable $>$\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00043}{43}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+\mbox{\Hypertarget{class_b_s_t_a45a55df6f11541416d4ea7684c575c1a}\label{class_b_s_t_a45a55df6f11541416d4ea7684c575c1a}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!BSTItrPre$<$ Comparable $>$@{BSTItrPre$<$ Comparable $>$}}
+\index{BSTItrPre$<$ Comparable $>$@{BSTItrPre$<$ Comparable $>$}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{BSTItrPre$<$ Comparable $>$}{BSTItrPre< Comparable >}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+friend class \mbox{\hyperlink{class_b_s_t_itr_pre}{BSTItr\+Pre}}$<$ Comparable $>$\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00043}{43}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+\mbox{\Hypertarget{class_b_s_t_a278ee25d21f1cfa6df9566723aaaaab5}\label{class_b_s_t_a278ee25d21f1cfa6df9566723aaaaab5}} 
+\index{BST$<$ Comparable $>$@{BST$<$ Comparable $>$}!iteratorBST$<$ Comparable $>$@{iteratorBST$<$ Comparable $>$}}
+\index{iteratorBST$<$ Comparable $>$@{iteratorBST$<$ Comparable $>$}!BST$<$ Comparable $>$@{BST$<$ Comparable $>$}}
+\doxysubsubsection{\texorpdfstring{iteratorBST$<$ Comparable $>$}{iteratorBST< Comparable >}}
+{\footnotesize\ttfamily template$<$class Comparable $>$ \\
+friend class \mbox{\hyperlink{classiterator_b_s_t}{iterator\+BST}}$<$ Comparable $>$\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{bst_8h_source_l00043}{43}} of file \mbox{\hyperlink{bst_8h_source}{bst.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+includes/bst.\+h\end{DoxyCompactItemize}

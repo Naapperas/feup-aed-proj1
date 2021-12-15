@@ -20,6 +20,8 @@ class Airline {
         std::vector<Flight> upcomingFlights;
 
         std::string airlineName;
+
+        static Airline* instance;
     public:
         explicit Airline(const std::string& name);
 
@@ -29,6 +31,27 @@ class Airline {
 
         bool addFlightsToPlane(const Plane& plane, const std::list<Flight>& flights);
 
+        static void setInstance(Airline* instance) {
+
+            std::cout << instance << std::endl;
+
+            if (Airline::instance == NULL)
+                Airline::instance = instance;
+        }
+
+        static Airline getInstance() {
+
+            if (Airline::instance == NULL)
+                throw std::string("Error");
+
+            return *Airline::instance;
+        }
+
+        void listCurrentFlights() const;
+
+        const std::string& getName() const {
+            return this->airlineName;
+        }
 };
 
 

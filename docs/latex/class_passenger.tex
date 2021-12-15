@@ -1,0 +1,124 @@
+\hypertarget{class_passenger}{}\doxysection{Passenger Class Reference}
+\label{class_passenger}\index{Passenger@{Passenger}}
+
+
+{\ttfamily \#include $<$passenger.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_passenger_a9410c1aaf8354d4c0582b3792d71df43}{Passenger}} (const std\+::string \&name, unsigned age)
+\item 
+\mbox{\hyperlink{class_passenger_ae7a567fcd89304f9835936552c13eee5}{Passenger}} (const std\+::string \&name, unsigned age, const \mbox{\hyperlink{class_luggage}{Luggage}} \&luggage)
+\item 
+std\+::string \mbox{\hyperlink{class_passenger_a7c919f6947817ff1c6a4ee51923c116f}{get\+Name}} () const
+\item 
+unsigned \mbox{\hyperlink{class_passenger_a428f19c2333d85cff5cc7e2be98479e5}{get\+Age}} () const
+\item 
+const \mbox{\hyperlink{class_luggage}{Luggage}} \& \mbox{\hyperlink{class_passenger_ad32b55e5f44987d6c563f46ee7728c34}{get\+Luggage}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a passenger of the airline. 
+
+Definition at line \mbox{\hyperlink{passenger_8h_source_l00015}{15}} of file \mbox{\hyperlink{passenger_8h_source}{passenger.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_passenger_a9410c1aaf8354d4c0582b3792d71df43}\label{class_passenger_a9410c1aaf8354d4c0582b3792d71df43}} 
+\index{Passenger@{Passenger}!Passenger@{Passenger}}
+\index{Passenger@{Passenger}!Passenger@{Passenger}}
+\doxysubsubsection{\texorpdfstring{Passenger()}{Passenger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Passenger\+::\+Passenger (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{unsigned}]{age }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a passenger without luggage.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of this passenger \\
+\hline
+{\em age} & the age of this passenger \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{passenger_8h_source_l00028}{28}} of file \mbox{\hyperlink{passenger_8h_source}{passenger.\+h}}.
+
+\mbox{\Hypertarget{class_passenger_ae7a567fcd89304f9835936552c13eee5}\label{class_passenger_ae7a567fcd89304f9835936552c13eee5}} 
+\index{Passenger@{Passenger}!Passenger@{Passenger}}
+\index{Passenger@{Passenger}!Passenger@{Passenger}}
+\doxysubsubsection{\texorpdfstring{Passenger()}{Passenger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Passenger\+::\+Passenger (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{unsigned}]{age,  }\item[{const \mbox{\hyperlink{class_luggage}{Luggage}} \&}]{luggage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a passenger witrh the given luggage.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of this passenger \\
+\hline
+{\em age} & the age of this passenger \\
+\hline
+{\em luggage} & the luggage owned by this passenger \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{passenger_8h_source_l00037}{37}} of file \mbox{\hyperlink{passenger_8h_source}{passenger.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_passenger_a428f19c2333d85cff5cc7e2be98479e5}\label{class_passenger_a428f19c2333d85cff5cc7e2be98479e5}} 
+\index{Passenger@{Passenger}!getAge@{getAge}}
+\index{getAge@{getAge}!Passenger@{Passenger}}
+\doxysubsubsection{\texorpdfstring{getAge()}{getAge()}}
+{\footnotesize\ttfamily unsigned Passenger\+::get\+Age (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the age of this passenger.
+
+\begin{DoxyReturn}{Returns}
+the age of this passenger 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{passenger_8h_source_l00055}{55}} of file \mbox{\hyperlink{passenger_8h_source}{passenger.\+h}}.
+
+\mbox{\Hypertarget{class_passenger_ad32b55e5f44987d6c563f46ee7728c34}\label{class_passenger_ad32b55e5f44987d6c563f46ee7728c34}} 
+\index{Passenger@{Passenger}!getLuggage@{getLuggage}}
+\index{getLuggage@{getLuggage}!Passenger@{Passenger}}
+\doxysubsubsection{\texorpdfstring{getLuggage()}{getLuggage()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_luggage}{Luggage}} \& Passenger\+::get\+Luggage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the luggage owned by this pasenger.
+
+Note\+: since the default constructor for \mbox{\hyperlink{class_luggage}{Luggage}} is called if no luggage is present in
+
+\begin{DoxyReturn}{Returns}
+the luggage owned by this passenger 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{passenger_8h_source_l00066}{66}} of file \mbox{\hyperlink{passenger_8h_source}{passenger.\+h}}.
+
+\mbox{\Hypertarget{class_passenger_a7c919f6947817ff1c6a4ee51923c116f}\label{class_passenger_a7c919f6947817ff1c6a4ee51923c116f}} 
+\index{Passenger@{Passenger}!getName@{getName}}
+\index{getName@{getName}!Passenger@{Passenger}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Passenger\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the name of this passenger.
+
+\begin{DoxyReturn}{Returns}
+the name of this passenger 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{passenger_8h_source_l00046}{46}} of file \mbox{\hyperlink{passenger_8h_source}{passenger.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+includes/passenger.\+h\end{DoxyCompactItemize}

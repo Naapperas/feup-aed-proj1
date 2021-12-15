@@ -1,0 +1,87 @@
+\hypertarget{class_flight_plan}{}\doxysection{Flight\+Plan Class Reference}
+\label{class_flight_plan}\index{FlightPlan@{FlightPlan}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_flight_plan_a48a77bfb9e45eb28871ed0a2c96894a7}{Flight\+Plan}} (const \mbox{\hyperlink{class_plane}{Plane}} \&p)
+\item 
+bool \mbox{\hyperlink{class_flight_plan_af11c78546d71519ebb65cb85e88749de}{add\+Flight\+To\+Plan}} (const \mbox{\hyperlink{class_flight}{Flight}} \&f)
+\item 
+void \mbox{\hyperlink{class_flight_plan_ac434ebf89556221519bbfe0bc482587c}{perform\+Flight}} ()
+\item 
+const \mbox{\hyperlink{class_plane}{Plane}} \& \mbox{\hyperlink{class_flight_plan_a27c169dc3e26896d527f412d3b93a632}{get\+Plane}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{airport_8h_source_l00015}{15}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_flight_plan_a48a77bfb9e45eb28871ed0a2c96894a7}\label{class_flight_plan_a48a77bfb9e45eb28871ed0a2c96894a7}} 
+\index{FlightPlan@{FlightPlan}!FlightPlan@{FlightPlan}}
+\index{FlightPlan@{FlightPlan}!FlightPlan@{FlightPlan}}
+\doxysubsubsection{\texorpdfstring{FlightPlan()}{FlightPlan()}}
+{\footnotesize\ttfamily Flight\+Plan\+::\+Flight\+Plan (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_plane}{Plane}} \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{airport_8h_source_l00019}{19}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_flight_plan_af11c78546d71519ebb65cb85e88749de}\label{class_flight_plan_af11c78546d71519ebb65cb85e88749de}} 
+\index{FlightPlan@{FlightPlan}!addFlightToPlan@{addFlightToPlan}}
+\index{addFlightToPlan@{addFlightToPlan}!FlightPlan@{FlightPlan}}
+\doxysubsubsection{\texorpdfstring{addFlightToPlan()}{addFlightToPlan()}}
+{\footnotesize\ttfamily bool Flight\+Plan\+::add\+Flight\+To\+Plan (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_flight}{Flight}} \&}]{f }\end{DoxyParamCaption})}
+
+Adds a flight to this plane\textquotesingle{}s flight\+Plan if it is not already present.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & the flight to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false if the flight already existed in the planes flight\+Plan, true otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+
+\mbox{\Hypertarget{class_flight_plan_a27c169dc3e26896d527f412d3b93a632}\label{class_flight_plan_a27c169dc3e26896d527f412d3b93a632}} 
+\index{FlightPlan@{FlightPlan}!getPlane@{getPlane}}
+\index{getPlane@{getPlane}!FlightPlan@{FlightPlan}}
+\doxysubsubsection{\texorpdfstring{getPlane()}{getPlane()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_plane}{Plane}} \& Flight\+Plan\+::get\+Plane (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the plane associated with this flight\+Plan.
+
+\begin{DoxyReturn}{Returns}
+the plane associated with this flight\+Plan 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{airport_8h_source_l00041}{41}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+
+\mbox{\Hypertarget{class_flight_plan_ac434ebf89556221519bbfe0bc482587c}\label{class_flight_plan_ac434ebf89556221519bbfe0bc482587c}} 
+\index{FlightPlan@{FlightPlan}!performFlight@{performFlight}}
+\index{performFlight@{performFlight}!FlightPlan@{FlightPlan}}
+\doxysubsubsection{\texorpdfstring{performFlight()}{performFlight()}}
+{\footnotesize\ttfamily void Flight\+Plan\+::perform\+Flight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Performs the first flight in the flight\+Plan 
+
+Definition at line \mbox{\hyperlink{airport_8h_source_l00032}{32}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+includes/airport.\+h\item 
+src/airport.\+cpp\end{DoxyCompactItemize}

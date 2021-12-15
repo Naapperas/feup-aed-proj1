@@ -1,0 +1,98 @@
+\hypertarget{plane_8h_source}{}\doxysection{plane.\+h}
+\label{plane_8h_source}\index{includes/plane.h@{includes/plane.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00002}00002 \textcolor{comment}{// Created by naapperas on 01/12/21.}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00005}00005 \textcolor{preprocessor}{\#ifndef AED2122PROJ\_PLANE\_H}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00006}00006 \textcolor{preprocessor}{\#define AED2122PROJ\_PLANE\_H}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00008}00008 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00009}00009 \textcolor{preprocessor}{\#include <deque>}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00010}00010 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00011}00011 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00012}00012 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00013}00013 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00014}00014 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}passenger.h"{}}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00017}00017 \textcolor{preprocessor}{\#include "{}luggage.h"{}}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00022}\mbox{\hyperlink{class_cleaning_service}{00022}} \textcolor{keyword}{class }\mbox{\hyperlink{class_cleaning_service}{CleaningService}} \{}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00024}00024     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00025}00025         \textcolor{keyword}{enum} ServiceType \{}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00026}00026             MAINTENANCE,}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00027}00027             CLEANING}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00028}00028         \};}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00029}00029     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00030}00030         ServiceType serviceType;}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00031}00031         std::string serviceDate, employee;}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00032}00032         \textcolor{keyword}{static} \textcolor{keyword}{const} std::vector<std::string> typePrint;}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00033}00033         \textcolor{keyword}{friend} std::ostream\& operator <<(std::ostream\& out ,\textcolor{keyword}{const} \mbox{\hyperlink{class_cleaning_service}{CleaningService}} \& a);}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00034}00034     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00035}00035         \mbox{\hyperlink{class_cleaning_service}{CleaningService}}(ServiceType serviceType, \textcolor{keyword}{const} std::string\& serviceDate, \textcolor{keyword}{const} std::string\& employee) :}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00036}00036         serviceType(serviceType), serviceDate(serviceDate), employee(employee) \{\}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00038}00038 \};}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00043}\mbox{\hyperlink{class_plane}{00043}} \textcolor{keyword}{class }\mbox{\hyperlink{class_plane}{Plane}} \{}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00045}00045         std::string type, plate;}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00046}00046         \textcolor{keywordtype}{unsigned} capacity, cargoCapacity;}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00048}00048         std::deque<CleaningService> upcomingCleaningTasks, pastCleaningTasks;}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00050}00050         \textcolor{comment}{// this should provide fast insertion removal (simulating transporting passengers + cargo, we don't care about searching them)}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00051}00051         std::list<Passenger> planePassengers;}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00052}00052         std::list<Luggage> planeLuggage;}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00058}00058         \textcolor{keywordtype}{void} deleteRegisterCleaningService(\textcolor{keyword}{const} \mbox{\hyperlink{class_cleaning_service}{CleaningService}}\& service);}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00060}00060         \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& a, \textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& b);}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00061}00061         \textcolor{keyword}{friend} std::ostream\& operator <<(std::ostream\& out ,\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& a);}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00062}00062     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00071}\mbox{\hyperlink{class_plane_a9295dc3e1e74b78b26d2e4dba5a3bfc7}{00071}}         \mbox{\hyperlink{class_plane_a9295dc3e1e74b78b26d2e4dba5a3bfc7}{Plane}}(\textcolor{keyword}{const} std::string\& type, \textcolor{keyword}{const} std::string\& planePlate, \textcolor{keywordtype}{unsigned} planeCapacity, \textcolor{keywordtype}{unsigned} cargoCapcity) : type(type), plate(planePlate), capacity(planeCapacity), cargoCapacity(cargoCapcity) \{\}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00072}00072 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00078}\mbox{\hyperlink{class_plane_a7aef7cb9a53571038a165f81c110100b}{00078}}         \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_plane_a7aef7cb9a53571038a165f81c110100b}{getType}}() \{}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00079}00079             \textcolor{keywordflow}{return} type;}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00080}00080         \}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00087}\mbox{\hyperlink{class_plane_aaa9ae99225a188f5bff84681c53530ee}{00087}}         \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_plane_aaa9ae99225a188f5bff84681c53530ee}{getPlate}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00088}00088             \textcolor{keywordflow}{return} plate;}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00089}00089         \}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00090}00090 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00096}\mbox{\hyperlink{class_plane_a861dbfdf67839656d47d3179463bab77}{00096}}         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_plane_a861dbfdf67839656d47d3179463bab77}{getCapacity}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00097}00097             \textcolor{keywordflow}{return} capacity;}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00098}00098         \}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00105}\mbox{\hyperlink{class_plane_a179c8af0de17ca32360a9e7486140eff}{00105}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plane_a179c8af0de17ca32360a9e7486140eff}{addCleaningService}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_cleaning_service}{CleaningService}}\& cleaningService) \{}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00106}00106             upcomingCleaningTasks.push\_back(cleaningService);}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00107}00107         \}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00108}00108 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00114}\mbox{\hyperlink{class_plane_abb41931bc67ceaba0110b30c12dda98a}{00114}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plane_abb41931bc67ceaba0110b30c12dda98a}{registerCleaningservice}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_cleaning_service}{CleaningService}}\& cleaningService)\{}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00115}00115             std::ofstream serviceFile\{\textcolor{stringliteral}{"{}cleaning.txt"{}}\};}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00116}00116             serviceFile  << this-\/>plate <<  \textcolor{stringliteral}{"{} "{}} << cleaningService;}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00117}00117         \}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00118}00118 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00122}\mbox{\hyperlink{class_plane_aebaeb04e9f717fc465a1f6c65e65eac6}{00122}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plane_aebaeb04e9f717fc465a1f6c65e65eac6}{finishedCleaningService}}() \{}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00123}00123             pastCleaningTasks.push\_back(upcomingCleaningTasks.front()); \textcolor{comment}{// archive finished cleaning/maintenence service}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00124}00124             deleteRegisterCleaningService(upcomingCleaningTasks.front()); \textcolor{comment}{// delete finished service from file}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00125}00125             upcomingCleaningTasks.pop\_front(); \textcolor{comment}{// erase from deque}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00126}00126         \}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00127}00127 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00128}00128 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00129}00129         \textcolor{keywordtype}{void} addLuggage(\textcolor{keyword}{const} \mbox{\hyperlink{class_luggage}{Luggage}}\& planeLuggage);}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00130}00130         \textcolor{keywordtype}{void} addPassenger(\textcolor{keyword}{const} \mbox{\hyperlink{class_passenger}{Passenger}}\& passenger);}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00131}00131 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00137}00137         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plane_ab208f2e9b4e8f123c9b942784a3a68e8}{boardPassengers}}(std::vector<Passenger>\& passengers);}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00138}00138 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00142}00142         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plane_af75c167a714bb7bee09837862f5d4b14}{unboardPassengers}}();}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00144}00144 \};}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00145}00145 }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00146}00146 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AED2122PROJ\_PLANE\_H}}
+
+\end{DoxyCode}

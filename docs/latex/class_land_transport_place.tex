@@ -1,0 +1,195 @@
+\hypertarget{class_land_transport_place}{}\doxysection{Land\+Transport\+Place Class Reference}
+\label{class_land_transport_place}\index{LandTransportPlace@{LandTransportPlace}}
+
+
+{\ttfamily \#include $<$airport.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries Type\+Of\+Transport} \{ {\bfseries SUBWAY}
+, {\bfseries TRAIN}
+, {\bfseries BUS}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_land_transport_place_ae31477b22a3b872a254d3ae8b2253a55}{Land\+Transport\+Place}} (Type\+Of\+Transport type, unsigned distance, const std\+::string \&open\+Time, const std\+::string \&close\+Time)
+\item 
+Type\+Of\+Transport \mbox{\hyperlink{class_land_transport_place_acf6598458361bf2168e84786d331cf3a}{get\+Type}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_land_transport_place_ae5cdbaaa0de39dc301a5f4de7b1a247d}{get\+Type\+String}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_land_transport_place_a591b6d2f3dab577444be409513f93501}{get\+Distance}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_land_transport_place_aee13a3da70dee2890ad232548b846e8a}{get\+Open\+Time}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_land_transport_place_aa7a26c78089ec3a52c252e6c0b424b40}{get\+Close\+Time}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_land_transport_place_a6621b14506e05b72e9596b9503c9b5f7}{type\+Print}} = \{\char`\"{}Subway\char`\"{}, \char`\"{}Train\char`\"{}, \char`\"{}Bus\char`\"{}\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_land_transport_place_a4ec362cfb7a3d538ca2dec06369abad7}{operator$<$}} (const \mbox{\hyperlink{class_land_transport_place}{Land\+Transport\+Place}} \&a, const \mbox{\hyperlink{class_land_transport_place}{Land\+Transport\+Place}} \&b)
+\item 
+ostream \& \mbox{\hyperlink{class_land_transport_place_ae4dc084139123eec39ba8437e76b29f1}{operator$<$$<$}} (ostream \&out, const \mbox{\hyperlink{class_land_transport_place}{Land\+Transport\+Place}} \&a)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a land transport (subway, train, bus) near an airport An object of \mbox{\hyperlink{class_land_transport_place}{Land\+Transport\+Place}} is relative to only one \mbox{\hyperlink{class_airport}{Airport}} (if there are two airports close to each other, and both are close to a local train station, each one keeps their own \mbox{\hyperlink{class_land_transport_place}{Land\+Transport\+Place}} for that train station, mainly because of the different distances to each airport) 
+
+Definition at line \mbox{\hyperlink{airport_8h_source_l00052}{52}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_land_transport_place_af7be30afdef691e0a59afb5ab64306ae}\label{class_land_transport_place_af7be30afdef691e0a59afb5ab64306ae}} 
+\index{LandTransportPlace@{LandTransportPlace}!TypeOfTransport@{TypeOfTransport}}
+\index{TypeOfTransport@{TypeOfTransport}!LandTransportPlace@{LandTransportPlace}}
+\doxysubsubsection{\texorpdfstring{TypeOfTransport}{TypeOfTransport}}
+{\footnotesize\ttfamily enum Land\+Transport\+Place\+::\+Type\+Of\+Transport}
+
+
+
+Definition at line \mbox{\hyperlink{airport_8h_source_l00054}{54}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_land_transport_place_ae31477b22a3b872a254d3ae8b2253a55}\label{class_land_transport_place_ae31477b22a3b872a254d3ae8b2253a55}} 
+\index{LandTransportPlace@{LandTransportPlace}!LandTransportPlace@{LandTransportPlace}}
+\index{LandTransportPlace@{LandTransportPlace}!LandTransportPlace@{LandTransportPlace}}
+\doxysubsubsection{\texorpdfstring{LandTransportPlace()}{LandTransportPlace()}}
+{\footnotesize\ttfamily Land\+Transport\+Place\+::\+Land\+Transport\+Place (\begin{DoxyParamCaption}\item[{Type\+Of\+Transport}]{type,  }\item[{unsigned}]{distance,  }\item[{const std\+::string \&}]{open\+Time,  }\item[{const std\+::string \&}]{close\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new \mbox{\hyperlink{class_land_transport_place}{Land\+Transport\+Place}} 
+\begin{DoxyParams}{Parameters}
+{\em type} & Type of transport (SUBWAY, TRAIN or BUS) \\
+\hline
+{\em distance} & Distance from the nearby airport \\
+\hline
+{\em open\+Time} & Time of first departure (first train leaving at 6\+:00 for example) \\
+\hline
+{\em close\+Time} & Time of last departure (last bus leaving at 23\+:00 for example) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{airport_8h_source_l00077}{77}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_land_transport_place_aa7a26c78089ec3a52c252e6c0b424b40}\label{class_land_transport_place_aa7a26c78089ec3a52c252e6c0b424b40}} 
+\index{LandTransportPlace@{LandTransportPlace}!getCloseTime@{getCloseTime}}
+\index{getCloseTime@{getCloseTime}!LandTransportPlace@{LandTransportPlace}}
+\doxysubsubsection{\texorpdfstring{getCloseTime()}{getCloseTime()}}
+{\footnotesize\ttfamily std\+::string Land\+Transport\+Place\+::get\+Close\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return this place\textquotesingle{}s close time (time of last departure) \begin{DoxyReturn}{Returns}
+this place\textquotesingle{}s close time (time of last departure) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{airport_8h_source_l00115}{115}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+
+\mbox{\Hypertarget{class_land_transport_place_a591b6d2f3dab577444be409513f93501}\label{class_land_transport_place_a591b6d2f3dab577444be409513f93501}} 
+\index{LandTransportPlace@{LandTransportPlace}!getDistance@{getDistance}}
+\index{getDistance@{getDistance}!LandTransportPlace@{LandTransportPlace}}
+\doxysubsubsection{\texorpdfstring{getDistance()}{getDistance()}}
+{\footnotesize\ttfamily unsigned int Land\+Transport\+Place\+::get\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return this place\textquotesingle{}s distance to it\textquotesingle{}s nearby airport \begin{DoxyReturn}{Returns}
+this place\textquotesingle{}s distance to it\textquotesingle{}s nearby airport 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{airport_8h_source_l00099}{99}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+
+\mbox{\Hypertarget{class_land_transport_place_aee13a3da70dee2890ad232548b846e8a}\label{class_land_transport_place_aee13a3da70dee2890ad232548b846e8a}} 
+\index{LandTransportPlace@{LandTransportPlace}!getOpenTime@{getOpenTime}}
+\index{getOpenTime@{getOpenTime}!LandTransportPlace@{LandTransportPlace}}
+\doxysubsubsection{\texorpdfstring{getOpenTime()}{getOpenTime()}}
+{\footnotesize\ttfamily std\+::string Land\+Transport\+Place\+::get\+Open\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return this place\textquotesingle{}s open time (time of first departure) \begin{DoxyReturn}{Returns}
+this place\textquotesingle{}s open time (time of first departure) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{airport_8h_source_l00107}{107}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+
+\mbox{\Hypertarget{class_land_transport_place_acf6598458361bf2168e84786d331cf3a}\label{class_land_transport_place_acf6598458361bf2168e84786d331cf3a}} 
+\index{LandTransportPlace@{LandTransportPlace}!getType@{getType}}
+\index{getType@{getType}!LandTransportPlace@{LandTransportPlace}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily Type\+Of\+Transport Land\+Transport\+Place\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return this place\textquotesingle{}s transport type (SUBWAY, TRAIN or BUS) \begin{DoxyReturn}{Returns}
+this place\textquotesingle{}s transport type (SUBWAY, TRAIN or BUS) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{airport_8h_source_l00083}{83}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+
+\mbox{\Hypertarget{class_land_transport_place_ae5cdbaaa0de39dc301a5f4de7b1a247d}\label{class_land_transport_place_ae5cdbaaa0de39dc301a5f4de7b1a247d}} 
+\index{LandTransportPlace@{LandTransportPlace}!getTypeString@{getTypeString}}
+\index{getTypeString@{getTypeString}!LandTransportPlace@{LandTransportPlace}}
+\doxysubsubsection{\texorpdfstring{getTypeString()}{getTypeString()}}
+{\footnotesize\ttfamily std\+::string Land\+Transport\+Place\+::get\+Type\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return this place\textquotesingle{}s transport type as a string (the corresponding strings to each type are stored in type\+Print) \begin{DoxyReturn}{Returns}
+this place\textquotesingle{}s transport type as a string 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{airport_8h_source_l00091}{91}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_land_transport_place_a4ec362cfb7a3d538ca2dec06369abad7}\label{class_land_transport_place_a4ec362cfb7a3d538ca2dec06369abad7}} 
+\index{LandTransportPlace@{LandTransportPlace}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!LandTransportPlace@{LandTransportPlace}}
+\doxysubsubsection{\texorpdfstring{operator$<$}{operator<}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_land_transport_place}{Land\+Transport\+Place}} \&}]{a,  }\item[{const \mbox{\hyperlink{class_land_transport_place}{Land\+Transport\+Place}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00159}{159}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+
+\mbox{\Hypertarget{class_land_transport_place_ae4dc084139123eec39ba8437e76b29f1}\label{class_land_transport_place_ae4dc084139123eec39ba8437e76b29f1}} 
+\index{LandTransportPlace@{LandTransportPlace}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!LandTransportPlace@{LandTransportPlace}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_land_transport_place}{Land\+Transport\+Place}} \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00163}{163}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_land_transport_place_a6621b14506e05b72e9596b9503c9b5f7}\label{class_land_transport_place_a6621b14506e05b72e9596b9503c9b5f7}} 
+\index{LandTransportPlace@{LandTransportPlace}!typePrint@{typePrint}}
+\index{typePrint@{typePrint}!LandTransportPlace@{LandTransportPlace}}
+\doxysubsubsection{\texorpdfstring{typePrint}{typePrint}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::string $>$ Land\+Transport\+Place\+::type\+Print = \{\char`\"{}Subway\char`\"{}, \char`\"{}Train\char`\"{}, \char`\"{}Bus\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{airport_8h_source_l00059}{59}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+includes/airport.\+h\item 
+src/airport.\+cpp\end{DoxyCompactItemize}

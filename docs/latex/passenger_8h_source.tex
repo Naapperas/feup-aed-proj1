@@ -1,0 +1,44 @@
+\hypertarget{passenger_8h_source}{}\doxysection{passenger.\+h}
+\label{passenger_8h_source}\index{includes/passenger.h@{includes/passenger.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00002}00002 \textcolor{comment}{// Created by naapperas on 01/12/21.}}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00005}00005 \textcolor{preprocessor}{\#ifndef AED2122PROJ\_PASSENGER\_H}}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00006}00006 \textcolor{preprocessor}{\#define AED2122PROJ\_PASSENGER\_H}}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00008}00008 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00010}00010 \textcolor{preprocessor}{\#include "{}./luggage.h"{}}}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00015}\mbox{\hyperlink{class_passenger}{00015}} \textcolor{keyword}{class }\mbox{\hyperlink{class_passenger}{Passenger}} \{}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00017}00017     std::string name;}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00018}00018     \textcolor{keywordtype}{unsigned} age; \textcolor{comment}{// don't know if it's necessary}}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00019}00019     \mbox{\hyperlink{class_luggage}{Luggage}} l; \textcolor{comment}{// optional}}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00020}00020 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00028}\mbox{\hyperlink{class_passenger_a9410c1aaf8354d4c0582b3792d71df43}{00028}}     \mbox{\hyperlink{class_passenger_a9410c1aaf8354d4c0582b3792d71df43}{Passenger}}(\textcolor{keyword}{const} std::string\& name, \textcolor{keywordtype}{unsigned} age) : name(name), age(age) \{\}}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00037}\mbox{\hyperlink{class_passenger_ae7a567fcd89304f9835936552c13eee5}{00037}}     \mbox{\hyperlink{class_passenger_ae7a567fcd89304f9835936552c13eee5}{Passenger}}(\textcolor{keyword}{const} std::string\& name, \textcolor{keywordtype}{unsigned} age, \textcolor{keyword}{const} \mbox{\hyperlink{class_luggage}{Luggage}}\& luggage) : \mbox{\hyperlink{class_passenger}{Passenger}}(name, age) \{}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00038}00038         this-\/>l = luggage;}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00039}00039     \}}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00046}\mbox{\hyperlink{class_passenger_a7c919f6947817ff1c6a4ee51923c116f}{00046}}     std::string \mbox{\hyperlink{class_passenger_a7c919f6947817ff1c6a4ee51923c116f}{getName}}()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00047}00047         \textcolor{keywordflow}{return} this-\/>name;}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00048}00048     \}}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00055}\mbox{\hyperlink{class_passenger_a428f19c2333d85cff5cc7e2be98479e5}{00055}}     \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{class_passenger_a428f19c2333d85cff5cc7e2be98479e5}{getAge}}()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00056}00056         \textcolor{keywordflow}{return} this-\/>age;}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00057}00057     \}}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00066}\mbox{\hyperlink{class_passenger_ad32b55e5f44987d6c563f46ee7728c34}{00066}}     \textcolor{keyword}{const} \mbox{\hyperlink{class_luggage}{Luggage}}\& \mbox{\hyperlink{class_passenger_ad32b55e5f44987d6c563f46ee7728c34}{getLuggage}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00067}00067         \textcolor{keywordflow}{return} this-\/>l;}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00068}00068     \};}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00069}00069 \};}
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{passenger_8h_source_l00071}00071 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AED2122PROJ\_PASSENGER\_H}}
+
+\end{DoxyCode}

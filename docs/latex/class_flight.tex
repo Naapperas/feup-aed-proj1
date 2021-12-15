@@ -1,0 +1,271 @@
+\hypertarget{class_flight}{}\doxysection{Flight Class Reference}
+\label{class_flight}\index{Flight@{Flight}}
+
+
+{\ttfamily \#include $<$flight.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_flight_a3d721edb44545befadd71af522d1517b}{Flight}} (const std\+::string \&departure\+Date, unsigned int duration, const \mbox{\hyperlink{class_plane}{Plane}} \&p, const \mbox{\hyperlink{class_airport}{Airport}} \&origin, const \mbox{\hyperlink{class_airport}{Airport}} \&destiny)
+\item 
+\mbox{\hyperlink{class_flight_a4a9e7606dea9595378ab072abbc8782e}{Flight}} (long flight\+Number, const std\+::string \&departure\+Date, unsigned int duration, const \mbox{\hyperlink{class_plane}{Plane}} \&p, const \mbox{\hyperlink{class_airport}{Airport}} \&origin, const \mbox{\hyperlink{class_airport}{Airport}} \&destiny)
+\item 
+long \mbox{\hyperlink{class_flight_a9cf717cdb771c39c9ddf62b8569b70c4}{get\+Flight\+Number}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{class_flight_ac64c60383d48636ff188ce93cf4e90a9}{get\+Departure\+Date}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_flight_ae2b6f39b90bab7f8e5a8fec7bd9d9b79}{get\+Duration}} () const
+\item 
+unsigned \mbox{\hyperlink{class_flight_ad12fd8c9e393b4837276a894b051b06c}{get\+Lotation}} () const
+\item 
+bool \mbox{\hyperlink{class_flight_aba5250a97ddd6078df1eb6c95d9b9b80}{add\+Passenger}} (const \mbox{\hyperlink{class_ticket}{Ticket}} \&ticket)
+\item 
+bool \mbox{\hyperlink{class_flight_a1038601796ab2dbf6936b92b83b204c2}{add\+Passengers}} (const std\+::vector$<$ \mbox{\hyperlink{class_ticket}{Ticket}} $>$ \&tickets)
+\item 
+\mbox{\hyperlink{class_plane}{Plane}} \& \mbox{\hyperlink{class_flight_ae32177b4c67f2e89ef5146dd96a03272}{get\+Plane}} ()
+\item 
+\mbox{\hyperlink{class_airport}{Airport}} \& \mbox{\hyperlink{class_flight_af13e94ce7535070152f7c5ad10424370}{get\+Destination\+Airport}} ()
+\item 
+\mbox{\hyperlink{class_airport}{Airport}} \& \mbox{\hyperlink{class_flight_a933386e91cbda0b38aa2ed9a0f4bc71b}{get\+Origin\+Airport}} ()
+\item 
+void \mbox{\hyperlink{class_flight_a777131c95d5f6e2509c13b4699f7c5fc}{execute}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_flight_a9b01eaeadbaa6efacbbd26a8715e2bdc}{operator==}} (const \mbox{\hyperlink{class_flight}{Flight}} \&a, const \mbox{\hyperlink{class_flight}{Flight}} \&b)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a flight between 2 different destinations. 
+
+Definition at line \mbox{\hyperlink{flight_8h_source_l00020}{20}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_flight_a3d721edb44545befadd71af522d1517b}\label{class_flight_a3d721edb44545befadd71af522d1517b}} 
+\index{Flight@{Flight}!Flight@{Flight}}
+\index{Flight@{Flight}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{Flight()}{Flight()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Flight\+::\+Flight (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{departure\+Date,  }\item[{unsigned int}]{duration,  }\item[{const \mbox{\hyperlink{class_plane}{Plane}} \&}]{p,  }\item[{const \mbox{\hyperlink{class_airport}{Airport}} \&}]{origin,  }\item[{const \mbox{\hyperlink{class_airport}{Airport}} \&}]{destiny }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new flight.
+
+
+\begin{DoxyParams}{Parameters}
+{\em departure\+Date} & the departure\+Date for this flight in the format \char`\"{}\+DD-\/\+MM-\/\+YYYY\char`\"{} \\
+\hline
+{\em duration} & the duration of this flight in seconds \\
+\hline
+{\em p} & the plane responsible for carrying this flight through \\
+\hline
+{\em origin} & the origin airport of this flight \\
+\hline
+{\em destiny} & the destiny airport of this flight \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{flight_8h_source_l00047}{47}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+
+\mbox{\Hypertarget{class_flight_a4a9e7606dea9595378ab072abbc8782e}\label{class_flight_a4a9e7606dea9595378ab072abbc8782e}} 
+\index{Flight@{Flight}!Flight@{Flight}}
+\index{Flight@{Flight}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{Flight()}{Flight()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Flight\+::\+Flight (\begin{DoxyParamCaption}\item[{long}]{flight\+Number,  }\item[{const std\+::string \&}]{departure\+Date,  }\item[{unsigned int}]{duration,  }\item[{const \mbox{\hyperlink{class_plane}{Plane}} \&}]{p,  }\item[{const \mbox{\hyperlink{class_airport}{Airport}} \&}]{origin,  }\item[{const \mbox{\hyperlink{class_airport}{Airport}} \&}]{destiny }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new flight.
+
+
+\begin{DoxyParams}{Parameters}
+{\em flight\+Number} & the identification number of this flight \\
+\hline
+{\em departure\+Date} & the departure\+Date for this flight in the format \char`\"{}\+DD-\/\+MM-\/\+YYYY\char`\"{} \\
+\hline
+{\em duration} & the duration of this flight in seconds \\
+\hline
+{\em p} & the plane responsible for carrying this flight through \\
+\hline
+{\em origin} & the origin airport of this flight \\
+\hline
+{\em destiny} & the destiny airport of this flight \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{flight_8h_source_l00062}{62}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_flight_aba5250a97ddd6078df1eb6c95d9b9b80}\label{class_flight_aba5250a97ddd6078df1eb6c95d9b9b80}} 
+\index{Flight@{Flight}!addPassenger@{addPassenger}}
+\index{addPassenger@{addPassenger}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{addPassenger()}{addPassenger()}}
+{\footnotesize\ttfamily bool Flight\+::add\+Passenger (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ticket}{Ticket}} \&}]{ticket }\end{DoxyParamCaption})}
+
+Adds a passenger to this flight if there is still space for them.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ticket} & the ticket of the passanger wanting to board this flight \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{flight_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{flight_8cpp_source}{flight.\+cpp}}.
+
+\mbox{\Hypertarget{class_flight_a1038601796ab2dbf6936b92b83b204c2}\label{class_flight_a1038601796ab2dbf6936b92b83b204c2}} 
+\index{Flight@{Flight}!addPassengers@{addPassengers}}
+\index{addPassengers@{addPassengers}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{addPassengers()}{addPassengers()}}
+{\footnotesize\ttfamily bool Flight\+::add\+Passengers (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_ticket}{Ticket}} $>$ \&}]{tickets }\end{DoxyParamCaption})}
+
+Adds the list of passengers given as argument, only if there is still enough space left for the entire group.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tickets} & the tickets of the group wanting to board the flight \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{flight_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{flight_8cpp_source}{flight.\+cpp}}.
+
+\mbox{\Hypertarget{class_flight_a777131c95d5f6e2509c13b4699f7c5fc}\label{class_flight_a777131c95d5f6e2509c13b4699f7c5fc}} 
+\index{Flight@{Flight}!execute@{execute}}
+\index{execute@{execute}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily void Flight\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{flight_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{flight_8cpp_source}{flight.\+cpp}}.
+
+\mbox{\Hypertarget{class_flight_ac64c60383d48636ff188ce93cf4e90a9}\label{class_flight_ac64c60383d48636ff188ce93cf4e90a9}} 
+\index{Flight@{Flight}!getDepartureDate@{getDepartureDate}}
+\index{getDepartureDate@{getDepartureDate}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getDepartureDate()}{getDepartureDate()}}
+{\footnotesize\ttfamily const std\+::string \& Flight\+::get\+Departure\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns this flight\textquotesingle{}s departure date.
+
+\begin{DoxyReturn}{Returns}
+this flight\textquotesingle{}s departure date 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{flight_8h_source_l00082}{82}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+
+\mbox{\Hypertarget{class_flight_af13e94ce7535070152f7c5ad10424370}\label{class_flight_af13e94ce7535070152f7c5ad10424370}} 
+\index{Flight@{Flight}!getDestinationAirport@{getDestinationAirport}}
+\index{getDestinationAirport@{getDestinationAirport}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getDestinationAirport()}{getDestinationAirport()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_airport}{Airport}} \& Flight\+::get\+Destination\+Airport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the destination airport for this flight.
+
+\begin{DoxyReturn}{Returns}
+the destination airport for this flight 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{flight_8h_source_l00132}{132}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+
+\mbox{\Hypertarget{class_flight_ae2b6f39b90bab7f8e5a8fec7bd9d9b79}\label{class_flight_ae2b6f39b90bab7f8e5a8fec7bd9d9b79}} 
+\index{Flight@{Flight}!getDuration@{getDuration}}
+\index{getDuration@{getDuration}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getDuration()}{getDuration()}}
+{\footnotesize\ttfamily unsigned int Flight\+::get\+Duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns this flight\textquotesingle{}s duration.
+
+\begin{DoxyReturn}{Returns}
+this flight\textquotesingle{}s duration 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{flight_8h_source_l00091}{91}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+
+\mbox{\Hypertarget{class_flight_a9cf717cdb771c39c9ddf62b8569b70c4}\label{class_flight_a9cf717cdb771c39c9ddf62b8569b70c4}} 
+\index{Flight@{Flight}!getFlightNumber@{getFlightNumber}}
+\index{getFlightNumber@{getFlightNumber}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getFlightNumber()}{getFlightNumber()}}
+{\footnotesize\ttfamily long Flight\+::get\+Flight\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns this flight\textquotesingle{}s associated identification number.
+
+\begin{DoxyReturn}{Returns}
+this flight\textquotesingle{}s associated identification number. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{flight_8h_source_l00073}{73}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+
+\mbox{\Hypertarget{class_flight_ad12fd8c9e393b4837276a894b051b06c}\label{class_flight_ad12fd8c9e393b4837276a894b051b06c}} 
+\index{Flight@{Flight}!getLotation@{getLotation}}
+\index{getLotation@{getLotation}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getLotation()}{getLotation()}}
+{\footnotesize\ttfamily unsigned Flight\+::get\+Lotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns this flight\textquotesingle{}s current lotation.
+
+\begin{DoxyReturn}{Returns}
+this flight\textquotesingle{}s current lotation 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{flight_8h_source_l00100}{100}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+
+\mbox{\Hypertarget{class_flight_a933386e91cbda0b38aa2ed9a0f4bc71b}\label{class_flight_a933386e91cbda0b38aa2ed9a0f4bc71b}} 
+\index{Flight@{Flight}!getOriginAirport@{getOriginAirport}}
+\index{getOriginAirport@{getOriginAirport}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getOriginAirport()}{getOriginAirport()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_airport}{Airport}} \& Flight\+::get\+Origin\+Airport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the origin airport for this flight.
+
+\begin{DoxyReturn}{Returns}
+the origin airport for this flight 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{flight_8h_source_l00141}{141}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+
+\mbox{\Hypertarget{class_flight_ae32177b4c67f2e89ef5146dd96a03272}\label{class_flight_ae32177b4c67f2e89ef5146dd96a03272}} 
+\index{Flight@{Flight}!getPlane@{getPlane}}
+\index{getPlane@{getPlane}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getPlane()}{getPlane()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_plane}{Plane}} \& Flight\+::get\+Plane (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the plane associated with this flight.
+
+\begin{DoxyReturn}{Returns}
+the plane associated with this flight 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{flight_8h_source_l00123}{123}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_flight_a9b01eaeadbaa6efacbbd26a8715e2bdc}\label{class_flight_a9b01eaeadbaa6efacbbd26a8715e2bdc}} 
+\index{Flight@{Flight}!operator==@{operator==}}
+\index{operator==@{operator==}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{operator==}{operator==}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_flight}{Flight}} \&}]{a,  }\item[{const \mbox{\hyperlink{class_flight}{Flight}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{flight_8h_source_l00033}{33}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+includes/flight.\+h\item 
+src/flight.\+cpp\end{DoxyCompactItemize}

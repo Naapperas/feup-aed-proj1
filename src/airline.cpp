@@ -7,6 +7,8 @@
 
 #include "../includes/airline.h"
 
+Airline* Airline::instance = NULL;
+
 Airline::Airline(const std::string &name) : airlineName(name) {
 
     // initialize ownedPlanes
@@ -56,7 +58,7 @@ bool Airline::addPlaneToAirlineFleet(const Plane& plane) {
     this->ownedPlanes.push_back(plane);
     ofstream planeFile("planes.txt", std::ios_base::app);
     planeFile << plane;
-    this->flightPlans.push_back(FlightPlan(plane)); // adds an empty flight plan associated with this plane
+    this->flightPlans.emplace_back(plane); // adds an empty flight plan associated with this plane
     return true;
 };
 
@@ -79,4 +81,14 @@ bool Airline::addFlightsToPlane(const Plane& plane, const std::list<Flight>& fli
         fp->addFlightToPlan(flight);
 
     return ret;
+};
+
+void Airline::listCurrentFlights() const {
+
+    std::cout << "Upcoming Flights:\n\n" << std::endl;
+
+    for (const auto& flight : this->upcomingFlights)
+        std::cout << '\t' << flight.getFlightNumber() << " - Departing " << flight.getDepartureDate() << "; Duration: " << flight.getDuration() << '\n';
+
+    std::cout << std::endl;
 };
