@@ -20,7 +20,7 @@ class Menu {
         };
 
         enum AdminMenuOption {
-            PLANE = 1,
+            PURCHASE_PLANE = 1,
             ADMIN_FLIGHT,
             ADMIN_PLANES,
             ADMIN_BACK
@@ -43,6 +43,7 @@ class Menu {
         static void endProgram();
         static void listFlights();
         static void listPlanes();
+        static void purchasePlane();
 
 };
 

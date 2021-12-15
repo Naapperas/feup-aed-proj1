@@ -47,7 +47,8 @@ void Menu::init() {
                     option = Menu::showAdminMenu();
 
                     switch (option) {
-                        case PLANE:
+                        case PURCHASE_PLANE:
+                            Menu::purchasePlane();
                             break;
                         case ADMIN_FLIGHT:
                             break;
@@ -147,4 +148,8 @@ void Menu::listFlights() {
 
 void Menu::listPlanes() {
     Airline::getInstance().listCurrentPlanes(); // generate the call in menu, delegate it to Airline
+}
+
+void Menu::purchasePlane() {
+    Airline::getInstance().purchasePlane();
 }

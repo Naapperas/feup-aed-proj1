@@ -121,7 +121,7 @@ class Plane {
          */
         void finishedCleaningService() {
             pastCleaningTasks.push_back(upcomingCleaningTasks.front()); // archive finished cleaning/maintenence service
-            deleteRegisterCleaningService(upcomingCleaningTasks.front()); // delete finished service from file
+            //deleteRegisterCleaningService(upcomingCleaningTasks.front()); // delete finished service from file
             upcomingCleaningTasks.pop_front(); // erase from deque
         }
 
@@ -141,6 +141,12 @@ class Plane {
          */
         void unboardPassengers();
 
+        /**
+         * Serializes this plane's cleaning services to the given file.
+         *
+         * @param ofstream
+         */
+        void storeCleaningServices(std::ofstream& ofstream) const;
 };
 
 #endif //AED2122PROJ_PLANE_H

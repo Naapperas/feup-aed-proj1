@@ -60,3 +60,14 @@ std::ostream& operator <<(std::ostream& out , const Plane &a) {
     return out;
 }
 
+void Plane::storeCleaningServices(std::ofstream& ofstream) const {
+
+    ofstream << "[PAST CLEANING TASKS]\n";
+    for (const auto& service : this->pastCleaningTasks)
+        ofstream << this->getPlate() << ' ' << service;
+
+    ofstream << "[UPCOMING CLEANING TASKS]\n";
+    for (const auto& service : this->upcomingCleaningTasks)
+        ofstream << this->getPlate() << ' ' << service;
+}
+

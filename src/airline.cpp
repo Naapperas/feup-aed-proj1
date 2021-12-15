@@ -43,6 +43,9 @@ Airline::Airline(const std::string &name) : airlineName(name) {
             if (currentService.empty())
                 continue;
 
+            if (currentService == "[PAST CLEANING TASKS]" or currentService == "[UPCOMING CLEANING TASKS]")
+                continue;
+
             std::stringstream ss(currentService);
             std::string planePlate, type, date, employee;
             ss >> planePlate >> type >> date >> employee;
@@ -56,16 +59,14 @@ Airline::Airline(const std::string &name) : airlineName(name) {
             std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){return p.getPlate() == planePlate;})->addCleaningService(CleaningService(st, date, employee));
         }
     }
-
 }
+
 bool Airline::addPlaneToAirlineFleet(const Plane& plane) {
 
     for (const auto& p : this->ownedPlanes)
         if (p == plane) return false;
 
     this->ownedPlanes.push_back(plane);
-    ofstream planeFile("planes.txt", std::ios_base::app);
-    planeFile << plane;
     this->flightPlans.emplace_back(plane); // adds an empty flight plan associated with this plane
     return true;
 };
@@ -110,3 +111,40 @@ void Airline::listCurrentPlanes() const {
 
     std::cout << std::endl;
 };
+
+void Airline::purchasePlane() {
+
+    std::string type, plate;
+    unsigned capacity, cargoCapacity;
+
+    std::cout << "What is the type/model of the new plane? >";
+    std::cin >> type;
+
+    std::cout << "What is the new plane's plate? >";
+    std::cin >> plate;
+
+    std::cout << "How many passengers can the new plane transport? >";
+    std::cin >> capacity;
+
+    std::cout << "What is the max cargo capacity of the new plane? >";
+    std::cin >> cargoCapacity;
+
+    this->addPlaneToAirlineFleet(Plane(type, plate, capacity, cargoCapacity));
+}
+
+void Airline::storePlanes() const {
+    ofstream planeFile("planes.txt");
+
+    if (planeFile.is_open())
+        for (const auto& plane : this->ownedPlanes) {
+            this->storeCleaningServices(plane);
+            planeFile << plane;
+        }
+}
+
+void Airline::storeCleaningServices(const Plane &plane) const {
+
+    ofstream serviceFile("cleaning.txt");
+
+    plane.storeCleaningServices(serviceFile);
+}
