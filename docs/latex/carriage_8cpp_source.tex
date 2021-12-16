@@ -1,5 +1,5 @@
 \hypertarget{carriage_8cpp_source}{}\doxysection{carriage.\+cpp}
-\label{carriage_8cpp_source}\index{src/carriage.cpp@{src/carriage.cpp}}
+\label{carriage_8cpp_source}\index{/home/naapperas/workspace/uni/2-\/ano/aed/project/src/carriage.cpp@{/home/naapperas/workspace/uni/2-\/ano/aed/project/src/carriage.cpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00001}00001 \textcolor{comment}{//}}
@@ -9,7 +9,7 @@
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include <iostream>}}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00006}00006 \textcolor{preprocessor}{\#include "{}../includes/carriage.h"{}}}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00007}00007 }
-\DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00008}00008 \textcolor{keywordtype}{unsigned} Carriage::freeStack()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00008}\mbox{\hyperlink{class_carriage_a587b2927cd922d00f43c7f629e85a36e}{00008}} \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{class_carriage_a587b2927cd922d00f43c7f629e85a36e}{Carriage::freeStack}}()\textcolor{keyword}{ const}\{}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00009}00009     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} i = 0; i < numberStacks; i++)\{}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00010}00010         \textcolor{keywordflow}{if} (!stackFull(i))}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00011}00011             \textcolor{keywordflow}{return} i;}
@@ -19,16 +19,16 @@
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00015}00015 \}}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00016}00016 }
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00017}00017 \textcolor{keywordtype}{void} Carriage::addLuggage(\textcolor{keyword}{const} \mbox{\hyperlink{class_luggage}{Luggage}}\& luggage)\{}
-\DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00018}00018     \textcolor{keyword}{auto} freeStack = this-\/>freeStack();}
+\DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00018}00018     \textcolor{keyword}{auto} \mbox{\hyperlink{class_carriage_a587b2927cd922d00f43c7f629e85a36e}{freeStack}} = this-\/>\mbox{\hyperlink{class_carriage_a587b2927cd922d00f43c7f629e85a36e}{freeStack}}();}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00019}00019 }
-\DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00020}00020     \textcolor{keywordflow}{if} (freeStack != -\/1) \{}
-\DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00021}00021         carriage[freeStack].push(luggage);}
+\DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00020}00020     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_carriage_a587b2927cd922d00f43c7f629e85a36e}{freeStack}} != -\/1) \{}
+\DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00021}00021         carriage[\mbox{\hyperlink{class_carriage_a587b2927cd922d00f43c7f629e85a36e}{freeStack}}].push(luggage);}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00022}00022     \}}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00023}00023     \textcolor{keywordflow}{else}}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00024}00024         \textcolor{keywordflow}{throw} std::string(\textcolor{stringliteral}{"{}Full Carriage"{}});}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00025}00025 \}}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00026}00026 }
-\DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00027}00027 \textcolor{keywordtype}{bool} Carriage::carriageFull()\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00027}\mbox{\hyperlink{class_carriage_a41c021d78f08cd40c7de3e574b00d480}{00027}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_carriage_a41c021d78f08cd40c7de3e574b00d480}{Carriage::carriageFull}}()\textcolor{keyword}{ const}\{}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00028}00028     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} i = 0; i < numberStacks; i++)\{}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00029}00029         \textcolor{keywordflow}{if} (!stackFull(i))}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00030}00030             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
@@ -37,7 +37,7 @@
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00033}00033     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00034}00034 \}}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00035}00035 }
-\DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00036}00036 \textcolor{keywordtype}{void} Carriage::removeLuggage(std::list<Luggage>\& tmp)\{}
+\DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00036}\mbox{\hyperlink{class_carriage_a93c61998bce7b2b0ea02147c436c8492}{00036}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_carriage_a93c61998bce7b2b0ea02147c436c8492}{Carriage::removeLuggage}}(std::list<Luggage>\& tmp)\{}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00037}00037     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} i = 0; i < numberStacks; i++) \{}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00038}00038         emptyStack(i, tmp);}
 \DoxyCodeLine{\Hypertarget{carriage_8cpp_source_l00039}00039     \}}

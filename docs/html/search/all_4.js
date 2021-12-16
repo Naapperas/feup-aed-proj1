@@ -1,20 +1,7 @@
 var searchData=
 [
-  ['getage_0',['getAge',['../class_passenger.html#a428f19c2333d85cff5cc7e2be98479e5',1,'Passenger']]],
-  ['getcapacity_1',['getCapacity',['../class_plane.html#a861dbfdf67839656d47d3179463bab77',1,'Plane']]],
-  ['getclosetime_2',['getCloseTime',['../class_land_transport_place.html#aa7a26c78089ec3a52c252e6c0b424b40',1,'LandTransportPlace']]],
-  ['getdeparturedate_3',['getDepartureDate',['../class_flight.html#ac64c60383d48636ff188ce93cf4e90a9',1,'Flight']]],
-  ['getdestinationairport_4',['getDestinationAirport',['../class_flight.html#af13e94ce7535070152f7c5ad10424370',1,'Flight']]],
-  ['getdistance_5',['getDistance',['../class_land_transport_place.html#a591b6d2f3dab577444be409513f93501',1,'LandTransportPlace']]],
-  ['getduration_6',['getDuration',['../class_flight.html#ae2b6f39b90bab7f8e5a8fec7bd9d9b79',1,'Flight']]],
-  ['getflightnumber_7',['getFlightNumber',['../class_flight.html#a9cf717cdb771c39c9ddf62b8569b70c4',1,'Flight']]],
-  ['getlotation_8',['getLotation',['../class_flight.html#ad12fd8c9e393b4837276a894b051b06c',1,'Flight']]],
-  ['getluggage_9',['getLuggage',['../class_passenger.html#ad32b55e5f44987d6c563f46ee7728c34',1,'Passenger']]],
-  ['getname_10',['getName',['../class_passenger.html#a7c919f6947817ff1c6a4ee51923c116f',1,'Passenger']]],
-  ['getopentime_11',['getOpenTime',['../class_land_transport_place.html#aee13a3da70dee2890ad232548b846e8a',1,'LandTransportPlace']]],
-  ['getoriginairport_12',['getOriginAirport',['../class_flight.html#a933386e91cbda0b38aa2ed9a0f4bc71b',1,'Flight']]],
-  ['getplane_13',['getPlane',['../class_flight_plan.html#a27c169dc3e26896d527f412d3b93a632',1,'FlightPlan::getPlane()'],['../class_flight.html#ae32177b4c67f2e89ef5146dd96a03272',1,'Flight::getPlane()']]],
-  ['getplate_14',['getPlate',['../class_plane.html#aaa9ae99225a188f5bff84681c53530ee',1,'Plane']]],
-  ['gettype_15',['getType',['../class_land_transport_place.html#acf6598458361bf2168e84786d331cf3a',1,'LandTransportPlace::getType()'],['../class_plane.html#a7aef7cb9a53571038a165f81c110100b',1,'Plane::getType()']]],
-  ['gettypestring_16',['getTypeString',['../class_land_transport_place.html#ae5cdbaaa0de39dc301a5f4de7b1a247d',1,'LandTransportPlace']]]
+  ['finishedcleaningservice_0',['finishedCleaningService',['../class_plane.html#aebaeb04e9f717fc465a1f6c65e65eac6',1,'Plane']]],
+  ['flight_1',['Flight',['../class_flight.html',1,'Flight'],['../class_flight.html#a3d721edb44545befadd71af522d1517b',1,'Flight::Flight(const std::string &amp;departureDate, unsigned int duration, const Plane &amp;p, const Airport &amp;origin, const Airport &amp;destiny)'],['../class_flight.html#a4a9e7606dea9595378ab072abbc8782e',1,'Flight::Flight(long flightNumber, const std::string &amp;departureDate, unsigned int duration, const Plane &amp;p, const Airport &amp;origin, const Airport &amp;destiny)']]],
+  ['flightplan_2',['FlightPlan',['../class_flight_plan.html',1,'']]],
+  ['freestack_3',['freeStack',['../class_carriage.html#a587b2927cd922d00f43c7f629e85a36e',1,'Carriage']]]
 ];

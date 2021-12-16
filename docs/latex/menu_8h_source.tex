@@ -1,5 +1,5 @@
 \hypertarget{menu_8h_source}{}\doxysection{menu.\+h}
-\label{menu_8h_source}\index{includes/menu.h@{includes/menu.h}}
+\label{menu_8h_source}\index{/home/naapperas/workspace/uni/2-\/ano/aed/project/includes/menu.h@{/home/naapperas/workspace/uni/2-\/ano/aed/project/includes/menu.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{menu_8h_source_l00001}00001 \textcolor{comment}{//}}
@@ -24,30 +24,36 @@
 \DoxyCodeLine{\Hypertarget{menu_8h_source_l00020}00020         \};}
 \DoxyCodeLine{\Hypertarget{menu_8h_source_l00021}00021 }
 \DoxyCodeLine{\Hypertarget{menu_8h_source_l00022}00022         \textcolor{keyword}{enum} AdminMenuOption \{}
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00023}00023             PURCHASE_PLANE = 1,}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00023}00023             PURCHASE\_PLANE = 1,}
 \DoxyCodeLine{\Hypertarget{menu_8h_source_l00024}00024             ADMIN\_FLIGHT,}
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00025}00025             ADMIN\_BACK}
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00026}00026         \};}
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00027}00027 }
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00028}00028         \textcolor{keyword}{enum} ClientMenuOption \{}
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00029}00029             TICKET = 1,}
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00030}00030             BOARD,}
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00031}00031             CLIENT\_FLIGHTS,}
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00032}00032             CLIENT\_BACK}
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00033}00033        \};}
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00034}00034 }
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00035}00035     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00025}00025             ADMIN\_PLANES,}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00026}00026             ADMIN\_LAND\_TRANSPORT\_PLACE,}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00027}00027             ADMIN\_BACK}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00028}00028         \};}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00030}00030         \textcolor{keyword}{enum} ClientMenuOption \{}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00031}00031             TICKET = 1,}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00032}00032             BOARD,}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00033}00033             CLIENT\_FLIGHTS,}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00034}00034             CLIENT\_BACK}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00035}00035        \};}
 \DoxyCodeLine{\Hypertarget{menu_8h_source_l00036}00036 }
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00037}00037         \textcolor{keyword}{static} \textcolor{keywordtype}{void} init();}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00037}00037         \textcolor{keyword}{static} \textcolor{keywordtype}{void} waitForPrompt(\textcolor{keyword}{const} std::string\& prompt);}
 \DoxyCodeLine{\Hypertarget{menu_8h_source_l00038}00038 }
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00039}00039         \textcolor{keyword}{static} \textcolor{keywordtype}{int} showInitialMenu(\textcolor{keyword}{const} std::string\& airlineName);}
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00040}00040         \textcolor{keyword}{static} \textcolor{keywordtype}{int} showAdminMenu();}
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00041}00041         \textcolor{keyword}{static} \textcolor{keywordtype}{int} showClientMenu();}
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00042}00042         \textcolor{keyword}{static} \textcolor{keywordtype}{void} endProgram();}
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00043}00043         \textcolor{keyword}{static} \textcolor{keywordtype}{void} listFlights();}
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00044}00044 }
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00045}00045 \};}
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00046}00046 }
-\DoxyCodeLine{\Hypertarget{menu_8h_source_l00047}00047 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AED2122PROJ\_MENU\_H}}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00039}00039     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00041}00041         \textcolor{keyword}{static} \textcolor{keywordtype}{void} init();}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00043}00043         \textcolor{keyword}{static} \textcolor{keywordtype}{int} showInitialMenu(\textcolor{keyword}{const} std::string\& airlineName);}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00044}00044         \textcolor{keyword}{static} \textcolor{keywordtype}{int} showAdminMenu();}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00045}00045         \textcolor{keyword}{static} \textcolor{keywordtype}{int} showClientMenu();}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00046}00046         \textcolor{keyword}{static} \textcolor{keywordtype}{void} endProgram();}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00047}00047         \textcolor{keyword}{static} \textcolor{keywordtype}{void} listFlights();}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00048}00048         \textcolor{keyword}{static} \textcolor{keywordtype}{void} listPlanes();}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00049}00049         \textcolor{keyword}{static} \textcolor{keywordtype}{void} purchasePlane();}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00050}00050         \textcolor{keyword}{static} \textcolor{keywordtype}{void} registerTransportPlace();}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00051}00051 \};}
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{menu_8h_source_l00053}00053 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AED2122PROJ\_MENU\_H}}
 
 \end{DoxyCode}

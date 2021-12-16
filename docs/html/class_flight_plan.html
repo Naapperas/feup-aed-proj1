@@ -100,10 +100,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac434ebf89556221519bbfe0bc482587c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27c169dc3e26896d527f412d3b93a632"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_plane.html">Plane</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flight_plan.html#a27c169dc3e26896d527f412d3b93a632">getPlane</a> () const</td></tr>
 <tr class="separator:a27c169dc3e26896d527f412d3b93a632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac80acac30aedd71c4f0369870f978da6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flight_plan.html#ac80acac30aedd71c4f0369870f978da6">removeFlight</a> (long flightNumber)</td></tr>
+<tr class="separator:ac80acac30aedd71c4f0369870f978da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00015">15</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00016">16</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a48a77bfb9e45eb28871ed0a2c96894a7" name="a48a77bfb9e45eb28871ed0a2c96894a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a48a77bfb9e45eb28871ed0a2c96894a7">&#9670;&nbsp;</a></span>FlightPlan()</h2>
@@ -129,7 +131,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00019">19</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00020">20</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
 
 </div>
 </div>
@@ -187,7 +189,7 @@ Public Member Functions</h2></td></tr>
 <p >Returns the plane associated with this flightPlan.</p>
 <dl class="section return"><dt>Returns</dt><dd>the plane associated with this flightPlan </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00041">41</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00043">43</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
 
 </div>
 </div>
@@ -215,13 +217,40 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p >Performs the first flight in the flightPlan </p>
 
-<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00032">32</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00033">33</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
+
+</div>
+</div>
+<a id="ac80acac30aedd71c4f0369870f978da6" name="ac80acac30aedd71c4f0369870f978da6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac80acac30aedd71c4f0369870f978da6">&#9670;&nbsp;</a></span>removeFlight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FlightPlan::removeFlight </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>flightNumber</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Removes a flight from this <a class="el" href="class_flight_plan.html">FlightPlan</a>'s list of flights </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flightNumber</td><td>identification number of the flight to be removed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if flight is removed successfully else false </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00017">17</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>includes/<a class="el" href="airport_8h_source.html">airport.h</a></li>
-<li>src/<a class="el" href="airport_8cpp_source.html">airport.cpp</a></li>
+<li>/home/naapperas/workspace/uni/2-ano/aed/project/includes/<a class="el" href="airport_8h_source.html">airport.h</a></li>
+<li>/home/naapperas/workspace/uni/2-ano/aed/project/src/<a class="el" href="airport_8cpp_source.html">airport.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

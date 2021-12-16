@@ -1,5 +1,5 @@
 \hypertarget{airline_8cpp_source}{}\doxysection{airline.\+cpp}
-\label{airline_8cpp_source}\index{src/airline.cpp@{src/airline.cpp}}
+\label{airline_8cpp_source}\index{/home/naapperas/workspace/uni/2-\/ano/aed/project/src/airline.cpp@{/home/naapperas/workspace/uni/2-\/ano/aed/project/src/airline.cpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00001}00001 \textcolor{comment}{//}}
@@ -23,78 +23,339 @@
 \DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00019}00019         \textcolor{keywordflow}{while}(!planeFile.eof())\{}
 \DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00020}00020             std::string currentPlane;}
 \DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00021}00021             getline(planeFile,currentPlane);}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00022}00022             std::stringstream ss(currentPlane);}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00023}00023             std::string type, plate;}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00024}00024             \textcolor{keywordtype}{unsigned} capacity, cargoCapacity;}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00025}00025             ss >> type >> plate >> capacity >> cargoCapacity;}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00026}00026             ownedPlanes.push\_back(\mbox{\hyperlink{class_plane}{Plane}}(type, plate, capacity, cargoCapacity));}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00027}00027         \}}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00028}00028     \}}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00029}00029 }
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00030}00030     \textcolor{comment}{// initialize cleaning services for owned planes}}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00031}00031     std::ifstream serviceFile\{\textcolor{stringliteral}{"{}cleaning.txt"{}}\};}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00032}00032     \textcolor{keywordflow}{if} (!planeFile.is\_open())}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00033}00033         std::ofstream serviceFileNew\{\textcolor{stringliteral}{"{}cleaning.txt"{}}\};}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00034}00034     \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00035}00035         \textcolor{keywordflow}{while}(!serviceFile.eof())\{}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00036}00036             std::string currentService;}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00037}00037             getline(serviceFile,currentService);}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00038}00038             std::stringstream ss(currentService);}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00039}00039             std::string plane, type, date, employee;}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00040}00040             ss >> plane >>  type >> date >> employee;}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00041}00041             CleaningService::ServiceType st;}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00042}00042             \textcolor{keywordflow}{if} (type==\textcolor{stringliteral}{"{}Maintenance"{}})}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00043}00043                 st=CleaningService::MAINTENANCE;}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00044}00044             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(type==\textcolor{stringliteral}{"{}Cleaning"{}})}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00045}00045                 st=CleaningService::CLEANING;}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00046}00046             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00047}00047                 \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00048}00048             std::find\_if(this-\/>ownedPlanes.begin(), this-\/>ownedPlanes.end(), [plane](\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& p)\{return p.getPlate()==plane;\})-\/>addCleaningService(\mbox{\hyperlink{class_cleaning_service}{CleaningService}}(st, date, employee));}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00049}00049         \}}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00050}00050     \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00023}00023             \textcolor{keywordflow}{if} (currentPlane.empty())}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00024}00024                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00026}00026             std::stringstream ss(currentPlane);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00027}00027             std::string type, plate;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00028}00028             \textcolor{keywordtype}{unsigned} capacity, cargoCapacity;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00029}00029             ss >> type >> plate >> capacity >> cargoCapacity;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00030}00030             this-\/>addPlaneToAirlineFleet(\mbox{\hyperlink{class_plane}{Plane}}(type, plate, capacity, cargoCapacity));}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00031}00031         \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00032}00032     \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00034}00034     \textcolor{comment}{// initialize cleaning services for owned planes}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00035}00035     std::ifstream serviceFile\{\textcolor{stringliteral}{"{}cleaning.txt"{}}\};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00036}00036     \textcolor{keywordflow}{if} (!planeFile.is\_open())}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00037}00037         std::ofstream serviceFileNew\{\textcolor{stringliteral}{"{}cleaning.txt"{}}\};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00038}00038     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00039}00039         \textcolor{keywordtype}{bool} upcoming = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00040}00040         \textcolor{keywordflow}{while}(!serviceFile.eof())\{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00041}00041             std::string currentService;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00042}00042             getline(serviceFile,currentService);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00044}00044             \textcolor{keywordflow}{if} (currentService.empty())}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00045}00045                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00047}00047             \textcolor{keywordflow}{if} (currentService == \textcolor{stringliteral}{"{}[PAST CLEANING TASKS]"{}}) \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00048}00048                 upcoming = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00049}00049                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00050}00050             \}}
 \DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00051}00051 }
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00052}00052 \}}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00053}00053 \textcolor{keywordtype}{bool} Airline::addPlaneToAirlineFleet(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane) \{}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00054}00054 }
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00055}00055     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& p : this-\/>ownedPlanes)}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00056}00056         \textcolor{keywordflow}{if} (p == plane) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00057}00057 }
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00058}00058     this-\/>ownedPlanes.push\_back(plane);}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00059}00059     ofstream planeFile(\textcolor{stringliteral}{"{}planes.txt"{}}, std::ios\_base::app);}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00060}00060     planeFile << plane;}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00061}00061     this-\/>flightPlans.emplace\_back(plane); \textcolor{comment}{// adds an empty flight plan associated with this plane}}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00062}00062     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00063}00063 \};}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00064}00064 }
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00065}00065 \textcolor{keywordtype}{bool} Airline::addFlightToPlane(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane, \textcolor{keyword}{const} \mbox{\hyperlink{class_flight}{Flight}}\& flight) \{}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00066}00066 }
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00067}00067     \textcolor{keywordtype}{bool} ret = this-\/>addPlaneToAirlineFleet(plane); \textcolor{comment}{// might return false, just ensure we have the plane on the fleet}}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00068}00068 }
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00069}00069     std::find\_if(this-\/>flightPlans.begin(), this-\/>flightPlans.end(), [plane](\textcolor{keyword}{const} \mbox{\hyperlink{class_flight_plan}{FlightPlan}}\& fp)\{ return fp.getPlane() == plane; \})-\/>addFlightToPlan(flight);}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00070}00070 }
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00071}00071     \textcolor{keywordflow}{return} ret;}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00072}00072 \};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00052}00052             \textcolor{keywordflow}{if} (currentService == \textcolor{stringliteral}{"{}[UPCOMING CLEANING TASKS]"{}})\{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00053}00053                 upcoming = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00054}00054                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00055}00055             \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00057}00057             std::stringstream ss(currentService);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00058}00058             std::string planePlate, type, date, employee;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00059}00059             ss >> planePlate >> type >> date >> employee;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00060}00060             CleaningService::ServiceType st;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00061}00061             \textcolor{keywordflow}{if} (type == \textcolor{stringliteral}{"{}Maintenance"{}})}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00062}00062                 st = CleaningService::MAINTENANCE;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00063}00063             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(type == \textcolor{stringliteral}{"{}Cleaning"{}})}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00064}00064                 st = CleaningService::CLEANING;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00065}00065             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00066}00066                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00067}00067             std::find\_if(this-\/>ownedPlanes.begin(), this-\/>ownedPlanes.end(), [planePlate](\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& p)\{return p.getPlate() == planePlate;\})-\/>addCleaningService(\mbox{\hyperlink{class_cleaning_service}{CleaningService}}(st, date, employee));}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00068}00068             \textcolor{comment}{// check if service was finished prior to this execution of the program and set to finish if so}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00069}00069             \textcolor{keywordflow}{if} (!upcoming)}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00070}00070                 std::find\_if(this-\/>ownedPlanes.begin(), this-\/>ownedPlanes.end(), [planePlate](\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& p)\{return p.getPlate() == planePlate;\})-\/>finishedCleaningService();}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00071}00071         \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00072}00072     \}}
 \DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00073}00073 }
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00074}00074 \textcolor{keywordtype}{bool} Airline::addFlightsToPlane(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane, \textcolor{keyword}{const} std::list<Flight>\& flights) \{}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00075}00075 }
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00076}00076     \textcolor{keywordtype}{bool} ret = this-\/>addPlaneToAirlineFleet(plane); \textcolor{comment}{// might return false, just ensure we have the plane on the fleet}}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00077}00077 }
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00078}00078     \textcolor{keyword}{auto} fp = std::find\_if(this-\/>flightPlans.begin(), this-\/>flightPlans.end(), [plane](\textcolor{keyword}{const} \mbox{\hyperlink{class_flight_plan}{FlightPlan}}\& fp)\{ return fp.getPlane() == plane; \});}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00079}00079 }
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00080}00080     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& flight : flights)}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00081}00081         fp-\/>addFlightToPlan(flight);}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00082}00082 }
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00083}00083     \textcolor{keywordflow}{return} ret;}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00084}00084 \};}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00085}00085 }
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00086}00086 \textcolor{keywordtype}{void} Airline::listCurrentFlights()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00087}00087 }
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00088}00088     std::cout << \textcolor{stringliteral}{"{}Upcoming Flights:\(\backslash\)n\(\backslash\)n"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00074}00074     \textcolor{comment}{// initialize airports}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00075}00075     std::ifstream airportsFile\{\textcolor{stringliteral}{"{}airports.txt"{}}\};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00076}00076     \textcolor{keywordflow}{if} (!planeFile.is\_open())}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00077}00077         std::ofstream serviceFileNew\{\textcolor{stringliteral}{"{}airports.txt"{}}\};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00078}00078     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00079}00079         \textcolor{keywordflow}{while} (!airportsFile.eof()) \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00081}00081             std::string currentAirport;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00082}00082             getline(airportsFile, currentAirport);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00084}00084             \textcolor{keywordflow}{if} (currentAirport.empty())}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00085}00085                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00087}00087             stringstream ss\{currentAirport\};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00088}00088             std::string airportName;}
 \DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00089}00089 }
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00090}00090     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& flight : this-\/>upcomingFlights)}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00091}00091         std::cout << \textcolor{charliteral}{'\(\backslash\)t'} << flight.\mbox{\hyperlink{class_flight_a9cf717cdb771c39c9ddf62b8569b70c4}{getFlightNumber}}() << \textcolor{stringliteral}{"{} -\/ Departing "{}} << flight.\mbox{\hyperlink{class_flight_ac64c60383d48636ff188ce93cf4e90a9}{getDepartureDate}}() << \textcolor{stringliteral}{"{}; Duration: "{}} << flight.\mbox{\hyperlink{class_flight_ae2b6f39b90bab7f8e5a8fec7bd9d9b79}{getDuration}}() << \textcolor{charliteral}{'\(\backslash\)n'};}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00092}00092 }
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00093}00093     std::cout << std::endl;}
-\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00094}00094 \};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00090}00090             ss >> airportName;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00092}00092             \mbox{\hyperlink{class_airport}{Airport}} a\{airportName\};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00094}00094             std::string planePlate;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00095}00095             \textcolor{keywordflow}{while} (ss >> planePlate)}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00096}00096                 \textcolor{comment}{// store current plane info}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00097}00097                 a.\mbox{\hyperlink{class_airport_ad586fc71f9714bae8eca152ed68a449d}{landPlane}}(*std::find\_if(this-\/>ownedPlanes.begin(), this-\/>ownedPlanes.end(), [planePlate](\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& p)\{return p.getPlate() == planePlate;\}));}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00099}00099             this-\/>airports.push\_back(a);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00100}00100         \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00101}00101     \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00102}00102 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00103}00103     \textcolor{comment}{// initialize transportPlaces}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00104}00104     std::ifstream landTransportsFile\{\textcolor{stringliteral}{"{}transportPlaces.txt"{}}\};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00105}00105     \textcolor{keywordflow}{if} (!planeFile.is\_open())}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00106}00106         std::ofstream landTransportsFileNew\{\textcolor{stringliteral}{"{}transportPlaces.txt"{}}\};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00107}00107     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00108}00108         \textcolor{keywordflow}{while} (!landTransportsFile.eof()) \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00109}00109 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00110}00110             std::string currentTransportPlace;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00111}00111             getline(landTransportsFile, currentTransportPlace);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00113}00113             \textcolor{keywordflow}{if} (currentTransportPlace.empty())}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00114}00114                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00115}00115 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00116}00116             stringstream ss\{currentTransportPlace\};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00117}00117             std::string airportName, openTime, closeTime;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00118}00118             \textcolor{keywordtype}{unsigned} typeNumber, distance;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00119}00119 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00120}00120             ss >> airportName >> typeNumber >> distance >> openTime >> closeTime;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00121}00121 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00122}00122             LandTransportPlace::TypeOfTransport type = LandTransportPlace::getTypeOfTransport(typeNumber);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00123}00123 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00124}00124             \mbox{\hyperlink{class_land_transport_place}{LandTransportPlace}} ltp\{type, distance, openTime, closeTime\};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00125}00125 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00126}00126             std::find\_if(this-\/>airports.begin(), this-\/>airports.end(), [airportName](\textcolor{keyword}{const} \mbox{\hyperlink{class_airport}{Airport}}\& a)\{return a.getName() == airportName;\})-\/>registerTransportPlace(ltp);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00127}00127 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00128}00128         \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00129}00129     \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00130}00130 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00131}00131     \textcolor{comment}{// initialize flights}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00132}00132     std::ifstream flightsFile\{\textcolor{stringliteral}{"{}flights.txt"{}}\};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00133}00133     \textcolor{keywordflow}{if} (!planeFile.is\_open())}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00134}00134         std::ofstream flightsNew\{\textcolor{stringliteral}{"{}flights.txt"{}}\};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00135}00135     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00136}00136 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00137}00137         \textcolor{keywordflow}{while} (!flightsFile.eof()) \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00138}00138 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00139}00139             std::string currentFlight;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00140}00140             getline(flightsFile, currentFlight);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00141}00141 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00142}00142             \textcolor{keywordflow}{if} (currentFlight.empty())}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00143}00143                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00144}00144 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00145}00145             stringstream ss\{currentFlight\};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00146}00146             std::string departureDate, planePlate, originName, destinyName;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00147}00147             \textcolor{keywordtype}{unsigned} flightNumber, duration;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00148}00148 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00149}00149             ss >> flightNumber >> departureDate >> duration >> planePlate >> originName >> destinyName;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00150}00150 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00151}00151             \textcolor{keyword}{auto}\& plane = *std::find\_if(this-\/>ownedPlanes.begin(), this-\/>ownedPlanes.end(), [planePlate](\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& p)\{ return p.getPlate() == planePlate; \});}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00152}00152             \textcolor{keyword}{auto}\& origin = *std::find\_if(this-\/>airports.begin(), this-\/>airports.end(), [originName](\textcolor{keyword}{const} \mbox{\hyperlink{class_airport}{Airport}}\& a)\{ return a.getName() == originName; \});}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00153}00153             \textcolor{keyword}{auto}\& destiny = *std::find\_if(this-\/>airports.begin(), this-\/>airports.end(), [destinyName](\textcolor{keyword}{const} \mbox{\hyperlink{class_airport}{Airport}}\& a)\{ return a.getName() == destinyName; \});}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00155}00155             \mbox{\hyperlink{class_flight}{Flight}} f\{flightNumber, departureDate, duration, plane, origin, destiny\};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00156}00156 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00157}00157             this-\/>addFlightToPlane(plane, f);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00158}00158         \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00159}00159     \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00160}00160 \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00161}00161 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00162}\mbox{\hyperlink{class_airline_ac4bb6239c10e79396faf35711b2511c5}{00162}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_airline_ac4bb6239c10e79396faf35711b2511c5}{Airline::addPlaneToAirlineFleet}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane) \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00163}00163 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00164}00164     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& p : this-\/>ownedPlanes)}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00165}00165         \textcolor{keywordflow}{if} (p == plane) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00166}00166 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00167}00167     this-\/>ownedPlanes.push\_back(plane);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00168}00168     this-\/>flightPlans.emplace\_back(plane); \textcolor{comment}{// adds an empty flight plan associated with this plane}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00169}00169     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00170}00170 \};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00171}00171 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00172}\mbox{\hyperlink{class_airline_abcdbfeb032e5682567a24bf2e12f8d54}{00172}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_airline_abcdbfeb032e5682567a24bf2e12f8d54}{Airline::addFlightToPlane}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane, \textcolor{keyword}{const} \mbox{\hyperlink{class_flight}{Flight}}\& flight) \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00173}00173 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00174}00174     \textcolor{keywordtype}{bool} ret = this-\/>\mbox{\hyperlink{class_airline_ac4bb6239c10e79396faf35711b2511c5}{addPlaneToAirlineFleet}}(plane); \textcolor{comment}{// might return false, just ensure we have the plane on the fleet}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00175}00175 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00176}00176     std::find\_if(this-\/>flightPlans.begin(), this-\/>flightPlans.end(), [plane](\textcolor{keyword}{const} \mbox{\hyperlink{class_flight_plan}{FlightPlan}}\& fp)\{ return fp.getPlane() == plane; \})-\/>addFlightToPlan(flight);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00177}00177     this-\/>upcomingFlights.push\_back(flight);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00178}00178 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00179}00179     \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00180}00180 \};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00181}00181 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00182}\mbox{\hyperlink{class_airline_a6d43f8ed0ce7e04c10990ad44fad2d94}{00182}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_airline_a6d43f8ed0ce7e04c10990ad44fad2d94}{Airline::addFlightsToPlane}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane, \textcolor{keyword}{const} std::list<Flight>\& flights) \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00183}00183 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00184}00184     \textcolor{keywordtype}{bool} ret = this-\/>\mbox{\hyperlink{class_airline_ac4bb6239c10e79396faf35711b2511c5}{addPlaneToAirlineFleet}}(plane); \textcolor{comment}{// might return false, just ensure we have the plane on the fleet}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00185}00185 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00186}00186     \textcolor{keyword}{auto} fp = std::find\_if(this-\/>flightPlans.begin(), this-\/>flightPlans.end(), [plane](\textcolor{keyword}{const} \mbox{\hyperlink{class_flight_plan}{FlightPlan}}\& fp)\{ return fp.getPlane() == plane; \});}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00187}00187 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00188}00188     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& flight : flights)}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00189}00189         fp-\/>\mbox{\hyperlink{class_flight_plan_af11c78546d71519ebb65cb85e88749de}{addFlightToPlan}}(flight);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00190}00190 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00191}00191     \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00192}00192 \};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00193}00193 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00194}\mbox{\hyperlink{class_airline_a131c34af4942421c3695b99ef569804c}{00194}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_airline_a131c34af4942421c3695b99ef569804c}{Airline::cancelFlight}}(\textcolor{keywordtype}{long} flightNumber) \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00195}00195     \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_flight_plan}{FlightPlan}}\& fp: flightPlans)\{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00196}00196         \textcolor{keywordflow}{if}(fp.removeFlight(flightNumber)) \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00197}00197             upcomingFlights.erase(std::remove\_if(upcomingFlights.begin(), upcomingFlights.end(), [flightNumber](\textcolor{keyword}{const} \mbox{\hyperlink{class_flight}{Flight}}\& f)\{return f.getFlightNumber() == flightNumber;\}), upcomingFlights.end());}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00198}00198             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00199}00199         \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00200}00200     \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00201}00201     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00202}00202 \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00203}00203 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00204}\mbox{\hyperlink{class_airline_a4f1ef620bef5fe12e36b37d759f63398}{00204}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airline_a4f1ef620bef5fe12e36b37d759f63398}{Airline::listCurrentFlights}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00205}00205 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00206}00206     std::cout << \textcolor{stringliteral}{"{}Upcoming Flights:\(\backslash\)n\(\backslash\)n"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00207}00207 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00208}00208     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& flight : this-\/>upcomingFlights)}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00209}00209         std::cout << \textcolor{charliteral}{'\(\backslash\)t'} << flight.getFlightNumber() << \textcolor{stringliteral}{"{} -\/ Departing "{}} << flight.getDepartureDate() << \textcolor{stringliteral}{"{}; Duration: "{}} << flight.getDuration() << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)t\(\backslash\)t"{}} << \textcolor{stringliteral}{"{}Current: flight lotation: "{}} << flight.getLotation() << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00210}00210 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00211}00211     std::cout << std::endl;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00212}00212 \};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00213}00213 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00214}\mbox{\hyperlink{class_airline_a1fb1650a8d78a899d71811e1248538d3}{00214}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airline_a1fb1650a8d78a899d71811e1248538d3}{Airline::listCurrentPlanes}}(\textcolor{keywordtype}{bool} verbose)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00215}00215 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00216}00216     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)tPlanes in fleet:\(\backslash\)n"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00217}00217 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00218}00218     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& plane : this-\/>ownedPlanes) \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00219}00219         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t"{}} << plane.getType() << \textcolor{stringliteral}{"{} Plate nº"{}} << plane.getPlate();}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00220}00220         \textcolor{keywordflow}{if} (verbose)}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00221}00221             std::cout << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)t\(\backslash\)t\(\backslash\)tCapacity: "{}} << plane.getCapacity() << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00222}00222     \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00223}00223 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00224}00224     std::cout << std::endl;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00225}00225 \};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00226}00226 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00227}\mbox{\hyperlink{class_airline_a5ecddee30302f3609e6fd8e15a0917c9}{00227}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airline_a5ecddee30302f3609e6fd8e15a0917c9}{Airline::purchasePlane}}() \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00228}00228 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00229}00229     std::string type, plate;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00230}00230     \textcolor{keywordtype}{unsigned} capacity, cargoCapacity;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00231}00231 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00232}00232     std::cout << \textcolor{stringliteral}{"{}What is the type/model of the new plane? >"{}};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00233}00233     std::cin >> type;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00234}00234 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00235}00235     std::cout << \textcolor{stringliteral}{"{}What is the new plane's plate? >"{}};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00236}00236     std::cin >> plate;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00237}00237 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00238}00238     std::cout << \textcolor{stringliteral}{"{}How many passengers can the new plane transport? >"{}};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00239}00239     std::cin >> capacity;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00240}00240 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00241}00241     std::cout << \textcolor{stringliteral}{"{}What is the max cargo capacity of the new plane? >"{}};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00242}00242     std::cin >> cargoCapacity;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00243}00243 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00244}00244     this-\/>\mbox{\hyperlink{class_airline_ac4bb6239c10e79396faf35711b2511c5}{addPlaneToAirlineFleet}}(\mbox{\hyperlink{class_plane}{Plane}}(type, plate, capacity, cargoCapacity));}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00245}00245 \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00246}00246 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00247}00247 \textcolor{keywordtype}{void} Airline::listAirports()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00248}00248 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00249}00249     \textcolor{keywordtype}{unsigned} counter = 1;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00250}00250 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00251}00251     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& airport : this-\/>airports)}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00252}00252         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t["{}} << counter++ << \textcolor{stringliteral}{"{}] "{}} << airport.getName() << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00253}00253 \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00254}00254 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00255}00255 \textcolor{keywordtype}{void} Airline::registerTransportPlace() \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00256}00256 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00257}00257     \mbox{\hyperlink{class_airport}{Airport}}* a;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00258}00258 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00259}00259     \textcolor{keywordflow}{if} (this-\/>airports.size() == 1) \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00260}00260         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tSelecting only airport registered\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00261}00261         a = \&this-\/>airports.at(0);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00262}00262     \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00263}00263     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00264}00264 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00265}00265         this-\/>listAirports();}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00266}00266 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00267}00267         \textcolor{keywordtype}{unsigned} option;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00268}00268 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00269}00269         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)tWhich is the closest airport to the new transport place?\(\backslash\)n\(\backslash\)t> "{}};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00270}00270         std::cin >> option;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00271}00271 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00272}00272         a = \&(*(this-\/>airports.begin() + option-\/1));}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00273}00273     \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00274}00274 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00275}00275     std::string type, openTime, closeTime;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00276}00276     \textcolor{keywordtype}{unsigned} distance;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00277}00277 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00278}00278     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tWhat is the type of the new transport? (can be one of Train, Bus or Subway)\(\backslash\)n\(\backslash\)t> "{}};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00279}00279     std::cin >> type;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00280}00280 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00281}00281     LandTransportPlace::TypeOfTransport tt;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00282}00282 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00283}00283     \textcolor{keywordflow}{if} (type == LandTransportPlace::typePrint.at(0))}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00284}00284         tt = LandTransportPlace::SUBWAY;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00285}00285     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (type == LandTransportPlace::typePrint.at(1))}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00286}00286         tt = LandTransportPlace::TRAIN;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00287}00287     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (type == LandTransportPlace::typePrint.at(2))}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00288}00288         tt = LandTransportPlace::BUS;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00289}00289     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00290}00290         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tInvalid transport type, aborting operation"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00291}00291         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00292}00292     \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00293}00293 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00294}00294     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tHow far is it from the airport? (distance in meters)\(\backslash\)n\(\backslash\)t> "{}};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00295}00295     std::cin >> distance;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00296}00296 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00297}00297     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tWhat is the schedule of this new transport?\(\backslash\)n\(\backslash\)t\(\backslash\)tPlease input the values in the form \{openTime\} \{closeTime\}, with each havin the form HH:MM\(\backslash\)n\(\backslash\)t> "{}};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00298}00298     std::cin >> openTime >> closeTime;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00299}00299 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00300}00300     \mbox{\hyperlink{class_land_transport_place}{LandTransportPlace}} ltp\{tt, distance, openTime, closeTime\};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00301}00301 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00302}00302     a-\/>\mbox{\hyperlink{class_airport_ae542ada5c709934519bd81aecf5942d0}{registerTransportPlace}}(ltp);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00303}00303 \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00304}00304 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00305}00305 \textcolor{keywordtype}{void} Airline::storePlanes()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00306}00306     ofstream planeFile(\textcolor{stringliteral}{"{}planes.txt"{}});}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00307}00307 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00308}00308     \textcolor{comment}{// reset cleaning service's file}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00309}00309     ofstream serviceFile(\textcolor{stringliteral}{"{}cleaning.txt"{}});}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00310}00310     serviceFile << \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00311}00311 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00312}00312     \textcolor{keywordflow}{if} (planeFile.is\_open())}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00313}00313         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& plane : this-\/>ownedPlanes) \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00314}00314             this-\/>storeCleaningServices(plane);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00315}00315             planeFile << plane;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00316}00316         \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00317}00317 \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00318}00318 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00319}00319 \textcolor{keywordtype}{void} Airline::storeCleaningServices(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}} \&plane)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00320}00320 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00321}00321     ofstream serviceFile(\textcolor{stringliteral}{"{}cleaning.txt"{}}, std::ios\_base::app);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00322}00322 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00323}00323     plane.\mbox{\hyperlink{class_plane_a6d74b5cc3d01a434cd75af60d0314497}{storeCleaningServices}}(serviceFile);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00324}00324 \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00325}00325 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00326}00326 \textcolor{keywordtype}{void} Airline::storeAirports()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00327}00327 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00328}00328     ofstream planeFile(\textcolor{stringliteral}{"{}airports.txt"{}});}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00329}00329 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00330}00330     \textcolor{comment}{// reset cleaning service's file}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00331}00331     ofstream transportPlaces(\textcolor{stringliteral}{"{}transportPlaces.txt"{}});}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00332}00332     transportPlaces << \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00333}00333 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00334}00334     \textcolor{keywordflow}{if} (planeFile.is\_open())}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00335}00335         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& airport : this-\/>airports) \{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00336}00336             this-\/>storeTransportPlaces(airport);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00337}00337             planeFile << airport;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00338}00338         \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00339}00339 \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00340}00340 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00341}00341 \textcolor{keywordtype}{void} Airline::storeTransportPlaces(\textcolor{keyword}{const} \mbox{\hyperlink{class_airport}{Airport}} \&airport)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00342}00342 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00343}00343     ofstream transportPlacesFile(\textcolor{stringliteral}{"{}transportPlaces.txt"{}}, std::ios\_base::app);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00344}00344 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00345}00345     airport.\mbox{\hyperlink{class_airport_a2d853b1fc2a6b798363e976260193048}{storeTransportPlaces}}(transportPlacesFile);}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00346}00346 \}}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00347}00347 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00348}00348 \textcolor{keywordtype}{void} Airline::storeFlights()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00349}00349 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00350}00350     ofstream flightsFile(\textcolor{stringliteral}{"{}flights.txt"{}});}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00351}00351 }
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00352}00352     \textcolor{keywordflow}{if} (flightsFile.is\_open())}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00353}00353         \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_flight}{Flight}} flight : this-\/>upcomingFlights)}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00354}00354             flightsFile << flight;}
+\DoxyCodeLine{\Hypertarget{airline_8cpp_source_l00355}00355 \}}
 
 \end{DoxyCode}

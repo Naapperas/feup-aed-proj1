@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AED-PROJ-2122: src/flight.cpp Source File</title>
+<title>AED-PROJ-2122: /home/naapperas/workspace/uni/2-ano/aed/project/src/flight.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -112,35 +112,41 @@ $(document).ready(function(){initNavTree('flight_8cpp_source.html',''); initResi
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordtype">void</span> Flight::execute() {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_flight.html#a7df4314b65b3732088e1e925b5fa8514">   27</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_flight.html#a7df4314b65b3732088e1e925b5fa8514">Flight::execute</a>() {</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">auto</span> &amp;originAirport = this-&gt;<a class="code hl_function" href="class_flight.html#a933386e91cbda0b38aa2ed9a0f4bc71b">getOriginAirport</a>(), &amp;destination = this-&gt;<a class="code hl_function" href="class_flight.html#af13e94ce7535070152f7c5ad10424370">getDestinationAirport</a>();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">auto</span> &amp;originAirport = this-&gt;<a class="code hl_function" href="class_flight.html#a933386e91cbda0b38aa2ed9a0f4bc71b">getOriginAirport</a>(), &amp;destinationAirport = this-&gt;<a class="code hl_function" href="class_flight.html#af13e94ce7535070152f7c5ad10424370">getDestinationAirport</a>();</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">auto</span> &amp;flightPlane = this-&gt;<a class="code hl_function" href="class_flight.html#ae32177b4c67f2e89ef5146dd96a03272">getPlane</a>();</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; passenger : this-&gt;passengers)</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        originAirport.addLuggageToTransportBelt(passenger.getLuggage());</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">if</span> (!originAirport.planeIsLanded(flightPlane))</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    originAirport.loadCargo(flightPlane);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    flightPlane.boardPassengers(this-&gt;passengers);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    originAirport.planeDeparture(flightPlane);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">// do some processing here...</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; passenger : this-&gt;passengers)</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        originAirport.addLuggageToTransportBelt(passenger.getLuggage());</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    originAirport.loadCargo(flightPlane);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    flightPlane.boardPassengers(this-&gt;passengers);</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="comment">// pass the time</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    destination.landPlane(flightPlane);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="comment">//TODO: what to do here with the passengers</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    flightPlane.unboardPassengers();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    originAirport.planeDeparture(flightPlane);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment">// do some processing here...</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="comment">// pass the time</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    destinationAirport.landPlane(flightPlane);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    destination.offloadCargo(flightPlane);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="comment">//TODO: what to do here with the passengers</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    flightPlane.unboardPassengers();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    destinationAirport.offloadCargo(flightPlane);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
 <div class="ttc" id="aclass_flight_html_a1038601796ab2dbf6936b92b83b204c2"><div class="ttname"><a href="class_flight.html#a1038601796ab2dbf6936b92b83b204c2">Flight::addPassengers</a></div><div class="ttdeci">bool addPassengers(const std::vector&lt; Ticket &gt; &amp;tickets)</div><div class="ttdef"><b>Definition:</b> <a href="flight_8cpp_source.html#l00018">flight.cpp:18</a></div></div>
-<div class="ttc" id="aclass_flight_html_a933386e91cbda0b38aa2ed9a0f4bc71b"><div class="ttname"><a href="class_flight.html#a933386e91cbda0b38aa2ed9a0f4bc71b">Flight::getOriginAirport</a></div><div class="ttdeci">Airport &amp; getOriginAirport()</div><div class="ttdef"><b>Definition:</b> <a href="flight_8h_source.html#l00141">flight.h:141</a></div></div>
+<div class="ttc" id="aclass_flight_html_a7df4314b65b3732088e1e925b5fa8514"><div class="ttname"><a href="class_flight.html#a7df4314b65b3732088e1e925b5fa8514">Flight::execute</a></div><div class="ttdeci">bool execute()</div><div class="ttdef"><b>Definition:</b> <a href="flight_8cpp_source.html#l00027">flight.cpp:27</a></div></div>
+<div class="ttc" id="aclass_flight_html_a933386e91cbda0b38aa2ed9a0f4bc71b"><div class="ttname"><a href="class_flight.html#a933386e91cbda0b38aa2ed9a0f4bc71b">Flight::getOriginAirport</a></div><div class="ttdeci">Airport &amp; getOriginAirport()</div><div class="ttdef"><b>Definition:</b> <a href="flight_8h_source.html#l00146">flight.h:146</a></div></div>
 <div class="ttc" id="aclass_flight_html_aba5250a97ddd6078df1eb6c95d9b9b80"><div class="ttname"><a href="class_flight.html#aba5250a97ddd6078df1eb6c95d9b9b80">Flight::addPassenger</a></div><div class="ttdeci">bool addPassenger(const Ticket &amp;ticket)</div><div class="ttdef"><b>Definition:</b> <a href="flight_8cpp_source.html#l00009">flight.cpp:9</a></div></div>
-<div class="ttc" id="aclass_flight_html_ae32177b4c67f2e89ef5146dd96a03272"><div class="ttname"><a href="class_flight.html#ae32177b4c67f2e89ef5146dd96a03272">Flight::getPlane</a></div><div class="ttdeci">Plane &amp; getPlane()</div><div class="ttdef"><b>Definition:</b> <a href="flight_8h_source.html#l00123">flight.h:123</a></div></div>
-<div class="ttc" id="aclass_flight_html_af13e94ce7535070152f7c5ad10424370"><div class="ttname"><a href="class_flight.html#af13e94ce7535070152f7c5ad10424370">Flight::getDestinationAirport</a></div><div class="ttdeci">Airport &amp; getDestinationAirport()</div><div class="ttdef"><b>Definition:</b> <a href="flight_8h_source.html#l00132">flight.h:132</a></div></div>
+<div class="ttc" id="aclass_flight_html_ae32177b4c67f2e89ef5146dd96a03272"><div class="ttname"><a href="class_flight.html#ae32177b4c67f2e89ef5146dd96a03272">Flight::getPlane</a></div><div class="ttdeci">Plane &amp; getPlane()</div><div class="ttdef"><b>Definition:</b> <a href="flight_8h_source.html#l00128">flight.h:128</a></div></div>
+<div class="ttc" id="aclass_flight_html_af13e94ce7535070152f7c5ad10424370"><div class="ttname"><a href="class_flight.html#af13e94ce7535070152f7c5ad10424370">Flight::getDestinationAirport</a></div><div class="ttdeci">Airport &amp; getDestinationAirport()</div><div class="ttdef"><b>Definition:</b> <a href="flight_8h_source.html#l00137">flight.h:137</a></div></div>
 <div class="ttc" id="aclass_ticket_html"><div class="ttname"><a href="class_ticket.html">Ticket</a></div><div class="ttdef"><b>Definition:</b> <a href="ticket_8h_source.html#l00010">ticket.h:10</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

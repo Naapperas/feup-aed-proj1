@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['landplane_0',['landPlane',['../class_airport.html#ad586fc71f9714bae8eca152ed68a449d',1,'Airport']]],
-  ['landtransportplace_1',['LandTransportPlace',['../class_land_transport_place.html#ae31477b22a3b872a254d3ae8b2253a55',1,'LandTransportPlace']]],
-  ['loadcargo_2',['loadCargo',['../class_airport.html#ab5196c1e624b4811f3194e571c3723c3',1,'Airport']]]
+  ['finishedcleaningservice_0',['finishedCleaningService',['../class_plane.html#aebaeb04e9f717fc465a1f6c65e65eac6',1,'Plane']]],
+  ['flight_1',['Flight',['../class_flight.html#a3d721edb44545befadd71af522d1517b',1,'Flight::Flight(const std::string &amp;departureDate, unsigned int duration, const Plane &amp;p, const Airport &amp;origin, const Airport &amp;destiny)'],['../class_flight.html#a4a9e7606dea9595378ab072abbc8782e',1,'Flight::Flight(long flightNumber, const std::string &amp;departureDate, unsigned int duration, const Plane &amp;p, const Airport &amp;origin, const Airport &amp;destiny)']]],
+  ['freestack_2',['freeStack',['../class_carriage.html#a587b2927cd922d00f43c7f629e85a36e',1,'Carriage']]]
 ];

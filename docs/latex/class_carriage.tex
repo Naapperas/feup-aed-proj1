@@ -29,9 +29,16 @@ Definition at line \mbox{\hyperlink{carriage_8h_source_l00017}{17}} of file \mbo
 \doxysubsubsection{\texorpdfstring{Carriage()}{Carriage()}}
 {\footnotesize\ttfamily Carriage\+::\+Carriage (\begin{DoxyParamCaption}\item[{unsigned}]{number\+Stacks,  }\item[{unsigned}]{stack\+Capacity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+Creates a new carriage 
+\begin{DoxyParams}{Parameters}
+{\em number\+Stacks} & Number of stacks \\
+\hline
+{\em stack\+Capacity} & Number of pieces each stack can take \\
+\hline
+\end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{carriage_8h_source_l00034}{34}} of file \mbox{\hyperlink{carriage_8h_source}{carriage.\+h}}.
+Definition at line \mbox{\hyperlink{carriage_8h_source_l00050}{50}} of file \mbox{\hyperlink{carriage_8h_source}{carriage.\+h}}.
 
 
 
@@ -52,6 +59,9 @@ Definition at line \mbox{\hyperlink{carriage_8cpp_source_l00017}{17}} of file \m
 \doxysubsubsection{\texorpdfstring{carriageFull()}{carriageFull()}}
 {\footnotesize\ttfamily bool Carriage\+::carriage\+Full (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+\begin{DoxyReturn}{Returns}
+Return true if carriage is full 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{carriage_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{carriage_8cpp_source}{carriage.\+cpp}}.
@@ -62,6 +72,9 @@ Definition at line \mbox{\hyperlink{carriage_8cpp_source_l00027}{27}} of file \m
 \doxysubsubsection{\texorpdfstring{freeStack()}{freeStack()}}
 {\footnotesize\ttfamily unsigned Carriage\+::free\+Stack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+\begin{DoxyReturn}{Returns}
+Return´s the index of a Stack that has space or -\/1 if the carriage is full 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{carriage_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{carriage_8cpp_source}{carriage.\+cpp}}.
@@ -72,6 +85,11 @@ Definition at line \mbox{\hyperlink{carriage_8cpp_source_l00008}{8}} of file \mb
 \doxysubsubsection{\texorpdfstring{removeLuggage()}{removeLuggage()}}
 {\footnotesize\ttfamily void Carriage\+::remove\+Luggage (\begin{DoxyParamCaption}\item[{std\+::list$<$ \mbox{\hyperlink{class_luggage}{Luggage}} $>$ \&}]{tmp }\end{DoxyParamCaption})}
 
+Clear´s the carriage 
+\begin{DoxyParams}{Parameters}
+{\em tmp} & List that holds the luggage \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{carriage_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{carriage_8cpp_source}{carriage.\+cpp}}.
@@ -80,5 +98,5 @@ Definition at line \mbox{\hyperlink{carriage_8cpp_source_l00036}{36}} of file \m
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-includes/carriage.\+h\item 
-src/carriage.\+cpp\end{DoxyCompactItemize}
+/home/naapperas/workspace/uni/2-\/ano/aed/project/includes/carriage.\+h\item 
+/home/naapperas/workspace/uni/2-\/ano/aed/project/src/carriage.\+cpp\end{DoxyCompactItemize}

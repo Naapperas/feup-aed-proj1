@@ -11,6 +11,8 @@
 \item 
 void \mbox{\hyperlink{class_airport_a280f9ed21c4907f405fe472a11e1bf04}{print\+Transport\+Places}} () const
 \item 
+const std\+::string \& \mbox{\hyperlink{class_airport_aa5be38443c1de176e52c4f5f5252c956}{get\+Name}} () const
+\item 
 \mbox{\hyperlink{class_ticket}{Ticket}} \mbox{\hyperlink{class_airport_a2d490e9d5acc5f3af70927c69527b0a8}{purchase\+Ticket}} (\mbox{\hyperlink{class_flight}{Flight}} \&flight, const \mbox{\hyperlink{class_passenger}{Passenger}} \&passenger)
 \item 
 void \mbox{\hyperlink{class_airport_a83c2f904fc043f3c82f110560595cd0f}{add\+Luggage\+To\+Transport\+Belt}} (const \mbox{\hyperlink{class_luggage}{Luggage}} \&l)
@@ -19,16 +21,27 @@ void \mbox{\hyperlink{class_airport_ad586fc71f9714bae8eca152ed68a449d}{land\+Pla
 \item 
 void \mbox{\hyperlink{class_airport_a23d5473192bb51d7a81287746c71920d}{plane\+Departure}} (const \mbox{\hyperlink{class_plane}{Plane}} \&plane)
 \item 
+bool \mbox{\hyperlink{class_airport_a66e0bf0f4e1aacedb77b689b09ce4557}{plane\+Is\+Landed}} (const \mbox{\hyperlink{class_plane}{Plane}} \&plane)
+\item 
 void \mbox{\hyperlink{class_airport_ab5196c1e624b4811f3194e571c3723c3}{load\+Cargo}} (\mbox{\hyperlink{class_plane}{Plane}} \&plane)
 \item 
 void \mbox{\hyperlink{class_airport_aafe471ecc257aca0d9000d65d53c5776}{offload\+Cargo}} (\mbox{\hyperlink{class_plane}{Plane}} \&plane)
+\item 
+void \mbox{\hyperlink{class_airport_a2d853b1fc2a6b798363e976260193048}{store\+Transport\+Places}} (ofstream \&file) const
+\item 
+void \mbox{\hyperlink{class_airport_ae542ada5c709934519bd81aecf5942d0}{register\+Transport\+Place}} (const \mbox{\hyperlink{class_land_transport_place}{Land\+Transport\+Place}} \&ltp)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \mbox{\hyperlink{class_airport_af7a5415c141ec1d494f69b7cedba7dce}{operator$<$$<$}} (ostream \&out, const \mbox{\hyperlink{class_airport}{Airport}} \&a)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Represents an \mbox{\hyperlink{class_airport}{Airport}} where planes can land and passengers can buy tickets for flights 
 
-Definition at line \mbox{\hyperlink{airport_8h_source_l00123}{123}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+Definition at line \mbox{\hyperlink{airport_8h_source_l00143}{143}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
 
 
 
@@ -37,7 +50,7 @@ Definition at line \mbox{\hyperlink{airport_8h_source_l00123}{123}} of file \mbo
 \index{Airport@{Airport}!Airport@{Airport}}
 \index{Airport@{Airport}!Airport@{Airport}}
 \doxysubsubsection{\texorpdfstring{Airport()}{Airport()}}
-{\footnotesize\ttfamily Airport\+::\+Airport (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Airport\+::\+Airport (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Creates a new airport 
 \begin{DoxyParams}{Parameters}
@@ -46,7 +59,7 @@ Creates a new airport
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{airport_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+Definition at line \mbox{\hyperlink{airport_8h_source_l00171}{171}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
 
 
 
@@ -57,7 +70,7 @@ Definition at line \mbox{\hyperlink{airport_8cpp_source_l00017}{17}} of file \mb
 \doxysubsubsection{\texorpdfstring{addLuggageToTransportBelt()}{addLuggageToTransportBelt()}}
 {\footnotesize\ttfamily void Airport\+::add\+Luggage\+To\+Transport\+Belt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_luggage}{Luggage}} \&}]{l }\end{DoxyParamCaption})}
 
-Emplaces some luggage on this airport\textquotesingle{}s transaport belt to be carried to a plane by the \mbox{\hyperlink{class_luggage}{Luggage}} Transportation Service
+Emplaces some luggage on this airport\textquotesingle{}s transport belt to be carried to a plane by the \mbox{\hyperlink{class_luggage}{Luggage}} Transportation Service
 
 
 \begin{DoxyParams}{Parameters}
@@ -66,7 +79,17 @@ Emplaces some luggage on this airport\textquotesingle{}s transaport belt to be c
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{airport_8cpp_source_l00130}{130}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+
+\mbox{\Hypertarget{class_airport_aa5be38443c1de176e52c4f5f5252c956}\label{class_airport_aa5be38443c1de176e52c4f5f5252c956}} 
+\index{Airport@{Airport}!getName@{getName}}
+\index{getName@{getName}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const std\+::string \& Airport\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{airport_8h_source_l00178}{178}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
 
 \mbox{\Hypertarget{class_airport_ad586fc71f9714bae8eca152ed68a449d}\label{class_airport_ad586fc71f9714bae8eca152ed68a449d}} 
 \index{Airport@{Airport}!landPlane@{landPlane}}
@@ -83,7 +106,7 @@ Lands a plane at this airport
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{airport_8cpp_source_l00114}{114}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
 
 \mbox{\Hypertarget{class_airport_ab5196c1e624b4811f3194e571c3723c3}\label{class_airport_ab5196c1e624b4811f3194e571c3723c3}} 
 \index{Airport@{Airport}!loadCargo@{loadCargo}}
@@ -100,7 +123,7 @@ Loads the cargo to the given plane.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{airport_8cpp_source_l00141}{141}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00081}{81}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
 
 \mbox{\Hypertarget{class_airport_aafe471ecc257aca0d9000d65d53c5776}\label{class_airport_aafe471ecc257aca0d9000d65d53c5776}} 
 \index{Airport@{Airport}!offloadCargo@{offloadCargo}}
@@ -117,7 +140,7 @@ Offloads this plane\textquotesingle{}s cargo to be delivered at this airport
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{airport_8cpp_source_l00150}{150}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00090}{90}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
 
 \mbox{\Hypertarget{class_airport_a23d5473192bb51d7a81287746c71920d}\label{class_airport_a23d5473192bb51d7a81287746c71920d}} 
 \index{Airport@{Airport}!planeDeparture@{planeDeparture}}
@@ -134,7 +157,25 @@ Makes a plane take off from this location
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{airport_8cpp_source_l00122}{122}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+
+\mbox{\Hypertarget{class_airport_a66e0bf0f4e1aacedb77b689b09ce4557}\label{class_airport_a66e0bf0f4e1aacedb77b689b09ce4557}} 
+\index{Airport@{Airport}!planeIsLanded@{planeIsLanded}}
+\index{planeIsLanded@{planeIsLanded}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{planeIsLanded()}{planeIsLanded()}}
+{\footnotesize\ttfamily bool Airport\+::plane\+Is\+Landed (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_plane}{Plane}} \&}]{plane }\end{DoxyParamCaption})}
+
+Checks if a plane is currently landed in this airport 
+\begin{DoxyParams}{Parameters}
+{\em plane} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the plane is landed else false 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
 
 \mbox{\Hypertarget{class_airport_a280f9ed21c4907f405fe472a11e1bf04}\label{class_airport_a280f9ed21c4907f405fe472a11e1bf04}} 
 \index{Airport@{Airport}!printTransportPlaces@{printTransportPlaces}}
@@ -144,7 +185,7 @@ Definition at line \mbox{\hyperlink{airport_8cpp_source_l00122}{122}} of file \m
 
 Print the information in transport\+Places to the console 
 
-Definition at line \mbox{\hyperlink{airport_8cpp_source_l00094}{94}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
 
 \mbox{\Hypertarget{class_airport_a2d490e9d5acc5f3af70927c69527b0a8}\label{class_airport_a2d490e9d5acc5f3af70927c69527b0a8}} 
 \index{Airport@{Airport}!purchaseTicket@{purchaseTicket}}
@@ -154,11 +195,54 @@ Definition at line \mbox{\hyperlink{airport_8cpp_source_l00094}{94}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{airport_8cpp_source_l00103}{103}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+
+\mbox{\Hypertarget{class_airport_ae542ada5c709934519bd81aecf5942d0}\label{class_airport_ae542ada5c709934519bd81aecf5942d0}} 
+\index{Airport@{Airport}!registerTransportPlace@{registerTransportPlace}}
+\index{registerTransportPlace@{registerTransportPlace}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{registerTransportPlace()}{registerTransportPlace()}}
+{\footnotesize\ttfamily void Airport\+::register\+Transport\+Place (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_land_transport_place}{Land\+Transport\+Place}} \&}]{ltp }\end{DoxyParamCaption})}
+
+Add a new land transport place to transport\+Places 
+\begin{DoxyParams}{Parameters}
+{\em ltp} & land transport place to be added/registered \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+
+\mbox{\Hypertarget{class_airport_a2d853b1fc2a6b798363e976260193048}\label{class_airport_a2d853b1fc2a6b798363e976260193048}} 
+\index{Airport@{Airport}!storeTransportPlaces@{storeTransportPlaces}}
+\index{storeTransportPlaces@{storeTransportPlaces}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{storeTransportPlaces()}{storeTransportPlaces()}}
+{\footnotesize\ttfamily void Airport\+::store\+Transport\+Places (\begin{DoxyParamCaption}\item[{ofstream \&}]{file }\end{DoxyParamCaption}) const}
+
+Store this airport\textquotesingle{}s land transport places info in the dedicated file 
+\begin{DoxyParams}{Parameters}
+{\em file} & file that contains information on every airport\textquotesingle{}s land transport places \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_airport_af7a5415c141ec1d494f69b7cedba7dce}\label{class_airport_af7a5415c141ec1d494f69b7cedba7dce}} 
+\index{Airport@{Airport}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_airport}{Airport}} \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{airport_8h_source_l00158}{158}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-includes/airport.\+h\item 
-src/airport.\+cpp\end{DoxyCompactItemize}
+/home/naapperas/workspace/uni/2-\/ano/aed/project/includes/airport.\+h\item 
+/home/naapperas/workspace/uni/2-\/ano/aed/project/src/airport.\+cpp\end{DoxyCompactItemize}

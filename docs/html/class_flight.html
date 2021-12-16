@@ -117,13 +117,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af13e94ce7535070152f7c5ad10424370"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a933386e91cbda0b38aa2ed9a0f4bc71b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_airport.html">Airport</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flight.html#a933386e91cbda0b38aa2ed9a0f4bc71b">getOriginAirport</a> ()</td></tr>
 <tr class="separator:a933386e91cbda0b38aa2ed9a0f4bc71b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a777131c95d5f6e2509c13b4699f7c5fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flight.html#a777131c95d5f6e2509c13b4699f7c5fc">execute</a> ()</td></tr>
-<tr class="separator:a777131c95d5f6e2509c13b4699f7c5fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7df4314b65b3732088e1e925b5fa8514"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flight.html#a7df4314b65b3732088e1e925b5fa8514">execute</a> ()</td></tr>
+<tr class="separator:a7df4314b65b3732088e1e925b5fa8514"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a9b01eaeadbaa6efacbbd26a8715e2bdc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flight.html#a9b01eaeadbaa6efacbbd26a8715e2bdc">operator==</a> (const <a class="el" href="class_flight.html">Flight</a> &amp;a, const <a class="el" href="class_flight.html">Flight</a> &amp;b)</td></tr>
 <tr class="separator:a9b01eaeadbaa6efacbbd26a8715e2bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a113da3fb7d9309f80c9afd65e4fe948f"><td class="memItemLeft" align="right" valign="top">ofstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flight.html#a113da3fb7d9309f80c9afd65e4fe948f">operator&lt;&lt;</a> (ofstream &amp;out, <a class="el" href="class_flight.html">Flight</a> &amp;f)</td></tr>
+<tr class="separator:a113da3fb7d9309f80c9afd65e4fe948f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Represents a flight between 2 different destinations. </p>
@@ -193,7 +195,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00047">47</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00052">52</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
 
 </div>
 </div>
@@ -267,7 +269,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00062">62</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00067">67</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
 
 </div>
 </div>
@@ -326,20 +328,21 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a777131c95d5f6e2509c13b4699f7c5fc" name="a777131c95d5f6e2509c13b4699f7c5fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a777131c95d5f6e2509c13b4699f7c5fc">&#9670;&nbsp;</a></span>execute()</h2>
+<a id="a7df4314b65b3732088e1e925b5fa8514" name="a7df4314b65b3732088e1e925b5fa8514"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7df4314b65b3732088e1e925b5fa8514">&#9670;&nbsp;</a></span>execute()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Flight::execute </td>
+          <td class="memname">bool Flight::execute </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Executes this flight Effectively, this function transfers luggage from the passengers to the airport and then to the plane while boarding said passengers. Then the plane is transfered from the origin airport to the destination airport and cargo is offloaded. </p><dl class="section return"><dt>Returns</dt><dd>true if executed successfully else false </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="flight_8cpp_source.html#l00027">27</a> of file <a class="el" href="flight_8cpp_source.html">flight.cpp</a>.</p>
 
@@ -370,7 +373,7 @@ Friends</h2></td></tr>
 <p >Returns this flight's departure date.</p>
 <dl class="section return"><dt>Returns</dt><dd>this flight's departure date </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00082">82</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00087">87</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
 
 </div>
 </div>
@@ -399,7 +402,7 @@ Friends</h2></td></tr>
 <p >Returns the destination airport for this flight.</p>
 <dl class="section return"><dt>Returns</dt><dd>the destination airport for this flight </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00132">132</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00137">137</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
 
 </div>
 </div>
@@ -428,7 +431,7 @@ Friends</h2></td></tr>
 <p >Returns this flight's duration.</p>
 <dl class="section return"><dt>Returns</dt><dd>this flight's duration </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00091">91</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00096">96</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
 
 </div>
 </div>
@@ -457,7 +460,7 @@ Friends</h2></td></tr>
 <p >Returns this flight's associated identification number.</p>
 <dl class="section return"><dt>Returns</dt><dd>this flight's associated identification number. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00073">73</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00078">78</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
 
 </div>
 </div>
@@ -486,7 +489,7 @@ Friends</h2></td></tr>
 <p >Returns this flight's current lotation.</p>
 <dl class="section return"><dt>Returns</dt><dd>this flight's current lotation </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00100">100</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00105">105</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
 
 </div>
 </div>
@@ -515,7 +518,7 @@ Friends</h2></td></tr>
 <p >Returns the origin airport for this flight.</p>
 <dl class="section return"><dt>Returns</dt><dd>the origin airport for this flight </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00141">141</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00146">146</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
 
 </div>
 </div>
@@ -544,11 +547,49 @@ Friends</h2></td></tr>
 <p >Returns the plane associated with this flight.</p>
 <dl class="section return"><dt>Returns</dt><dd>the plane associated with this flight </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00123">123</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00128">128</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a113da3fb7d9309f80c9afd65e4fe948f" name="a113da3fb7d9309f80c9afd65e4fe948f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a113da3fb7d9309f80c9afd65e4fe948f">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ofstream &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">ofstream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_flight.html">Flight</a> &amp;&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="flight_8h_source.html#l00037">37</a> of file <a class="el" href="flight_8h_source.html">flight.h</a>.</p>
+
+</div>
+</div>
 <a id="a9b01eaeadbaa6efacbbd26a8715e2bdc" name="a9b01eaeadbaa6efacbbd26a8715e2bdc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9b01eaeadbaa6efacbbd26a8715e2bdc">&#9670;&nbsp;</a></span>operator==</h2>
 
@@ -588,8 +629,8 @@ Friends</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>includes/<a class="el" href="flight_8h_source.html">flight.h</a></li>
-<li>src/<a class="el" href="flight_8cpp_source.html">flight.cpp</a></li>
+<li>/home/naapperas/workspace/uni/2-ano/aed/project/includes/<a class="el" href="flight_8h_source.html">flight.h</a></li>
+<li>/home/naapperas/workspace/uni/2-ano/aed/project/src/<a class="el" href="flight_8cpp_source.html">flight.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

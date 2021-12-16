@@ -103,8 +103,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abcdbfeb032e5682567a24bf2e12f8d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d43f8ed0ce7e04c10990ad44fad2d94"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airline.html#a6d43f8ed0ce7e04c10990ad44fad2d94">addFlightsToPlane</a> (const <a class="el" href="class_plane.html">Plane</a> &amp;plane, const std::list&lt; <a class="el" href="class_flight.html">Flight</a> &gt; &amp;flights)</td></tr>
 <tr class="separator:a6d43f8ed0ce7e04c10990ad44fad2d94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a131c34af4942421c3695b99ef569804c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airline.html#a131c34af4942421c3695b99ef569804c">cancelFlight</a> (long flightNumber)</td></tr>
+<tr class="separator:a131c34af4942421c3695b99ef569804c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f1ef620bef5fe12e36b37d759f63398"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airline.html#a4f1ef620bef5fe12e36b37d759f63398">listCurrentFlights</a> () const</td></tr>
 <tr class="separator:a4f1ef620bef5fe12e36b37d759f63398"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fb1650a8d78a899d71811e1248538d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airline.html#a1fb1650a8d78a899d71811e1248538d3">listCurrentPlanes</a> (bool verbose=true) const</td></tr>
+<tr class="separator:a1fb1650a8d78a899d71811e1248538d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ecddee30302f3609e6fd8e15a0917c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airline.html#a5ecddee30302f3609e6fd8e15a0917c9">purchasePlane</a> ()</td></tr>
+<tr class="separator:a5ecddee30302f3609e6fd8e15a0917c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6f6fc6af5d435191ad318287fbdd116"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airline.html#ac6f6fc6af5d435191ad318287fbdd116">registerTransportPlace</a> ()</td></tr>
+<tr class="separator:ac6f6fc6af5d435191ad318287fbdd116"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f7bb4dd93f040dcda30eaa607c9e139"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airline.html#a1f7bb4dd93f040dcda30eaa607c9e139">getName</a> () const</td></tr>
 <tr class="separator:a1f7bb4dd93f040dcda30eaa607c9e139"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -112,13 +120,13 @@ Public Member Functions</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a4af85b4b1a7b50cdfcb1e9105dc8610c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airline.html#a4af85b4b1a7b50cdfcb1e9105dc8610c">setInstance</a> (<a class="el" href="class_airline.html">Airline</a> *instance)</td></tr>
 <tr class="separator:a4af85b4b1a7b50cdfcb1e9105dc8610c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae936edeebfbe45fd4f205b251d1fcc05"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_airline.html">Airline</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airline.html#ae936edeebfbe45fd4f205b251d1fcc05">getInstance</a> ()</td></tr>
-<tr class="separator:ae936edeebfbe45fd4f205b251d1fcc05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d81923c678a752f699143feea484f52"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_airline.html">Airline</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airline.html#a9d81923c678a752f699143feea484f52">getInstance</a> ()</td></tr>
+<tr class="separator:a9d81923c678a752f699143feea484f52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >The central point of the application, this is supposed to represent the airline for whom the application is being built for </p>
+<div class="textblock"><p >The central point of the application, this is supposed to represent the airline for whom the application is being built for. </p>
 
-<p class="definition">Definition at line <a class="el" href="airline_8h_source.html#l00016">16</a> of file <a class="el" href="airline_8h_source.html">airline.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8h_source.html#l00017">17</a> of file <a class="el" href="airline_8h_source.html">airline.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a458d846029cfbec3d3b1fe0f75b70792" name="a458d846029cfbec3d3b1fe0f75b70792"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a458d846029cfbec3d3b1fe0f75b70792">&#9670;&nbsp;</a></span>Airline()</h2>
@@ -148,6 +156,33 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ab2f49a93f87af82edec07533280919fd" name="ab2f49a93f87af82edec07533280919fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2f49a93f87af82edec07533280919fd">&#9670;&nbsp;</a></span>~Airline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Airline::~Airline </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="airline_8h_source.html#l00036">36</a> of file <a class="el" href="airline_8h_source.html">airline.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6d43f8ed0ce7e04c10990ad44fad2d94" name="a6d43f8ed0ce7e04c10990ad44fad2d94"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6d43f8ed0ce7e04c10990ad44fad2d94">&#9670;&nbsp;</a></span>addFlightsToPlane()</h2>
@@ -174,8 +209,16 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Add a list of flights to a plane's flight plan </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plane</td><td>plane that will perform these flights </td></tr>
+    <tr><td class="paramname">flight</td><td>list of flights to be added </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00074">74</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00182">182</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -204,8 +247,16 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Add a flight to a plane's flight plan </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plane</td><td>plane that will perform this flight </td></tr>
+    <tr><td class="paramname">flight</td><td>flight to be added </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00065">65</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00172">172</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -224,13 +275,47 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Add a new plane to the currently owned planes </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plane</td><td>plane to be added </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if added successfully (this plane wasn't owned already) else false </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00053">53</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00162">162</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
-<a id="ae936edeebfbe45fd4f205b251d1fcc05" name="ae936edeebfbe45fd4f205b251d1fcc05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae936edeebfbe45fd4f205b251d1fcc05">&#9670;&nbsp;</a></span>getInstance()</h2>
+<a id="a131c34af4942421c3695b99ef569804c" name="a131c34af4942421c3695b99ef569804c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a131c34af4942421c3695b99ef569804c">&#9670;&nbsp;</a></span>cancelFlight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Airline::cancelFlight </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>flightNumber</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Cancel a flight (essentially deleting it) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flightNumber</td><td>identification number of the flight to be canceled </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if cancelled successfully (flightNumber corresponded to an existing flight) else false </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00194">194</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9d81923c678a752f699143feea484f52" name="a9d81923c678a752f699143feea484f52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d81923c678a752f699143feea484f52">&#9670;&nbsp;</a></span>getInstance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,7 +324,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="class_airline.html">Airline</a> Airline::getInstance </td>
+          <td class="memname">static <a class="el" href="class_airline.html">Airline</a> &amp; Airline::getInstance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -252,7 +337,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="airline_8h_source.html#l00042">42</a> of file <a class="el" href="airline_8h_source.html">airline.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8h_source.html#l00077">77</a> of file <a class="el" href="airline_8h_source.html">airline.h</a>.</p>
 
 </div>
 </div>
@@ -279,7 +364,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="airline_8h_source.html#l00052">52</a> of file <a class="el" href="airline_8h_source.html">airline.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8h_source.html#l00102">102</a> of file <a class="el" href="airline_8h_source.html">airline.h</a>.</p>
 
 </div>
 </div>
@@ -297,8 +382,74 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Print all scheduled flights </p>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00086">86</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00204">204</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1fb1650a8d78a899d71811e1248538d3" name="a1fb1650a8d78a899d71811e1248538d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fb1650a8d78a899d71811e1248538d3">&#9670;&nbsp;</a></span>listCurrentPlanes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Airline::listCurrentPlanes </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>verbose</em> = <code>true</code></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Print all owned planes </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">verbose</td><td>if set to false only displays essential information (plate and type) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00214">214</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5ecddee30302f3609e6fd8e15a0917c9" name="a5ecddee30302f3609e6fd8e15a0917c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ecddee30302f3609e6fd8e15a0917c9">&#9670;&nbsp;</a></span>purchasePlane()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Airline::purchasePlane </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Add a new plane to the owned planes </p>
+
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00227">227</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac6f6fc6af5d435191ad318287fbdd116" name="ac6f6fc6af5d435191ad318287fbdd116"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6f6fc6af5d435191ad318287fbdd116">&#9670;&nbsp;</a></span>registerTransportPlace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Airline::registerTransportPlace </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00255">255</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -326,13 +477,13 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="airline_8h_source.html#l00034">34</a> of file <a class="el" href="airline_8h_source.html">airline.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8h_source.html#l00072">72</a> of file <a class="el" href="airline_8h_source.html">airline.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>includes/<a class="el" href="airline_8h_source.html">airline.h</a></li>
-<li>src/<a class="el" href="airline_8cpp_source.html">airline.cpp</a></li>
+<li>/home/naapperas/workspace/uni/2-ano/aed/project/includes/<a class="el" href="airline_8h_source.html">airline.h</a></li>
+<li>/home/naapperas/workspace/uni/2-ano/aed/project/src/<a class="el" href="airline_8cpp_source.html">airline.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

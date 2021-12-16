@@ -10,13 +10,15 @@ bool \mbox{\hyperlink{class_flight_plan_af11c78546d71519ebb65cb85e88749de}{add\+
 void \mbox{\hyperlink{class_flight_plan_ac434ebf89556221519bbfe0bc482587c}{perform\+Flight}} ()
 \item 
 const \mbox{\hyperlink{class_plane}{Plane}} \& \mbox{\hyperlink{class_flight_plan_a27c169dc3e26896d527f412d3b93a632}{get\+Plane}} () const
+\item 
+bool \mbox{\hyperlink{class_flight_plan_ac80acac30aedd71c4f0369870f978da6}{remove\+Flight}} (long flight\+Number)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 
 
-Definition at line \mbox{\hyperlink{airport_8h_source_l00015}{15}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+Definition at line \mbox{\hyperlink{airport_8h_source_l00016}{16}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
 
 
 
@@ -29,7 +31,7 @@ Definition at line \mbox{\hyperlink{airport_8h_source_l00015}{15}} of file \mbox
 
 
 
-Definition at line \mbox{\hyperlink{airport_8h_source_l00019}{19}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+Definition at line \mbox{\hyperlink{airport_8h_source_l00020}{20}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
 
 
 
@@ -67,7 +69,7 @@ the plane associated with this flight\+Plan
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{airport_8h_source_l00041}{41}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+Definition at line \mbox{\hyperlink{airport_8h_source_l00043}{43}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
 
 \mbox{\Hypertarget{class_flight_plan_ac434ebf89556221519bbfe0bc482587c}\label{class_flight_plan_ac434ebf89556221519bbfe0bc482587c}} 
 \index{FlightPlan@{FlightPlan}!performFlight@{performFlight}}
@@ -77,11 +79,29 @@ Definition at line \mbox{\hyperlink{airport_8h_source_l00041}{41}} of file \mbox
 
 Performs the first flight in the flight\+Plan 
 
-Definition at line \mbox{\hyperlink{airport_8h_source_l00032}{32}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+Definition at line \mbox{\hyperlink{airport_8h_source_l00033}{33}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+
+\mbox{\Hypertarget{class_flight_plan_ac80acac30aedd71c4f0369870f978da6}\label{class_flight_plan_ac80acac30aedd71c4f0369870f978da6}} 
+\index{FlightPlan@{FlightPlan}!removeFlight@{removeFlight}}
+\index{removeFlight@{removeFlight}!FlightPlan@{FlightPlan}}
+\doxysubsubsection{\texorpdfstring{removeFlight()}{removeFlight()}}
+{\footnotesize\ttfamily bool Flight\+Plan\+::remove\+Flight (\begin{DoxyParamCaption}\item[{long}]{flight\+Number }\end{DoxyParamCaption})}
+
+Removes a flight from this \mbox{\hyperlink{class_flight_plan}{Flight\+Plan}}\textquotesingle{}s list of flights 
+\begin{DoxyParams}{Parameters}
+{\em flight\+Number} & identification number of the flight to be removed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if flight is removed successfully else false 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-includes/airport.\+h\item 
-src/airport.\+cpp\end{DoxyCompactItemize}
+/home/naapperas/workspace/uni/2-\/ano/aed/project/includes/airport.\+h\item 
+/home/naapperas/workspace/uni/2-\/ano/aed/project/src/airport.\+cpp\end{DoxyCompactItemize}

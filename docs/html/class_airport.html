@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('class_airport.html',''); initResizable
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_airport-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Airport Class Reference</div></div>
 </div><!--header-->
@@ -98,6 +99,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a35768e35e87980e14067cde0f838f9be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a280f9ed21c4907f405fe472a11e1bf04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a280f9ed21c4907f405fe472a11e1bf04">printTransportPlaces</a> () const</td></tr>
 <tr class="separator:a280f9ed21c4907f405fe472a11e1bf04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5be38443c1de176e52c4f5f5252c956"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#aa5be38443c1de176e52c4f5f5252c956">getName</a> () const</td></tr>
+<tr class="separator:aa5be38443c1de176e52c4f5f5252c956"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d490e9d5acc5f3af70927c69527b0a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ticket.html">Ticket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a2d490e9d5acc5f3af70927c69527b0a8">purchaseTicket</a> (<a class="el" href="class_flight.html">Flight</a> &amp;flight, const <a class="el" href="class_passenger.html">Passenger</a> &amp;passenger)</td></tr>
 <tr class="separator:a2d490e9d5acc5f3af70927c69527b0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83c2f904fc043f3c82f110560595cd0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a83c2f904fc043f3c82f110560595cd0f">addLuggageToTransportBelt</a> (const <a class="el" href="class_luggage.html">Luggage</a> &amp;l)</td></tr>
@@ -106,21 +109,35 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad586fc71f9714bae8eca152ed68a449d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23d5473192bb51d7a81287746c71920d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a23d5473192bb51d7a81287746c71920d">planeDeparture</a> (const <a class="el" href="class_plane.html">Plane</a> &amp;plane)</td></tr>
 <tr class="separator:a23d5473192bb51d7a81287746c71920d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66e0bf0f4e1aacedb77b689b09ce4557"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a66e0bf0f4e1aacedb77b689b09ce4557">planeIsLanded</a> (const <a class="el" href="class_plane.html">Plane</a> &amp;plane)</td></tr>
+<tr class="separator:a66e0bf0f4e1aacedb77b689b09ce4557"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5196c1e624b4811f3194e571c3723c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#ab5196c1e624b4811f3194e571c3723c3">loadCargo</a> (<a class="el" href="class_plane.html">Plane</a> &amp;plane)</td></tr>
 <tr class="separator:ab5196c1e624b4811f3194e571c3723c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafe471ecc257aca0d9000d65d53c5776"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#aafe471ecc257aca0d9000d65d53c5776">offloadCargo</a> (<a class="el" href="class_plane.html">Plane</a> &amp;plane)</td></tr>
 <tr class="separator:aafe471ecc257aca0d9000d65d53c5776"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d853b1fc2a6b798363e976260193048"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a2d853b1fc2a6b798363e976260193048">storeTransportPlaces</a> (ofstream &amp;file) const</td></tr>
+<tr class="separator:a2d853b1fc2a6b798363e976260193048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae542ada5c709934519bd81aecf5942d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#ae542ada5c709934519bd81aecf5942d0">registerTransportPlace</a> (const <a class="el" href="class_land_transport_place.html">LandTransportPlace</a> &amp;ltp)</td></tr>
+<tr class="separator:ae542ada5c709934519bd81aecf5942d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:af7a5415c141ec1d494f69b7cedba7dce"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#af7a5415c141ec1d494f69b7cedba7dce">operator&lt;&lt;</a> (ostream &amp;out, const <a class="el" href="class_airport.html">Airport</a> &amp;a)</td></tr>
+<tr class="separator:af7a5415c141ec1d494f69b7cedba7dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Represents an <a class="el" href="class_airport.html">Airport</a> where planes can land and passengers can buy tickets for flights </p>
 
-<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00123">123</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00143">143</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a35768e35e87980e14067cde0f838f9be" name="a35768e35e87980e14067cde0f838f9be"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a35768e35e87980e14067cde0f838f9be">&#9670;&nbsp;</a></span>Airport()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Airport::Airport </td>
@@ -130,6 +147,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p >Creates a new airport </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -138,7 +160,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00017">17</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00171">171</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
 
 </div>
 </div>
@@ -158,7 +180,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Emplaces some luggage on this airport's transaport belt to be carried to a plane by the <a class="el" href="class_luggage.html">Luggage</a> Transportation Service</p>
+<p >Emplaces some luggage on this airport's transport belt to be carried to a plane by the <a class="el" href="class_luggage.html">Luggage</a> Transportation Service</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">l</td><td>the luggage to transport </td></tr>
@@ -166,7 +188,34 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00130">130</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00070">70</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa5be38443c1de176e52c4f5f5252c956" name="aa5be38443c1de176e52c4f5f5252c956"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5be38443c1de176e52c4f5f5252c956">&#9670;&nbsp;</a></span>getName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; Airport::getName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00178">178</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
 
 </div>
 </div>
@@ -193,7 +242,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00114">114</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00048">48</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
 
 </div>
 </div>
@@ -220,7 +269,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00141">141</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00081">81</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
 
 </div>
 </div>
@@ -247,7 +296,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00150">150</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00090">90</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
 
 </div>
 </div>
@@ -274,7 +323,34 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00122">122</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00056">56</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a66e0bf0f4e1aacedb77b689b09ce4557" name="a66e0bf0f4e1aacedb77b689b09ce4557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66e0bf0f4e1aacedb77b689b09ce4557">&#9670;&nbsp;</a></span>planeIsLanded()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Airport::planeIsLanded </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_plane.html">Plane</a> &amp;&#160;</td>
+          <td class="paramname"><em>plane</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Checks if a plane is currently landed in this airport </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plane</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the plane is landed else false </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00064">64</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
 
 </div>
 </div>
@@ -294,7 +370,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p >Print the information in transportPlaces to the console </p>
 
-<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00094">94</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00028">28</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
 
 </div>
 </div>
@@ -324,13 +400,104 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00103">103</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00037">37</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae542ada5c709934519bd81aecf5942d0" name="ae542ada5c709934519bd81aecf5942d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae542ada5c709934519bd81aecf5942d0">&#9670;&nbsp;</a></span>registerTransportPlace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Airport::registerTransportPlace </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_land_transport_place.html">LandTransportPlace</a> &amp;&#160;</td>
+          <td class="paramname"><em>ltp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Add a new land transport place to transportPlaces </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ltp</td><td>land transport place to be added/registered </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00106">106</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2d853b1fc2a6b798363e976260193048" name="a2d853b1fc2a6b798363e976260193048"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d853b1fc2a6b798363e976260193048">&#9670;&nbsp;</a></span>storeTransportPlaces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Airport::storeTransportPlaces </td>
+          <td>(</td>
+          <td class="paramtype">ofstream &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Store this airport's land transport places info in the dedicated file </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>file that contains information on every airport's land transport places </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00096">96</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="af7a5415c141ec1d494f69b7cedba7dce" name="af7a5415c141ec1d494f69b7cedba7dce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7a5415c141ec1d494f69b7cedba7dce">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ostream &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_airport.html">Airport</a> &amp;&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00158">158</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>includes/<a class="el" href="airport_8h_source.html">airport.h</a></li>
-<li>src/<a class="el" href="airport_8cpp_source.html">airport.cpp</a></li>
+<li>/home/naapperas/workspace/uni/2-ano/aed/project/includes/<a class="el" href="airport_8h_source.html">airport.h</a></li>
+<li>/home/naapperas/workspace/uni/2-ano/aed/project/src/<a class="el" href="airport_8cpp_source.html">airport.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

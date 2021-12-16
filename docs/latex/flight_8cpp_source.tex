@@ -1,5 +1,5 @@
 \hypertarget{flight_8cpp_source}{}\doxysection{flight.\+cpp}
-\label{flight_8cpp_source}\index{src/flight.cpp@{src/flight.cpp}}
+\label{flight_8cpp_source}\index{/home/naapperas/workspace/uni/2-\/ano/aed/project/src/flight.cpp@{/home/naapperas/workspace/uni/2-\/ano/aed/project/src/flight.cpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00001}00001 \textcolor{comment}{//}}
@@ -28,29 +28,34 @@
 \DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00024}00024     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
 \DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00025}00025 \}}
 \DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00026}00026 }
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00027}00027 \textcolor{keywordtype}{void} Flight::execute() \{}
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00027}\mbox{\hyperlink{class_flight_a7df4314b65b3732088e1e925b5fa8514}{00027}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_flight_a7df4314b65b3732088e1e925b5fa8514}{Flight::execute}}() \{}
 \DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00028}00028 }
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00029}00029     \textcolor{keyword}{auto} \&originAirport = this-\/>\mbox{\hyperlink{class_flight_a933386e91cbda0b38aa2ed9a0f4bc71b}{getOriginAirport}}(), \&destination = this-\/>\mbox{\hyperlink{class_flight_af13e94ce7535070152f7c5ad10424370}{getDestinationAirport}}();}
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00029}00029     \textcolor{keyword}{auto} \&originAirport = this-\/>\mbox{\hyperlink{class_flight_a933386e91cbda0b38aa2ed9a0f4bc71b}{getOriginAirport}}(), \&destinationAirport = this-\/>\mbox{\hyperlink{class_flight_af13e94ce7535070152f7c5ad10424370}{getDestinationAirport}}();}
 \DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00030}00030     \textcolor{keyword}{auto} \&flightPlane = this-\/>\mbox{\hyperlink{class_flight_ae32177b4c67f2e89ef5146dd96a03272}{getPlane}}();}
 \DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00031}00031 }
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00032}00032     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& passenger : this-\/>passengers)}
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00033}00033         originAirport.addLuggageToTransportBelt(passenger.getLuggage());}
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00032}00032     \textcolor{keywordflow}{if} (!originAirport.planeIsLanded(flightPlane))}
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00033}00033         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
 \DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00034}00034 }
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00035}00035     originAirport.loadCargo(flightPlane);}
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00036}00036 }
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00037}00037     flightPlane.boardPassengers(this-\/>passengers);}
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00038}00038 }
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00039}00039     originAirport.planeDeparture(flightPlane);}
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00040}00040     \textcolor{comment}{// do some processing here...}}
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00035}00035     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& passenger : this-\/>passengers)}
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00036}00036         originAirport.addLuggageToTransportBelt(passenger.getLuggage());}
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00038}00038     originAirport.loadCargo(flightPlane);}
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00040}00040     flightPlane.boardPassengers(this-\/>passengers);}
 \DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00041}00041 }
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00042}00042     \textcolor{comment}{// pass the time}}
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00043}00043 }
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00044}00044     destination.landPlane(flightPlane);}
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00045}00045 }
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00046}00046     \textcolor{comment}{//TODO: what to do here with the passengers}}
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00047}00047     flightPlane.unboardPassengers();}
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00042}00042     originAirport.planeDeparture(flightPlane);}
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00043}00043     \textcolor{comment}{// do some processing here...}}
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00045}00045     \textcolor{comment}{// pass the time}}
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00047}00047     destinationAirport.landPlane(flightPlane);}
 \DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00048}00048 }
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00049}00049     destination.offloadCargo(flightPlane);}
-\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00050}00050 \}}
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00049}00049     \textcolor{comment}{//TODO: what to do here with the passengers}}
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00050}00050     flightPlane.unboardPassengers();}
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00052}00052     destinationAirport.offloadCargo(flightPlane);}
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00054}00054     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{flight_8cpp_source_l00055}00055 \}}
 
 \end{DoxyCode}

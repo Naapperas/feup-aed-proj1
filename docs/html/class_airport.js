@@ -6,5 +6,8 @@ var class_airport =
     [ "loadCargo", "class_airport.html#ab5196c1e624b4811f3194e571c3723c3", null ],
     [ "offloadCargo", "class_airport.html#aafe471ecc257aca0d9000d65d53c5776", null ],
     [ "planeDeparture", "class_airport.html#a23d5473192bb51d7a81287746c71920d", null ],
-    [ "printTransportPlaces", "class_airport.html#a280f9ed21c4907f405fe472a11e1bf04", null ]
+    [ "planeIsLanded", "class_airport.html#a66e0bf0f4e1aacedb77b689b09ce4557", null ],
+    [ "printTransportPlaces", "class_airport.html#a280f9ed21c4907f405fe472a11e1bf04", null ],
+    [ "registerTransportPlace", "class_airport.html#ae542ada5c709934519bd81aecf5942d0", null ],
+    [ "storeTransportPlaces", "class_airport.html#a2d853b1fc2a6b798363e976260193048", null ]
 ];

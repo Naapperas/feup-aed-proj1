@@ -1,5 +1,5 @@
 \hypertarget{menu_8cpp_source}{}\doxysection{menu.\+cpp}
-\label{menu_8cpp_source}\index{src/menu.cpp@{src/menu.cpp}}
+\label{menu_8cpp_source}\index{/home/naapperas/workspace/uni/2-\/ano/aed/project/src/menu.cpp@{/home/naapperas/workspace/uni/2-\/ano/aed/project/src/menu.cpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00001}00001 \textcolor{comment}{//}}
@@ -19,9 +19,9 @@
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00015}00015 }
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00016}00016     \textcolor{keywordflow}{while} (!Menu::exitApplication) \{}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00017}00017 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00018}00018         \textcolor{keywordtype}{int} option = Menu::showInitialMenu(Airline::getInstance().getName());}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00018}00018         std::cout << std::string(100, \textcolor{charliteral}{'\(\backslash\)n'});}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00019}00019 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00020}00020         std::cout << std::string(100, \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00020}00020         \textcolor{keywordtype}{int} option = Menu::showInitialMenu(Airline::getInstance().getName());}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00021}00021 }
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00022}00022         \textcolor{keywordflow}{switch} (option) \{}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00023}00023             \textcolor{keywordflow}{case} CLIENT:}
@@ -51,99 +51,127 @@
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00047}00047                     option = Menu::showAdminMenu();}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00048}00048 }
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00049}00049                     \textcolor{keywordflow}{switch} (option) \{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00050}00050                         \textcolor{keywordflow}{case} PURCHASE_PLANE:}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00051}00051                             \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00052}00052                         \textcolor{keywordflow}{case} ADMIN\_FLIGHT:}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00053}00053                             \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00054}00054                         \textcolor{keywordflow}{case} ADMIN\_BACK:}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00055}00055                             \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00056}00056                         \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00057}00057                             std::cout << \textcolor{stringliteral}{"{}Invalid option, returning to main menu\(\backslash\)n\(\backslash\)n"{}};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00058}00058                             \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00059}00059                     \}}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00060}00060                 \}}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00061}00061                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00062}00062             \textcolor{keywordflow}{case} LEAVE:}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00063}00063                 Menu::exitApplication = \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00064}00064                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00065}00065             \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00066}00066                 std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tInvalid option chosen!\(\backslash\)n\(\backslash\)n"{}};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00067}00067                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00068}00068         \}}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00069}00069     \}}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00070}00070 \}}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00071}00071 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00072}00072 \textcolor{keywordtype}{int} Menu::showAdminMenu() \{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00073}00073 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00074}00074     std::string password;}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00075}00075     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tEnter your password please: "{}};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00076}00076     std::cin >> password;}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00077}00077 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00078}00078     \textcolor{keywordflow}{if} (!std::cin)}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00079}00079         exit(0);}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00050}00050                         \textcolor{keywordflow}{case} PURCHASE\_PLANE:}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00051}00051                             Menu::purchasePlane();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00052}00052                             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00053}00053                         \textcolor{keywordflow}{case} ADMIN\_FLIGHT:}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00054}00054                             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00055}00055                         \textcolor{keywordflow}{case} ADMIN\_PLANES:}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00056}00056                             Menu::listPlanes();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00057}00057                             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00058}00058                         \textcolor{keywordflow}{case} ADMIN\_LAND\_TRANSPORT\_PLACE:}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00059}00059                             Menu::registerTransportPlace();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00060}00060                             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00061}00061                         \textcolor{keywordflow}{case} ADMIN\_BACK:}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00062}00062                             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00063}00063                         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00064}00064                             std::cout << \textcolor{stringliteral}{"{}Invalid option, returning to main menu\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00065}00065                             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00066}00066                     \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00067}00067                 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00068}00068                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00069}00069             \textcolor{keywordflow}{case} LEAVE:}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00070}00070                 Menu::exitApplication = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00071}00071                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00072}00072             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00073}00073                 std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tInvalid option chosen!\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00074}00074                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00075}00075         \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00076}00076     \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00077}00077 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00079}00079 \textcolor{keywordtype}{int} Menu::showAdminMenu() \{}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00080}00080 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00081}00081     \textcolor{keywordflow}{if} (password != Menu::AIRLINE\_ADMIN\_PASSWORD) \{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00082}00082         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tInvalid password, going back to main menu\(\backslash\)n\(\backslash\)n"{}};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00083}00083         \textcolor{keywordflow}{return} ADMIN\_BACK;}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00084}00084     \}}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00085}00085 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00086}00086     \textcolor{keywordtype}{int} option;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00081}00081     std::string password;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00082}00082     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tEnter your password please: "{}};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00083}00083     std::cin >> password;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00085}00085     \textcolor{keywordflow}{if} (!std::cin)}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00086}00086         exit(0);}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00087}00087 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00088}00088     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tHello administrator, what would you like to do?\(\backslash\)n\(\backslash\)n"{}};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00089}00089     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t[1] Purchase new plane\(\backslash\)n\(\backslash\)t[2] Create new flight\(\backslash\)n\(\backslash\)t[3] Back\(\backslash\)n\(\backslash\)n"{}};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00090}00090     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t> "{}};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00091}00091     std::cin >> option;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00088}00088     \textcolor{keywordflow}{if} (password != Menu::AIRLINE\_ADMIN\_PASSWORD) \{}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00089}00089         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tInvalid password, going back to main menu\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00090}00090         \textcolor{keywordflow}{return} ADMIN\_BACK;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00091}00091     \}}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00092}00092 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00093}00093     \textcolor{keywordflow}{if} (!std::cin)}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00094}00094         exit(0);}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00095}00095 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00096}00096     std::cout.flush();}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00097}00097 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00098}00098     \textcolor{keywordflow}{return} option;}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00099}00099 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00100}00100 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00093}00093     std::cout << std::string(100, \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00094}00094 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00095}00095     \textcolor{keywordtype}{int} option;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00097}00097     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tHello administrator, what would you like to do?\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00098}00098     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t[1] Purchase new plane\(\backslash\)n\(\backslash\)t[2] Create new flight\(\backslash\)n\(\backslash\)t[3] List current fleet\(\backslash\)n\(\backslash\)t[4] Register new transport place near an airport\(\backslash\)n\(\backslash\)t[5] Back\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00099}00099     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t> "{}};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00100}00100     std::cin >> option;}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00101}00101 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00102}00102 \textcolor{keywordtype}{int} Menu::showClientMenu() \{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00103}00103 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00104}00104     \textcolor{keywordtype}{int} option;}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00105}00105 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00106}00106     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t3Hello client, what would you like to do?\(\backslash\)n\(\backslash\)n"{}};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00107}00107     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t[1] Purchase ticket\(\backslash\)n\(\backslash\)t[2] Board plane\(\backslash\)n\(\backslash\)t[3] See all available flights\(\backslash\)n\(\backslash\)t[4] Back\(\backslash\)n\(\backslash\)n"{}};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00108}00108     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t> "{}};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00109}00109     std::cin >> option;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00102}00102     \textcolor{keywordflow}{if} (!std::cin)}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00103}00103         exit(0);}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00105}00105     std::cout.flush();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00107}00107     \textcolor{keywordflow}{return} option;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00108}00108 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00109}00109 \}}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00110}00110 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00111}00111     \textcolor{keywordflow}{if} (!std::cin)}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00112}00112         exit(0);}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00113}00113 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00114}00114     std::cout.flush();}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00115}00115 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00116}00116     \textcolor{keywordflow}{return} option;}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00117}00117 \}}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00118}00118 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00119}00119 \textcolor{keywordtype}{int} Menu::showInitialMenu(\textcolor{keyword}{const} std::string\& airlineName) \{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00120}00120 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00121}00121     \textcolor{keywordtype}{int} option;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00111}00111 \textcolor{keywordtype}{int} Menu::showClientMenu() \{}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00113}00113     \textcolor{keywordtype}{int} option;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00114}00114 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00115}00115     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tHello client, what would you like to do?\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00116}00116     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t[1] Purchase ticket\(\backslash\)n\(\backslash\)t[2] Board plane\(\backslash\)n\(\backslash\)t[3] See all available flights\(\backslash\)n\(\backslash\)t[4] Back\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00117}00117     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t> "{}};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00118}00118     std::cin >> option;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00119}00119 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00120}00120     \textcolor{keywordflow}{if} (!std::cin)}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00121}00121         exit(0);}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00122}00122 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00123}00123     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)tWelcome to "{}} << airlineName << \textcolor{stringliteral}{"{} airlines\(\backslash\)n\(\backslash\)n"{}};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00124}00124     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t[1] Client\(\backslash\)n\(\backslash\)t[2] Admin\(\backslash\)n\(\backslash\)t[3] Exit\(\backslash\)n\(\backslash\)n"{}};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00125}00125     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t> "{}};}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00126}00126     std::cin >> option;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00123}00123     std::cout.flush();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00124}00124 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00125}00125     \textcolor{keywordflow}{return} option;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00126}00126 \}}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00127}00127 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00128}00128     \textcolor{keywordflow}{if} (!std::cin)}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00129}00129         exit(0);}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00130}00130 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00131}00131     std::cout.flush();}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00132}00132 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00133}00133     \textcolor{keywordflow}{return} option;}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00134}00134 \}}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00135}00135 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00136}00136 \textcolor{keywordtype}{void} Menu::endProgram() \{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00137}00137     std::cout << \textcolor{stringliteral}{"{}Program terminated, see you soon :) [press ENTER to quit]"{}} << std::endl;}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00138}00138     \textcolor{keywordflow}{if} (std::cin.peek() == \textcolor{charliteral}{'\(\backslash\)n'}) std::cin.ignore(100, \textcolor{charliteral}{'\(\backslash\)n'}); \textcolor{comment}{// 100 chars should be enough to ignore}}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00139}00139 \}}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00140}00140 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00141}00141 \textcolor{keywordtype}{void} Menu::listFlights() \{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00142}00142     Airline::getInstance().listCurrentFlights(); \textcolor{comment}{// generate the call in menu, delegate it to Airline}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00128}00128 \textcolor{keywordtype}{int} Menu::showInitialMenu(\textcolor{keyword}{const} std::string\& airlineName) \{}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00129}00129 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00130}00130     \textcolor{keywordtype}{int} option;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00131}00131 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00132}00132     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)tWelcome to "{}} << airlineName << \textcolor{stringliteral}{"{} airlines\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00133}00133     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t[1] Client\(\backslash\)n\(\backslash\)t[2] Admin\(\backslash\)n\(\backslash\)t[3] Exit\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00134}00134     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t> "{}};}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00135}00135     std::cin >> option;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00136}00136 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00137}00137     \textcolor{keywordflow}{if} (!std::cin)}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00138}00138         exit(0);}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00139}00139 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00140}00140     std::cout.flush();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00141}00141 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00142}00142     \textcolor{keywordflow}{return} option;}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00143}00143 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00144}00144 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00145}00145 \textcolor{keywordtype}{void} Menu::endProgram() \{}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00146}00146     Menu::waitForPrompt(\textcolor{stringliteral}{"{}\(\backslash\)tProgram terminated, see you soon :) [press ENTER to quit]"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00147}00147 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00148}00148 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00149}00149 \textcolor{keywordtype}{void} Menu::listFlights() \{}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00150}00150     Airline::getInstance().\mbox{\hyperlink{class_airline_a4f1ef620bef5fe12e36b37d759f63398}{listCurrentFlights}}(); \textcolor{comment}{// generate the call in menu, delegate it to Airline}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00151}00151     Menu::waitForPrompt(\textcolor{stringliteral}{"{}\(\backslash\)t[press ENTER to continue]"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00152}00152 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00153}00153 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00154}00154 \textcolor{keywordtype}{void} Menu::listPlanes() \{}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00155}00155     Airline::getInstance().\mbox{\hyperlink{class_airline_a1fb1650a8d78a899d71811e1248538d3}{listCurrentPlanes}}(); \textcolor{comment}{// generate the call in menu, delegate it to Airline}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00156}00156     Menu::waitForPrompt(\textcolor{stringliteral}{"{}\(\backslash\)t[press ENTER to continue]"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00157}00157 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00158}00158 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00159}00159 \textcolor{keywordtype}{void} Menu::purchasePlane() \{}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00160}00160     Airline::getInstance().\mbox{\hyperlink{class_airline_a5ecddee30302f3609e6fd8e15a0917c9}{purchasePlane}}();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00161}00161 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00162}00162 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00163}00163 \textcolor{keywordtype}{void} Menu::registerTransportPlace() \{}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00164}00164     Airline::getInstance().registerTransportPlace();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00165}00165 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00166}00166 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00167}00167 \textcolor{keywordtype}{void} Menu::waitForPrompt(\textcolor{keyword}{const} std::string \&prompt) \{}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00168}00168     std::cout << prompt << std::endl;}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00169}00169     std::cin.get();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00170}00170     \textcolor{keywordflow}{if} (std::cin.peek() == \textcolor{charliteral}{'\(\backslash\)n'}) std::cin.ignore(100, \textcolor{charliteral}{'\(\backslash\)n'}); \textcolor{comment}{// 100 chars should be enough to ignore}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00171}00171 \}}
 
 \end{DoxyCode}
