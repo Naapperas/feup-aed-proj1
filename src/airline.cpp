@@ -161,8 +161,10 @@ bool Airline::addFlightsToPlane(const Plane& plane, const std::list<Flight>& fli
 
 bool Airline::cancelFlight(long flightNumber) {
     for (FlightPlan& fp: flightPlans){
-        if(fp.removeFlight(flightNumber))
+        if(fp.removeFlight(flightNumber)) {
+            upcomingFlights.erase(std::remove_if(upcomingFlights.begin(), upcomingFlights.end(), [flightNumber](const Flight& f){return f.getFlightNumber()==flightNumber;}), upcomingFlights.end());
             return true;
+        }
     }
     return false;
 }

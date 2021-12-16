@@ -6,6 +6,7 @@
 #define AED2122PROJ_AIRLINE_H
 
 #include <string>
+#include <algorithm>
 
 #include "flight.h"
 #include "airport.h"
