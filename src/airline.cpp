@@ -196,16 +196,38 @@ bool Airline::cancelFlight() {
 
     Airline::getInstance().listCurrentFlights();
 
-    std::cout << "\tChoose one to delete(input the flight number): ";
+    std::cout << "\tChoose one to delete (input the flight number): ";
 
-    unsigned option;
+    long option;
     std::cin >> option;
-
-    std::cout << "\tFlight nº" << option << " canceled" << std::endl;
 
     for (FlightPlan& fp: flightPlans){
         if(fp.removeFlight(option)) {
             upcomingFlights.erase(std::remove_if(upcomingFlights.begin(), upcomingFlights.end(), [option](const Flight& f){return f.getFlightNumber() == option;}), upcomingFlights.end());
+            std::cout << "\tFlight nº" << option << " canceled" << std::endl;
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Airline::rescheduleFlight() {
+
+    Airline::getInstance().listCurrentFlights();
+
+    std::cout << "\tChoose one to reschedule (input the flight number): ";
+
+    long option;
+    std::cin >> option;
+
+    std::string newDate;
+    std::cin >> newDate;
+
+    for (FlightPlan& fp: flightPlans){
+        if(fp.updateFlight(option, newDate)) {
+            std::find_if(upcomingFlights.begin(), upcomingFlights.end(), [option](const Flight& f){return f.getFlightNumber()==option;})->setDepartureDate(newDate);
+            std::sort(upcomingFlights.begin(), upcomingFlights.end(), [](const Flight&a, const Flight&b){return a.getDepartureDate()<b.getDepartureDate();});
+            std::cout << "\tFlight nº" << option << " rescheduled to " << newDate << std::endl;
             return true;
         }
     }

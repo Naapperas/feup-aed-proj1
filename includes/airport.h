@@ -51,6 +51,14 @@ class FlightPlan {
          */
         bool removeFlight(long flightNumber);
 
+        /**
+         * Updates the departure date for a flight from this FlightPlan's list of flights
+         * @param flightNumber identification number of the flight to be updated
+         * @param newDate new departure date for this flight
+         * @return true if flight is updated successfully else false
+         */
+        bool updateFlight(long flightNumber, std::string newDate);
+
 };
 
 /**

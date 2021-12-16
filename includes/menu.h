@@ -23,8 +23,9 @@ class Menu {
             PURCHASE_PLANE = 1,
             ADMIN_CREATE_FLIGHT,
             ADMIN_DELETE_FLIGHT,
+            ADMIN_RESCHEDULE_FLIGHT,
             ADMIN_PLANES,
-            ADMIN_AIRPORT,
+            ADMIN_AIRPORT_REGISTER,
             ADMIN_LAND_TRANSPORT_PLACE,
             ADMIN_BACK
         };
@@ -53,6 +54,7 @@ class Menu {
         static void registerTransportPlace();
         static void createFlight();
         static void cancelFlight();
+        static void rescheduleFlight();
 };
 
 #endif //AED2122PROJ_MENU_H

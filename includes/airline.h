@@ -110,9 +110,15 @@ class Airline {
 
         /**
          * Cancel a flight (essentially deleting it)
-         * @return true if cancelled successfully (flightNumber corresponded to an existing flight) else false
+         * @return true if cancelled successfully (deleted an existing flight) else false
          */
         bool cancelFlight();
+
+        /**
+         * Reschedule a flight, updating it's departure date
+         * @return true if rescheduled successfully (updated an existing flight) else false
+         */
+        bool rescheduleFlight();
 
         /**
          *

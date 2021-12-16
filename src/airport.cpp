@@ -24,6 +24,17 @@ bool FlightPlan::removeFlight(long flightNumber) {
     return false;
 }
 
+bool FlightPlan::updateFlight(long flightNumber, std::string newDate) {
+    for (auto & f : plan){
+        if (f.getFlightNumber() == flightNumber){
+            f.setDepartureDate(newDate);
+            this->plan.sort([](const Flight&a, const Flight&b){return a.getDepartureDate()<b.getDepartureDate();}); // keep flights ordered by date
+            return true;
+        }
+    }
+    return false;
+}
+
 
 void Airport::printTransportPlaces() const {
 
