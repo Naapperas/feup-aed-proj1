@@ -443,3 +443,50 @@ void Airline::storeFlights() const {
         for (Flight flight : this->upcomingFlights)
             flightsFile << flight;
 }
+
+void Airline::purchaseTicket() {
+    long option;
+    std::cout << "\tPlease select the number of the flight you wish to take\n\t> ";
+    std::cin >> option;
+
+    auto itr = std::find_if(this->upcomingFlights.begin(), this->upcomingFlights.end(), [option](const Flight& flight){return flight.getFlightNumber() == option;});
+
+    std::cout << "\tHow many passengers will be coming aboard\n\t> ";
+    std::cin >> option;
+
+    std::vector<Ticket> tickets;
+    for (unsigned i = 0; i < option; i++){
+        std::string name;
+        std::cout << "\tPlease insert the name of the passenger\n\t> ";
+        std::cin >> name;
+
+        unsigned age;
+        std::cout << "\tPlease insert the age of the passenger\n\t> ";
+        std::cin >> age;
+
+        char carryLuggage;
+        std::cout << "\tWill he/her be carrying luggage? Y or N\n\t> ";
+        std::cin >> carryLuggage;
+
+        if (toupper(carryLuggage) == 'Y'){
+            Luggage luggage;
+            Passenger passenger(name, age, luggage);
+            Ticket ticket(passenger);
+
+            tickets.push_back(ticket);
+        }
+        else{
+            Passenger passenger(name, age);
+            Ticket ticket(passenger);
+
+            tickets.push_back(ticket);
+        }
+    }
+
+    if (tickets.size() != 1)
+        itr->addPassengers(tickets);
+    else
+        itr->addPassenger(tickets[0]);
+
+    std::cout << "\tWe successfully entered the data. Have a safe flight" << std::endl;
+}

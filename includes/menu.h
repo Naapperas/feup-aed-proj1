@@ -47,6 +47,7 @@ class Menu {
         static int showAdminMenu();
         static int showClientMenu();
         static void endProgram();
+        static void buyTickets();
         static void listFlights();
         static void listPlanes();
         static void purchasePlane();

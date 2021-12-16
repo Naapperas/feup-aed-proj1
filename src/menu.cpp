@@ -29,6 +29,7 @@ void Menu::init() {
 
                     switch (option) {
                         case TICKET:
+                            Menu::buyTickets();
                             break;
                         case BOARD:
                             break;
@@ -200,4 +201,9 @@ void Menu::waitForPrompt(const std::string &prompt) {
     std::cout << prompt << std::endl;
     std::cin.get();
     if (std::cin.peek() == '\n') std::cin.ignore(100, '\n'); // 100 chars should be enough to ignore
+}
+
+void Menu::buyTickets() {
+    Airline::getInstance().purchaseTicket();
+    Menu::waitForPrompt("\t[press ENTER to continue]");
 }
