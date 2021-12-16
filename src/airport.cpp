@@ -138,7 +138,7 @@ void Airport::storeTransportPlaces(ofstream &file) const {
 
         auto transportPlace = *itr;
 
-        file << transportPlace.getTypeString() << ' ' << transportPlace.getDistance() << ' ' << transportPlace.getOpenTime() << ' ' << transportPlace.getCloseTime() << '\n';
+        file << this->getName() << ' ' << transportPlace.getType() << ' ' << transportPlace.getDistance() << ' ' << transportPlace.getOpenTime() << ' ' << transportPlace.getCloseTime() << '\n';
     }
 }
 

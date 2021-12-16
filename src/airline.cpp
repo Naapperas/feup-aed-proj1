@@ -27,7 +27,7 @@ Airline::Airline(const std::string &name) : airlineName(name) {
             std::string type, plate;
             unsigned capacity, cargoCapacity;
             ss >> type >> plate >> capacity >> cargoCapacity;
-            ownedPlanes.emplace_back(type, plate, capacity, cargoCapacity);
+            this->addPlaneToAirlineFleet(Plane(type, plate, capacity, cargoCapacity));
         }
     }
 
@@ -96,6 +96,7 @@ Airline::Airline(const std::string &name) : airlineName(name) {
                 // store current plane info
                 a.landPlane(*std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){return p.getPlate() == planePlate;}));
 
+            this->airports.push_back(a);
         }
     }
 
@@ -104,10 +105,10 @@ Airline::Airline(const std::string &name) : airlineName(name) {
     if (!planeFile.is_open())
         std::ofstream landTransportsFileNew{"transportPlaces.txt"};
     else {
-        while (!airportsFile.eof()) {
+        while (!landTransportsFile.eof()) {
 
             std::string currentTransportPlace;
-            getline(airportsFile, currentTransportPlace);
+            getline(landTransportsFile, currentTransportPlace);
 
             if (currentTransportPlace.empty())
                 continue;
