@@ -162,7 +162,13 @@ class Airport {
                 out << ' ' << plane.getPlate();
             return out << '\n';
         }
-    public:
+
+        friend bool operator==(const Airport& a, const Airport& b) {
+            return a.getName() == b.getName();
+        }
+
+
+public:
 
         /**
          * Creates a new airport

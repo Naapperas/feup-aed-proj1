@@ -302,6 +302,22 @@ void Airline::listAirports() const {
         std::cout << "\t[" << counter++ << "] " << airport.getName() << '\n';
 }
 
+bool Airline::addAirport(const Airport &airport) {
+    for (const auto& a : this->airports)
+        if (a == airport) return false;
+
+    this->airports.push_back(airport);
+    return true;
+}
+
+void Airline::registerAirport(){
+    std::string name;
+    std::cout << "\tWhat is the name of the airport to be registered? \n\t>";
+    std::cin >> name;
+
+    this->addAirport(Airport(name));
+}
+
 void Airline::registerTransportPlace() {
 
     Airport* a;

@@ -24,6 +24,7 @@ class Menu {
             ADMIN_CREATE_FLIGHT,
             ADMIN_DELETE_FLIGHT,
             ADMIN_PLANES,
+            ADMIN_AIRPORT,
             ADMIN_LAND_TRANSPORT_PLACE,
             ADMIN_BACK
         };
@@ -48,6 +49,7 @@ class Menu {
         static void listFlights();
         static void listPlanes();
         static void purchasePlane();
+        static void registerAirport();
         static void registerTransportPlace();
         static void createFlight();
         static void cancelFlight();

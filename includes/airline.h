@@ -92,7 +92,19 @@ class Airline {
         void purchasePlane();
 
         /**
-         *
+         * Add a new airport as a possible origin/destination for this company´s flights'
+         * @param airport airport to be added
+         * @return true if added successfully (this airport didn't exist before) else false
+         */
+        bool addAirport(const Airport& airport);
+
+        /**
+         * Register a new airport
+         */
+        void registerAirport();
+
+        /**
+         * Register a new transport place
          */
         void registerTransportPlace();
 
