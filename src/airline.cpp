@@ -191,19 +191,68 @@ bool Airline::addFlightsToPlane(const Plane& plane, const std::list<Flight>& fli
     return ret;
 };
 
-bool Airline::cancelFlight(long flightNumber) {
+bool Airline::cancelFlight() {
+
+    Airline::getInstance().listCurrentFlights();
+
+    std::cout << "\tChoose one to delete(input the flight number): ";
+
+    unsigned option;
+    std::cin >> option;
+
+    std::cout << "\tFlight nº" << option << " canceled" << std::endl;
+
     for (FlightPlan& fp: flightPlans){
-        if(fp.removeFlight(flightNumber)) {
-            upcomingFlights.erase(std::remove_if(upcomingFlights.begin(), upcomingFlights.end(), [flightNumber](const Flight& f){return f.getFlightNumber() == flightNumber;}), upcomingFlights.end());
+        if(fp.removeFlight(option)) {
+            upcomingFlights.erase(std::remove_if(upcomingFlights.begin(), upcomingFlights.end(), [option](const Flight& f){return f.getFlightNumber() == option;}), upcomingFlights.end());
             return true;
         }
     }
     return false;
 }
 
+void Airline::createFlight() {
+
+    Airline::getInstance().listCurrentPlanes();
+
+    std::cout << "\tChoose a plane to perform the flight (write the plate): ";
+
+    std::string planePlate;
+    std::cin >> planePlate;
+
+    std::cout << "\tWhat's the deparure date of this flight? (provide input in the form DD-MM-YYYY)";
+
+    std::string departureDate;
+    std::cin >> departureDate;
+
+    std::cout << "\tHow long will the flight take?";
+
+    unsigned duration;
+    std::cin >> duration;
+
+    std::cout << '\n';
+
+    Airline::getInstance().listAirports();
+
+    std::cout << "\n\tWhat are the origin and destination airports ? (give input in the form {origin} {destination}) ";
+
+    std::string origin, destination;
+    std::cin >> origin >> destination;
+
+    auto& originAirport = *std::find_if(this->airports.begin(), this->airports.end(), [origin](const Airport& a){ return a.getName() == origin; });
+    auto& destinyAirport = *std::find_if(this->airports.begin(), this->airports.end(), [destination](const Airport& a){ return a.getName() == destination; });
+
+    auto& plane = *std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){ return p.getPlate() == planePlate; });
+
+    Flight f{departureDate, duration, plane, originAirport, destinyAirport};
+
+    this->addFlightToPlane(plane, f);
+
+}
+
 void Airline::listCurrentFlights() const {
 
-    std::cout << "Upcoming Flights:\n\n" << std::endl;
+    std::cout << "\tUpcoming Flights:\n" << std::endl;
 
     for (const auto& flight : this->upcomingFlights)
         std::cout << '\t' << flight.getFlightNumber() << " - Departing " << flight.getDepartureDate() << "; Duration: " << flight.getDuration() << "\n\t\t" << "Current: flight lotation: " << flight.getLotation() << '\n';
@@ -229,16 +278,16 @@ void Airline::purchasePlane() {
     std::string type, plate;
     unsigned capacity, cargoCapacity;
 
-    std::cout << "What is the type/model of the new plane? >";
+    std::cout << "\tWhat is the type/model of the new plane? >";
     std::cin >> type;
 
-    std::cout << "What is the new plane's plate? >";
+    std::cout << "\tWhat is the new plane's plate? >";
     std::cin >> plate;
 
-    std::cout << "How many passengers can the new plane transport? >";
+    std::cout << "\tHow many passengers can the new plane transport? >";
     std::cin >> capacity;
 
-    std::cout << "What is the max cargo capacity of the new plane? >";
+    std::cout << "\tWhat is the max cargo capacity of the new plane? >";
     std::cin >> cargoCapacity;
 
     this->addPlaneToAirlineFleet(Plane(type, plate, capacity, cargoCapacity));

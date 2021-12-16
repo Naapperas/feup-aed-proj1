@@ -21,7 +21,8 @@ class Menu {
 
         enum AdminMenuOption {
             PURCHASE_PLANE = 1,
-            ADMIN_FLIGHT,
+            ADMIN_CREATE_FLIGHT,
+            ADMIN_DELETE_FLIGHT,
             ADMIN_PLANES,
             ADMIN_LAND_TRANSPORT_PLACE,
             ADMIN_BACK
@@ -48,6 +49,8 @@ class Menu {
         static void listPlanes();
         static void purchasePlane();
         static void registerTransportPlace();
+        static void createFlight();
+        static void cancelFlight();
 };
 
 #endif //AED2122PROJ_MENU_H

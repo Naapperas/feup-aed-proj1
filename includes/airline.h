@@ -62,13 +62,6 @@ class Airline {
          */
         bool addFlightsToPlane(const Plane& plane, const std::list<Flight>& flights);
 
-        /**
-         * Cancel a flight (essentially deleting it)
-         * @param flightNumber identification number of the flight to be canceled
-         * @return true if cancelled successfully (flightNumber corresponded to an existing flight) else false
-         */
-        bool cancelFlight(long flightNumber);
-
         static void setInstance(Airline* instance) {
             if (Airline::instance == NULL)
                 Airline::instance = instance;
@@ -97,7 +90,22 @@ class Airline {
          * Add a new plane to the owned planes
          */
         void purchasePlane();
+
+        /**
+         *
+         */
         void registerTransportPlace();
+
+        /**
+         * Cancel a flight (essentially deleting it)
+         * @return true if cancelled successfully (flightNumber corresponded to an existing flight) else false
+         */
+        bool cancelFlight();
+
+        /**
+         *
+         */
+        void createFlight();
 
         const std::string& getName() const {
             return this->airlineName;
