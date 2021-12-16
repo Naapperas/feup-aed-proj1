@@ -47,7 +47,7 @@ class Menu {
         static void listFlights();
         static void listPlanes();
         static void purchasePlane();
-
+        static void registerTransportPlace();
 };
 
 #endif //AED2122PROJ_MENU_H

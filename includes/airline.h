@@ -29,6 +29,7 @@ class Airline {
         void storeCleaningServices(const Plane& plane) const;
         void storeAirports() const;
         void storeTransportPlaces(const Airport& airport) const;
+        void listAirports() const;
     public:
         explicit Airline(const std::string& name);
         ~Airline() {
@@ -60,6 +61,7 @@ class Airline {
         void listCurrentFlights() const;
         void listCurrentPlanes(bool verbose = true) const;
         void purchasePlane();
+        void registerTransportPlace();
 
         const std::string& getName() const {
             return this->airlineName;

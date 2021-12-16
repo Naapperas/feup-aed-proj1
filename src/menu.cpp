@@ -55,7 +55,9 @@ void Menu::init() {
                         case ADMIN_PLANES:
                             Menu::listPlanes();
                             break;
-
+                        case ADMIN_LAND_TRANSPORT_PLACE:
+                            Menu::registerTransportPlace();
+                            break;
                         case ADMIN_BACK:
                             break;
                         default:
@@ -93,7 +95,7 @@ int Menu::showAdminMenu() {
     int option;
 
     std::cout << "\tHello administrator, what would you like to do?\n\n";
-    std::cout << "\t[1] Purchase new plane\n\t[2] Create new flight\n\t[3] List current fleet\n\t[4] Back\n\n";
+    std::cout << "\t[1] Purchase new plane\n\t[2] Create new flight\n\t[3] List current fleet\n\t[4] Register new transport place near an airport\n\t[5] Back\n\n";
     std::cout << "\t> ";
     std::cin >> option;
 
@@ -156,6 +158,10 @@ void Menu::listPlanes() {
 
 void Menu::purchasePlane() {
     Airline::getInstance().purchasePlane();
+}
+
+void Menu::registerTransportPlace() {
+    Airline::getInstance().registerTransportPlace();
 }
 
 void Menu::waitForPrompt(const std::string &prompt) {

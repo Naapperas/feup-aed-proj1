@@ -127,6 +127,8 @@ Airline::Airline(const std::string &name) : airlineName(name) {
 
         }
     }
+
+
 }
 
 bool Airline::addPlaneToAirlineFleet(const Plane& plane) {
@@ -211,6 +213,64 @@ void Airline::purchasePlane() {
     std::cin >> cargoCapacity;
 
     this->addPlaneToAirlineFleet(Plane(type, plate, capacity, cargoCapacity));
+}
+
+void Airline::listAirports() const {
+
+    unsigned counter = 1;
+
+    for (const auto& airport : this->airports)
+        std::cout << "\t[" << counter++ << "] " << airport.getName() << '\n';
+}
+
+void Airline::registerTransportPlace() {
+
+    Airport* a;
+
+    if (this->airports.size() == 1) {
+        std::cout << "\tSelecting only airport registered\n";
+        a = &this->airports.at(0);
+    }
+    else {
+
+        this->listAirports();
+
+        unsigned option;
+
+        std::cout << "\n\tWhich is the closest airport to the new transport place?\n\t> ";
+        std::cin >> option;
+
+        a = &(*(this->airports.begin() + option-1));
+    }
+
+    std::string type, openTime, closeTime;
+    unsigned distance;
+
+    std::cout << "\tWhat is the type of the new transport? (can be one of Train, Bus or Subway)\n\t> ";
+    std::cin >> type;
+
+    LandTransportPlace::TypeOfTransport tt;
+
+    if (type == LandTransportPlace::typePrint.at(0))
+        tt = LandTransportPlace::SUBWAY;
+    else if (type == LandTransportPlace::typePrint.at(1))
+        tt = LandTransportPlace::TRAIN;
+    else if (type == LandTransportPlace::typePrint.at(2))
+        tt = LandTransportPlace::BUS;
+    else {
+        std::cout << "\tInvalid transport type, aborting operation" << std::endl;
+        return;
+    }
+
+    std::cout << "\tHow far is it from the airport? (distance in meters)\n\t> ";
+    std::cin >> distance;
+
+    std::cout << "\tWhat is the schedule of this new transport?\n\t\tPlease input the values in the form {openTime} {closeTime}, with each havin the form HH:MM\n\t> ";
+    std::cin >> openTime >> closeTime;
+
+    LandTransportPlace ltp{tt, distance, openTime, closeTime};
+
+    a->registerTransportPlace(ltp);
 }
 
 void Airline::storePlanes() const {
