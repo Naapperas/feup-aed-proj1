@@ -24,45 +24,6 @@ bool FlightPlan::removeFlight(long flightNumber) {
     return false;
 }
 
-void Airport::writeToFile() {
-    //TODO: maybe change how we store information on files ?
-
-    std::ofstream f(name+".txt");
-    for(auto it = transportPlaces.begin(); it != transportPlaces.end(); it++){
-        f << (*it).getTypeString() << ' ' << (*it).getDistance() << ' ' << (*it).getOpenTime() << ' ' << (*it).getCloseTime() << '\n';
-    }
-    f.close();
-}
-
-void Airport::readInput(unsigned int n) {
-    //TODO: maybe change how we store information on files ?
-
-    std::cin.ignore(1);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Write here: ";
-        std::string place;
-        getline(cin, place);
-        stringstream ss(place);
-        LandTransportPlace::TypeOfTransport tt;
-        unsigned distance;
-        std::string open, close, transport;
-        ss >> transport >> distance >> open >> close;
-
-        // need to handle input errors here probably
-
-        if (transport == LandTransportPlace::typePrint.at(0))
-            tt = LandTransportPlace::SUBWAY;
-        else if (transport == LandTransportPlace::typePrint.at(1))
-            tt = LandTransportPlace::TRAIN;
-        else if (transport == LandTransportPlace::typePrint.at(2))
-            tt = LandTransportPlace::BUS;
-        else
-            continue;
-        transportPlaces.insert(LandTransportPlace(tt, distance, open, close));
-    }
-
-    std::cout << std::endl;
-}
 
 void Airport::printTransportPlaces() const {
 

@@ -31,6 +31,7 @@ class FlightPlan {
          * Performs the first flight in the flightPlan
          */
         void performFlight() {
+            // should Flight::execute() be called here?
             this->plan.pop_front();
         }
 
@@ -43,6 +44,11 @@ class FlightPlan {
             return this->plane;
         }
 
+        /**
+         * Removes a flight from this FlightPlan's list of flights
+         * @param flightNumber identification number of the flight to be removed
+         * @return true if flight is removed successfully else false
+         */
         bool removeFlight(long flightNumber);
 
 };
@@ -145,17 +151,6 @@ class Airport {
         BST<LandTransportPlace> transportPlaces;
 
         /**
-         * Store the information on transportPlaces in a text file <name>.txt
-         */
-        void writeToFile();
-
-        /**
-         * Get information on this airport's land transport places from user input to transportPlaces
-         * @param n number of land transport places
-         */
-        void readInput(unsigned n);
-
-        /**
          * Carry luggage from the conveyor belt to the luggageTransport
          */
         void loadLuggageToTransport();
@@ -228,8 +223,16 @@ class Airport {
          */
         void offloadCargo(Plane& plane);
 
+        /**
+         * Store this airport's land transport places info in the dedicated file
+         * @param file file that contains information on every airport's land transport places
+         */
         void storeTransportPlaces(ofstream& file) const;
 
+        /**
+         * Add a new land transport place to transportPlaces
+         * @param ltp land transport place to be added/registered
+         */
         void registerTransportPlace(const LandTransportPlace& ltp);
 };
 
