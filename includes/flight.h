@@ -34,6 +34,11 @@ class Flight {
             return a.flightNumber == b.flightNumber;
         };
 
+        friend ofstream& operator<<(ofstream& out, Flight& f) {
+            out << f.getFlightNumber() << ' ' << f.getDepartureDate() << ' ' << f.getDuration() << ' ' << f.getPlane().getPlate() << ' ' << f.getOriginAirport().getName() << ' ' << f.getDestinationAirport().getName() << '\n';
+            return out;
+        }
+
     public:
         /**
          * Creates a new flight.

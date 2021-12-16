@@ -128,7 +128,35 @@ Airline::Airline(const std::string &name) : airlineName(name) {
         }
     }
 
+    // initialize flights
+    std::ifstream flightsFile{"flights.txt"};
+    if (!planeFile.is_open())
+        std::ofstream flightsNew{"flights.txt"};
+    else {
 
+        while (!flightsFile.eof()) {
+
+            std::string currentFlight;
+            getline(flightsFile, currentFlight);
+
+            if (currentFlight.empty())
+                continue;
+
+            stringstream ss{currentFlight};
+            std::string departureDate, planePlate, originName, destinyName;
+            unsigned flightNumber, duration;
+
+            ss >> flightNumber >> departureDate >> duration >> planePlate >> originName >> destinyName;
+
+            auto& plane = *std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){ return p.getPlate() == planePlate; });
+            auto& origin = *std::find_if(this->airports.begin(), this->airports.end(), [originName](const Airport& a){ return a.getName() == originName; });
+            auto& destiny = *std::find_if(this->airports.begin(), this->airports.end(), [destinyName](const Airport& a){ return a.getName() == destinyName; });
+
+            Flight f{flightNumber, departureDate, duration, plane, origin, destiny};
+
+            this->addFlightToPlane(plane, f);
+        }
+    }
 }
 
 bool Airline::addPlaneToAirlineFleet(const Plane& plane) {
@@ -146,6 +174,7 @@ bool Airline::addFlightToPlane(const Plane& plane, const Flight& flight) {
     bool ret = this->addPlaneToAirlineFleet(plane); // might return false, just ensure we have the plane on the fleet
 
     std::find_if(this->flightPlans.begin(), this->flightPlans.end(), [plane](const FlightPlan& fp){ return fp.getPlane() == plane; })->addFlightToPlan(flight);
+    this->upcomingFlights.push_back(flight);
 
     return ret;
 };
@@ -314,4 +343,13 @@ void Airline::storeTransportPlaces(const Airport &airport) const {
     ofstream transportPlacesFile("transportPlaces.txt", std::ios_base::app);
 
     airport.storeTransportPlaces(transportPlacesFile);
+}
+
+void Airline::storeFlights() const {
+
+    ofstream flightsFile("flights.txt");
+
+    if (flightsFile.is_open())
+        for (Flight flight : this->upcomingFlights)
+            flightsFile << flight;
 }

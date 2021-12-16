@@ -30,11 +30,13 @@ class Airline {
         void storeAirports() const;
         void storeTransportPlaces(const Airport& airport) const;
         void listAirports() const;
+        void storeFlights() const;
     public:
         explicit Airline(const std::string& name);
         ~Airline() {
             this->storePlanes();
             this->storeAirports();
+            this->storeFlights();
         }
 
         /**
