@@ -11,9 +11,8 @@
 #include "luggage.h"
 #include "carriage.h"
 
-class LuggageTransport{
-    const unsigned numberStacks;
-    const unsigned stackCapacity;
+class LuggageTransport {
+    unsigned numberStacks, stackCapacity;
     std::list<Carriage> carriages;
     unsigned numberCarriages;
     friend ostream& operator <<(std::ostream& out , const LuggageTransport &a);

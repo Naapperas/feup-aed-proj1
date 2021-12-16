@@ -23,6 +23,7 @@ class Menu {
             PURCHASE_PLANE = 1,
             ADMIN_FLIGHT,
             ADMIN_PLANES,
+            ADMIN_LAND_TRANSPORT_PLACE,
             ADMIN_BACK
         };
 
