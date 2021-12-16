@@ -109,7 +109,7 @@ int Menu::showClientMenu() {
 
     int option;
 
-    std::cout << "\t3Hello client, what would you like to do?\n\n";
+    std::cout << "\tHello client, what would you like to do?\n\n";
     std::cout << "\t[1] Purchase ticket\n\t[2] Board plane\n\t[3] See all available flights\n\t[4] Back\n\n";
     std::cout << "\t> ";
     std::cin >> option;

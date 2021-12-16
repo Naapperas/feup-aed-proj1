@@ -24,44 +24,6 @@ bool FlightPlan::removeFlight(long flightNumber) {
     return false;
 }
 
-
-Airport::Airport(std::string name) : name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {
-
-    std::ifstream f{name+".txt"};
-    if (f.is_open())
-        this->readFile(f);
-    else {
-        unsigned n;
-        std::cout << "How many transport places do you wish to add?";
-        std::cin >> n;
-        readInput(n);
-        writeToFile();
-    }
-}
-
-void Airport::readFile(std::ifstream & f) {
-    //TODO: maybe change how we store information on files ?
-
-    while (!f.eof()) {
-        std::string line;
-        getline(f, line);
-        stringstream ss(line);
-        LandTransportPlace::TypeOfTransport tt;
-        unsigned distance;
-        std::string open, close, transport;
-        ss >> transport >> distance >> open >> close;
-        if (transport == LandTransportPlace::typePrint.at(0))
-            tt = LandTransportPlace::SUBWAY;
-        else if (transport == LandTransportPlace::typePrint.at(1))
-            tt = LandTransportPlace::TRAIN;
-        else if (transport == LandTransportPlace::typePrint.at(2))
-            tt = LandTransportPlace::BUS;
-        else
-            continue;  // the file should only contain valid information unless it's modified externally, this will just be here to avoid any insertion error
-        transportPlaces.insert(LandTransportPlace(tt, distance, open, close));
-    }
-}
-
 void Airport::writeToFile() {
     //TODO: maybe change how we store information on files ?
 
@@ -170,6 +132,19 @@ void Airport::offloadCargo(Plane &plane) {
     plane.offLoadCargo();
 }
 
+void Airport::storeTransportPlaces(ofstream &file) const {
+
+    for (auto itr = this->transportPlaces.begin(); itr != this->transportPlaces.end(); itr++) {
+
+        auto transportPlace = *itr;
+
+        file << transportPlace.getTypeString() << ' ' << transportPlace.getDistance() << ' ' << transportPlace.getOpenTime() << ' ' << transportPlace.getCloseTime() << '\n';
+    }
+}
+
+void Airport::registerTransportPlace(const LandTransportPlace &ltp) {
+    this->transportPlaces.insert(ltp);
+}
 
 const std::vector<std::string> LandTransportPlace::typePrint = {"Subway", "Train", "Bus"};
 

@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <list>
+#include <fstream>
 
 #include "bst.h"
 #include "plane.h"
@@ -59,6 +60,17 @@ class LandTransportPlace {
             BUS
         };
         static const std::vector<std::string> typePrint;
+
+        static TypeOfTransport getTypeOfTransport(unsigned i) {
+            switch (i) {
+                case 0:
+                    return SUBWAY;
+                case 1:
+                    return TRAIN;
+                case 2:
+                    return BUS;
+            }
+        }
     private:
 
         TypeOfTransport type;
@@ -125,17 +137,12 @@ class LandTransportPlace {
 class Airport {
         std::string name;
 
-        BST<LandTransportPlace> transportPlaces;
         std::list<Plane> landedPlanes; // list for insertion/removal
 
         std::queue<Luggage> luggageTransportBelt;
         LuggageTransport transport{4, 5};
 
-        /**
-         * Get information on this airport's land transport places from a text file to transportPlaces
-         * @param f file containing information on this airport's land transport places
-         */
-        void readFile(std::ifstream &f);
+        BST<LandTransportPlace> transportPlaces;
 
         /**
          * Store the information on transportPlaces in a text file <name>.txt
@@ -152,18 +159,30 @@ class Airport {
          * Carry luggage from the conveyor belt to the luggageTransport
          */
         void loadLuggageToTransport();
+
+        friend ostream& operator<<(ostream& out, const Airport& a) {
+            out << a.name;
+
+            for (const auto& plane : a.landedPlanes)
+                out << ' ' << plane.getPlate();
+            return out << '\n';
+        }
     public:
 
         /**
          * Creates a new airport
          * @param name Name of the airport
          */
-        Airport(std::string name);
+        Airport(std::string name) : name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {};
 
         /**
          * Print the information in transportPlaces to the console
          */
         void printTransportPlaces() const;
+
+        const std::string& getName() const {
+            return this->name;
+        }
 
         Ticket purchaseTicket(Flight& flight, const Passenger& passenger);
 
@@ -208,6 +227,10 @@ class Airport {
          * @param plane the plane whose cargo should be offloaded
          */
         void offloadCargo(Plane& plane);
+
+        void storeTransportPlaces(ofstream& file) const;
+
+        void registerTransportPlace(const LandTransportPlace& ltp);
 };
 
 #endif //AED2122PROJ_AIRPORT_H

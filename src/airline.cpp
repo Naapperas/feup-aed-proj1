@@ -36,7 +36,7 @@ Airline::Airline(const std::string &name) : airlineName(name) {
     if (!planeFile.is_open())
         std::ofstream serviceFileNew{"cleaning.txt"};
     else{
-        bool upcoming;
+        bool upcoming = false;
         while(!serviceFile.eof()){
             std::string currentService;
             getline(serviceFile,currentService);
@@ -44,11 +44,13 @@ Airline::Airline(const std::string &name) : airlineName(name) {
             if (currentService.empty())
                 continue;
 
-            if (currentService == "[PAST CLEANING TASKS]")
+            if (currentService == "[PAST CLEANING TASKS]") {
+                upcoming = false;
                 continue;
+            }
 
             if (currentService == "[UPCOMING CLEANING TASKS]"){
-                upcoming=true;
+                upcoming = true;
                 continue;
             }
 
@@ -66,6 +68,62 @@ Airline::Airline(const std::string &name) : airlineName(name) {
             // check if service was finished prior to this execution of the program and set to finish if so
             if (!upcoming)
                 std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){return p.getPlate() == planePlate;})->finishedCleaningService();
+        }
+    }
+
+    // initialize airports
+    std::ifstream airportsFile{"airports.txt"};
+    if (!planeFile.is_open())
+        std::ofstream serviceFileNew{"airports.txt"};
+    else {
+        while (!airportsFile.eof()) {
+
+            std::string currentAirport;
+            getline(airportsFile, currentAirport);
+
+            if (currentAirport.empty())
+                continue;
+
+            stringstream ss{currentAirport};
+            std::string airportName;
+
+            ss >> airportName;
+
+            Airport a{airportName};
+
+            std::string planePlate;
+            while (ss >> planePlate)
+                // store current plane info
+                a.landPlane(*std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){return p.getPlate() == planePlate;}));
+
+        }
+    }
+
+    // initialize transportPlaces
+    std::ifstream landTransportsFile{"transportPlaces.txt"};
+    if (!planeFile.is_open())
+        std::ofstream landTransportsFileNew{"transportPlaces.txt"};
+    else {
+        while (!airportsFile.eof()) {
+
+            std::string currentTransportPlace;
+            getline(airportsFile, currentTransportPlace);
+
+            if (currentTransportPlace.empty())
+                continue;
+
+            stringstream ss{currentTransportPlace};
+            std::string airportName, openTime, closeTime;
+            unsigned typeNumber, distance;
+
+            ss >> airportName >> typeNumber >> distance >> openTime >> closeTime;
+
+            LandTransportPlace::TypeOfTransport type = LandTransportPlace::getTypeOfTransport(typeNumber);
+
+            LandTransportPlace ltp{type, distance, openTime, closeTime};
+
+            std::find_if(this->airports.begin(), this->airports.end(), [airportName](const Airport& a){return a.getName() == airportName;})->registerTransportPlace(ltp);
+
         }
     }
 }
@@ -114,17 +172,20 @@ void Airline::listCurrentFlights() const {
     std::cout << "Upcoming Flights:\n\n" << std::endl;
 
     for (const auto& flight : this->upcomingFlights)
-        std::cout << '\t' << flight.getFlightNumber() << " - Departing " << flight.getDepartureDate() << "; Duration: " << flight.getDuration() << '\n';
+        std::cout << '\t' << flight.getFlightNumber() << " - Departing " << flight.getDepartureDate() << "; Duration: " << flight.getDuration() << "\n\t\t" << "Current: flight lotation: " << flight.getLotation() << '\n';
 
     std::cout << std::endl;
 };
 
-void Airline::listCurrentPlanes() const {
+void Airline::listCurrentPlanes(bool verbose) const {
 
     std::cout << "\n\tPlanes in fleet:\n" << std::endl;
 
-    for (const auto& plane : this->ownedPlanes)
-        std::cout << "\t\t" << plane.getType() << " Plate nº" << plane.getPlate() << "\n\t\t\tCapacity: " << plane.getCapacity() << '\n';
+    for (const auto& plane : this->ownedPlanes) {
+        std::cout << "\t\t" << plane.getType() << " Plate nº" << plane.getPlate();
+        if (verbose)
+            std::cout << "\n\t\t\tCapacity: " << plane.getCapacity() << '\n';
+    }
 
     std::cout << std::endl;
 };
@@ -168,4 +229,26 @@ void Airline::storeCleaningServices(const Plane &plane) const {
     ofstream serviceFile("cleaning.txt", std::ios_base::app);
 
     plane.storeCleaningServices(serviceFile);
+}
+
+void Airline::storeAirports() const {
+
+    ofstream planeFile("airports.txt");
+
+    // reset cleaning service's file
+    ofstream transportPlaces("transportPlaces.txt");
+    transportPlaces << "";
+
+    if (planeFile.is_open())
+        for (const auto& airport : this->airports) {
+            this->storeTransportPlaces(airport);
+            planeFile << airport;
+        }
+}
+
+void Airline::storeTransportPlaces(const Airport &airport) const {
+
+    ofstream transportPlacesFile("transportPlaces.txt", std::ios_base::app);
+
+    airport.storeTransportPlaces(transportPlacesFile);
 }

@@ -18,6 +18,7 @@ class Airline {
         std::list<FlightPlan> flightPlans;
         std::vector<Plane> ownedPlanes;
         std::vector<Flight> upcomingFlights;
+        std::vector<Airport> airports;
 
         std::string airlineName;
 
@@ -25,10 +26,13 @@ class Airline {
 
         void storePlanes() const;
         void storeCleaningServices(const Plane& plane) const;
+        void storeAirports() const;
+        void storeTransportPlaces(const Airport& airport) const;
     public:
         explicit Airline(const std::string& name);
         ~Airline() {
             this->storePlanes();
+            this->storeAirports();
         }
 
         bool addPlaneToAirlineFleet(const Plane& plane);
@@ -53,7 +57,7 @@ class Airline {
         }
 
         void listCurrentFlights() const;
-        void listCurrentPlanes() const;
+        void listCurrentPlanes(bool verbose = true) const;
         void purchasePlane();
 
         const std::string& getName() const {
