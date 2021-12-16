@@ -22,7 +22,7 @@ class Flight {
         static long CURRENT_FLIGHT_NUMBER;
         long flightNumber;
 
-        std::string departureDate;
+        std::string departureDate;  // format YYYY-MM-DD
         unsigned duration, lotation;
 
         std::vector<Passenger> passengers;

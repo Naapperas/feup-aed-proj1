@@ -220,6 +220,8 @@ bool Airline::rescheduleFlight() {
     long option;
     std::cin >> option;
 
+    std::cout << "\tWhat's the new departure date of this flight? (provide input in the form YYYY-MM-DD)";
+
     std::string newDate;
     std::cin >> newDate;
 
@@ -243,7 +245,7 @@ void Airline::createFlight() {
     std::string planePlate;
     std::cin >> planePlate;
 
-    std::cout << "\tWhat's the deparure date of this flight? (provide input in the form DD-MM-YYYY)";
+    std::cout << "\tWhat's the departure date of this flight? (provide input in the form YYYY-MM-DD)";
 
     std::string departureDate;
     std::cin >> departureDate;
