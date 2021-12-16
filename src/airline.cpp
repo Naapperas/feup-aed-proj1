@@ -144,7 +144,8 @@ Airline::Airline(const std::string &name) : airlineName(name) {
 
             stringstream ss{currentFlight};
             std::string departureDate, planePlate, originName, destinyName;
-            unsigned flightNumber, duration;
+            long flightNumber;
+            unsigned duration;
 
             ss >> flightNumber >> departureDate >> duration >> planePlate >> originName >> destinyName;
 
