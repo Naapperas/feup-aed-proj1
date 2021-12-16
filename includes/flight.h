@@ -143,11 +143,11 @@ class Flight {
         };
 
         /**
-         * Executes this flight.
-         *
-         * Efectively, this function transfers luggage from the passengers to the airport and then to the plane while boarding said passengers. Then the plane is transfered from the origin airport to the destination airport and cargo is offloaded.
+         * Executes this flight
+         * Effectively, this function transfers luggage from the passengers to the airport and then to the plane while boarding said passengers. Then the plane is transfered from the origin airport to the destination airport and cargo is offloaded.
+         * @return true if executed successfully else false
          */
-        void execute();
+        bool execute();
 };
 
 #endif //AED2122PROJ_FLIGHT_H

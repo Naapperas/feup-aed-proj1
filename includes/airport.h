@@ -189,6 +189,13 @@ class Airport {
         void planeDeparture(const Plane& plane);
 
         /**
+         * Checks if a plane is currently landed in this airport
+         * @param plane
+         * @return true if the plane is landed else false
+         */
+        bool planeIsLanded(const Plane& plane);
+
+        /**
          * Loads the cargo to the given plane.
          *
          * @param plane the plane that should have cargo loaded

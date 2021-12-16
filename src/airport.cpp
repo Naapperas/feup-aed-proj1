@@ -138,6 +138,12 @@ void Airport::planeDeparture(const Plane& plane) {
     this->landedPlanes.remove(plane);
 }
 
+bool Airport::planeIsLanded(const Plane &plane) {
+    if (std::find(this->landedPlanes.begin(), this->landedPlanes.end(), plane) != this->landedPlanes.end())
+        return true;
+    return false;
+}
+
 void Airport::addLuggageToTransportBelt(const Luggage& l) {
     this->luggageTransportBelt.emplace(l);
 }
