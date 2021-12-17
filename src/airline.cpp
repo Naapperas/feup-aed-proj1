@@ -250,7 +250,7 @@ void Airline::createFlight() {
     std::string planePlate;
     std::cin >> planePlate;
 
-    std::cout << "\tWhat's the departure date of this flight? (provide input in the form DD-MM-YYYY)\n\t> ";
+    std::cout << "\tWhat's the departure date of this flight? (provide input in the form YYYY-MM-DD)\n\t> ";
 
     std::string departureDate;
     std::cin >> departureDate;

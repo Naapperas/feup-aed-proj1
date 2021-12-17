@@ -33,7 +33,7 @@ class FlightPlan {
             char delim;
 
             stringstream ss{flightDepartureDate};
-            ss >> day >> delim >> month >> delim >> year;
+            ss >> year >> delim >> month >> delim >> day;
 
             if (year == (1900 + currentDateTime->tm_year))
                 if (month == (currentDateTime->tm_mon+1))
@@ -56,7 +56,7 @@ class FlightPlan {
         bool addFlightToPlan(const Flight& f);
 
         /**
-         * Performs the first flight in the flightPlan
+         * Performs flights with a departure date prior to the current date
          */
         void performFlights();
 
