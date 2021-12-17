@@ -32,7 +32,6 @@ class Menu {
 
         enum ClientMenuOption {
             TICKET = 1,
-            BOARD,
             CLIENT_FLIGHTS,
             CLIENT_BACK
        };
