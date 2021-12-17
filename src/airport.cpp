@@ -128,3 +128,19 @@ ostream& operator <<(ostream& out , const LandTransportPlace &a) {
     out << LandTransportPlace::typePrint.at(a.type) << ' ' << a.distance << "m " << "Open from: " << a.openTime << " to " << a.closeTime;
     return out;
 }
+
+void FlightPlan::performFlights() {
+
+    auto flight = this->plan.begin();
+
+    while (flight != this->plan.end()) {
+
+        // execute past flights
+        if (isPast(flight->getDepartureDate())) {
+            flight->execute();
+
+            flight = this->plan.erase(flight);
+        } else
+            flight++;
+    }
+}

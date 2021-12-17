@@ -47,7 +47,9 @@ public:
      * @param numberStacks Number of stacks
      * @param stackCapacity Number of pieces each stack can take
      */
-    Carriage(unsigned numberStacks, unsigned stackCapacity) : numberStacks(numberStacks), stackCapacity(stackCapacity) {}
+    Carriage(unsigned numberStacks, unsigned stackCapacity) : numberStacks(numberStacks), stackCapacity(stackCapacity) {
+        this->carriage = vector<stack<Luggage>>(numberStacks);
+    }
 
     /**
      *

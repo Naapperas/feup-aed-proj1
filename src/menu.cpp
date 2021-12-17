@@ -31,8 +31,6 @@ void Menu::init() {
                         case TICKET:
                             Menu::buyTickets();
                             break;
-                        case BOARD:
-                            break;
                         case CLIENT_FLIGHTS:
                             Menu::listFlights();
                             break;
@@ -116,7 +114,6 @@ int Menu::showAdminMenu() {
     std::cout.flush();
 
     return option;
-
 }
 
 int Menu::showClientMenu() {
@@ -124,7 +121,7 @@ int Menu::showClientMenu() {
     int option;
 
     std::cout << "\tHello client, what would you like to do?\n\n";
-    std::cout << "\t[1] Purchase ticket\n\t[2] Board plane\n\t[3] See all available flights\n\t[4] Back\n\n";
+    std::cout << "\t[1] Purchase ticket\n\t[2] See all available flights\n\t[3] Back\n\n";
     std::cout << "\t> ";
     std::cin >> option;
 

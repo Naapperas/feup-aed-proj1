@@ -158,6 +158,9 @@ Airline::Airline(const std::string &name) : airlineName(name) {
             this->addFlightToPlane(plane, f);
         }
     }
+
+    for (auto& flightPlan : this->flightPlans)
+        flightPlan.performFlights();
 }
 
 bool Airline::addPlaneToAirlineFleet(const Plane& plane) {
@@ -220,14 +223,16 @@ bool Airline::rescheduleFlight() {
     long option;
     std::cin >> option;
 
-    std::cout << "\tWhat's the new departure date of this flight? (provide input in the form YYYY-MM-DD)";
+    auto flight = std::find_if(upcomingFlights.begin(), upcomingFlights.end(), [option](const Flight& f){return f.getFlightNumber()==option;});
+
+    std::cout << "\tWhat's the new departure date of this flight? The previous date is '" << flight->getDepartureDate() << "' (provide input in the form YYYY-MM-DD)\n\t> ";
 
     std::string newDate;
     std::cin >> newDate;
 
     for (FlightPlan& fp: flightPlans){
         if(fp.updateFlight(option, newDate)) {
-            std::find_if(upcomingFlights.begin(), upcomingFlights.end(), [option](const Flight& f){return f.getFlightNumber()==option;})->setDepartureDate(newDate);
+            flight->setDepartureDate(newDate);
             std::sort(upcomingFlights.begin(), upcomingFlights.end(), [](const Flight&a, const Flight&b){return a.getDepartureDate()<b.getDepartureDate();});
             std::cout << "\tFlight nº" << option << " rescheduled to " << newDate << std::endl;
             return true;
@@ -245,12 +250,12 @@ void Airline::createFlight() {
     std::string planePlate;
     std::cin >> planePlate;
 
-    std::cout << "\tWhat's the departure date of this flight? (provide input in the form YYYY-MM-DD)";
+    std::cout << "\tWhat's the departure date of this flight? (provide input in the form DD-MM-YYYY)\n\t> ";
 
     std::string departureDate;
     std::cin >> departureDate;
 
-    std::cout << "\tHow long will the flight take?";
+    std::cout << "\tHow long will the flight take in minutes? ";
 
     unsigned duration;
     std::cin >> duration;
@@ -264,6 +269,11 @@ void Airline::createFlight() {
     std::string origin, destination;
     std::cin >> origin >> destination;
 
+    if (origin == destination) {
+        std::cout << "\tCan't have both origin and destination be the same airport, aborting!" << std::endl;
+        return;
+    }
+
     auto& originAirport = *std::find_if(this->airports.begin(), this->airports.end(), [origin](const Airport& a){ return a.getName() == origin; });
     auto& destinyAirport = *std::find_if(this->airports.begin(), this->airports.end(), [destination](const Airport& a){ return a.getName() == destination; });
 
@@ -272,7 +282,6 @@ void Airline::createFlight() {
     Flight f{departureDate, duration, plane, originAirport, destinyAirport};
 
     this->addFlightToPlane(plane, f);
-
 }
 
 void Airline::listCurrentFlights() const {
@@ -445,6 +454,9 @@ void Airline::storeFlights() const {
 }
 
 void Airline::purchaseTicket() {
+
+    this->listCurrentFlights();
+
     long option;
     std::cout << "\tPlease select the number of the flight you wish to take\n\t> ";
     std::cin >> option;
@@ -465,17 +477,16 @@ void Airline::purchaseTicket() {
         std::cin >> age;
 
         char carryLuggage;
-        std::cout << "\tWill he/her be carrying luggage? Y or N\n\t> ";
+        std::cout << "\tWill they be carrying luggage? Y/N\n\t> ";
         std::cin >> carryLuggage;
 
-        if (toupper(carryLuggage) == 'Y'){
+        if (toupper(carryLuggage) == 'Y') {
             Luggage luggage;
             Passenger passenger(name, age, luggage);
             Ticket ticket(passenger);
 
             tickets.push_back(ticket);
-        }
-        else{
+        } else {
             Passenger passenger(name, age);
             Ticket ticket(passenger);
 

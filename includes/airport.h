@@ -4,18 +4,46 @@
 #include <vector>
 #include <list>
 #include <fstream>
+#include <ctime>
 
 #include "bst.h"
 #include "plane.h"
 #include "ticket.h"
 #include "passenger.h"
 #include "luggageTransport.h"
-//#include "flight.h"
+
 class Flight;
 
 class FlightPlan {
         Plane plane;
         std::list<Flight> plan;
+
+        /**
+         * Compares the given flight departure date against the current time
+         *
+         * @param flightDepartureDate the departure date
+         * @return true if the given date is prior to the current date
+         */
+        bool isPast(std::string flightDepartureDate) {
+
+            time_t now = time(0);
+            tm *currentDateTime = gmtime(&now);
+
+            int day, month, year;
+            char delim;
+
+            stringstream ss{flightDepartureDate};
+            ss >> day >> delim >> month >> delim >> year;
+
+            if (year == (1900 + currentDateTime->tm_year))
+                if (month == (currentDateTime->tm_mon+1))
+                    return day < currentDateTime->tm_mday;
+                else
+                    return month < (currentDateTime->tm_mon+1);
+            else
+                return year < (1900 + currentDateTime->tm_year);
+        }
+
     public:
         FlightPlan(const Plane& p) : plane(p) {}
 
@@ -30,10 +58,7 @@ class FlightPlan {
         /**
          * Performs the first flight in the flightPlan
          */
-        void performFlight() {
-            // should Flight::execute() be called here?
-            this->plan.pop_front();
-        }
+        void performFlights();
 
         /**
          * Returns the plane associated with this flightPlan.
