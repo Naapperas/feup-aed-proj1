@@ -158,6 +158,14 @@ class Airline {
         const std::string& getName() const {
             return this->airlineName;
         }
+
+
+        /**
+         *
+         */
+        void addCleaningService();
+
+
 };
 
 

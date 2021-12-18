@@ -27,6 +27,7 @@ class Menu {
             ADMIN_PLANES,
             ADMIN_AIRPORT_REGISTER,
             ADMIN_LAND_TRANSPORT_PLACE,
+            ADMIN_CLEANING_SERVICE,
             ADMIN_BACK
         };
 
@@ -57,6 +58,7 @@ class Menu {
         static void createFlight();
         static void cancelFlight();
         static void rescheduleFlight();
+        static void addCleaningService();
 };
 
 #endif //AED2122PROJ_MENU_H

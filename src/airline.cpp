@@ -544,3 +544,34 @@ std::vector<Flight*> Airline::getValidFlights() const {
 
     return tmp;
 }
+
+void Airline::addCleaningService() {
+
+    this->listCurrentPlanes();
+
+    std::string option;
+    std::cout << "\tPlease select the plate of the plane you wish to add the service\n\t> ";
+    std::cin >> option;
+
+    auto itr = std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [option](Plane* plane){ return plane->getPlate() == option; });
+
+
+    CleaningService::ServiceType st;
+    std::cout << "\tWhat's the type of the service. M/C\n\t> "; // M = MAINTENANCE / C = CLEANING
+    std::cin >> option;
+
+    if(toupper(option[0]) == 'M')
+        st == CleaningService::MAINTENANCE;
+    else
+        st == CleaningService::CLEANING;
+
+    std::string date;
+    std::cout << "\tWhat's the date of the service. dd-mm-yyyy\n\t> ";
+    std::cin >> date;
+
+    std::cout << "\tWhat's the name of the employer\n\t> ";
+    std::cin >> option;
+
+    (*itr)->addCleaningService(CleaningService(st, date, option));
+
+}
