@@ -561,12 +561,12 @@ void Airline::addCleaningService() {
     std::cin >> option;
 
     if(toupper(option[0]) == 'M')
-        st == CleaningService::MAINTENANCE;
+        st = CleaningService::MAINTENANCE;
     else
-        st == CleaningService::CLEANING;
+        st = CleaningService::CLEANING;
 
     std::string date;
-    std::cout << "\tWhat's the date of the service. dd-mm-yyyy\n\t> ";
+    std::cout << "\tWhat's the date of the service. YYYY-MM-DD\n\t> ";
     std::cin >> date;
 
     std::cout << "\tWhat's the name of the employer\n\t> ";
