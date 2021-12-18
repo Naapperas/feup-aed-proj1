@@ -16,7 +16,7 @@ class Passenger {
 
     std::string name;
     unsigned age; // don't know if it's necessary
-    Luggage l; // optional
+    Luggage* l = nullptr; // optional
 public:
 
     /**
@@ -34,8 +34,13 @@ public:
      * @param age the age of this passenger
      * @param luggage the luggage owned by this passenger
      */
-    Passenger(const std::string& name, unsigned age, const Luggage& luggage) : Passenger(name, age) {
+    Passenger(const std::string& name, unsigned age, Luggage* luggage) : Passenger(name, age) {
         this->l = luggage;
+    }
+
+    ~Passenger() {
+        if (l != nullptr)
+            delete l;
     }
 
     /**
@@ -59,11 +64,9 @@ public:
     /**
      * Returns the luggage owned by this pasenger.
      *
-     * Note: since the default constructor for Luggage is called if no luggage is present in
-     *
      * @return the luggage owned by this passenger
      */
-    const Luggage& getLuggage() const {
+    Luggage* getLuggage() const {
         return this->l;
     };
 };

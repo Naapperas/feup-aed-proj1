@@ -16,27 +16,43 @@
  */
 class Airline {
 
-        std::list<FlightPlan> flightPlans;
-        std::vector<Plane> ownedPlanes;
-        std::vector<Flight> upcomingFlights;
-        std::vector<Airport> airports;
+        std::list<FlightPlan*> flightPlans;
+        std::vector<Plane*> ownedPlanes;
+        std::vector<Flight*> upcomingFlights;
+        std::vector<Airport*> airports;
 
         std::string airlineName;
 
         static Airline* instance;
 
         void storePlanes() const;
-        void storeCleaningServices(const Plane& plane) const;
+        void storeCleaningServices(Plane* plane) const;
         void storeAirports() const;
-        void storeTransportPlaces(const Airport& airport) const;
+        void storeTransportPlaces(Airport* airport) const;
         void listAirports() const;
         void storeFlights() const;
+
+        std::vector<Flight*> getValidFlights() const;
+
     public:
         explicit Airline(const std::string& name);
         ~Airline() {
             this->storePlanes();
             this->storeAirports();
             this->storeFlights();
+
+            for (auto plane : this->ownedPlanes)
+                delete plane;
+
+            for (auto flight : this->upcomingFlights)
+                delete flight;
+
+            for (auto plan : this->flightPlans)
+                delete plan;
+
+            for (auto airport : this->airports)
+                delete airport;
+
         }
 
         /**
@@ -44,7 +60,7 @@ class Airline {
          * @param plane plane to be added
          * @return true if added successfully (this plane wasn't owned already) else false
          */
-        bool addPlaneToAirlineFleet(const Plane& plane);
+        bool addPlaneToAirlineFleet(Plane* plane);
 
         /**
          * Add a flight to a plane's flight plan
@@ -52,7 +68,7 @@ class Airline {
          * @param flight flight to be added
          * @return
          */
-        bool addFlightToPlane(const Plane& plane, const Flight& flight);
+        bool addFlightToPlane(Plane* plane, Flight* flight);
 
         /**
          * Add a list of flights to a plane's flight plan
@@ -60,7 +76,7 @@ class Airline {
          * @param flight list of flights to be added
          * @return
          */
-        bool addFlightsToPlane(const Plane& plane, const std::list<Flight>& flights);
+        bool addFlightsToPlane(Plane* plane, const std::list<Flight*>& flights);
 
         static void setInstance(Airline* instance) {
             if (Airline::instance == NULL)
@@ -96,7 +112,7 @@ class Airline {
          * @param airport airport to be added
          * @return true if added successfully (this airport didn't exist before) else false
          */
-        bool addAirport(const Airport& airport);
+        bool addAirport(Airport* airport);
 
         /**
          * Register a new airport

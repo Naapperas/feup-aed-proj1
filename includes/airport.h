@@ -15,16 +15,16 @@
 class Flight;
 
 class FlightPlan {
-        Plane plane;
-        std::list<Flight> plan;
-
+        Plane* plane;
+        std::list<Flight*> plan;
+    public:
         /**
          * Compares the given flight departure date against the current time
          *
          * @param flightDepartureDate the departure date
          * @return true if the given date is prior to the current date
          */
-        bool isPast(std::string flightDepartureDate) {
+        static bool isPast(std::string flightDepartureDate) {
 
             time_t now = time(0);
             tm *currentDateTime = gmtime(&now);
@@ -44,8 +44,7 @@ class FlightPlan {
                 return year < (1900 + currentDateTime->tm_year);
         }
 
-    public:
-        FlightPlan(const Plane& p) : plane(p) {}
+        FlightPlan(Plane* p) : plane(p) {}
 
         /**
          * Adds a flight to this plane's flightPlan if it is not already present.
@@ -53,7 +52,7 @@ class FlightPlan {
          * @param f the flight to add
          * @return false if the flight already existed in the planes flightPlan, true otherwise
          */
-        bool addFlightToPlan(const Flight& f);
+        bool addFlightToPlan(Flight* f);
 
         /**
          * Performs flights with a departure date prior to the current date
@@ -65,7 +64,7 @@ class FlightPlan {
          *
          * @return the plane associated with this flightPlan
          */
-        const Plane& getPlane() const {
+        Plane* getPlane() const {
             return this->plane;
         }
 
@@ -176,9 +175,9 @@ class LandTransportPlace {
 class Airport {
         std::string name;
 
-        std::list<Plane> landedPlanes; // list for insertion/removal
+        std::list<Plane*> landedPlanes; // list for insertion/removal
 
-        std::queue<Luggage> luggageTransportBelt;
+        std::queue<Luggage*> luggageTransportBelt;
         LuggageTransport transport{4, 5};
 
         BST<LandTransportPlace> transportPlaces;
@@ -192,7 +191,7 @@ class Airport {
             out << a.name;
 
             for (const auto& plane : a.landedPlanes)
-                out << ' ' << plane.getPlate();
+                out << ' ' << plane->getPlate();
             return out << '\n';
         }
 
@@ -218,49 +217,47 @@ public:
             return this->name;
         }
 
-        Ticket purchaseTicket(Flight& flight, const Passenger& passenger);
-
         /**
          * Emplaces some luggage on this airport's transport belt to be carried to a plane by the Luggage Transportation Service
          *
          * @param l the luggage to transport
          */
-        void addLuggageToTransportBelt(const Luggage& l);
+        void addLuggageToTransportBelt(Luggage* l);
 
         /**
          *  Lands a plane at this airport
          *
          * @param plane the plane to land
          */
-        void landPlane(const Plane& plane);
+        void landPlane(Plane* plane);
 
         /**
          * Makes a plane take off from this location
          *
          * @param plane the plane taking off
          */
-        void planeDeparture(const Plane& plane);
+        void planeDeparture(Plane* plane);
 
         /**
          * Checks if a plane is currently landed in this airport
          * @param plane
          * @return true if the plane is landed else false
          */
-        bool planeIsLanded(const Plane& plane);
+        bool planeIsLanded(Plane* plane);
 
         /**
          * Loads the cargo to the given plane.
          *
          * @param plane the plane that should have cargo loaded
          */
-        void loadCargo(Plane& plane);
+        void loadCargo(Plane* plane);
 
         /**
          * Offloads this plane's cargo to be delivered at this airport
          *
          * @param plane the plane whose cargo should be offloaded
          */
-        void offloadCargo(Plane& plane);
+        void offloadCargo(Plane* plane);
 
         /**
          * Store this airport's land transport places info in the dedicated file

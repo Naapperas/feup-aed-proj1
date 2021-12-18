@@ -6,17 +6,17 @@
 
 long Flight::CURRENT_FLIGHT_NUMBER = 1;
 
-bool Flight::addPassenger(const Ticket& ticket) {
-    if (this->lotation < this->getPlane().getCapacity()) {
-        this->passengers.emplace_back(ticket.getPassenger());
+bool Flight::addPassenger(Ticket* ticket) {
+    if (this->lotation < this->getPlane()->getCapacity()) {
+        this->tickets.emplace_back(ticket);
         this->lotation++;
         return true;
     }
     return false;
 }
 
-bool Flight::addPassengers(const std::vector<Ticket>& tickets) {
-    if (this->lotation + tickets.size() < this->getPlane().getCapacity()) {
+bool Flight::addPassengers(const std::vector<Ticket*>& tickets) {
+    if (this->lotation + tickets.size() < this->getPlane()->getCapacity()) {
         for (auto ticket : tickets)
             this->addPassenger(ticket);
         return true;
@@ -26,30 +26,34 @@ bool Flight::addPassengers(const std::vector<Ticket>& tickets) {
 
 bool Flight::execute() {
 
-    auto &originAirport = this->getOriginAirport(), &destinationAirport = this->getDestinationAirport();
-    auto &flightPlane = this->getPlane();
+    auto originAirport = this->getOriginAirport(), destinationAirport = this->getDestinationAirport();
+    auto flightPlane = this->getPlane();
 
-    if (!originAirport.planeIsLanded(flightPlane))
+    if (!originAirport->planeIsLanded(flightPlane))
         return false;
 
-    for (auto& passenger : this->passengers)
-        originAirport.addLuggageToTransportBelt(passenger.getLuggage());
+    for (auto ticket : this->tickets)
+        originAirport->addLuggageToTransportBelt(ticket->getPassenger()->getLuggage());
 
-    originAirport.loadCargo(flightPlane);
+    originAirport->loadCargo(flightPlane);
 
-    flightPlane.boardPassengers(this->passengers);
+    std::vector<Passenger*> passengers;
+    for (auto ticket : this->tickets)
+        passengers.push_back(ticket->getPassenger());
 
-    originAirport.planeDeparture(flightPlane);
+    flightPlane->boardPassengers(passengers);
+
+    originAirport->planeDeparture(flightPlane);
     // do some processing here...
 
     // pass the time
 
-    destinationAirport.landPlane(flightPlane);
+    destinationAirport->landPlane(flightPlane);
 
     //TODO: what to do here with the passengers
-    flightPlane.unboardPassengers();
+    flightPlane->unboardPassengers();
 
-    destinationAirport.offloadCargo(flightPlane);
+    destinationAirport->offloadCargo(flightPlane);
 
     return true;
 }

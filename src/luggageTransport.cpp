@@ -7,26 +7,35 @@
 #include "../includes/luggageTransport.h"
 
 void LuggageTransport::addCarriage() {
-    carriages.push_back(Carriage(numberStacks, stackCapacity));
+    carriages.push_back(new Carriage(numberStacks, stackCapacity));
 }
 
-void LuggageTransport::addLuggage(const Luggage& luggage){
-    Carriage& lastCarriage = carriages.back();
+void LuggageTransport::addLuggage(Luggage* luggage){
+    Carriage* lastCarriage = carriages.back();
 
-    if (lastCarriage.carriageFull()) {
+    if (lastCarriage->carriageFull()) {
         this->addCarriage();
-        carriages.back().addLuggage(luggage);
+        carriages.back()->addLuggage(luggage);
     }
     else{
-        lastCarriage.addLuggage(luggage);
+        lastCarriage->addLuggage(luggage);
     }
 }
 
-std::list<Luggage> LuggageTransport::getCargo() {
-    std::list<Luggage> tmp;
+std::list<Luggage*> LuggageTransport::getCargo() {
+    std::list<Luggage*> tmp;
 
     for (auto& carriage : this->carriages) {
-        carriage.removeLuggage(tmp);
+        carriage->removeLuggage(tmp);
+    }
+
+    auto coiso = carriages.begin()++;
+
+    while (coiso != carriages.end()) {
+
+        auto carriage = *coiso++;
+
+        delete carriage;
     }
 
     carriages.erase(carriages.begin()++, carriages.end());

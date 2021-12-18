@@ -27,7 +27,7 @@ Airline::Airline(const std::string &name) : airlineName(name) {
             std::string type, plate;
             unsigned capacity, cargoCapacity;
             ss >> type >> plate >> capacity >> cargoCapacity;
-            this->addPlaneToAirlineFleet(Plane(type, plate, capacity, cargoCapacity));
+            this->addPlaneToAirlineFleet(new Plane(type, plate, capacity, cargoCapacity));
         }
     }
 
@@ -64,10 +64,10 @@ Airline::Airline(const std::string &name) : airlineName(name) {
                 st = CleaningService::CLEANING;
             else
                 continue;
-            std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){return p.getPlate() == planePlate;})->addCleaningService(CleaningService(st, date, employee));
+            (*std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](Plane* p){return p->getPlate() == planePlate;}))->addCleaningService(CleaningService(st, date, employee));
             // check if service was finished prior to this execution of the program and set to finish if so
             if (!upcoming)
-                std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){return p.getPlate() == planePlate;})->finishedCleaningService();
+                (*std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](Plane* p){return p->getPlate() == planePlate;}))->finishedCleaningService();
         }
     }
 
@@ -89,12 +89,12 @@ Airline::Airline(const std::string &name) : airlineName(name) {
 
             ss >> airportName;
 
-            Airport a{airportName};
+            Airport* a = new Airport{airportName};
 
             std::string planePlate;
             while (ss >> planePlate)
                 // store current plane info
-                a.landPlane(*std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){return p.getPlate() == planePlate;}));
+                a->landPlane(*std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](Plane* p){return p->getPlate() == planePlate;}));
 
             this->airports.push_back(a);
         }
@@ -123,7 +123,7 @@ Airline::Airline(const std::string &name) : airlineName(name) {
 
             LandTransportPlace ltp{type, distance, openTime, closeTime};
 
-            std::find_if(this->airports.begin(), this->airports.end(), [airportName](const Airport& a){return a.getName() == airportName;})->registerTransportPlace(ltp);
+            (*std::find_if(this->airports.begin(), this->airports.end(), [airportName](Airport* a){return a->getName() == airportName;}))->registerTransportPlace(ltp);
 
         }
     }
@@ -149,50 +149,52 @@ Airline::Airline(const std::string &name) : airlineName(name) {
 
             ss >> flightNumber >> departureDate >> duration >> planePlate >> originName >> destinyName;
 
-            auto& plane = *std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){ return p.getPlate() == planePlate; });
-            auto& origin = *std::find_if(this->airports.begin(), this->airports.end(), [originName](const Airport& a){ return a.getName() == originName; });
-            auto& destiny = *std::find_if(this->airports.begin(), this->airports.end(), [destinyName](const Airport& a){ return a.getName() == destinyName; });
+            auto plane = *std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](Plane* p){ return p->getPlate() == planePlate; });
+            auto origin = *std::find_if(this->airports.begin(), this->airports.end(), [originName](Airport* a){ return a->getName() == originName; });
+            auto destiny = *std::find_if(this->airports.begin(), this->airports.end(), [destinyName](Airport* a){ return a->getName() == destinyName; });
 
-            Flight f{flightNumber, departureDate, duration, plane, origin, destiny};
+            Flight* f = new Flight{flightNumber, departureDate, duration, plane, origin, destiny};
 
             this->addFlightToPlane(plane, f);
         }
     }
 
     for (auto& flightPlan : this->flightPlans)
-        flightPlan.performFlights();
-
+        flightPlan->performFlights();
 
 }
 
-bool Airline::addPlaneToAirlineFleet(const Plane& plane) {
+bool Airline::addPlaneToAirlineFleet(Plane* plane) {
 
     for (const auto& p : this->ownedPlanes)
         if (p == plane) return false;
 
     this->ownedPlanes.push_back(plane);
-    this->flightPlans.emplace_back(plane); // adds an empty flight plan associated with this plane
+
+    FlightPlan* fp = new FlightPlan{plane};
+
+    this->flightPlans.emplace_back(fp); // adds an empty flight plan associated with this plane
     return true;
 };
 
-bool Airline::addFlightToPlane(const Plane& plane, const Flight& flight) {
+bool Airline::addFlightToPlane(Plane* plane, Flight* flight) {
 
     bool ret = this->addPlaneToAirlineFleet(plane); // might return false, just ensure we have the plane on the fleet
 
-    std::find_if(this->flightPlans.begin(), this->flightPlans.end(), [plane](const FlightPlan& fp){ return fp.getPlane() == plane; })->addFlightToPlan(flight);
+    (*std::find_if(this->flightPlans.begin(), this->flightPlans.end(), [plane](FlightPlan* fp){ return fp->getPlane() == plane; }))->addFlightToPlan(flight);
     this->upcomingFlights.push_back(flight);
 
     return ret;
 };
 
-bool Airline::addFlightsToPlane(const Plane& plane, const std::list<Flight>& flights) {
+bool Airline::addFlightsToPlane(Plane* plane, const std::list<Flight*>& flights) {
 
     bool ret = this->addPlaneToAirlineFleet(plane); // might return false, just ensure we have the plane on the fleet
 
-    auto fp = std::find_if(this->flightPlans.begin(), this->flightPlans.end(), [plane](const FlightPlan& fp){ return fp.getPlane() == plane; });
+    auto fp = std::find_if(this->flightPlans.begin(), this->flightPlans.end(), [plane](FlightPlan* fp){ return fp->getPlane() == plane; });
 
     for (const auto& flight : flights)
-        fp->addFlightToPlan(flight);
+        (*fp)->addFlightToPlan(flight);
 
     return ret;
 };
@@ -206,9 +208,15 @@ bool Airline::cancelFlight() {
     long option;
     std::cin >> option;
 
-    for (FlightPlan& fp: flightPlans){
-        if(fp.removeFlight(option)) {
-            upcomingFlights.erase(std::remove_if(upcomingFlights.begin(), upcomingFlights.end(), [option](const Flight& f){return f.getFlightNumber() == option;}), upcomingFlights.end());
+    for (FlightPlan* fp: flightPlans) {
+        if(fp->removeFlight(option)) {
+
+            auto first = std::remove_if(upcomingFlights.begin(), upcomingFlights.end(), [option](Flight* f){return f->getFlightNumber() == option;}); // shift the flight to be removed to the end
+
+            auto flightToDelete = upcomingFlights.back();
+            delete flightToDelete;
+
+            upcomingFlights.erase(first, upcomingFlights.end());
             std::cout << "\tFlight nº" << option << " canceled" << std::endl;
             return true;
         }
@@ -225,17 +233,17 @@ bool Airline::rescheduleFlight() {
     long option;
     std::cin >> option;
 
-    auto flight = std::find_if(upcomingFlights.begin(), upcomingFlights.end(), [option](const Flight& f){return f.getFlightNumber()==option;});
+    auto flight = std::find_if(upcomingFlights.begin(), upcomingFlights.end(), [option](Flight* f){return f->getFlightNumber()==option;});
 
-    std::cout << "\tWhat's the new departure date of this flight? The previous date is '" << flight->getDepartureDate() << "' (provide input in the form YYYY-MM-DD)\n\t> ";
+    std::cout << "\tWhat's the new departure date of this flight? The previous date is '" << (*flight)->getDepartureDate() << "' (provide input in the form YYYY-MM-DD)\n\t> ";
 
     std::string newDate;
     std::cin >> newDate;
 
-    for (FlightPlan& fp: flightPlans){
-        if(fp.updateFlight(option, newDate)) {
-            flight->setDepartureDate(newDate);
-            std::sort(upcomingFlights.begin(), upcomingFlights.end(), [](const Flight&a, const Flight&b){return a.getDepartureDate()<b.getDepartureDate();});
+    for (FlightPlan* fp: flightPlans){
+        if(fp->updateFlight(option, newDate)) {
+            (*flight)->setDepartureDate(newDate);
+            std::sort(upcomingFlights.begin(), upcomingFlights.end(), [](Flight* a, Flight* b){return a->getDepartureDate()<b->getDepartureDate();});
             std::cout << "\tFlight nº" << option << " rescheduled to " << newDate << std::endl;
             return true;
         }
@@ -276,12 +284,12 @@ void Airline::createFlight() {
         return;
     }
 
-    auto& originAirport = *std::find_if(this->airports.begin(), this->airports.end(), [origin](const Airport& a){ return a.getName() == origin; });
-    auto& destinyAirport = *std::find_if(this->airports.begin(), this->airports.end(), [destination](const Airport& a){ return a.getName() == destination; });
+    auto originAirport = *std::find_if(this->airports.begin(), this->airports.end(), [origin](Airport* a){ return a->getName() == origin; });
+    auto destinyAirport = *std::find_if(this->airports.begin(), this->airports.end(), [destination](Airport* a){ return a->getName() == destination; });
 
-    auto& plane = *std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){ return p.getPlate() == planePlate; });
+    auto& plane = *std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](Plane* p){ return p->getPlate() == planePlate; });
 
-    Flight f{departureDate, duration, plane, originAirport, destinyAirport};
+    Flight* f = new Flight{departureDate, duration, plane, originAirport, destinyAirport};
 
     this->addFlightToPlane(plane, f);
 }
@@ -290,8 +298,8 @@ void Airline::listCurrentFlights() const {
 
     std::cout << "\tUpcoming Flights:\n" << std::endl;
 
-    for (const auto& flight : this->upcomingFlights)
-        std::cout << '\t' << flight.getFlightNumber() << " - Departing " << flight.getDepartureDate() << "; Duration: " << flight.getDuration() << "\n\t\t" << "Current: flight lotation: " << flight.getLotation() << '\n';
+    for (auto flight : this->getValidFlights())
+        std::cout << '\t' << flight->getFlightNumber() << " - Departing " << flight->getDepartureDate() << " from " << flight->getOriginAirport()->getName() << " to " << flight->getDestinationAirport()->getName() << "; Duration: " << flight->getDuration() << " minutes\n\t\t" << "Current: flight lotation: " << flight->getLotation() << '\n';
 
     std::cout << std::endl;
 };
@@ -300,10 +308,10 @@ void Airline::listCurrentPlanes(bool verbose) const {
 
     std::cout << "\n\tPlanes in fleet:\n" << std::endl;
 
-    for (const auto& plane : this->ownedPlanes) {
-        std::cout << "\t\t" << plane.getType() << " Plate nº" << plane.getPlate();
+    for (auto plane : this->ownedPlanes) {
+        std::cout << "\t\t" << plane->getType() << " Plate nº" << plane->getPlate();
         if (verbose)
-            std::cout << "\n\t\t\tCapacity: " << plane.getCapacity() << '\n';
+            std::cout << "\n\t\t\tCapacity: " << plane->getCapacity() << '\n';
     }
 
     std::cout << std::endl;
@@ -326,7 +334,7 @@ void Airline::purchasePlane() {
     std::cout << "\tWhat is the max cargo capacity of the new plane? >";
     std::cin >> cargoCapacity;
 
-    this->addPlaneToAirlineFleet(Plane(type, plate, capacity, cargoCapacity));
+    this->addPlaneToAirlineFleet(new Plane(type, plate, capacity, cargoCapacity));
 }
 
 void Airline::listAirports() const {
@@ -334,11 +342,11 @@ void Airline::listAirports() const {
     unsigned counter = 1;
 
     for (const auto& airport : this->airports)
-        std::cout << "\t[" << counter++ << "] " << airport.getName() << '\n';
+        std::cout << "\t[" << counter++ << "] " << airport->getName() << '\n';
 }
 
-bool Airline::addAirport(const Airport &airport) {
-    for (const auto& a : this->airports)
+bool Airline::addAirport(Airport* airport) {
+    for (auto a : this->airports)
         if (a == airport) return false;
 
     this->airports.push_back(airport);
@@ -350,7 +358,7 @@ void Airline::registerAirport(){
     std::cout << "\tWhat is the name of the airport to be registered? \n\t>";
     std::cin >> name;
 
-    this->addAirport(Airport(name));
+    this->addAirport(new Airport(name));
 }
 
 void Airline::registerTransportPlace() {
@@ -359,7 +367,7 @@ void Airline::registerTransportPlace() {
 
     if (this->airports.size() == 1) {
         std::cout << "\tSelecting only airport registered\n";
-        a = &this->airports.at(0);
+        a = this->airports.at(0);
     }
     else {
 
@@ -370,7 +378,7 @@ void Airline::registerTransportPlace() {
         std::cout << "\n\tWhich is the closest airport to the new transport place?\n\t> ";
         std::cin >> option;
 
-        a = &(*(this->airports.begin() + option-1));
+        a = (*(this->airports.begin() + option-1));
     }
 
     std::string type, openTime, closeTime;
@@ -411,17 +419,17 @@ void Airline::storePlanes() const {
     serviceFile << "";
 
     if (planeFile.is_open())
-        for (const auto& plane : this->ownedPlanes) {
+        for (auto plane : this->ownedPlanes) {
             this->storeCleaningServices(plane);
-            planeFile << plane;
+            planeFile << *plane;
         }
 }
 
-void Airline::storeCleaningServices(const Plane &plane) const {
+void Airline::storeCleaningServices(Plane *plane) const {
 
     ofstream serviceFile("cleaning.txt", std::ios_base::app);
 
-    plane.storeCleaningServices(serviceFile);
+    plane->storeCleaningServices(serviceFile);
 }
 
 void Airline::storeAirports() const {
@@ -433,17 +441,17 @@ void Airline::storeAirports() const {
     transportPlaces << "";
 
     if (planeFile.is_open())
-        for (const auto& airport : this->airports) {
+        for (auto airport : this->airports) {
             this->storeTransportPlaces(airport);
-            planeFile << airport;
+            planeFile << *airport;
         }
 }
 
-void Airline::storeTransportPlaces(const Airport &airport) const {
+void Airline::storeTransportPlaces(Airport *airport) const {
 
     ofstream transportPlacesFile("transportPlaces.txt", std::ios_base::app);
 
-    airport.storeTransportPlaces(transportPlacesFile);
+    airport->storeTransportPlaces(transportPlacesFile);
 }
 
 void Airline::storeFlights() const {
@@ -451,8 +459,8 @@ void Airline::storeFlights() const {
     ofstream flightsFile("flights.txt");
 
     if (flightsFile.is_open())
-        for (Flight flight : this->upcomingFlights)
-            flightsFile << flight;
+        for (Flight* flight : this->getValidFlights())
+            flightsFile << *flight;
 }
 
 void Airline::purchaseTicket() {
@@ -463,12 +471,12 @@ void Airline::purchaseTicket() {
     std::cout << "\tPlease select the number of the flight you wish to take\n\t> ";
     std::cin >> option;
 
-    auto itr = std::find_if(this->upcomingFlights.begin(), this->upcomingFlights.end(), [option](const Flight& flight){return flight.getFlightNumber() == option;});
+    auto itr = std::find_if(this->upcomingFlights.begin(), this->upcomingFlights.end(), [option](const Flight* flight){return flight->getFlightNumber() == option;});
 
     std::cout << "\tHow many passengers will be coming aboard\n\t> ";
     std::cin >> option;
 
-    std::vector<Ticket> tickets;
+    std::vector<Ticket*> tickets;
     for (unsigned i = 0; i < option; i++){
         std::string name;
         std::cout << "\tPlease insert the name of the passenger\n\t> ";
@@ -483,23 +491,34 @@ void Airline::purchaseTicket() {
         std::cin >> carryLuggage;
 
         if (toupper(carryLuggage) == 'Y') {
-            Luggage luggage;
-            Passenger passenger(name, age, luggage);
-            Ticket ticket(passenger);
+            Luggage* luggage = new Luggage();
+            Passenger* passenger = new Passenger(name, age, luggage);
+            Ticket* ticket = new Ticket(passenger);
 
             tickets.push_back(ticket);
         } else {
-            Passenger passenger(name, age);
-            Ticket ticket(passenger);
+            Passenger* passenger = new Passenger(name, age);
+            Ticket* ticket = new Ticket(passenger);
 
             tickets.push_back(ticket);
         }
     }
 
     if (tickets.size() != 1)
-        itr->addPassengers(tickets);
+        (*itr)->addPassengers(tickets);
     else
-        itr->addPassenger(tickets[0]);
+        (*itr)->addPassenger(tickets[0]);
 
     std::cout << "\tWe successfully entered the data. Have a safe flight" << std::endl;
+}
+
+std::vector<Flight*> Airline::getValidFlights() const {
+
+    std::vector<Flight*> tmp;
+
+    for (auto flight : this->upcomingFlights)
+        if (!FlightPlan::isPast(flight->getDepartureDate()))
+            tmp.push_back(flight);
+
+    return tmp;
 }

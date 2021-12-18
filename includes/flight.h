@@ -25,17 +25,17 @@ class Flight {
         std::string departureDate;  // format YYYY-MM-DD
         unsigned duration, lotation;
 
-        std::vector<Passenger> passengers;
+        std::vector<Ticket*> tickets;
 
-        Plane plane;
-        Airport origin, destiny;
+        Plane *plane;
+        Airport *origin, *destiny;
 
         friend bool operator==(const Flight& a, const Flight& b) {
             return a.flightNumber == b.flightNumber;
         };
 
         friend ofstream& operator<<(ofstream& out, Flight& f) {
-            out << f.getFlightNumber() << ' ' << f.getDepartureDate() << ' ' << f.getDuration() << ' ' << f.getPlane().getPlate() << ' ' << f.getOriginAirport().getName() << ' ' << f.getDestinationAirport().getName() << '\n';
+            out << f.getFlightNumber() << ' ' << f.getDepartureDate() << ' ' << f.getDuration() << ' ' << f.getPlane()->getPlate() << ' ' << f.getOriginAirport()->getName() << ' ' << f.getDestinationAirport()->getName() << '\n';
             return out;
         }
 
@@ -50,8 +50,8 @@ class Flight {
          * @param destiny the destiny airport of this flight
          */
         Flight(const std::string& departureDate,
-               unsigned int duration, const Plane& p, const Airport& origin,
-               const Airport& destiny) : flightNumber(CURRENT_FLIGHT_NUMBER++), departureDate(departureDate),
+               unsigned int duration, Plane* p, Airport* origin,
+               Airport* destiny) : flightNumber(CURRENT_FLIGHT_NUMBER++), departureDate(departureDate),
                duration(duration), plane(p), origin(origin), destiny(destiny), lotation(0) {}
 
         /**
@@ -65,9 +65,14 @@ class Flight {
          * @param destiny the destiny airport of this flight
          */
         Flight(long flightNumber, const std::string& departureDate,
-               unsigned int duration, const Plane& p, const Airport& origin,
-               const Airport& destiny) : Flight(departureDate, duration, p, origin, destiny) {
+               unsigned int duration, Plane* p, Airport* origin,
+               Airport* destiny) : Flight(departureDate, duration, p, origin, destiny) {
             this->flightNumber = flightNumber;
+        }
+
+        ~Flight() {
+            for (auto ticket : this->tickets)
+                delete ticket;
         }
 
         /**
@@ -111,21 +116,21 @@ class Flight {
          *
          * @param ticket the ticket of the passanger wanting to board this flight
          */
-        bool addPassenger(const Ticket& ticket);
+        bool addPassenger(Ticket* ticket);
 
         /**
          * Adds the list of passengers given as argument, only if there is still enough space left for the entire group.
          *
          * @param tickets the tickets of the group wanting to board the flight
          */
-        bool addPassengers(const std::vector<Ticket>& tickets);
+        bool addPassengers(const std::vector<Ticket*>& tickets);
 
         /**
          * Returns the plane associated with this flight.
          *
          * @return the plane associated with this flight
          */
-        Plane& getPlane() {
+        Plane* getPlane() {
             return this->plane;
         };
 
@@ -134,7 +139,7 @@ class Flight {
          *
          * @return the destination airport for this flight
          */
-        Airport& getDestinationAirport() {
+        Airport* getDestinationAirport() {
             return this->destiny;
         };
 
@@ -143,7 +148,7 @@ class Flight {
          *
          * @return the origin airport for this flight
          */
-        Airport& getOriginAirport() {
+        Airport* getOriginAirport() {
             return this->origin;
         };
 
