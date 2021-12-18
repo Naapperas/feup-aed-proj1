@@ -13,16 +13,16 @@ std::ostream& operator <<(std::ostream& out , const CleaningService &a) {
     return out;
 }
 
-void Plane::addPassenger(const Passenger &passenger) {
+void Plane::addPassenger(Passenger *passenger) {
     this->planePassengers.emplace_back(passenger);
 }
 
-void Plane::addLuggage(const Luggage &planeLuggage) {
+void Plane::addLuggage(Luggage *planeLuggage) {
     this->planeLuggage.emplace_back(planeLuggage);
 }
 
-void Plane::boardPassengers(std::vector<Passenger> &passengers) {
-    for (const auto& passenger : passengers)
+void Plane::boardPassengers(const std::vector<Passenger*>& passengers) {
+    for (const auto passenger : passengers)
         this->addPassenger(passenger);
 }
 

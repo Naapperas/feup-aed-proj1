@@ -14,7 +14,7 @@ unsigned Carriage::freeStack() const{
     return -1; // full Carriage
 }
 
-void Carriage::addLuggage(const Luggage& luggage){
+void Carriage::addLuggage(Luggage* luggage){
     auto freeStack = this->freeStack();
 
     if (freeStack != -1) {
@@ -33,7 +33,7 @@ bool Carriage::carriageFull() const{
     return true;
 }
 
-void Carriage::removeLuggage(std::list<Luggage>& tmp){
+void Carriage::removeLuggage(std::list<Luggage*>& tmp){
     for (unsigned i = 0; i < numberStacks; i++) {
         emptyStack(i, tmp);
     }

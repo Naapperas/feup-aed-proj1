@@ -13,7 +13,7 @@
 
 class LuggageTransport {
     unsigned numberStacks, stackCapacity;
-    std::list<Carriage> carriages;
+    std::list<Carriage*> carriages;
     unsigned numberCarriages;
     friend ostream& operator <<(std::ostream& out , const LuggageTransport &a);
 public:
@@ -27,19 +27,24 @@ public:
         addCarriage();
     }
 
+    ~LuggageTransport() {
+        for (auto carriage : this->carriages)
+            delete carriage;
+    }
+
     /**
      * When the luggage transport system gets full, add a new carriage
      */
     void addCarriage();
 
 
-    void addLuggage(const Luggage& luggage);
+    void addLuggage(Luggage* luggage);
 
     /**
      * Besides clearing each carriage the system uses, it only leaves the system with one empty carriage
      * @return Returns the luggage of the passengers so it can be loaded into the plane
      */
-    std::list<Luggage> getCargo();
+    std::list<Luggage*> getCargo();
 };
 
 #endif //AED2122PROJ_LUGGAGETRANSPORT_H

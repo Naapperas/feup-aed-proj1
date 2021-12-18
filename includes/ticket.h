@@ -9,11 +9,16 @@
 
 class Ticket {
 
-        Passenger p;
+        Passenger* p = nullptr;
     public:
-        Ticket(const Passenger& p) : p(p) {}
+        Ticket(Passenger* p) : p(p) {}
 
-        const Passenger& getPassenger() const {
+        ~Ticket() {
+            if (p != nullptr)
+                delete p;
+        }
+
+        Passenger* getPassenger() const {
             return this->p;
         };
 };

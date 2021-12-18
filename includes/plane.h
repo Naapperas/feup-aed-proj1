@@ -48,8 +48,8 @@ class Plane {
         std::deque<CleaningService> upcomingCleaningTasks, pastCleaningTasks;
 
         // this should provide fast insertion removal (simulating transporting passengers + cargo, we don't care about searching them)
-        std::list<Passenger> planePassengers;
-        std::list<Luggage> planeLuggage;
+        std::list<Passenger*> planePassengers;
+        std::list<Luggage*> planeLuggage;
 
         friend bool operator==(const Plane& a, const Plane& b);
         friend std::ostream& operator <<(std::ostream& out ,const Plane& a);
@@ -109,15 +109,15 @@ class Plane {
         }
 
 
-        void addLuggage(const Luggage& planeLuggage);
-        void addPassenger(const Passenger& passenger);
+        void addLuggage(Luggage* planeLuggage);
+        void addPassenger(Passenger* passenger);
 
         /**
          * Boards the given collection of passengers on the plane.
          *
          * @param passengers the passengers to board
          */
-        void boardPassengers(std::vector<Passenger>& passengers);
+        void boardPassengers(const std::vector<Passenger*>& passengers);
 
         /**
          * Unboards this plane's passengers.
@@ -127,7 +127,7 @@ class Plane {
         /**
          * Unload luggage from the plane
          */
-        void offLoadCargo(); // New method
+        void offLoadCargo();
 
         /**
          * Serializes this plane's cleaning services to the given file.
