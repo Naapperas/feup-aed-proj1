@@ -162,6 +162,9 @@ Airline::Airline(const std::string &name) : airlineName(name) {
     for (auto& flightPlan : this->flightPlans)
         flightPlan->performFlights();
 
+    for (auto& plane: this->ownedPlanes)
+        plane->performServices();
+
 }
 
 bool Airline::addPlaneToAirlineFleet(Plane* plane) {

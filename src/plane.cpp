@@ -54,3 +54,10 @@ void Plane::offLoadCargo() {
     this->planeLuggage.clear();
 }
 
+void Plane::performServices() {
+    if (this->upcomingCleaningTasks.empty())
+        return;
+    while(isPast(this->upcomingCleaningTasks.front().getDate()))
+        this->finishedCleaningService();
+}
+

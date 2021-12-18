@@ -12,6 +12,8 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <ctime>
+
 
 #include "passenger.h"
 #include "luggage.h"
@@ -35,6 +37,9 @@ class CleaningService {
         CleaningService(ServiceType serviceType, const std::string& serviceDate, const std::string& employee) :
         serviceType(serviceType), serviceDate(serviceDate), employee(employee) {}
 
+        std::string getDate(){
+            return this->serviceDate;
+        }
 };
 
 /**
@@ -135,6 +140,37 @@ class Plane {
          * @param ofstream
          */
         void storeCleaningServices(std::ofstream& ofstream) const;
+
+        /**
+         *
+         */
+        void performServices();
+
+        /**
+         * Compares the given cleaning task date against the current time
+         *
+         * @param serviceDate the service date
+         * @return true if the given date is prior to the current date
+         */
+        static bool isPast(std::string serviceDate) {
+
+            time_t now = time(0);
+            tm *currentDateTime = gmtime(&now);
+
+            int day, month, year;
+            char delim;
+
+            std::stringstream ss{serviceDate};
+            ss >> year >> delim >> month >> delim >> day;
+
+            if (year == (1900 + currentDateTime->tm_year))
+                if (month == (currentDateTime->tm_mon+1))
+                    return day < currentDateTime->tm_mday;
+                else
+                    return month < (currentDateTime->tm_mon+1);
+            else
+                return year < (1900 + currentDateTime->tm_year);
+        }
 };
 
 #endif //AED2122PROJ_PLANE_H
