@@ -119,7 +119,7 @@ bool BST<Comparable>::isEmpty( ) const {
 template <class Comparable>
 void BST<Comparable>::printTree( ) const {
     if(isEmpty())
-        cout << "Empty tree" << endl;
+        cout << "No transport places found" << endl;
     else
         printTree(root);
 }

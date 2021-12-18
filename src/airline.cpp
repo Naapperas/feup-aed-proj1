@@ -512,6 +512,28 @@ void Airline::purchaseTicket() {
     std::cout << "\tWe successfully entered the data. Have a safe flight" << std::endl;
 }
 
+void Airline::listTransportPlaces() const{
+    Airport* a;
+
+    if (this->airports.size() == 1) {
+        std::cout << "\tSelecting only airport registered\n";
+        a = this->airports.at(0);
+    }
+    else {
+
+        this->listAirports();
+
+        unsigned option;
+
+        std::cout << "\n\tWhich airport's nearby transports would you like to see?\n\t> ";
+        std::cin >> option;
+
+        a = (*(this->airports.begin() + option-1));
+    }
+
+    a->printTransportPlaces();
+}
+
 std::vector<Flight*> Airline::getValidFlights() const {
 
     std::vector<Flight*> tmp;

@@ -146,6 +146,15 @@ class Airline {
          */
         void purchaseTicket();
 
+        /**
+         *
+         */
+        void listTransportPlaces() const;
+
+        /**
+         *
+         * @return
+         */
         const std::string& getName() const {
             return this->airlineName;
         }

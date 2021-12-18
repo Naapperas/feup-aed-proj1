@@ -34,6 +34,9 @@ void Menu::init() {
                         case CLIENT_FLIGHTS:
                             Menu::listFlights();
                             break;
+                        case CLIENT_TRANSPORTS:
+                            Menu::listTransportPlaces();
+                            break;
                         case CLIENT_BACK:
                             break;
                         default:
@@ -121,7 +124,7 @@ int Menu::showClientMenu() {
     int option;
 
     std::cout << "\tHello client, what would you like to do?\n\n";
-    std::cout << "\t[1] Purchase ticket\n\t[2] See all available flights\n\t[3] Back\n\n";
+    std::cout << "\t[1] Purchase ticket\n\t[2] See all available flights\n\t[3] See the land transports near an airport\n\t[4] Back\n\n";
     std::cout << "\t> ";
     std::cin >> option;
 
@@ -202,5 +205,10 @@ void Menu::waitForPrompt(const std::string &prompt) {
 
 void Menu::buyTickets() {
     Airline::getInstance().purchaseTicket();
+    Menu::waitForPrompt("\t[press ENTER to continue]");
+}
+
+void Menu::listTransportPlaces() {
+    Airline::getInstance().listTransportPlaces();
     Menu::waitForPrompt("\t[press ENTER to continue]");
 }

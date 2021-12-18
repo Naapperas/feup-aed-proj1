@@ -33,6 +33,7 @@ class Menu {
         enum ClientMenuOption {
             TICKET = 1,
             CLIENT_FLIGHTS,
+            CLIENT_TRANSPORTS,
             CLIENT_BACK
        };
 
@@ -48,6 +49,7 @@ class Menu {
         static void endProgram();
         static void buyTickets();
         static void listFlights();
+        static void listTransportPlaces();
         static void listPlanes();
         static void purchasePlane();
         static void registerAirport();
