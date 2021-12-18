@@ -31,6 +31,9 @@ class Airline {
         void storeTransportPlaces(Airport* airport) const;
         void listAirports() const;
         void storeFlights() const;
+
+        std::vector<Flight*> getValidFlights() const;
+
     public:
         explicit Airline(const std::string& name);
         ~Airline() {

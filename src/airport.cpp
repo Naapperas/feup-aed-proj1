@@ -16,7 +16,7 @@ bool FlightPlan::addFlightToPlan(Flight *f) {
 
 bool FlightPlan::removeFlight(long flightNumber) {
     for (auto it = plan.begin(); it != plan.end(); it++){
-        if ((*it)->getFlightNumber() == flightNumber){
+        if ((*it)->getFlightNumber() == flightNumber) {
             plan.erase(it);
             return true;
         }

@@ -17,14 +17,14 @@ class Flight;
 class FlightPlan {
         Plane* plane;
         std::list<Flight*> plan;
-
+    public:
         /**
          * Compares the given flight departure date against the current time
          *
          * @param flightDepartureDate the departure date
          * @return true if the given date is prior to the current date
          */
-        bool isPast(std::string flightDepartureDate) {
+        static bool isPast(std::string flightDepartureDate) {
 
             time_t now = time(0);
             tm *currentDateTime = gmtime(&now);
@@ -44,7 +44,6 @@ class FlightPlan {
                 return year < (1900 + currentDateTime->tm_year);
         }
 
-    public:
         FlightPlan(Plane* p) : plane(p) {}
 
         /**

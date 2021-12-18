@@ -208,9 +208,15 @@ bool Airline::cancelFlight() {
     long option;
     std::cin >> option;
 
-    for (FlightPlan* fp: flightPlans){
+    for (FlightPlan* fp: flightPlans) {
         if(fp->removeFlight(option)) {
-            upcomingFlights.erase(std::remove_if(upcomingFlights.begin(), upcomingFlights.end(), [option](Flight* f){return f->getFlightNumber() == option;}), upcomingFlights.end());
+
+            auto first = std::remove_if(upcomingFlights.begin(), upcomingFlights.end(), [option](Flight* f){return f->getFlightNumber() == option;}); // shift the flight to be removed to the end
+
+            auto flightToDelete = upcomingFlights.back();
+            delete flightToDelete;
+
+            upcomingFlights.erase(first, upcomingFlights.end());
             std::cout << "\tFlight nº" << option << " canceled" << std::endl;
             return true;
         }
@@ -292,8 +298,8 @@ void Airline::listCurrentFlights() const {
 
     std::cout << "\tUpcoming Flights:\n" << std::endl;
 
-    for (auto flight : this->upcomingFlights)
-        std::cout << '\t' << flight->getFlightNumber() << " - Departing " << flight->getDepartureDate() << "; Duration: " << flight->getDuration() << "\n\t\t" << "Current: flight lotation: " << flight->getLotation() << '\n';
+    for (auto flight : this->getValidFlights())
+        std::cout << '\t' << flight->getFlightNumber() << " - Departing " << flight->getDepartureDate() << " from " << flight->getOriginAirport()->getName() << " to " << flight->getDestinationAirport()->getName() << "; Duration: " << flight->getDuration() << " minutes\n\t\t" << "Current: flight lotation: " << flight->getLotation() << '\n';
 
     std::cout << std::endl;
 };
@@ -453,7 +459,7 @@ void Airline::storeFlights() const {
     ofstream flightsFile("flights.txt");
 
     if (flightsFile.is_open())
-        for (Flight* flight : this->upcomingFlights)
+        for (Flight* flight : this->getValidFlights())
             flightsFile << *flight;
 }
 
@@ -504,4 +510,15 @@ void Airline::purchaseTicket() {
         (*itr)->addPassenger(tickets[0]);
 
     std::cout << "\tWe successfully entered the data. Have a safe flight" << std::endl;
+}
+
+std::vector<Flight*> Airline::getValidFlights() const {
+
+    std::vector<Flight*> tmp;
+
+    for (auto flight : this->upcomingFlights)
+        if (!FlightPlan::isPast(flight->getDepartureDate()))
+            tmp.push_back(flight);
+
+    return tmp;
 }
