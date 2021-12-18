@@ -162,6 +162,7 @@ Airline::Airline(const std::string &name) : airlineName(name) {
     for (auto& flightPlan : this->flightPlans)
         flightPlan.performFlights();
 
+    this->updateUpcomingFlights();
 
 }
 
@@ -180,7 +181,7 @@ bool Airline::addFlightToPlane(const Plane& plane, const Flight& flight) {
     bool ret = this->addPlaneToAirlineFleet(plane); // might return false, just ensure we have the plane on the fleet
 
     std::find_if(this->flightPlans.begin(), this->flightPlans.end(), [plane](const FlightPlan& fp){ return fp.getPlane() == plane; })->addFlightToPlan(flight);
-    this->upcomingFlights.push_back(flight);
+    this->updateUpcomingFlights();
 
     return ret;
 };
@@ -191,8 +192,7 @@ bool Airline::addFlightsToPlane(const Plane& plane, const std::list<Flight>& fli
 
     auto fp = std::find_if(this->flightPlans.begin(), this->flightPlans.end(), [plane](const FlightPlan& fp){ return fp.getPlane() == plane; });
 
-    for (const auto& flight : flights)
-        fp->addFlightToPlan(flight);
+    this->updateUpcomingFlights();
 
     return ret;
 };
@@ -208,7 +208,7 @@ bool Airline::cancelFlight() {
 
     for (FlightPlan& fp: flightPlans){
         if(fp.removeFlight(option)) {
-            upcomingFlights.erase(std::remove_if(upcomingFlights.begin(), upcomingFlights.end(), [option](const Flight& f){return f.getFlightNumber() == option;}), upcomingFlights.end());
+            this->updateUpcomingFlights();
             std::cout << "\tFlight nº" << option << " canceled" << std::endl;
             return true;
         }
@@ -234,8 +234,7 @@ bool Airline::rescheduleFlight() {
 
     for (FlightPlan& fp: flightPlans){
         if(fp.updateFlight(option, newDate)) {
-            flight->setDepartureDate(newDate);
-            std::sort(upcomingFlights.begin(), upcomingFlights.end(), [](const Flight&a, const Flight&b){return a.getDepartureDate()<b.getDepartureDate();});
+            this->updateUpcomingFlights();
             std::cout << "\tFlight nº" << option << " rescheduled to " << newDate << std::endl;
             return true;
         }
@@ -293,6 +292,13 @@ void Airline::listCurrentFlights() const {
     for (const auto& flight : this->upcomingFlights)
         std::cout << '\t' << flight.getFlightNumber() << " - Departing " << flight.getDepartureDate() << "; Duration: " << flight.getDuration() << "\n\t\t" << "Current: flight lotation: " << flight.getLotation() << '\n';
 
+    /*
+    for (FlightPlan fp: flightPlans){
+        for (const Flight& flight: fp.getPlan()){
+            std::cout << '\t' << flight.getFlightNumber() << " - Departing " << flight.getDepartureDate() << "; Duration: " << flight.getDuration() << "\n\t\t" << "Current: flight lotation: " << flight.getLotation() << '\n';
+        }
+    }
+    */
     std::cout << std::endl;
 };
 
@@ -463,7 +469,15 @@ void Airline::purchaseTicket() {
     std::cout << "\tPlease select the number of the flight you wish to take\n\t> ";
     std::cin >> option;
 
-    auto itr = std::find_if(this->upcomingFlights.begin(), this->upcomingFlights.end(), [option](const Flight& flight){return flight.getFlightNumber() == option;});
+    //auto itr = std::find_if(this->upcomingFlights.begin(), this->upcomingFlights.end(), [option](const Flight& flight){return flight.getFlightNumber() == option;});
+
+    auto itr = flightPlans.front().getPlan().begin();
+
+    for (FlightPlan& fp: flightPlans){
+        itr = std::find_if(fp.getPlan().begin(), fp.getPlan().end(), [option](const Flight& f){return f.getFlightNumber()==option;});
+        if ( itr != fp.getPlan().end())
+            break;
+    }
 
     std::cout << "\tHow many passengers will be coming aboard\n\t> ";
     std::cin >> option;
@@ -501,5 +515,16 @@ void Airline::purchaseTicket() {
     else
         itr->addPassenger(tickets[0]);
 
+    this->updateUpcomingFlights();
     std::cout << "\tWe successfully entered the data. Have a safe flight" << std::endl;
+}
+
+void Airline::updateUpcomingFlights() {
+    this->upcomingFlights.clear();
+    for ( FlightPlan fp: flightPlans){
+        for ( const Flight& f: fp.getPlan()){
+            this->upcomingFlights.push_back(f);
+        }
+    }
+    std::sort(upcomingFlights.begin(), upcomingFlights.end(), [](const Flight&a, const Flight&b){return a.getDepartureDate()<b.getDepartureDate();});
 }

@@ -130,6 +130,11 @@ class Airline {
          */
         void purchaseTicket();
 
+        /**
+         *
+         */
+        void updateUpcomingFlights();
+
         const std::string& getName() const {
             return this->airlineName;
         }

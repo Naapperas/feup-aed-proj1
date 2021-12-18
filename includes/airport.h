@@ -70,6 +70,14 @@ class FlightPlan {
         }
 
         /**
+         *
+         * @return
+         */
+        list<Flight>& getPlan()  {
+            return this->plan;
+        }
+
+        /**
          * Removes a flight from this FlightPlan's list of flights
          * @param flightNumber identification number of the flight to be removed
          * @return true if flight is removed successfully else false
