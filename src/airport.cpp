@@ -129,7 +129,9 @@ ostream& operator <<(ostream& out , const LandTransportPlace &a) {
     return out;
 }
 
-void FlightPlan::performFlights() {
+vector<Airport> FlightPlan::performFlights() {
+
+    vector<Airport> help;
 
     auto flight = this->plan.begin();
 
@@ -137,10 +139,13 @@ void FlightPlan::performFlights() {
 
         // execute past flights
         if (isPast(flight->getDepartureDate())) {
-            flight->execute();
-
+            std::pair<Airport, Airport> updatedAirports = flight->execute();
             flight = this->plan.erase(flight);
+            help.push_back(updatedAirports.first);
+            help.push_back(updatedAirports.second);
         } else
             flight++;
     }
+
+    return help;
 }

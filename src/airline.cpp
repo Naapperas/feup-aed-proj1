@@ -15,10 +15,10 @@ Airline::Airline(const std::string &name) : airlineName(name) {
     std::ifstream planeFile{"planes.txt"};
     if (!planeFile.is_open())
         std::ofstream planeFileNew{"planes.txt"};
-    else{
-        while(!planeFile.eof()){
+    else {
+        while (!planeFile.eof()) {
             std::string currentPlane;
-            getline(planeFile,currentPlane);
+            getline(planeFile, currentPlane);
 
             if (currentPlane.empty())
                 continue;
@@ -35,11 +35,11 @@ Airline::Airline(const std::string &name) : airlineName(name) {
     std::ifstream serviceFile{"cleaning.txt"};
     if (!planeFile.is_open())
         std::ofstream serviceFileNew{"cleaning.txt"};
-    else{
+    else {
         bool upcoming = false;
-        while(!serviceFile.eof()){
+        while (!serviceFile.eof()) {
             std::string currentService;
-            getline(serviceFile,currentService);
+            getline(serviceFile, currentService);
 
             if (currentService.empty())
                 continue;
@@ -49,7 +49,7 @@ Airline::Airline(const std::string &name) : airlineName(name) {
                 continue;
             }
 
-            if (currentService == "[UPCOMING CLEANING TASKS]"){
+            if (currentService == "[UPCOMING CLEANING TASKS]") {
                 upcoming = true;
                 continue;
             }
@@ -60,14 +60,18 @@ Airline::Airline(const std::string &name) : airlineName(name) {
             CleaningService::ServiceType st;
             if (type == "Maintenance")
                 st = CleaningService::MAINTENANCE;
-            else if(type == "Cleaning")
+            else if (type == "Cleaning")
                 st = CleaningService::CLEANING;
             else
                 continue;
-            std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){return p.getPlate() == planePlate;})->addCleaningService(CleaningService(st, date, employee));
+            std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(),
+                         [planePlate](const Plane &p) { return p.getPlate() == planePlate; })->addCleaningService(
+                    CleaningService(st, date, employee));
             // check if service was finished prior to this execution of the program and set to finish if so
             if (!upcoming)
-                std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){return p.getPlate() == planePlate;})->finishedCleaningService();
+                std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane &p) {
+                    return p.getPlate() == planePlate;
+                })->finishedCleaningService();
         }
     }
 
@@ -94,7 +98,8 @@ Airline::Airline(const std::string &name) : airlineName(name) {
             std::string planePlate;
             while (ss >> planePlate)
                 // store current plane info
-                a.landPlane(*std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){return p.getPlate() == planePlate;}));
+                a.landPlane(*std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(),
+                                          [planePlate](const Plane &p) { return p.getPlate() == planePlate; }));
 
             this->airports.push_back(a);
         }
@@ -123,7 +128,9 @@ Airline::Airline(const std::string &name) : airlineName(name) {
 
             LandTransportPlace ltp{type, distance, openTime, closeTime};
 
-            std::find_if(this->airports.begin(), this->airports.end(), [airportName](const Airport& a){return a.getName() == airportName;})->registerTransportPlace(ltp);
+            std::find_if(this->airports.begin(), this->airports.end(), [airportName](const Airport &a) {
+                return a.getName() == airportName;
+            })->registerTransportPlace(ltp);
 
         }
     }
@@ -149,9 +156,12 @@ Airline::Airline(const std::string &name) : airlineName(name) {
 
             ss >> flightNumber >> departureDate >> duration >> planePlate >> originName >> destinyName;
 
-            auto& plane = *std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](const Plane& p){ return p.getPlate() == planePlate; });
-            auto& origin = *std::find_if(this->airports.begin(), this->airports.end(), [originName](const Airport& a){ return a.getName() == originName; });
-            auto& destiny = *std::find_if(this->airports.begin(), this->airports.end(), [destinyName](const Airport& a){ return a.getName() == destinyName; });
+            auto &plane = *std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(),
+                                        [planePlate](const Plane &p) { return p.getPlate() == planePlate; });
+            auto &origin = *std::find_if(this->airports.begin(), this->airports.end(),
+                                         [originName](const Airport &a) { return a.getName() == originName; });
+            auto &destiny = *std::find_if(this->airports.begin(), this->airports.end(),
+                                          [destinyName](const Airport &a) { return a.getName() == destinyName; });
 
             Flight f{flightNumber, departureDate, duration, plane, origin, destiny};
 
@@ -159,9 +169,22 @@ Airline::Airline(const std::string &name) : airlineName(name) {
         }
     }
 
-    for (auto& flightPlan : this->flightPlans)
-        flightPlan.performFlights();
+    vector<Airport> airportsToUpdate;
 
+    for (auto &flightPlan: this->flightPlans) {
+        vector<Airport> temp = flightPlan.performFlights();
+        for (const Airport& a: temp)
+            airportsToUpdate.push_back(a);
+    }
+
+    for (const Airport& a: airportsToUpdate){
+        auto itr = std::find_if(airports.begin(), airports.end(), [a](const Airport& air){return air==a;});
+        if (itr != airports.end()){
+            airports.erase(itr);
+            airports.push_back(a);
+        }
+
+    }
     this->updateUpcomingFlights();
 
 }

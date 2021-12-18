@@ -156,7 +156,7 @@ class Flight {
          * Effectively, this function transfers luggage from the passengers to the airport and then to the plane while boarding said passengers. Then the plane is transfered from the origin airport to the destination airport and cargo is offloaded.
          * @return true if executed successfully else false
          */
-        bool execute();
+        std::pair<Airport, Airport> execute();
 };
 
 #endif //AED2122PROJ_FLIGHT_H

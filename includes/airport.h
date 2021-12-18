@@ -13,6 +13,7 @@
 #include "luggageTransport.h"
 
 class Flight;
+class Airport;
 
 class FlightPlan {
         Plane plane;
@@ -58,7 +59,7 @@ class FlightPlan {
         /**
          * Performs flights with a departure date prior to the current date
          */
-        void performFlights();
+        vector<Airport> performFlights();
 
         /**
          * Returns the plane associated with this flightPlan.
