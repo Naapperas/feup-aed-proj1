@@ -563,10 +563,14 @@ void Airline::addCleaningService() {
     std::cout << "\tWhat's the type of the service. M/C\n\t> "; // M = MAINTENANCE / C = CLEANING
     std::cin >> option;
 
-    if(toupper(option[0]) == 'M')
+    if (toupper(option[0]) == 'M')
         st = CleaningService::MAINTENANCE;
-    else
+    else if (toupper(option[0]) == 'C')
         st = CleaningService::CLEANING;
+    else {
+        std::cout << "\tInvalid service type, aborting operation" << std::endl;
+        return;
+    }
 
     std::string date;
     std::cout << "\tWhat's the date of the service. YYYY-MM-DD\n\t> ";
@@ -575,6 +579,8 @@ void Airline::addCleaningService() {
     std::cout << "\tWhat's the name of the employer\n\t> ";
     std::cin >> option;
 
-    (*itr)->addCleaningService(CleaningService(st, date, option));
+    if (!(*itr)->addCleaningService(CleaningService(st, date, option))){
+        std::cout << "\tUnable to add a service on this date, aborting operation" << std::endl;
+    }
 
 }

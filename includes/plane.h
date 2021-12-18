@@ -37,7 +37,7 @@ class CleaningService {
         CleaningService(ServiceType serviceType, const std::string& serviceDate, const std::string& employee) :
         serviceType(serviceType), serviceDate(serviceDate), employee(employee) {}
 
-        std::string getDate(){
+        std::string getDate() const{
             return this->serviceDate;
         }
 };
@@ -100,9 +100,18 @@ class Plane {
          * Adds a cleaning service to be performed on this plane.
          *
          * @param cleaningService the cleaning service to be performed on this plane
+         * @return true if added successfully (date is after the last added service's date
          */
-        void addCleaningService(const CleaningService& cleaningService) {
-            upcomingCleaningTasks.push_back(cleaningService);
+        bool addCleaningService(const CleaningService& cleaningService) {
+            if (upcomingCleaningTasks.empty()){
+                upcomingCleaningTasks.push_back(cleaningService);
+                return true;
+            }
+            if (cleaningService.getDate() > upcomingCleaningTasks.back().getDate()) {
+                upcomingCleaningTasks.push_back(cleaningService);
+                return true;
+            }
+            return false;
         }
 
         /**
