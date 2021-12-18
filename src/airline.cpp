@@ -566,7 +566,7 @@ void Airline::addCleaningService() {
         st = CleaningService::CLEANING;
 
     std::string date;
-    std::cout << "\tWhat's the date of the service. dd-mm-yyyy\n\t> ";
+    std::cout << "\tWhat's the date of the service. YYYY-MM-DD\n\t> ";
     std::cin >> date;
 
     std::cout << "\tWhat's the name of the employer\n\t> ";
