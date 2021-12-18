@@ -39,15 +39,22 @@ std::ostream& operator <<(std::ostream& out , const Plane &a) {
     return out;
 }
 
-void Plane::storeCleaningServices(std::ofstream& ofstream) const {
+void Plane::storeCleaningServices(std::ofstream& ofstream) {
 
+    unsigned pastSize = this->pastCleaningTasks.size(), upcomingSize = upcomingCleaningTasks.size();
     ofstream << "[PAST CLEANING TASKS]\n";
-    for (const auto& service : this->pastCleaningTasks)
+    for (unsigned i = 0; i < pastSize; i++) {
+        const CleaningService& service = pastCleaningTasks.front();
+        pastCleaningTasks.pop();
         ofstream << this->getPlate() << ' ' << service;
+    }
 
     ofstream << "[UPCOMING CLEANING TASKS]\n";
-    for (const auto& service : this->upcomingCleaningTasks)
+    for (unsigned i = 0; i < upcomingSize; i++) {
+        const CleaningService& service = upcomingCleaningTasks.front();
+        upcomingCleaningTasks.pop();
         ofstream << this->getPlate() << ' ' << service;
+    }
 }
 
 void Plane::offLoadCargo() {

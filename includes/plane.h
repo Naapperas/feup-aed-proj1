@@ -50,7 +50,7 @@ class Plane {
         std::string type, plate;
         unsigned capacity, cargoCapacity;
 
-        std::deque<CleaningService> upcomingCleaningTasks, pastCleaningTasks;
+        std::queue<CleaningService> upcomingCleaningTasks, pastCleaningTasks;
 
         // this should provide fast insertion removal (simulating transporting passengers + cargo, we don't care about searching them)
         std::list<Passenger*> planePassengers;
@@ -104,11 +104,11 @@ class Plane {
          */
         bool addCleaningService(const CleaningService& cleaningService) {
             if (upcomingCleaningTasks.empty()){
-                upcomingCleaningTasks.push_back(cleaningService);
+                upcomingCleaningTasks.push(cleaningService);
                 return true;
             }
             if (cleaningService.getDate() > upcomingCleaningTasks.back().getDate()) {
-                upcomingCleaningTasks.push_back(cleaningService);
+                upcomingCleaningTasks.push(cleaningService);
                 return true;
             }
             return false;
@@ -118,8 +118,8 @@ class Plane {
          * Finishes a pre-scheduled cleaning service.
          */
         void finishedCleaningService() {
-            pastCleaningTasks.push_back(upcomingCleaningTasks.front());
-            upcomingCleaningTasks.pop_front();
+            pastCleaningTasks.push(upcomingCleaningTasks.front());
+            upcomingCleaningTasks.pop();
         }
 
 
@@ -148,7 +148,7 @@ class Plane {
          *
          * @param ofstream
          */
-        void storeCleaningServices(std::ofstream& ofstream) const;
+        void storeCleaningServices(std::ofstream& ofstream);
 
         /**
          *
