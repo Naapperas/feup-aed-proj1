@@ -97,10 +97,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6c9e6f0091ac196851ff907ee2e2042e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2ccd76a1d3a952bcc1538cc5f9f6d06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_luggage_transport.html#ae2ccd76a1d3a952bcc1538cc5f9f6d06">addCarriage</a> ()</td></tr>
 <tr class="separator:ae2ccd76a1d3a952bcc1538cc5f9f6d06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24d51c378b52308dfe6b9ada18692eaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_luggage_transport.html#a24d51c378b52308dfe6b9ada18692eaf">addLuggage</a> (const <a class="el" href="class_luggage.html">Luggage</a> &amp;luggage)</td></tr>
-<tr class="separator:a24d51c378b52308dfe6b9ada18692eaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa0f687db639dae41f149776cb6d8f72"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="class_luggage.html">Luggage</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_luggage_transport.html#afa0f687db639dae41f149776cb6d8f72">getCargo</a> ()</td></tr>
-<tr class="separator:afa0f687db639dae41f149776cb6d8f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a187d1df7ef8e836580c2540fe71875fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_luggage_transport.html#a187d1df7ef8e836580c2540fe71875fd">addLuggage</a> (<a class="el" href="class_luggage.html">Luggage</a> *luggage)</td></tr>
+<tr class="separator:a187d1df7ef8e836580c2540fe71875fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e5e7a92c2e6db5dfb1ca248556449b7"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="class_luggage.html">Luggage</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_luggage_transport.html#a4e5e7a92c2e6db5dfb1ca248556449b7">getCargo</a> ()</td></tr>
+<tr class="separator:a4e5e7a92c2e6db5dfb1ca248556449b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -156,6 +156,33 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a id="a76eb4ae61af6176c93b49e9e0002077b" name="a76eb4ae61af6176c93b49e9e0002077b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76eb4ae61af6176c93b49e9e0002077b">&#9670;&nbsp;</a></span>~LuggageTransport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LuggageTransport::~LuggageTransport </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="luggage_transport_8h_source.html#l00030">30</a> of file <a class="el" href="luggage_transport_8h_source.html">luggageTransport.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae2ccd76a1d3a952bcc1538cc5f9f6d06" name="ae2ccd76a1d3a952bcc1538cc5f9f6d06"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae2ccd76a1d3a952bcc1538cc5f9f6d06">&#9670;&nbsp;</a></span>addCarriage()</h2>
@@ -177,8 +204,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a24d51c378b52308dfe6b9ada18692eaf" name="a24d51c378b52308dfe6b9ada18692eaf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24d51c378b52308dfe6b9ada18692eaf">&#9670;&nbsp;</a></span>addLuggage()</h2>
+<a id="a187d1df7ef8e836580c2540fe71875fd" name="a187d1df7ef8e836580c2540fe71875fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a187d1df7ef8e836580c2540fe71875fd">&#9670;&nbsp;</a></span>addLuggage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -186,25 +213,31 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">void LuggageTransport::addLuggage </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_luggage.html">Luggage</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_luggage.html">Luggage</a> *&#160;</td>
           <td class="paramname"><em>luggage</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Adds luggage to be transported to the plane coming from an airport's transport belt </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">luggage</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="luggage_transport_8cpp_source.html#l00013">13</a> of file <a class="el" href="luggage_transport_8cpp_source.html">luggageTransport.cpp</a>.</p>
 
 </div>
 </div>
-<a id="afa0f687db639dae41f149776cb6d8f72" name="afa0f687db639dae41f149776cb6d8f72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa0f687db639dae41f149776cb6d8f72">&#9670;&nbsp;</a></span>getCargo()</h2>
+<a id="a4e5e7a92c2e6db5dfb1ca248556449b7" name="a4e5e7a92c2e6db5dfb1ca248556449b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e5e7a92c2e6db5dfb1ca248556449b7">&#9670;&nbsp;</a></span>getCargo()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::list&lt; <a class="el" href="class_luggage.html">Luggage</a> &gt; LuggageTransport::getCargo </td>
+          <td class="memname">std::list&lt; <a class="el" href="class_luggage.html">Luggage</a> * &gt; LuggageTransport::getCargo </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -252,7 +285,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="luggage_transport_8cpp_source.html#l00036">36</a> of file <a class="el" href="luggage_transport_8cpp_source.html">luggageTransport.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="luggage_transport_8cpp_source.html#l00045">45</a> of file <a class="el" href="luggage_transport_8cpp_source.html">luggageTransport.cpp</a>.</p>
 
 </div>
 </div>

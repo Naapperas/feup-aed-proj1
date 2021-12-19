@@ -89,6 +89,8 @@ $(document).ready(function(){initNavTree('class_carriage.html',''); initResizabl
   <div class="headertitle"><div class="title">Carriage Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="carriage_8h_source.html">carriage.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -96,16 +98,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8abfadf13018722c42f7443e25e570d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a587b2927cd922d00f43c7f629e85a36e"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carriage.html#a587b2927cd922d00f43c7f629e85a36e">freeStack</a> () const</td></tr>
 <tr class="separator:a587b2927cd922d00f43c7f629e85a36e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76e784c4a715661bb8ca80eaa242b02f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carriage.html#a76e784c4a715661bb8ca80eaa242b02f">addLuggage</a> (const <a class="el" href="class_luggage.html">Luggage</a> &amp;luggage)</td></tr>
-<tr class="separator:a76e784c4a715661bb8ca80eaa242b02f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a969adeeaa1252a81325db5f1c1221e3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carriage.html#a969adeeaa1252a81325db5f1c1221e3a">addLuggage</a> (<a class="el" href="class_luggage.html">Luggage</a> *luggage)</td></tr>
+<tr class="separator:a969adeeaa1252a81325db5f1c1221e3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41c021d78f08cd40c7de3e574b00d480"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carriage.html#a41c021d78f08cd40c7de3e574b00d480">carriageFull</a> () const</td></tr>
 <tr class="separator:a41c021d78f08cd40c7de3e574b00d480"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93c61998bce7b2b0ea02147c436c8492"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carriage.html#a93c61998bce7b2b0ea02147c436c8492">removeLuggage</a> (std::list&lt; <a class="el" href="class_luggage.html">Luggage</a> &gt; &amp;tmp)</td></tr>
-<tr class="separator:a93c61998bce7b2b0ea02147c436c8492"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7d7135e22d9b7a943e46b2a11dc16f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carriage.html#ae7d7135e22d9b7a943e46b2a11dc16f7">removeLuggage</a> (std::list&lt; <a class="el" href="class_luggage.html">Luggage</a> * &gt; &amp;tmp)</td></tr>
+<tr class="separator:ae7d7135e22d9b7a943e46b2a11dc16f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="carriage_8h_source.html#l00017">17</a> of file <a class="el" href="carriage_8h_source.html">carriage.h</a>.</p>
+<div class="textblock"><p >Represents a luggage carriage that can be chained into a bigger <a class="el" href="class_luggage_transport.html">LuggageTransport</a> entity </p>
+
+<p class="definition">Definition at line <a class="el" href="carriage_8h_source.html#l00020">20</a> of file <a class="el" href="carriage_8h_source.html">carriage.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8abfadf13018722c42f7443e25e570d1" name="a8abfadf13018722c42f7443e25e570d1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8abfadf13018722c42f7443e25e570d1">&#9670;&nbsp;</a></span>Carriage()</h2>
@@ -140,7 +143,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Creates a new carriage </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Creates a new carriage</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">numberStacks</td><td>Number of stacks </td></tr>
     <tr><td class="paramname">stackCapacity</td><td>Number of pieces each stack can take </td></tr>
@@ -148,13 +152,40 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="carriage_8h_source.html#l00050">50</a> of file <a class="el" href="carriage_8h_source.html">carriage.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="carriage_8h_source.html#l00056">56</a> of file <a class="el" href="carriage_8h_source.html">carriage.h</a>.</p>
+
+</div>
+</div>
+<a id="a2c9ac38ebe288eb51a06a964dee8d836" name="a2c9ac38ebe288eb51a06a964dee8d836"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c9ac38ebe288eb51a06a964dee8d836">&#9670;&nbsp;</a></span>~Carriage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Carriage::~Carriage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="carriage_8h_source.html#l00060">60</a> of file <a class="el" href="carriage_8h_source.html">carriage.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a76e784c4a715661bb8ca80eaa242b02f" name="a76e784c4a715661bb8ca80eaa242b02f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76e784c4a715661bb8ca80eaa242b02f">&#9670;&nbsp;</a></span>addLuggage()</h2>
+<a id="a969adeeaa1252a81325db5f1c1221e3a" name="a969adeeaa1252a81325db5f1c1221e3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a969adeeaa1252a81325db5f1c1221e3a">&#9670;&nbsp;</a></span>addLuggage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,12 +193,19 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Carriage::addLuggage </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_luggage.html">Luggage</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_luggage.html">Luggage</a> *&#160;</td>
           <td class="paramname"><em>luggage</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Place luggage on this carriage.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">luggage</td><td><a class="el" href="class_luggage.html">Luggage</a> to be added </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="carriage_8cpp_source.html#l00017">17</a> of file <a class="el" href="carriage_8cpp_source.html">carriage.cpp</a>.</p>
 
@@ -187,6 +225,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Checs if a given carriage is filled up to its maximum.</p>
 <dl class="section return"><dt>Returns</dt><dd>Return true if carriage is full </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="carriage_8cpp_source.html#l00027">27</a> of file <a class="el" href="carriage_8cpp_source.html">carriage.cpp</a>.</p>
@@ -207,14 +246,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Looks for the next freeStack in which we can place luggages.</p>
 <dl class="section return"><dt>Returns</dt><dd>Return´s the index of a Stack that has space or -1 if the carriage is full </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="carriage_8cpp_source.html#l00008">8</a> of file <a class="el" href="carriage_8cpp_source.html">carriage.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a93c61998bce7b2b0ea02147c436c8492" name="a93c61998bce7b2b0ea02147c436c8492"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93c61998bce7b2b0ea02147c436c8492">&#9670;&nbsp;</a></span>removeLuggage()</h2>
+<a id="ae7d7135e22d9b7a943e46b2a11dc16f7" name="ae7d7135e22d9b7a943e46b2a11dc16f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7d7135e22d9b7a943e46b2a11dc16f7">&#9670;&nbsp;</a></span>removeLuggage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -222,13 +262,14 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Carriage::removeLuggage </td>
           <td>(</td>
-          <td class="paramtype">std::list&lt; <a class="el" href="class_luggage.html">Luggage</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">std::list&lt; <a class="el" href="class_luggage.html">Luggage</a> * &gt; &amp;&#160;</td>
           <td class="paramname"><em>tmp</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Clear´s the carriage </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Removes the luggage from this carriage, placing it in tmp</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tmp</td><td>List that holds the luggage </td></tr>
   </table>

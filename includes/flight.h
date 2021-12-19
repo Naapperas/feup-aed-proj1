@@ -112,6 +112,15 @@ class Flight {
         }
 
         /**
+         * Returns the list of passengers who booked a ticket for this flight (for simplicity, it returns the vector of tickets associated with this flight).
+         *
+         * @return the list of passengers of this flight
+         */
+        const std::vector<Ticket*>& getPassengers() const {
+            return this->tickets;
+        }
+
+        /**
          * Adds a passenger to this flight if there is still space for them.
          *
          * @param ticket the ticket of the passanger wanting to board this flight
@@ -152,6 +161,11 @@ class Flight {
             return this->origin;
         };
 
+        /**
+         * Sets the departure date of this flight, mainly used to allow for flight reshceduling.
+         *
+         * @param date the new date for this flight
+         */
         void setDepartureDate(const std::string& date){
             this->departureDate=date;
         }

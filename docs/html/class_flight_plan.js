@@ -1,7 +1,8 @@
 var class_flight_plan =
 [
-    [ "addFlightToPlan", "class_flight_plan.html#af11c78546d71519ebb65cb85e88749de", null ],
-    [ "getPlane", "class_flight_plan.html#a27c169dc3e26896d527f412d3b93a632", null ],
-    [ "performFlight", "class_flight_plan.html#ac434ebf89556221519bbfe0bc482587c", null ],
-    [ "removeFlight", "class_flight_plan.html#ac80acac30aedd71c4f0369870f978da6", null ]
+    [ "addFlightToPlan", "class_flight_plan.html#a6b3f1965b9d3578b9b57663ef4001a5e", null ],
+    [ "getPlane", "class_flight_plan.html#a9bab87a8bd4e77a098079703c525dd92", null ],
+    [ "performFlights", "class_flight_plan.html#a8580ee2eb8dc2cbc48ce452a2c9470ff", null ],
+    [ "removeFlight", "class_flight_plan.html#ac80acac30aedd71c4f0369870f978da6", null ],
+    [ "updateFlight", "class_flight_plan.html#af0d6582a28fd326cc7cf12979e97bf21", null ]
 ];

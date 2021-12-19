@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['offloadcargo_0',['offloadCargo',['../class_airport.html#aafe471ecc257aca0d9000d65d53c5776',1,'Airport']]],
-  ['offloadcargo_1',['offLoadCargo',['../class_plane.html#ae1d9748619838d9771ae0ec8b26ecffa',1,'Plane']]]
+  ['init_0',['init',['../class_menu.html#a342d2a526a850dbf2d1aecd830b91287',1,'Menu']]],
+  ['ispast_1',['isPast',['../class_flight_plan.html#aa93e0c043d3f7fe4e8a0bb53e429436e',1,'FlightPlan::isPast()'],['../class_plane.html#a0fb7ab1335b5eec9ec9915b83032d182',1,'Plane::isPast()']]]
 ];

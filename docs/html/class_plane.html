@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('class_plane.html',''); initResizable()
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="class_plane-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Plane Class Reference</div></div>
@@ -103,22 +104,29 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aaa9ae99225a188f5bff84681c53530ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a861dbfdf67839656d47d3179463bab77"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a861dbfdf67839656d47d3179463bab77">getCapacity</a> () const</td></tr>
 <tr class="separator:a861dbfdf67839656d47d3179463bab77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a179c8af0de17ca32360a9e7486140eff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a179c8af0de17ca32360a9e7486140eff">addCleaningService</a> (const <a class="el" href="class_cleaning_service.html">CleaningService</a> &amp;cleaningService)</td></tr>
-<tr class="separator:a179c8af0de17ca32360a9e7486140eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a383721443f18671a4266f308cb9947e2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a383721443f18671a4266f308cb9947e2">addCleaningService</a> (const <a class="el" href="class_cleaning_service.html">CleaningService</a> &amp;cleaningService)</td></tr>
+<tr class="separator:a383721443f18671a4266f308cb9947e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebaeb04e9f717fc465a1f6c65e65eac6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#aebaeb04e9f717fc465a1f6c65e65eac6">finishedCleaningService</a> ()</td></tr>
 <tr class="separator:aebaeb04e9f717fc465a1f6c65e65eac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6313c97db1b61342239a382dbfd079c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a6313c97db1b61342239a382dbfd079c8">addLuggage</a> (const <a class="el" href="class_luggage.html">Luggage</a> &amp;planeLuggage)</td></tr>
-<tr class="separator:a6313c97db1b61342239a382dbfd079c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedacf315eae5cadbddc68e591f02c25f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#aedacf315eae5cadbddc68e591f02c25f">addPassenger</a> (const <a class="el" href="class_passenger.html">Passenger</a> &amp;passenger)</td></tr>
-<tr class="separator:aedacf315eae5cadbddc68e591f02c25f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab208f2e9b4e8f123c9b942784a3a68e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#ab208f2e9b4e8f123c9b942784a3a68e8">boardPassengers</a> (std::vector&lt; <a class="el" href="class_passenger.html">Passenger</a> &gt; &amp;passengers)</td></tr>
-<tr class="separator:ab208f2e9b4e8f123c9b942784a3a68e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70cd4337d9629882a54f4ba3cc8c1a31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a70cd4337d9629882a54f4ba3cc8c1a31">addLuggage</a> (<a class="el" href="class_luggage.html">Luggage</a> *planeLuggage)</td></tr>
+<tr class="separator:a70cd4337d9629882a54f4ba3cc8c1a31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a428e41c55cf5a5d93e8cd504a152f19f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a428e41c55cf5a5d93e8cd504a152f19f">addPassenger</a> (<a class="el" href="class_passenger.html">Passenger</a> *passenger)</td></tr>
+<tr class="separator:a428e41c55cf5a5d93e8cd504a152f19f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4232eccc503260278cfe1ec4c7034980"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a4232eccc503260278cfe1ec4c7034980">boardPassengers</a> (const std::vector&lt; <a class="el" href="class_passenger.html">Passenger</a> * &gt; &amp;passengers)</td></tr>
+<tr class="separator:a4232eccc503260278cfe1ec4c7034980"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af75c167a714bb7bee09837862f5d4b14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#af75c167a714bb7bee09837862f5d4b14">unboardPassengers</a> ()</td></tr>
 <tr class="separator:af75c167a714bb7bee09837862f5d4b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1d9748619838d9771ae0ec8b26ecffa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#ae1d9748619838d9771ae0ec8b26ecffa">offLoadCargo</a> ()</td></tr>
 <tr class="separator:ae1d9748619838d9771ae0ec8b26ecffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d74b5cc3d01a434cd75af60d0314497"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a6d74b5cc3d01a434cd75af60d0314497">storeCleaningServices</a> (std::ofstream &amp;ofstream) const</td></tr>
-<tr class="separator:a6d74b5cc3d01a434cd75af60d0314497"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ef867188c70b6acb5f6d70ad3063b82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a3ef867188c70b6acb5f6d70ad3063b82">storeCleaningServices</a> (std::ofstream &amp;ofstream)</td></tr>
+<tr class="separator:a3ef867188c70b6acb5f6d70ad3063b82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfad00cf75bb6fc17f6a4eb2c8847322"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#abfad00cf75bb6fc17f6a4eb2c8847322">performServices</a> ()</td></tr>
+<tr class="separator:abfad00cf75bb6fc17f6a4eb2c8847322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a0fb7ab1335b5eec9ec9915b83032d182"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a0fb7ab1335b5eec9ec9915b83032d182">isPast</a> (std::string serviceDate)</td></tr>
+<tr class="separator:a0fb7ab1335b5eec9ec9915b83032d182"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -130,7 +138,7 @@ Friends</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Represents an airship that can be used to perform a flight. </p>
 
-<p class="definition">Definition at line <a class="el" href="plane_8h_source.html#l00043">43</a> of file <a class="el" href="plane_8h_source.html">plane.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="plane_8h_source.html#l00052">52</a> of file <a class="el" href="plane_8h_source.html">plane.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9295dc3e1e74b78b26d2e4dba5a3bfc7" name="a9295dc3e1e74b78b26d2e4dba5a3bfc7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9295dc3e1e74b78b26d2e4dba5a3bfc7">&#9670;&nbsp;</a></span>Plane()</h2>
@@ -188,13 +196,13 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="plane_8h_source.html#l00065">65</a> of file <a class="el" href="plane_8h_source.html">plane.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="plane_8h_source.html#l00074">74</a> of file <a class="el" href="plane_8h_source.html">plane.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a179c8af0de17ca32360a9e7486140eff" name="a179c8af0de17ca32360a9e7486140eff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a179c8af0de17ca32360a9e7486140eff">&#9670;&nbsp;</a></span>addCleaningService()</h2>
+<a id="a383721443f18671a4266f308cb9947e2" name="a383721443f18671a4266f308cb9947e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a383721443f18671a4266f308cb9947e2">&#9670;&nbsp;</a></span>addCleaningService()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -203,7 +211,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Plane::addCleaningService </td>
+          <td class="memname">bool Plane::addCleaningService </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_cleaning_service.html">CleaningService</a> &amp;&#160;</td>
           <td class="paramname"><em>cleaningService</em></td><td>)</td>
@@ -223,13 +231,14 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>true if added successfully (date is after the last added service's date </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="plane_8h_source.html#l00099">99</a> of file <a class="el" href="plane_8h_source.html">plane.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="plane_8h_source.html#l00109">109</a> of file <a class="el" href="plane_8h_source.html">plane.h</a>.</p>
 
 </div>
 </div>
-<a id="a6313c97db1b61342239a382dbfd079c8" name="a6313c97db1b61342239a382dbfd079c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6313c97db1b61342239a382dbfd079c8">&#9670;&nbsp;</a></span>addLuggage()</h2>
+<a id="a70cd4337d9629882a54f4ba3cc8c1a31" name="a70cd4337d9629882a54f4ba3cc8c1a31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70cd4337d9629882a54f4ba3cc8c1a31">&#9670;&nbsp;</a></span>addLuggage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -237,19 +246,25 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">void Plane::addLuggage </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_luggage.html">Luggage</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_luggage.html">Luggage</a> *&#160;</td>
           <td class="paramname"><em>planeLuggage</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Add luggage that will be carried in this flight </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">planeLuggage</td><td>luggage that will be carried in this flight </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="plane_8cpp_source.html#l00020">20</a> of file <a class="el" href="plane_8cpp_source.html">plane.cpp</a>.</p>
 
 </div>
 </div>
-<a id="aedacf315eae5cadbddc68e591f02c25f" name="aedacf315eae5cadbddc68e591f02c25f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedacf315eae5cadbddc68e591f02c25f">&#9670;&nbsp;</a></span>addPassenger()</h2>
+<a id="a428e41c55cf5a5d93e8cd504a152f19f" name="a428e41c55cf5a5d93e8cd504a152f19f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a428e41c55cf5a5d93e8cd504a152f19f">&#9670;&nbsp;</a></span>addPassenger()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -257,19 +272,25 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">void Plane::addPassenger </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_passenger.html">Passenger</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_passenger.html">Passenger</a> *&#160;</td>
           <td class="paramname"><em>passenger</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Add a passenger that will be boarding this flight </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">passenger</td><td>passenger that will be boarding this flight </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="plane_8cpp_source.html#l00016">16</a> of file <a class="el" href="plane_8cpp_source.html">plane.cpp</a>.</p>
 
 </div>
 </div>
-<a id="ab208f2e9b4e8f123c9b942784a3a68e8" name="ab208f2e9b4e8f123c9b942784a3a68e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab208f2e9b4e8f123c9b942784a3a68e8">&#9670;&nbsp;</a></span>boardPassengers()</h2>
+<a id="a4232eccc503260278cfe1ec4c7034980" name="a4232eccc503260278cfe1ec4c7034980"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4232eccc503260278cfe1ec4c7034980">&#9670;&nbsp;</a></span>boardPassengers()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -277,7 +298,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">void Plane::boardPassengers </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="class_passenger.html">Passenger</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="class_passenger.html">Passenger</a> * &gt; &amp;&#160;</td>
           <td class="paramname"><em>passengers</em></td><td>)</td>
           <td></td>
         </tr>
@@ -319,7 +340,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p >Finishes a pre-scheduled cleaning service. </p>
 
-<p class="definition">Definition at line <a class="el" href="plane_8h_source.html#l00106">106</a> of file <a class="el" href="plane_8h_source.html">plane.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="plane_8h_source.html#l00123">123</a> of file <a class="el" href="plane_8h_source.html">plane.h</a>.</p>
 
 </div>
 </div>
@@ -348,7 +369,7 @@ Friends</h2></td></tr>
 <p >Returns the capacity of this plane.</p>
 <dl class="section return"><dt>Returns</dt><dd>the capacity of this plane </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="plane_8h_source.html#l00090">90</a> of file <a class="el" href="plane_8h_source.html">plane.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="plane_8h_source.html#l00099">99</a> of file <a class="el" href="plane_8h_source.html">plane.h</a>.</p>
 
 </div>
 </div>
@@ -377,7 +398,7 @@ Friends</h2></td></tr>
 <p >Returns the plate of this airplane.</p>
 <dl class="section return"><dt>Returns</dt><dd>the plate of this airplane </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="plane_8h_source.html#l00081">81</a> of file <a class="el" href="plane_8h_source.html">plane.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="plane_8h_source.html#l00090">90</a> of file <a class="el" href="plane_8h_source.html">plane.h</a>.</p>
 
 </div>
 </div>
@@ -406,7 +427,43 @@ Friends</h2></td></tr>
 <p >Returns the type of this airship.</p>
 <dl class="section return"><dt>Returns</dt><dd>the type of this airship </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="plane_8h_source.html#l00072">72</a> of file <a class="el" href="plane_8h_source.html">plane.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="plane_8h_source.html#l00081">81</a> of file <a class="el" href="plane_8h_source.html">plane.h</a>.</p>
+
+</div>
+</div>
+<a id="a0fb7ab1335b5eec9ec9915b83032d182" name="a0fb7ab1335b5eec9ec9915b83032d182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fb7ab1335b5eec9ec9915b83032d182">&#9670;&nbsp;</a></span>isPast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool Plane::isPast </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>serviceDate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Compares the given cleaning task date against the current time</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">serviceDate</td><td>the service date </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the given date is prior to the current date </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="plane_8h_source.html#l00175">175</a> of file <a class="el" href="plane_8h_source.html">plane.h</a>.</p>
 
 </div>
 </div>
@@ -426,12 +483,31 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p >Unload luggage from the plane </p>
 
-<p class="definition">Definition at line <a class="el" href="plane_8cpp_source.html#l00053">53</a> of file <a class="el" href="plane_8cpp_source.html">plane.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="plane_8cpp_source.html#l00060">60</a> of file <a class="el" href="plane_8cpp_source.html">plane.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a6d74b5cc3d01a434cd75af60d0314497" name="a6d74b5cc3d01a434cd75af60d0314497"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d74b5cc3d01a434cd75af60d0314497">&#9670;&nbsp;</a></span>storeCleaningServices()</h2>
+<a id="abfad00cf75bb6fc17f6a4eb2c8847322" name="abfad00cf75bb6fc17f6a4eb2c8847322"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfad00cf75bb6fc17f6a4eb2c8847322">&#9670;&nbsp;</a></span>performServices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Plane::performServices </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="plane_8cpp_source.html#l00064">64</a> of file <a class="el" href="plane_8cpp_source.html">plane.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3ef867188c70b6acb5f6d70ad3063b82" name="a3ef867188c70b6acb5f6d70ad3063b82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ef867188c70b6acb5f6d70ad3063b82">&#9670;&nbsp;</a></span>storeCleaningServices()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -441,7 +517,7 @@ Friends</h2></td></tr>
           <td>(</td>
           <td class="paramtype">std::ofstream &amp;&#160;</td>
           <td class="paramname"><em>ofstream</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">

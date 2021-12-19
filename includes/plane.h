@@ -110,12 +110,11 @@ class Plane {
             if (upcomingCleaningTasks.empty()){
                 upcomingCleaningTasks.push(cleaningService);
                 return true;
-            }
-            if (cleaningService.getDate() > upcomingCleaningTasks.back().getDate()) {
+            } else if (cleaningService.getDate() > upcomingCleaningTasks.back().getDate()) {
                 upcomingCleaningTasks.push(cleaningService);
                 return true;
-            }
-            return false;
+            } else
+                return false;
         }
 
         /**

@@ -14,6 +14,9 @@
 
 class Flight;
 
+/**
+ * Represents a plane's flight plan.
+ */
 class FlightPlan {
         Plane* plane;
         std::list<Flight*> plan;

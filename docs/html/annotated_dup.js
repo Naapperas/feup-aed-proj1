@@ -9,7 +9,7 @@ var annotated_dup =
     [ "BSTItrPost", "class_b_s_t_itr_post.html", null ],
     [ "BSTItrPre", "class_b_s_t_itr_pre.html", null ],
     [ "Carriage", "class_carriage.html", "class_carriage" ],
-    [ "CleaningService", "class_cleaning_service.html", null ],
+    [ "CleaningService", "class_cleaning_service.html", "class_cleaning_service" ],
     [ "Flight", "class_flight.html", "class_flight" ],
     [ "FlightPlan", "class_flight_plan.html", "class_flight_plan" ],
     [ "iteratorBST", "classiterator_b_s_t.html", null ],
@@ -19,5 +19,5 @@ var annotated_dup =
     [ "Menu", "class_menu.html", null ],
     [ "Passenger", "class_passenger.html", "class_passenger" ],
     [ "Plane", "class_plane.html", "class_plane" ],
-    [ "Ticket", "class_ticket.html", null ]
+    [ "Ticket", "class_ticket.html", "class_ticket" ]
 ];

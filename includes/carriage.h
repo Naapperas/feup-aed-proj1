@@ -14,12 +14,16 @@
 
 using namespace std;
 
+/**
+ * Represents a luggage carriage that can be chained into a bigger LuggageTransport entity
+ */
 class Carriage{
     const unsigned numberStacks;
     const unsigned stackCapacity;
     vector<stack<Luggage*>> carriage;
 
     /**
+     * Checks if a stack is full or not
      *
      * @param index of the stack
      * @return Returns true, if stack still has space
@@ -29,7 +33,8 @@ class Carriage{
     }
 
     /**
-     * Clear´s the stack
+     * Clears the stack at index 'i'
+     *
      * @param i index of the stack
      * @param ret list that holds the luggage
      */
@@ -44,6 +49,7 @@ public:
 
     /**
      * Creates a new carriage
+     *
      * @param numberStacks Number of stacks
      * @param stackCapacity Number of pieces each stack can take
      */
@@ -54,7 +60,7 @@ public:
     ~Carriage() {
         for (auto luggageStack : this->carriage) {
             while (luggageStack.size() > 0) {
-                auto p = luggageStack.top();
+                auto p = luggageStack.top(); // redundant, since we always exhaust the luggage carriages
                 luggageStack.pop();
                 delete p;
             }
@@ -62,25 +68,29 @@ public:
     }
 
     /**
+     * Looks for the next freeStack in which we can place luggages.
      *
      * @return Return´s the index of a Stack that has space or -1 if the carriage is full
      */
     unsigned freeStack() const;
 
     /**
-     * Place luggage on this carriage
+     * Place luggage on this carriage.
+     *
      * @param luggage Luggage to be added
      */
     void addLuggage(Luggage* luggage);
 
     /**
+     * Checs if a given carriage is filled up to its maximum.
      *
      * @return Return true if carriage is full
      */
     bool carriageFull() const;
 
     /**
-     * Clear´s the carriage
+     * Removes the luggage from this carriage, placing it in tmp
+     *
      * @param tmp List that holds the luggage
      */
     void removeLuggage(std::list<Luggage*>& tmp);

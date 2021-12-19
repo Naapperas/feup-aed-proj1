@@ -69,6 +69,15 @@ public:
     Luggage* getLuggage() const {
         return this->l;
     };
+
+    /**
+     * Checks if this passanger has luggage assined to him.
+     *
+     * @return weather this passenger has luggage or not
+     */
+    bool hasLuggage() const {
+        return this->getLuggage() != nullptr;
+    }
 };
 
 #endif //AED2122PROJ_PASSENGER_H

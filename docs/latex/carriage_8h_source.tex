@@ -18,35 +18,47 @@
 \DoxyCodeLine{\Hypertarget{carriage_8h_source_l00014}00014 }
 \DoxyCodeLine{\Hypertarget{carriage_8h_source_l00015}00015 \textcolor{keyword}{using namespace }std;}
 \DoxyCodeLine{\Hypertarget{carriage_8h_source_l00016}00016 }
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00017}\mbox{\hyperlink{class_carriage}{00017}} \textcolor{keyword}{class }\mbox{\hyperlink{class_carriage}{Carriage}}\{}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00018}00018     \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} numberStacks;}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00019}00019     \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} stackCapacity;}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00020}00020     vector<stack<Luggage>> carriage;}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00021}00021 }
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00027}00027     \textcolor{keywordtype}{bool} stackFull(\textcolor{keywordtype}{unsigned}\& i)\textcolor{keyword}{ const}\{}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00028}00028         \textcolor{keywordflow}{return} carriage[i].size() == stackCapacity;}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00029}00029     \}}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00030}00030 }
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00036}00036     \textcolor{keywordtype}{void} emptyStack(\textcolor{keywordtype}{unsigned}\& i, std::list<Luggage>\& ret)\{}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00037}00037         \textcolor{keywordflow}{while} (!carriage[i].empty())\{}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00038}00038             ret.push\_back(carriage[i].top());}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00039}00039             carriage[i].pop();}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00040}00040         \}}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00041}00041     \}}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00042}00042 }
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00043}00043 \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00044}00044 }
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00050}\mbox{\hyperlink{class_carriage_a8abfadf13018722c42f7443e25e570d1}{00050}}     \mbox{\hyperlink{class_carriage_a8abfadf13018722c42f7443e25e570d1}{Carriage}}(\textcolor{keywordtype}{unsigned} numberStacks, \textcolor{keywordtype}{unsigned} stackCapacity) : numberStacks(numberStacks), stackCapacity(stackCapacity) \{\}}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00051}00051 }
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00056}00056     \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{class_carriage_a587b2927cd922d00f43c7f629e85a36e}{freeStack}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00057}00057 }
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00058}00058     \textcolor{keywordtype}{void} addLuggage(\textcolor{keyword}{const} \mbox{\hyperlink{class_luggage}{Luggage}}\& luggage);}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00020}\mbox{\hyperlink{class_carriage}{00020}} \textcolor{keyword}{class }\mbox{\hyperlink{class_carriage}{Carriage}}\{}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00021}00021     \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} numberStacks;}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00022}00022     \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} stackCapacity;}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00023}00023     vector<stack<Luggage*>> carriage;}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00031}00031     \textcolor{keywordtype}{bool} stackFull(\textcolor{keywordtype}{unsigned}\& i)\textcolor{keyword}{ const}\{}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00032}00032         \textcolor{keywordflow}{return} carriage[i].size() == stackCapacity;}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00033}00033     \}}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00041}00041     \textcolor{keywordtype}{void} emptyStack(\textcolor{keywordtype}{unsigned}\& i, std::list<Luggage*>\& ret)\{}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00042}00042         \textcolor{keywordflow}{while} (!carriage[i].empty())\{}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00043}00043             ret.push\_back(carriage[i].top());}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00044}00044             carriage[i].pop();}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00045}00045         \}}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00046}00046     \}}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00048}00048 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00056}\mbox{\hyperlink{class_carriage_a8abfadf13018722c42f7443e25e570d1}{00056}}     \mbox{\hyperlink{class_carriage_a8abfadf13018722c42f7443e25e570d1}{Carriage}}(\textcolor{keywordtype}{unsigned} numberStacks, \textcolor{keywordtype}{unsigned} stackCapacity) : numberStacks(numberStacks), stackCapacity(stackCapacity) \{}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00057}00057         this-\/>carriage = vector<stack<Luggage*>>(numberStacks);}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00058}00058     \}}
 \DoxyCodeLine{\Hypertarget{carriage_8h_source_l00059}00059 }
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00064}00064     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_carriage_a41c021d78f08cd40c7de3e574b00d480}{carriageFull}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00065}00065 }
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00070}00070     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_carriage_a93c61998bce7b2b0ea02147c436c8492}{removeLuggage}}(std::list<Luggage>\& tmp);}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00071}00071 \};}
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00072}00072 }
-\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00073}00073 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AED2122PROJ\_CARRIAGE\_H}}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00060}00060     \mbox{\hyperlink{class_carriage}{\string~Carriage}}() \{}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00061}00061         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} luggageStack : this-\/>carriage) \{}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00062}00062             \textcolor{keywordflow}{while} (luggageStack.size() > 0) \{}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00063}00063                 \textcolor{keyword}{auto} p = luggageStack.top(); \textcolor{comment}{// redundant, since we always exhaust the luggage carriages}}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00064}00064                 luggageStack.pop();}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00065}00065                 \textcolor{keyword}{delete} p;}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00066}00066             \}}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00067}00067         \}}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00068}00068     \}}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00075}00075     \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{class_carriage_a587b2927cd922d00f43c7f629e85a36e}{freeStack}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00076}00076 }
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00082}00082     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_carriage_a969adeeaa1252a81325db5f1c1221e3a}{addLuggage}}(\mbox{\hyperlink{class_luggage}{Luggage}}* luggage);}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00089}00089     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_carriage_a41c021d78f08cd40c7de3e574b00d480}{carriageFull}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00090}00090 }
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00096}00096     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_carriage_ae7d7135e22d9b7a943e46b2a11dc16f7}{removeLuggage}}(std::list<Luggage*>\& tmp);}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00097}00097 \};}
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{carriage_8h_source_l00099}00099 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AED2122PROJ\_CARRIAGE\_H}}
 
 \end{DoxyCode}

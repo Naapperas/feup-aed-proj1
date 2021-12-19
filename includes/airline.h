@@ -46,13 +46,20 @@ class Airline {
          * Store the flight's information on the dedicated text file
          */
         void storeFlights() const;
+
         /**
          * List airports on screen
          */
         void listAirports() const;
 
+        /**
+         * Stores the passengers currently registered to take a flight.
+         *
+         * @param flight the flight to serialize
+         */
+        void storePassengers(Flight* flight) const;
 
-        std::vector<Flight*> getValidFlights() const;
+        [[nodiscard]] std::vector<Flight*> getValidFlights() const;
 
     public:
         explicit Airline(const std::string& name);

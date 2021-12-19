@@ -1,46 +1,57 @@
 \hypertarget{class_flight_plan}{}\doxysection{Flight\+Plan Class Reference}
 \label{class_flight_plan}\index{FlightPlan@{FlightPlan}}
+
+
+{\ttfamily \#include $<$airport.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_flight_plan_a48a77bfb9e45eb28871ed0a2c96894a7}{Flight\+Plan}} (const \mbox{\hyperlink{class_plane}{Plane}} \&p)
+\mbox{\hyperlink{class_flight_plan_a81a03de72889e8f340a0bf756d297a3b}{Flight\+Plan}} (\mbox{\hyperlink{class_plane}{Plane}} $\ast$p)
 \item 
-bool \mbox{\hyperlink{class_flight_plan_af11c78546d71519ebb65cb85e88749de}{add\+Flight\+To\+Plan}} (const \mbox{\hyperlink{class_flight}{Flight}} \&f)
+bool \mbox{\hyperlink{class_flight_plan_a6b3f1965b9d3578b9b57663ef4001a5e}{add\+Flight\+To\+Plan}} (\mbox{\hyperlink{class_flight}{Flight}} $\ast$f)
 \item 
-void \mbox{\hyperlink{class_flight_plan_ac434ebf89556221519bbfe0bc482587c}{perform\+Flight}} ()
+void \mbox{\hyperlink{class_flight_plan_a8580ee2eb8dc2cbc48ce452a2c9470ff}{perform\+Flights}} ()
 \item 
-const \mbox{\hyperlink{class_plane}{Plane}} \& \mbox{\hyperlink{class_flight_plan_a27c169dc3e26896d527f412d3b93a632}{get\+Plane}} () const
+\mbox{\hyperlink{class_plane}{Plane}} $\ast$ \mbox{\hyperlink{class_flight_plan_a9bab87a8bd4e77a098079703c525dd92}{get\+Plane}} () const
 \item 
 bool \mbox{\hyperlink{class_flight_plan_ac80acac30aedd71c4f0369870f978da6}{remove\+Flight}} (long flight\+Number)
+\item 
+bool \mbox{\hyperlink{class_flight_plan_af0d6582a28fd326cc7cf12979e97bf21}{update\+Flight}} (long flight\+Number, std\+::string new\+Date)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_flight_plan_aa93e0c043d3f7fe4e8a0bb53e429436e}{is\+Past}} (std\+::string flight\+Departure\+Date)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-
-
-Definition at line \mbox{\hyperlink{airport_8h_source_l00016}{16}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
-
-
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_flight_plan_a48a77bfb9e45eb28871ed0a2c96894a7}\label{class_flight_plan_a48a77bfb9e45eb28871ed0a2c96894a7}} 
-\index{FlightPlan@{FlightPlan}!FlightPlan@{FlightPlan}}
-\index{FlightPlan@{FlightPlan}!FlightPlan@{FlightPlan}}
-\doxysubsubsection{\texorpdfstring{FlightPlan()}{FlightPlan()}}
-{\footnotesize\ttfamily Flight\+Plan\+::\+Flight\+Plan (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_plane}{Plane}} \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
+Represents a plane\textquotesingle{}s flight plan. 
 
 Definition at line \mbox{\hyperlink{airport_8h_source_l00020}{20}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
 
 
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_flight_plan_a81a03de72889e8f340a0bf756d297a3b}\label{class_flight_plan_a81a03de72889e8f340a0bf756d297a3b}} 
+\index{FlightPlan@{FlightPlan}!FlightPlan@{FlightPlan}}
+\index{FlightPlan@{FlightPlan}!FlightPlan@{FlightPlan}}
+\doxysubsubsection{\texorpdfstring{FlightPlan()}{FlightPlan()}}
+{\footnotesize\ttfamily Flight\+Plan\+::\+Flight\+Plan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plane}{Plane}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{airport_8h_source_l00050}{50}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+
+
+
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_flight_plan_af11c78546d71519ebb65cb85e88749de}\label{class_flight_plan_af11c78546d71519ebb65cb85e88749de}} 
+\mbox{\Hypertarget{class_flight_plan_a6b3f1965b9d3578b9b57663ef4001a5e}\label{class_flight_plan_a6b3f1965b9d3578b9b57663ef4001a5e}} 
 \index{FlightPlan@{FlightPlan}!addFlightToPlan@{addFlightToPlan}}
 \index{addFlightToPlan@{addFlightToPlan}!FlightPlan@{FlightPlan}}
 \doxysubsubsection{\texorpdfstring{addFlightToPlan()}{addFlightToPlan()}}
-{\footnotesize\ttfamily bool Flight\+Plan\+::add\+Flight\+To\+Plan (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_flight}{Flight}} \&}]{f }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Flight\+Plan\+::add\+Flight\+To\+Plan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_flight}{Flight}} $\ast$}]{f }\end{DoxyParamCaption})}
 
 Adds a flight to this plane\textquotesingle{}s flight\+Plan if it is not already present.
 
@@ -56,11 +67,11 @@ false if the flight already existed in the planes flight\+Plan, true otherwise
 
 Definition at line \mbox{\hyperlink{airport_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
 
-\mbox{\Hypertarget{class_flight_plan_a27c169dc3e26896d527f412d3b93a632}\label{class_flight_plan_a27c169dc3e26896d527f412d3b93a632}} 
+\mbox{\Hypertarget{class_flight_plan_a9bab87a8bd4e77a098079703c525dd92}\label{class_flight_plan_a9bab87a8bd4e77a098079703c525dd92}} 
 \index{FlightPlan@{FlightPlan}!getPlane@{getPlane}}
 \index{getPlane@{getPlane}!FlightPlan@{FlightPlan}}
 \doxysubsubsection{\texorpdfstring{getPlane()}{getPlane()}}
-{\footnotesize\ttfamily const \mbox{\hyperlink{class_plane}{Plane}} \& Flight\+Plan\+::get\+Plane (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_plane}{Plane}} $\ast$ Flight\+Plan\+::get\+Plane (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 Returns the plane associated with this flight\+Plan.
 
@@ -69,17 +80,37 @@ the plane associated with this flight\+Plan
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{airport_8h_source_l00043}{43}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+Definition at line \mbox{\hyperlink{airport_8h_source_l00070}{70}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
 
-\mbox{\Hypertarget{class_flight_plan_ac434ebf89556221519bbfe0bc482587c}\label{class_flight_plan_ac434ebf89556221519bbfe0bc482587c}} 
-\index{FlightPlan@{FlightPlan}!performFlight@{performFlight}}
-\index{performFlight@{performFlight}!FlightPlan@{FlightPlan}}
-\doxysubsubsection{\texorpdfstring{performFlight()}{performFlight()}}
-{\footnotesize\ttfamily void Flight\+Plan\+::perform\+Flight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\Hypertarget{class_flight_plan_aa93e0c043d3f7fe4e8a0bb53e429436e}\label{class_flight_plan_aa93e0c043d3f7fe4e8a0bb53e429436e}} 
+\index{FlightPlan@{FlightPlan}!isPast@{isPast}}
+\index{isPast@{isPast}!FlightPlan@{FlightPlan}}
+\doxysubsubsection{\texorpdfstring{isPast()}{isPast()}}
+{\footnotesize\ttfamily static bool Flight\+Plan\+::is\+Past (\begin{DoxyParamCaption}\item[{std\+::string}]{flight\+Departure\+Date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
-Performs the first flight in the flight\+Plan 
+Compares the given flight departure date against the current time
 
-Definition at line \mbox{\hyperlink{airport_8h_source_l00033}{33}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+
+\begin{DoxyParams}{Parameters}
+{\em flight\+Departure\+Date} & the departure date \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the given date is prior to the current date 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{airport_8h_source_l00030}{30}} of file \mbox{\hyperlink{airport_8h_source}{airport.\+h}}.
+
+\mbox{\Hypertarget{class_flight_plan_a8580ee2eb8dc2cbc48ce452a2c9470ff}\label{class_flight_plan_a8580ee2eb8dc2cbc48ce452a2c9470ff}} 
+\index{FlightPlan@{FlightPlan}!performFlights@{performFlights}}
+\index{performFlights@{performFlights}!FlightPlan@{FlightPlan}}
+\doxysubsubsection{\texorpdfstring{performFlights()}{performFlights()}}
+{\footnotesize\ttfamily void Flight\+Plan\+::perform\+Flights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Performs flights with a departure date prior to the current date 
+
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00121}{121}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
 
 \mbox{\Hypertarget{class_flight_plan_ac80acac30aedd71c4f0369870f978da6}\label{class_flight_plan_ac80acac30aedd71c4f0369870f978da6}} 
 \index{FlightPlan@{FlightPlan}!removeFlight@{removeFlight}}
@@ -98,6 +129,26 @@ true if flight is removed successfully else false
 
 
 Definition at line \mbox{\hyperlink{airport_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+
+\mbox{\Hypertarget{class_flight_plan_af0d6582a28fd326cc7cf12979e97bf21}\label{class_flight_plan_af0d6582a28fd326cc7cf12979e97bf21}} 
+\index{FlightPlan@{FlightPlan}!updateFlight@{updateFlight}}
+\index{updateFlight@{updateFlight}!FlightPlan@{FlightPlan}}
+\doxysubsubsection{\texorpdfstring{updateFlight()}{updateFlight()}}
+{\footnotesize\ttfamily bool Flight\+Plan\+::update\+Flight (\begin{DoxyParamCaption}\item[{long}]{flight\+Number,  }\item[{std\+::string}]{new\+Date }\end{DoxyParamCaption})}
+
+Updates the departure date for a flight from this \mbox{\hyperlink{class_flight_plan}{Flight\+Plan}}\textquotesingle{}s list of flights 
+\begin{DoxyParams}{Parameters}
+{\em flight\+Number} & identification number of the flight to be updated \\
+\hline
+{\em new\+Date} & new departure date for this flight \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if flight is updated successfully else false 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
 
 
 

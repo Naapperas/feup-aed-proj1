@@ -89,11 +89,13 @@ $(document).ready(function(){initNavTree('class_flight_plan.html',''); initResiz
 
 <p>This is the complete list of members for <a class="el" href="class_flight_plan.html">FlightPlan</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_flight_plan.html#af11c78546d71519ebb65cb85e88749de">addFlightToPlan</a>(const Flight &amp;f)</td><td class="entry"><a class="el" href="class_flight_plan.html">FlightPlan</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>FlightPlan</b>(const Plane &amp;p) (defined in <a class="el" href="class_flight_plan.html">FlightPlan</a>)</td><td class="entry"><a class="el" href="class_flight_plan.html">FlightPlan</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_flight_plan.html#a27c169dc3e26896d527f412d3b93a632">getPlane</a>() const</td><td class="entry"><a class="el" href="class_flight_plan.html">FlightPlan</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_flight_plan.html#ac434ebf89556221519bbfe0bc482587c">performFlight</a>()</td><td class="entry"><a class="el" href="class_flight_plan.html">FlightPlan</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_flight_plan.html#ac80acac30aedd71c4f0369870f978da6">removeFlight</a>(long flightNumber)</td><td class="entry"><a class="el" href="class_flight_plan.html">FlightPlan</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_flight_plan.html#a6b3f1965b9d3578b9b57663ef4001a5e">addFlightToPlan</a>(Flight *f)</td><td class="entry"><a class="el" href="class_flight_plan.html">FlightPlan</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>FlightPlan</b>(Plane *p) (defined in <a class="el" href="class_flight_plan.html">FlightPlan</a>)</td><td class="entry"><a class="el" href="class_flight_plan.html">FlightPlan</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_flight_plan.html#a9bab87a8bd4e77a098079703c525dd92">getPlane</a>() const</td><td class="entry"><a class="el" href="class_flight_plan.html">FlightPlan</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_flight_plan.html#aa93e0c043d3f7fe4e8a0bb53e429436e">isPast</a>(std::string flightDepartureDate)</td><td class="entry"><a class="el" href="class_flight_plan.html">FlightPlan</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_flight_plan.html#a8580ee2eb8dc2cbc48ce452a2c9470ff">performFlights</a>()</td><td class="entry"><a class="el" href="class_flight_plan.html">FlightPlan</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_flight_plan.html#ac80acac30aedd71c4f0369870f978da6">removeFlight</a>(long flightNumber)</td><td class="entry"><a class="el" href="class_flight_plan.html">FlightPlan</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_flight_plan.html#af0d6582a28fd326cc7cf12979e97bf21">updateFlight</a>(long flightNumber, std::string newDate)</td><td class="entry"><a class="el" href="class_flight_plan.html">FlightPlan</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

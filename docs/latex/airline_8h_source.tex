@@ -17,63 +17,100 @@
 \DoxyCodeLine{\Hypertarget{airline_8h_source_l00013}00013 }
 \DoxyCodeLine{\Hypertarget{airline_8h_source_l00017}\mbox{\hyperlink{class_airline}{00017}} \textcolor{keyword}{class }\mbox{\hyperlink{class_airline}{Airline}} \{}
 \DoxyCodeLine{\Hypertarget{airline_8h_source_l00018}00018 }
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00019}00019         std::list<FlightPlan> flightPlans;}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00020}00020         std::vector<Plane> ownedPlanes;}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00021}00021         std::vector<Flight> upcomingFlights;}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00022}00022         std::vector<Airport> airports;}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00019}00019         std::list<FlightPlan*> flightPlans;}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00020}00020         std::vector<Plane*> ownedPlanes;}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00021}00021         std::vector<Flight*> upcomingFlights;}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00022}00022         std::vector<Airport*> airports;}
 \DoxyCodeLine{\Hypertarget{airline_8h_source_l00023}00023 }
 \DoxyCodeLine{\Hypertarget{airline_8h_source_l00024}00024         std::string airlineName;}
 \DoxyCodeLine{\Hypertarget{airline_8h_source_l00025}00025 }
 \DoxyCodeLine{\Hypertarget{airline_8h_source_l00026}00026         \textcolor{keyword}{static} \mbox{\hyperlink{class_airline}{Airline}}* instance;}
 \DoxyCodeLine{\Hypertarget{airline_8h_source_l00027}00027 }
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00028}00028         \textcolor{keywordtype}{void} storePlanes() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00029}00029         \textcolor{keywordtype}{void} storeCleaningServices(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane) \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00030}00030         \textcolor{keywordtype}{void} storeAirports() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00031}00031         \textcolor{keywordtype}{void} storeTransportPlaces(\textcolor{keyword}{const} \mbox{\hyperlink{class_airport}{Airport}}\& airport) \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00032}00032         \textcolor{keywordtype}{void} listAirports() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00033}00033         \textcolor{keywordtype}{void} storeFlights() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00034}00034     \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00035}00035         \textcolor{keyword}{explicit} \mbox{\hyperlink{class_airline}{Airline}}(\textcolor{keyword}{const} std::string\& name);}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00036}00036         \mbox{\hyperlink{class_airline}{\string~Airline}}() \{}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00037}00037             this-\/>storePlanes();}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00038}00038             this-\/>storeAirports();}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00039}00039             this-\/>storeFlights();}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00040}00040         \}}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00041}00041 }
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00047}00047         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_airline_ac4bb6239c10e79396faf35711b2511c5}{addPlaneToAirlineFleet}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane);}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00048}00048 }
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00055}00055         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_airline_abcdbfeb032e5682567a24bf2e12f8d54}{addFlightToPlane}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane, \textcolor{keyword}{const} \mbox{\hyperlink{class_flight}{Flight}}\& flight);}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00056}00056 }
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00063}00063         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_airline_a6d43f8ed0ce7e04c10990ad44fad2d94}{addFlightsToPlane}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_plane}{Plane}}\& plane, \textcolor{keyword}{const} std::list<Flight>\& flights);}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00064}00064 }
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00070}00070         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_airline_a131c34af4942421c3695b99ef569804c}{cancelFlight}}(\textcolor{keywordtype}{long} flightNumber);}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00071}00071 }
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00072}00072         \textcolor{keyword}{static} \textcolor{keywordtype}{void} setInstance(\mbox{\hyperlink{class_airline}{Airline}}* instance) \{}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00073}00073             \textcolor{keywordflow}{if} (Airline::instance == NULL)}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00074}00074                 Airline::instance = instance;}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00075}00075         \}}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00031}00031         \textcolor{keywordtype}{void} storePlanes() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00035}00035         \textcolor{keywordtype}{void} storeCleaningServices(\mbox{\hyperlink{class_plane}{Plane}}* plane) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00039}00039         \textcolor{keywordtype}{void} storeAirports() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00044}00044         \textcolor{keywordtype}{void} storeTransportPlaces(\mbox{\hyperlink{class_airport}{Airport}}* airport) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00048}00048         \textcolor{keywordtype}{void} storeFlights() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00053}00053         \textcolor{keywordtype}{void} listAirports() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00060}00060         \textcolor{keywordtype}{void} storePassengers(\mbox{\hyperlink{class_flight}{Flight}}* flight) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00062}00062         [[nodiscard]] std::vector<Flight*> getValidFlights() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00064}00064     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00065}00065         \textcolor{keyword}{explicit} \mbox{\hyperlink{class_airline}{Airline}}(\textcolor{keyword}{const} std::string\& name);}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00066}00066         \mbox{\hyperlink{class_airline}{\string~Airline}}() \{}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00067}00067             this-\/>storePlanes();}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00068}00068             this-\/>storeAirports();}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00069}00069             this-\/>storeFlights();}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00071}00071             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} plane : this-\/>ownedPlanes)}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00072}00072                 \textcolor{keyword}{delete} plane;}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00074}00074             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} flight : this-\/>upcomingFlights)}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00075}00075                 \textcolor{keyword}{delete} flight;}
 \DoxyCodeLine{\Hypertarget{airline_8h_source_l00076}00076 }
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00077}00077         \textcolor{keyword}{static} \mbox{\hyperlink{class_airline}{Airline}}\& getInstance() \{}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00078}00078 }
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00079}00079             \textcolor{keywordflow}{if} (Airline::instance == NULL)}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00080}00080                 \textcolor{keywordflow}{throw} std::string(\textcolor{stringliteral}{"{}Error"{}});}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00081}00081 }
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00082}00082             \textcolor{keywordflow}{return} *Airline::instance;}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00077}00077             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} plan : this-\/>flightPlans)}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00078}00078                 \textcolor{keyword}{delete} plan;}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00080}00080             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} airport : this-\/>airports)}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00081}00081                 \textcolor{keyword}{delete} airport;}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00082}00082 }
 \DoxyCodeLine{\Hypertarget{airline_8h_source_l00083}00083         \}}
 \DoxyCodeLine{\Hypertarget{airline_8h_source_l00084}00084 }
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00088}00088         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airline_a4f1ef620bef5fe12e36b37d759f63398}{listCurrentFlights}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00089}00089 }
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00094}00094         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airline_a1fb1650a8d78a899d71811e1248538d3}{listCurrentPlanes}}(\textcolor{keywordtype}{bool} verbose = \textcolor{keyword}{true}) \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00095}00095 }
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00099}00099         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airline_a5ecddee30302f3609e6fd8e15a0917c9}{purchasePlane}}();}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00100}00100         \textcolor{keywordtype}{void} registerTransportPlace();}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00101}00101 }
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00102}00102         \textcolor{keyword}{const} std::string\& getName()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00103}00103             \textcolor{keywordflow}{return} this-\/>airlineName;}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00104}00104         \}}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00105}00105 \};}
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00090}00090         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_airline_a6b23c27bead5999e05efae98be426402}{addPlaneToAirlineFleet}}(\mbox{\hyperlink{class_plane}{Plane}}* plane);}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00098}00098         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_airline_aa6c612d81ea08c91689cda69bb876448}{addFlightToPlane}}(\mbox{\hyperlink{class_plane}{Plane}}* plane, \mbox{\hyperlink{class_flight}{Flight}}* flight);}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00106}00106         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_airline_aa027a84d3027eeb833fb6a6df0ada631}{addFlightsToPlane}}(\mbox{\hyperlink{class_plane}{Plane}}* plane, \textcolor{keyword}{const} std::list<Flight*>\& flights);}
 \DoxyCodeLine{\Hypertarget{airline_8h_source_l00107}00107 }
-\DoxyCodeLine{\Hypertarget{airline_8h_source_l00108}00108 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AED2122PROJ\_AIRLINE\_H}}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00108}00108         \textcolor{keyword}{static} \textcolor{keywordtype}{void} setInstance(\mbox{\hyperlink{class_airline}{Airline}}* instance) \{}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00109}00109             \textcolor{keywordflow}{if} (Airline::instance == NULL)}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00110}00110                 Airline::instance = instance;}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00111}00111         \}}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00113}00113         \textcolor{keyword}{static} \mbox{\hyperlink{class_airline}{Airline}}\& getInstance() \{}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00114}00114 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00115}00115             \textcolor{keywordflow}{if} (Airline::instance == NULL)}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00116}00116                 \textcolor{keywordflow}{throw} std::string(\textcolor{stringliteral}{"{}Error"{}});}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00117}00117 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00118}00118             \textcolor{keywordflow}{return} *Airline::instance;}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00119}00119         \}}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00120}00120 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00124}00124         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airline_a4f1ef620bef5fe12e36b37d759f63398}{listCurrentFlights}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00125}00125 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00130}00130         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airline_a1fb1650a8d78a899d71811e1248538d3}{listCurrentPlanes}}(\textcolor{keywordtype}{bool} verbose = \textcolor{keyword}{true}) \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00131}00131 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00135}00135         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airline_a5ecddee30302f3609e6fd8e15a0917c9}{purchasePlane}}();}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00136}00136 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00142}00142         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_airline_a6234faebc1820bca5402c81ad775ae5c}{addAirport}}(\mbox{\hyperlink{class_airport}{Airport}}* airport);}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00147}00147         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airline_ab971d091b141132afa34e3c9481eb9c0}{registerAirport}}();}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00148}00148 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00152}00152         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airline_ac6f6fc6af5d435191ad318287fbdd116}{registerTransportPlace}}();}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00153}00153 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00158}00158         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_airline_a87f968625f42326afbd0388218ad6db1}{cancelFlight}}();}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00159}00159 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00164}00164         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_airline_a14bf743b39c88afb79b683346e015388}{rescheduleFlight}}();}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00165}00165 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00169}00169         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airline_ad15656f5cacb531434948235083e0a2d}{createFlight}}();}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00170}00170 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00174}00174         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airline_a9acf41d412c59d8f6adfd9c987054555}{purchaseTicket}}();}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00175}00175 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00179}00179         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airline_a4a9fff543eb9e02b2b719bca90f4704a}{listTransportPlaces}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00180}00180 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00185}\mbox{\hyperlink{class_airline_a1f7bb4dd93f040dcda30eaa607c9e139}{00185}}         \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_airline_a1f7bb4dd93f040dcda30eaa607c9e139}{getName}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00186}00186             \textcolor{keywordflow}{return} this-\/>airlineName;}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00187}00187         \}}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00188}00188 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00189}00189 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00193}00193         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airline_a0eb397df7627978cc94efc8f6b59b438}{addCleaningService}}();}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00194}00194 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00195}00195 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00196}00196 \};}
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00197}00197 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00198}00198 }
+\DoxyCodeLine{\Hypertarget{airline_8h_source_l00199}00199 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AED2122PROJ\_AIRLINE\_H}}
 
 \end{DoxyCode}

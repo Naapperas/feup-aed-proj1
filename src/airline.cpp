@@ -89,7 +89,7 @@ Airline::Airline(const std::string &name) : airlineName(name) {
 
             ss >> airportName;
 
-            Airport* a = new Airport{airportName};
+            auto a = new Airport{airportName};
 
             std::string planePlate;
             while (ss >> planePlate)
@@ -153,11 +153,59 @@ Airline::Airline(const std::string &name) : airlineName(name) {
             auto origin = *std::find_if(this->airports.begin(), this->airports.end(), [originName](Airport* a){ return a->getName() == originName; });
             auto destiny = *std::find_if(this->airports.begin(), this->airports.end(), [destinyName](Airport* a){ return a->getName() == destinyName; });
 
-            Flight* f = new Flight{flightNumber, departureDate, duration, plane, origin, destiny};
+            auto f = new Flight{flightNumber, departureDate, duration, plane, origin, destiny};
 
             this->addFlightToPlane(plane, f);
         }
     }
+
+    // initialize passengers
+    std::ifstream passengersFile{"passengers.txt"};
+    if (!passengersFile.is_open())
+        std::ofstream passengersFile{"passengers.txt"};
+    else {
+
+        while (!passengersFile.eof()) {
+
+            std::string currentFlight;
+            getline(passengersFile, currentFlight);
+
+            if (currentFlight.empty())
+                continue;
+
+            stringstream ss{currentFlight};
+
+            int flightId;
+            ss >> flightId;
+
+            auto flight = *std::find_if(this->upcomingFlights.begin(), this->upcomingFlights.end(), [flightId](Flight* flight){ return flight->getFlightNumber() == flightId; });
+
+            while(ss) {
+
+                std::string passengerName, hasLuggage;
+                int passengerAge;
+
+                ss >> passengerName >> passengerAge >> hasLuggage;
+
+                Passenger* p;
+
+                if (hasLuggage == "Y") {
+                    Luggage* l = new Luggage();
+                    p = new Passenger(passengerName, passengerAge, l);
+                } else if (hasLuggage == "N") {
+                    p = new Passenger(passengerName, passengerAge);
+                } else {
+                    // misconfigured passenger, too bad for them
+                    continue;
+                }
+
+                Ticket* t = new Ticket(p);
+
+                flight->addPassenger(t);
+            }
+        }
+    }
+
 
     for (auto& flightPlan : this->flightPlans)
         flightPlan->performFlights();
@@ -174,7 +222,7 @@ bool Airline::addPlaneToAirlineFleet(Plane* plane) {
 
     this->ownedPlanes.push_back(plane);
 
-    FlightPlan* fp = new FlightPlan{plane};
+    auto fp = new FlightPlan{plane};
 
     this->flightPlans.emplace_back(fp); // adds an empty flight plan associated with this plane
     return true;
@@ -292,7 +340,7 @@ void Airline::createFlight() {
 
     auto& plane = *std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](Plane* p){ return p->getPlate() == planePlate; });
 
-    Flight* f = new Flight{departureDate, duration, plane, originAirport, destinyAirport};
+    auto f = new Flight{departureDate, duration, plane, originAirport, destinyAirport};
 
     this->addFlightToPlane(plane, f);
 }
@@ -461,9 +509,14 @@ void Airline::storeFlights() const {
 
     ofstream flightsFile("flights.txt");
 
+    ofstream passengersFile("passengers.txt");
+    passengersFile << "";
+
     if (flightsFile.is_open())
-        for (Flight* flight : this->getValidFlights())
+        for (auto flight : this->getValidFlights()) {
+            this->storePassengers(flight);
             flightsFile << *flight;
+        }
 }
 
 void Airline::purchaseTicket() {
@@ -494,14 +547,14 @@ void Airline::purchaseTicket() {
         std::cin >> carryLuggage;
 
         if (toupper(carryLuggage) == 'Y') {
-            Luggage* luggage = new Luggage();
-            Passenger* passenger = new Passenger(name, age, luggage);
-            Ticket* ticket = new Ticket(passenger);
+            auto luggage = new Luggage();
+            auto passenger = new Passenger(name, age, luggage);
+            auto ticket = new Ticket(passenger);
 
             tickets.push_back(ticket);
         } else {
-            Passenger* passenger = new Passenger(name, age);
-            Ticket* ticket = new Ticket(passenger);
+            auto passenger = new Passenger(name, age);
+            auto ticket = new Ticket(passenger);
 
             tickets.push_back(ticket);
         }
@@ -558,7 +611,6 @@ void Airline::addCleaningService() {
 
     auto itr = std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [option](Plane* plane){ return plane->getPlate() == option; });
 
-
     CleaningService::ServiceType st;
     std::cout << "\tWhat's the type of the service. M/C\n\t> "; // M = MAINTENANCE / C = CLEANING
     std::cin >> option;
@@ -576,11 +628,26 @@ void Airline::addCleaningService() {
     std::cout << "\tWhat's the date of the service. YYYY-MM-DD\n\t> ";
     std::cin >> date;
 
-    std::cout << "\tWhat's the name of the employer\n\t> ";
+    std::cout << "\tWhat's the name of the employee?\n\t> ";
     std::cin >> option;
 
     if (!(*itr)->addCleaningService(CleaningService(st, date, option))){
         std::cout << "\tUnable to add a service on this date, aborting operation" << std::endl;
     }
+}
 
+void Airline::storePassengers(Flight* flight) const {
+
+    if (flight->getPassengers().size() == 0)
+        return;
+
+    ofstream passengersFile("passengers.txt", std::ios_base::app);
+
+    if (passengersFile.is_open()) {
+        passengersFile << flight->getFlightNumber() << ' ';
+        for (auto passenger : flight->getPassengers())
+            passengersFile << passenger->getPassenger()->getName() << ' ' << passenger->getPassenger()->getAge() << ' ' << (passenger->getPassenger()->hasLuggage() ? "Y" : "N") << ' ';
+
+        passengersFile << '\n';
+    }
 }

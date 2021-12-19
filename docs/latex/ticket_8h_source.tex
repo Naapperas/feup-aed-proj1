@@ -13,15 +13,20 @@
 \DoxyCodeLine{\Hypertarget{ticket_8h_source_l00009}00009 }
 \DoxyCodeLine{\Hypertarget{ticket_8h_source_l00010}\mbox{\hyperlink{class_ticket}{00010}} \textcolor{keyword}{class }\mbox{\hyperlink{class_ticket}{Ticket}} \{}
 \DoxyCodeLine{\Hypertarget{ticket_8h_source_l00011}00011 }
-\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00012}00012         \mbox{\hyperlink{class_passenger}{Passenger}} p;}
+\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00012}00012         \mbox{\hyperlink{class_passenger}{Passenger}}* p = \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{\Hypertarget{ticket_8h_source_l00013}00013     \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00014}00014         \mbox{\hyperlink{class_ticket}{Ticket}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_passenger}{Passenger}}\& p) : p(p) \{\}}
+\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00014}00014         \mbox{\hyperlink{class_ticket}{Ticket}}(\mbox{\hyperlink{class_passenger}{Passenger}}* p) : p(p) \{\}}
 \DoxyCodeLine{\Hypertarget{ticket_8h_source_l00015}00015 }
-\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00016}00016         \textcolor{keyword}{const} \mbox{\hyperlink{class_passenger}{Passenger}}\& getPassenger()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00017}00017             \textcolor{keywordflow}{return} this-\/>p;}
-\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00018}00018         \};}
-\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00019}00019 \};}
+\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00016}00016         \mbox{\hyperlink{class_ticket}{\string~Ticket}}() \{}
+\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00017}00017             \textcolor{keywordflow}{if} (p != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00018}00018                 \textcolor{keyword}{delete} p;}
+\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00019}00019         \}}
 \DoxyCodeLine{\Hypertarget{ticket_8h_source_l00020}00020 }
-\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00021}00021 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AED2122PROJ\_TICKET\_H}}
+\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00025}\mbox{\hyperlink{class_ticket_a60b3fae74962054e8f1e4d13d18deef2}{00025}}         \mbox{\hyperlink{class_passenger}{Passenger}}* \mbox{\hyperlink{class_ticket_a60b3fae74962054e8f1e4d13d18deef2}{getPassenger}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00026}00026             \textcolor{keywordflow}{return} this-\/>p;}
+\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00027}00027         \};}
+\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00028}00028 \};}
+\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{ticket_8h_source_l00030}00030 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AED2122PROJ\_TICKET\_H}}
 
 \end{DoxyCode}

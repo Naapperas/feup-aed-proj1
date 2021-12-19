@@ -95,42 +95,53 @@ $(document).ready(function(){initNavTree('luggage_transport_8cpp_source.html',''
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../includes/luggageTransport.h&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_luggage_transport.html#ae2ccd76a1d3a952bcc1538cc5f9f6d06">    9</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_luggage_transport.html#ae2ccd76a1d3a952bcc1538cc5f9f6d06">LuggageTransport::addCarriage</a>() {</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    carriages.push_back(<a class="code hl_class" href="class_carriage.html">Carriage</a>(numberStacks, stackCapacity));</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    carriages.push_back(<span class="keyword">new</span> <a class="code hl_class" href="class_carriage.html">Carriage</a>(numberStacks, stackCapacity));</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>}</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keywordtype">void</span> LuggageTransport::addLuggage(<span class="keyword">const</span> <a class="code hl_class" href="class_luggage.html">Luggage</a>&amp; luggage){</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_class" href="class_carriage.html">Carriage</a>&amp; lastCarriage = carriages.back();</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_luggage_transport.html#a187d1df7ef8e836580c2540fe71875fd">   13</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_luggage_transport.html#a187d1df7ef8e836580c2540fe71875fd">LuggageTransport::addLuggage</a>(<a class="code hl_class" href="class_luggage.html">Luggage</a>* luggage){</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_class" href="class_carriage.html">Carriage</a>* lastCarriage = carriages.back();</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">if</span> (lastCarriage.<a class="code hl_function" href="class_carriage.html#a41c021d78f08cd40c7de3e574b00d480">carriageFull</a>()) {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">if</span> (lastCarriage-&gt;<a class="code hl_function" href="class_carriage.html#a41c021d78f08cd40c7de3e574b00d480">carriageFull</a>()) {</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        this-&gt;<a class="code hl_function" href="class_luggage_transport.html#ae2ccd76a1d3a952bcc1538cc5f9f6d06">addCarriage</a>();</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        carriages.back().addLuggage(luggage);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        carriages.back()-&gt;addLuggage(luggage);</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    }</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">else</span>{</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        lastCarriage.addLuggage(luggage);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        lastCarriage-&gt;<a class="code hl_function" href="class_carriage.html#a969adeeaa1252a81325db5f1c1221e3a">addLuggage</a>(luggage);</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_luggage_transport.html#afa0f687db639dae41f149776cb6d8f72">   25</a></span>std::list&lt;Luggage&gt; <a class="code hl_function" href="class_luggage_transport.html#afa0f687db639dae41f149776cb6d8f72">LuggageTransport::getCargo</a>() {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    std::list&lt;Luggage&gt; tmp;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_luggage_transport.html#a4e5e7a92c2e6db5dfb1ca248556449b7">   25</a></span>std::list&lt;Luggage*&gt; <a class="code hl_function" href="class_luggage_transport.html#a4e5e7a92c2e6db5dfb1ca248556449b7">LuggageTransport::getCargo</a>() {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    std::list&lt;Luggage*&gt; tmp;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; carriage : this-&gt;carriages) {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        carriage.removeLuggage(tmp);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        carriage-&gt;removeLuggage(tmp);</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    }</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    carriages.erase(carriages.begin()++, carriages.end());</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordflow">return</span> tmp;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">auto</span> coiso = carriages.begin()++;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">while</span> (coiso != carriages.end()) {</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>std::ostream&amp; operator &lt;&lt;(std::ostream&amp; out , <span class="keyword">const</span> <a class="code hl_class" href="class_luggage_transport.html">LuggageTransport</a> &amp;a) {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    out &lt;&lt; <span class="stringliteral">&quot;Each carriage has &quot;</span> &lt;&lt; a.numberStacks &lt;&lt; <span class="stringliteral">&quot; stacks, each stack can fit up to &quot;</span> &lt;&lt; a.stackCapacity &lt;&lt; <span class="stringliteral">&quot;pieces off luggage.&quot;</span>&lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">return</span> out;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
-<div class="ttc" id="aclass_carriage_html"><div class="ttname"><a href="class_carriage.html">Carriage</a></div><div class="ttdef"><b>Definition:</b> <a href="carriage_8h_source.html#l00017">carriage.h:17</a></div></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keyword">auto</span> carriage = *coiso++;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keyword">delete</span> carriage;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    carriages.erase(carriages.begin()++, carriages.end());</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">return</span> tmp;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>std::ostream&amp; operator &lt;&lt;(std::ostream&amp; out , <span class="keyword">const</span> <a class="code hl_class" href="class_luggage_transport.html">LuggageTransport</a> &amp;a) {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    out &lt;&lt; <span class="stringliteral">&quot;Each carriage has &quot;</span> &lt;&lt; a.numberStacks &lt;&lt; <span class="stringliteral">&quot; stacks, each stack can fit up to &quot;</span> &lt;&lt; a.stackCapacity &lt;&lt; <span class="stringliteral">&quot;pieces off luggage.&quot;</span>&lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordflow">return</span> out;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}</div>
+<div class="ttc" id="aclass_carriage_html"><div class="ttname"><a href="class_carriage.html">Carriage</a></div><div class="ttdef"><b>Definition:</b> <a href="carriage_8h_source.html#l00020">carriage.h:20</a></div></div>
 <div class="ttc" id="aclass_carriage_html_a41c021d78f08cd40c7de3e574b00d480"><div class="ttname"><a href="class_carriage.html#a41c021d78f08cd40c7de3e574b00d480">Carriage::carriageFull</a></div><div class="ttdeci">bool carriageFull() const</div><div class="ttdef"><b>Definition:</b> <a href="carriage_8cpp_source.html#l00027">carriage.cpp:27</a></div></div>
+<div class="ttc" id="aclass_carriage_html_a969adeeaa1252a81325db5f1c1221e3a"><div class="ttname"><a href="class_carriage.html#a969adeeaa1252a81325db5f1c1221e3a">Carriage::addLuggage</a></div><div class="ttdeci">void addLuggage(Luggage *luggage)</div><div class="ttdef"><b>Definition:</b> <a href="carriage_8cpp_source.html#l00017">carriage.cpp:17</a></div></div>
 <div class="ttc" id="aclass_luggage_html"><div class="ttname"><a href="class_luggage.html">Luggage</a></div><div class="ttdef"><b>Definition:</b> <a href="luggage_8h_source.html#l00011">luggage.h:11</a></div></div>
 <div class="ttc" id="aclass_luggage_transport_html"><div class="ttname"><a href="class_luggage_transport.html">LuggageTransport</a></div><div class="ttdef"><b>Definition:</b> <a href="luggage_transport_8h_source.html#l00014">luggageTransport.h:14</a></div></div>
+<div class="ttc" id="aclass_luggage_transport_html_a187d1df7ef8e836580c2540fe71875fd"><div class="ttname"><a href="class_luggage_transport.html#a187d1df7ef8e836580c2540fe71875fd">LuggageTransport::addLuggage</a></div><div class="ttdeci">void addLuggage(Luggage *luggage)</div><div class="ttdef"><b>Definition:</b> <a href="luggage_transport_8cpp_source.html#l00013">luggageTransport.cpp:13</a></div></div>
+<div class="ttc" id="aclass_luggage_transport_html_a4e5e7a92c2e6db5dfb1ca248556449b7"><div class="ttname"><a href="class_luggage_transport.html#a4e5e7a92c2e6db5dfb1ca248556449b7">LuggageTransport::getCargo</a></div><div class="ttdeci">std::list&lt; Luggage * &gt; getCargo()</div><div class="ttdef"><b>Definition:</b> <a href="luggage_transport_8cpp_source.html#l00025">luggageTransport.cpp:25</a></div></div>
 <div class="ttc" id="aclass_luggage_transport_html_ae2ccd76a1d3a952bcc1538cc5f9f6d06"><div class="ttname"><a href="class_luggage_transport.html#ae2ccd76a1d3a952bcc1538cc5f9f6d06">LuggageTransport::addCarriage</a></div><div class="ttdeci">void addCarriage()</div><div class="ttdef"><b>Definition:</b> <a href="luggage_transport_8cpp_source.html#l00009">luggageTransport.cpp:9</a></div></div>
-<div class="ttc" id="aclass_luggage_transport_html_afa0f687db639dae41f149776cb6d8f72"><div class="ttname"><a href="class_luggage_transport.html#afa0f687db639dae41f149776cb6d8f72">LuggageTransport::getCargo</a></div><div class="ttdeci">std::list&lt; Luggage &gt; getCargo()</div><div class="ttdef"><b>Definition:</b> <a href="luggage_transport_8cpp_source.html#l00025">luggageTransport.cpp:25</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

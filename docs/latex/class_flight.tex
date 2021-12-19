@@ -7,9 +7,9 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_flight_a3d721edb44545befadd71af522d1517b}{Flight}} (const std\+::string \&departure\+Date, unsigned int duration, const \mbox{\hyperlink{class_plane}{Plane}} \&p, const \mbox{\hyperlink{class_airport}{Airport}} \&origin, const \mbox{\hyperlink{class_airport}{Airport}} \&destiny)
+\mbox{\hyperlink{class_flight_acfb343c4c3d54c81bfa28ed079fb8d8b}{Flight}} (const std\+::string \&departure\+Date, unsigned int duration, \mbox{\hyperlink{class_plane}{Plane}} $\ast$p, \mbox{\hyperlink{class_airport}{Airport}} $\ast$origin, \mbox{\hyperlink{class_airport}{Airport}} $\ast$destiny)
 \item 
-\mbox{\hyperlink{class_flight_a4a9e7606dea9595378ab072abbc8782e}{Flight}} (long flight\+Number, const std\+::string \&departure\+Date, unsigned int duration, const \mbox{\hyperlink{class_plane}{Plane}} \&p, const \mbox{\hyperlink{class_airport}{Airport}} \&origin, const \mbox{\hyperlink{class_airport}{Airport}} \&destiny)
+\mbox{\hyperlink{class_flight_a52d97ea9f2a461e368a7a20813af5804}{Flight}} (long flight\+Number, const std\+::string \&departure\+Date, unsigned int duration, \mbox{\hyperlink{class_plane}{Plane}} $\ast$p, \mbox{\hyperlink{class_airport}{Airport}} $\ast$origin, \mbox{\hyperlink{class_airport}{Airport}} $\ast$destiny)
 \item 
 long \mbox{\hyperlink{class_flight_a9cf717cdb771c39c9ddf62b8569b70c4}{get\+Flight\+Number}} () const
 \item 
@@ -19,15 +19,19 @@ unsigned int \mbox{\hyperlink{class_flight_ae2b6f39b90bab7f8e5a8fec7bd9d9b79}{ge
 \item 
 unsigned \mbox{\hyperlink{class_flight_ad12fd8c9e393b4837276a894b051b06c}{get\+Lotation}} () const
 \item 
-bool \mbox{\hyperlink{class_flight_aba5250a97ddd6078df1eb6c95d9b9b80}{add\+Passenger}} (const \mbox{\hyperlink{class_ticket}{Ticket}} \&ticket)
+const std\+::vector$<$ \mbox{\hyperlink{class_ticket}{Ticket}} $\ast$ $>$ \& \mbox{\hyperlink{class_flight_a6a4cb7c15cf2a77ad6c2b96c026b01a4}{get\+Passengers}} () const
 \item 
-bool \mbox{\hyperlink{class_flight_a1038601796ab2dbf6936b92b83b204c2}{add\+Passengers}} (const std\+::vector$<$ \mbox{\hyperlink{class_ticket}{Ticket}} $>$ \&tickets)
+bool \mbox{\hyperlink{class_flight_a665cb8f87b02fe21356574933dcbfb78}{add\+Passenger}} (\mbox{\hyperlink{class_ticket}{Ticket}} $\ast$ticket)
 \item 
-\mbox{\hyperlink{class_plane}{Plane}} \& \mbox{\hyperlink{class_flight_ae32177b4c67f2e89ef5146dd96a03272}{get\+Plane}} ()
+bool \mbox{\hyperlink{class_flight_a9d26227140f83fd6840c6a091b620528}{add\+Passengers}} (const std\+::vector$<$ \mbox{\hyperlink{class_ticket}{Ticket}} $\ast$ $>$ \&tickets)
 \item 
-\mbox{\hyperlink{class_airport}{Airport}} \& \mbox{\hyperlink{class_flight_af13e94ce7535070152f7c5ad10424370}{get\+Destination\+Airport}} ()
+\mbox{\hyperlink{class_plane}{Plane}} $\ast$ \mbox{\hyperlink{class_flight_ae8ae742e0122e0341ed8148eb945e5b5}{get\+Plane}} ()
 \item 
-\mbox{\hyperlink{class_airport}{Airport}} \& \mbox{\hyperlink{class_flight_a933386e91cbda0b38aa2ed9a0f4bc71b}{get\+Origin\+Airport}} ()
+\mbox{\hyperlink{class_airport}{Airport}} $\ast$ \mbox{\hyperlink{class_flight_a887706894c53ce370279281e398c237c}{get\+Destination\+Airport}} ()
+\item 
+\mbox{\hyperlink{class_airport}{Airport}} $\ast$ \mbox{\hyperlink{class_flight_a556133ea13b0e483d53c04827915b71e}{get\+Origin\+Airport}} ()
+\item 
+void \mbox{\hyperlink{class_flight_ac7d2fa40cd930577779ba4032e4f234f}{set\+Departure\+Date}} (const std\+::string \&date)
 \item 
 bool \mbox{\hyperlink{class_flight_a7df4314b65b3732088e1e925b5fa8514}{execute}} ()
 \end{DoxyCompactItemize}
@@ -48,11 +52,11 @@ Definition at line \mbox{\hyperlink{flight_8h_source_l00020}{20}} of file \mbox{
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_flight_a3d721edb44545befadd71af522d1517b}\label{class_flight_a3d721edb44545befadd71af522d1517b}} 
+\mbox{\Hypertarget{class_flight_acfb343c4c3d54c81bfa28ed079fb8d8b}\label{class_flight_acfb343c4c3d54c81bfa28ed079fb8d8b}} 
 \index{Flight@{Flight}!Flight@{Flight}}
 \index{Flight@{Flight}!Flight@{Flight}}
 \doxysubsubsection{\texorpdfstring{Flight()}{Flight()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Flight\+::\+Flight (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{departure\+Date,  }\item[{unsigned int}]{duration,  }\item[{const \mbox{\hyperlink{class_plane}{Plane}} \&}]{p,  }\item[{const \mbox{\hyperlink{class_airport}{Airport}} \&}]{origin,  }\item[{const \mbox{\hyperlink{class_airport}{Airport}} \&}]{destiny }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Flight\+::\+Flight (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{departure\+Date,  }\item[{unsigned int}]{duration,  }\item[{\mbox{\hyperlink{class_plane}{Plane}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{class_airport}{Airport}} $\ast$}]{origin,  }\item[{\mbox{\hyperlink{class_airport}{Airport}} $\ast$}]{destiny }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Creates a new flight.
 
@@ -73,11 +77,11 @@ Creates a new flight.
 
 Definition at line \mbox{\hyperlink{flight_8h_source_l00052}{52}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
 
-\mbox{\Hypertarget{class_flight_a4a9e7606dea9595378ab072abbc8782e}\label{class_flight_a4a9e7606dea9595378ab072abbc8782e}} 
+\mbox{\Hypertarget{class_flight_a52d97ea9f2a461e368a7a20813af5804}\label{class_flight_a52d97ea9f2a461e368a7a20813af5804}} 
 \index{Flight@{Flight}!Flight@{Flight}}
 \index{Flight@{Flight}!Flight@{Flight}}
 \doxysubsubsection{\texorpdfstring{Flight()}{Flight()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Flight\+::\+Flight (\begin{DoxyParamCaption}\item[{long}]{flight\+Number,  }\item[{const std\+::string \&}]{departure\+Date,  }\item[{unsigned int}]{duration,  }\item[{const \mbox{\hyperlink{class_plane}{Plane}} \&}]{p,  }\item[{const \mbox{\hyperlink{class_airport}{Airport}} \&}]{origin,  }\item[{const \mbox{\hyperlink{class_airport}{Airport}} \&}]{destiny }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Flight\+::\+Flight (\begin{DoxyParamCaption}\item[{long}]{flight\+Number,  }\item[{const std\+::string \&}]{departure\+Date,  }\item[{unsigned int}]{duration,  }\item[{\mbox{\hyperlink{class_plane}{Plane}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{class_airport}{Airport}} $\ast$}]{origin,  }\item[{\mbox{\hyperlink{class_airport}{Airport}} $\ast$}]{destiny }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Creates a new flight.
 
@@ -100,14 +104,24 @@ Creates a new flight.
 
 Definition at line \mbox{\hyperlink{flight_8h_source_l00067}{67}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
 
+\mbox{\Hypertarget{class_flight_a6e9898949b83cfbc068b4d5820990782}\label{class_flight_a6e9898949b83cfbc068b4d5820990782}} 
+\index{Flight@{Flight}!````~Flight@{$\sim$Flight}}
+\index{````~Flight@{$\sim$Flight}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{$\sim$Flight()}{~Flight()}}
+{\footnotesize\ttfamily Flight\+::$\sim$\+Flight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{flight_8h_source_l00073}{73}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_flight_aba5250a97ddd6078df1eb6c95d9b9b80}\label{class_flight_aba5250a97ddd6078df1eb6c95d9b9b80}} 
+\mbox{\Hypertarget{class_flight_a665cb8f87b02fe21356574933dcbfb78}\label{class_flight_a665cb8f87b02fe21356574933dcbfb78}} 
 \index{Flight@{Flight}!addPassenger@{addPassenger}}
 \index{addPassenger@{addPassenger}!Flight@{Flight}}
 \doxysubsubsection{\texorpdfstring{addPassenger()}{addPassenger()}}
-{\footnotesize\ttfamily bool Flight\+::add\+Passenger (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ticket}{Ticket}} \&}]{ticket }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Flight\+::add\+Passenger (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ticket}{Ticket}} $\ast$}]{ticket }\end{DoxyParamCaption})}
 
 Adds a passenger to this flight if there is still space for them.
 
@@ -120,11 +134,11 @@ Adds a passenger to this flight if there is still space for them.
 
 Definition at line \mbox{\hyperlink{flight_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{flight_8cpp_source}{flight.\+cpp}}.
 
-\mbox{\Hypertarget{class_flight_a1038601796ab2dbf6936b92b83b204c2}\label{class_flight_a1038601796ab2dbf6936b92b83b204c2}} 
+\mbox{\Hypertarget{class_flight_a9d26227140f83fd6840c6a091b620528}\label{class_flight_a9d26227140f83fd6840c6a091b620528}} 
 \index{Flight@{Flight}!addPassengers@{addPassengers}}
 \index{addPassengers@{addPassengers}!Flight@{Flight}}
 \doxysubsubsection{\texorpdfstring{addPassengers()}{addPassengers()}}
-{\footnotesize\ttfamily bool Flight\+::add\+Passengers (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_ticket}{Ticket}} $>$ \&}]{tickets }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Flight\+::add\+Passengers (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_ticket}{Ticket}} $\ast$ $>$ \&}]{tickets }\end{DoxyParamCaption})}
 
 Adds the list of passengers given as argument, only if there is still enough space left for the entire group.
 
@@ -163,13 +177,13 @@ this flight\textquotesingle{}s departure date
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{flight_8h_source_l00087}{87}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+Definition at line \mbox{\hyperlink{flight_8h_source_l00092}{92}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
 
-\mbox{\Hypertarget{class_flight_af13e94ce7535070152f7c5ad10424370}\label{class_flight_af13e94ce7535070152f7c5ad10424370}} 
+\mbox{\Hypertarget{class_flight_a887706894c53ce370279281e398c237c}\label{class_flight_a887706894c53ce370279281e398c237c}} 
 \index{Flight@{Flight}!getDestinationAirport@{getDestinationAirport}}
 \index{getDestinationAirport@{getDestinationAirport}!Flight@{Flight}}
 \doxysubsubsection{\texorpdfstring{getDestinationAirport()}{getDestinationAirport()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_airport}{Airport}} \& Flight\+::get\+Destination\+Airport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_airport}{Airport}} $\ast$ Flight\+::get\+Destination\+Airport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Returns the destination airport for this flight.
 
@@ -178,7 +192,7 @@ the destination airport for this flight
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{flight_8h_source_l00137}{137}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+Definition at line \mbox{\hyperlink{flight_8h_source_l00151}{151}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
 
 \mbox{\Hypertarget{class_flight_ae2b6f39b90bab7f8e5a8fec7bd9d9b79}\label{class_flight_ae2b6f39b90bab7f8e5a8fec7bd9d9b79}} 
 \index{Flight@{Flight}!getDuration@{getDuration}}
@@ -193,7 +207,7 @@ this flight\textquotesingle{}s duration
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{flight_8h_source_l00096}{96}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+Definition at line \mbox{\hyperlink{flight_8h_source_l00101}{101}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
 
 \mbox{\Hypertarget{class_flight_a9cf717cdb771c39c9ddf62b8569b70c4}\label{class_flight_a9cf717cdb771c39c9ddf62b8569b70c4}} 
 \index{Flight@{Flight}!getFlightNumber@{getFlightNumber}}
@@ -208,7 +222,7 @@ this flight\textquotesingle{}s associated identification number.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{flight_8h_source_l00078}{78}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+Definition at line \mbox{\hyperlink{flight_8h_source_l00083}{83}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
 
 \mbox{\Hypertarget{class_flight_ad12fd8c9e393b4837276a894b051b06c}\label{class_flight_ad12fd8c9e393b4837276a894b051b06c}} 
 \index{Flight@{Flight}!getLotation@{getLotation}}
@@ -223,13 +237,13 @@ this flight\textquotesingle{}s current lotation
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{flight_8h_source_l00105}{105}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+Definition at line \mbox{\hyperlink{flight_8h_source_l00110}{110}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
 
-\mbox{\Hypertarget{class_flight_a933386e91cbda0b38aa2ed9a0f4bc71b}\label{class_flight_a933386e91cbda0b38aa2ed9a0f4bc71b}} 
+\mbox{\Hypertarget{class_flight_a556133ea13b0e483d53c04827915b71e}\label{class_flight_a556133ea13b0e483d53c04827915b71e}} 
 \index{Flight@{Flight}!getOriginAirport@{getOriginAirport}}
 \index{getOriginAirport@{getOriginAirport}!Flight@{Flight}}
 \doxysubsubsection{\texorpdfstring{getOriginAirport()}{getOriginAirport()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_airport}{Airport}} \& Flight\+::get\+Origin\+Airport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_airport}{Airport}} $\ast$ Flight\+::get\+Origin\+Airport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Returns the origin airport for this flight.
 
@@ -238,13 +252,28 @@ the origin airport for this flight
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{flight_8h_source_l00146}{146}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+Definition at line \mbox{\hyperlink{flight_8h_source_l00160}{160}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
 
-\mbox{\Hypertarget{class_flight_ae32177b4c67f2e89ef5146dd96a03272}\label{class_flight_ae32177b4c67f2e89ef5146dd96a03272}} 
+\mbox{\Hypertarget{class_flight_a6a4cb7c15cf2a77ad6c2b96c026b01a4}\label{class_flight_a6a4cb7c15cf2a77ad6c2b96c026b01a4}} 
+\index{Flight@{Flight}!getPassengers@{getPassengers}}
+\index{getPassengers@{getPassengers}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{getPassengers()}{getPassengers()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{class_ticket}{Ticket}} $\ast$ $>$ \& Flight\+::get\+Passengers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the list of passengers who booked a ticket for this flight (for simplicity, it returns the vector of tickets associated with this flight).
+
+\begin{DoxyReturn}{Returns}
+the list of passengers of this flight 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{flight_8h_source_l00119}{119}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+
+\mbox{\Hypertarget{class_flight_ae8ae742e0122e0341ed8148eb945e5b5}\label{class_flight_ae8ae742e0122e0341ed8148eb945e5b5}} 
 \index{Flight@{Flight}!getPlane@{getPlane}}
 \index{getPlane@{getPlane}!Flight@{Flight}}
 \doxysubsubsection{\texorpdfstring{getPlane()}{getPlane()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_plane}{Plane}} \& Flight\+::get\+Plane (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_plane}{Plane}} $\ast$ Flight\+::get\+Plane (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Returns the plane associated with this flight.
 
@@ -253,7 +282,24 @@ the plane associated with this flight
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{flight_8h_source_l00128}{128}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+Definition at line \mbox{\hyperlink{flight_8h_source_l00142}{142}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
+
+\mbox{\Hypertarget{class_flight_ac7d2fa40cd930577779ba4032e4f234f}\label{class_flight_ac7d2fa40cd930577779ba4032e4f234f}} 
+\index{Flight@{Flight}!setDepartureDate@{setDepartureDate}}
+\index{setDepartureDate@{setDepartureDate}!Flight@{Flight}}
+\doxysubsubsection{\texorpdfstring{setDepartureDate()}{setDepartureDate()}}
+{\footnotesize\ttfamily void Flight\+::set\+Departure\+Date (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the departure date of this flight, mainly used to allow for flight reshceduling.
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & the new date for this flight \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{flight_8h_source_l00169}{169}} of file \mbox{\hyperlink{flight_8h_source}{flight.\+h}}.
 
 
 

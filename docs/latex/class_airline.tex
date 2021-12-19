@@ -9,13 +9,11 @@
 \item 
 \mbox{\hyperlink{class_airline_a458d846029cfbec3d3b1fe0f75b70792}{Airline}} (const std\+::string \&name)
 \item 
-bool \mbox{\hyperlink{class_airline_ac4bb6239c10e79396faf35711b2511c5}{add\+Plane\+To\+Airline\+Fleet}} (const \mbox{\hyperlink{class_plane}{Plane}} \&plane)
+bool \mbox{\hyperlink{class_airline_a6b23c27bead5999e05efae98be426402}{add\+Plane\+To\+Airline\+Fleet}} (\mbox{\hyperlink{class_plane}{Plane}} $\ast$plane)
 \item 
-bool \mbox{\hyperlink{class_airline_abcdbfeb032e5682567a24bf2e12f8d54}{add\+Flight\+To\+Plane}} (const \mbox{\hyperlink{class_plane}{Plane}} \&plane, const \mbox{\hyperlink{class_flight}{Flight}} \&flight)
+bool \mbox{\hyperlink{class_airline_aa6c612d81ea08c91689cda69bb876448}{add\+Flight\+To\+Plane}} (\mbox{\hyperlink{class_plane}{Plane}} $\ast$plane, \mbox{\hyperlink{class_flight}{Flight}} $\ast$flight)
 \item 
-bool \mbox{\hyperlink{class_airline_a6d43f8ed0ce7e04c10990ad44fad2d94}{add\+Flights\+To\+Plane}} (const \mbox{\hyperlink{class_plane}{Plane}} \&plane, const std\+::list$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ \&flights)
-\item 
-bool \mbox{\hyperlink{class_airline_a131c34af4942421c3695b99ef569804c}{cancel\+Flight}} (long flight\+Number)
+bool \mbox{\hyperlink{class_airline_aa027a84d3027eeb833fb6a6df0ada631}{add\+Flights\+To\+Plane}} (\mbox{\hyperlink{class_plane}{Plane}} $\ast$plane, const std\+::list$<$ \mbox{\hyperlink{class_flight}{Flight}} $\ast$ $>$ \&flights)
 \item 
 void \mbox{\hyperlink{class_airline_a4f1ef620bef5fe12e36b37d759f63398}{list\+Current\+Flights}} () const
 \item 
@@ -23,9 +21,25 @@ void \mbox{\hyperlink{class_airline_a1fb1650a8d78a899d71811e1248538d3}{list\+Cur
 \item 
 void \mbox{\hyperlink{class_airline_a5ecddee30302f3609e6fd8e15a0917c9}{purchase\+Plane}} ()
 \item 
+bool \mbox{\hyperlink{class_airline_a6234faebc1820bca5402c81ad775ae5c}{add\+Airport}} (\mbox{\hyperlink{class_airport}{Airport}} $\ast$airport)
+\item 
+void \mbox{\hyperlink{class_airline_ab971d091b141132afa34e3c9481eb9c0}{register\+Airport}} ()
+\item 
 void \mbox{\hyperlink{class_airline_ac6f6fc6af5d435191ad318287fbdd116}{register\+Transport\+Place}} ()
 \item 
+bool \mbox{\hyperlink{class_airline_a87f968625f42326afbd0388218ad6db1}{cancel\+Flight}} ()
+\item 
+bool \mbox{\hyperlink{class_airline_a14bf743b39c88afb79b683346e015388}{reschedule\+Flight}} ()
+\item 
+void \mbox{\hyperlink{class_airline_ad15656f5cacb531434948235083e0a2d}{create\+Flight}} ()
+\item 
+void \mbox{\hyperlink{class_airline_a9acf41d412c59d8f6adfd9c987054555}{purchase\+Ticket}} ()
+\item 
+void \mbox{\hyperlink{class_airline_a4a9fff543eb9e02b2b719bca90f4704a}{list\+Transport\+Places}} () const
+\item 
 const std\+::string \& \mbox{\hyperlink{class_airline_a1f7bb4dd93f040dcda30eaa607c9e139}{get\+Name}} () const
+\item 
+void \mbox{\hyperlink{class_airline_a0eb397df7627978cc94efc8f6b59b438}{add\+Cleaning\+Service}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -62,16 +76,44 @@ Definition at line \mbox{\hyperlink{airline_8cpp_source_l00012}{12}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{airline_8h_source_l00036}{36}} of file \mbox{\hyperlink{airline_8h_source}{airline.\+h}}.
+Definition at line \mbox{\hyperlink{airline_8h_source_l00066}{66}} of file \mbox{\hyperlink{airline_8h_source}{airline.\+h}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_airline_a6d43f8ed0ce7e04c10990ad44fad2d94}\label{class_airline_a6d43f8ed0ce7e04c10990ad44fad2d94}} 
+\mbox{\Hypertarget{class_airline_a6234faebc1820bca5402c81ad775ae5c}\label{class_airline_a6234faebc1820bca5402c81ad775ae5c}} 
+\index{Airline@{Airline}!addAirport@{addAirport}}
+\index{addAirport@{addAirport}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{addAirport()}{addAirport()}}
+{\footnotesize\ttfamily bool Airline\+::add\+Airport (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airport}{Airport}} $\ast$}]{airport }\end{DoxyParamCaption})}
+
+Add a new airport as a possible origin/destination for this company´s flights\textquotesingle{} 
+\begin{DoxyParams}{Parameters}
+{\em airport} & airport to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if added successfully (this airport didn\textquotesingle{}t exist before) else false 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00399}{399}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+
+\mbox{\Hypertarget{class_airline_a0eb397df7627978cc94efc8f6b59b438}\label{class_airline_a0eb397df7627978cc94efc8f6b59b438}} 
+\index{Airline@{Airline}!addCleaningService@{addCleaningService}}
+\index{addCleaningService@{addCleaningService}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{addCleaningService()}{addCleaningService()}}
+{\footnotesize\ttfamily void Airline\+::add\+Cleaning\+Service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Register a new cleaning service for any plane 
+
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00604}{604}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+
+\mbox{\Hypertarget{class_airline_aa027a84d3027eeb833fb6a6df0ada631}\label{class_airline_aa027a84d3027eeb833fb6a6df0ada631}} 
 \index{Airline@{Airline}!addFlightsToPlane@{addFlightsToPlane}}
 \index{addFlightsToPlane@{addFlightsToPlane}!Airline@{Airline}}
 \doxysubsubsection{\texorpdfstring{addFlightsToPlane()}{addFlightsToPlane()}}
-{\footnotesize\ttfamily bool Airline\+::add\+Flights\+To\+Plane (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_plane}{Plane}} \&}]{plane,  }\item[{const std\+::list$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ \&}]{flights }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Airline\+::add\+Flights\+To\+Plane (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plane}{Plane}} $\ast$}]{plane,  }\item[{const std\+::list$<$ \mbox{\hyperlink{class_flight}{Flight}} $\ast$ $>$ \&}]{flights }\end{DoxyParamCaption})}
 
 Add a list of flights to a plane\textquotesingle{}s flight plan 
 \begin{DoxyParams}{Parameters}
@@ -85,13 +127,13 @@ Add a list of flights to a plane\textquotesingle{}s flight plan
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{airline_8cpp_source_l00182}{182}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00241}{241}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
 
-\mbox{\Hypertarget{class_airline_abcdbfeb032e5682567a24bf2e12f8d54}\label{class_airline_abcdbfeb032e5682567a24bf2e12f8d54}} 
+\mbox{\Hypertarget{class_airline_aa6c612d81ea08c91689cda69bb876448}\label{class_airline_aa6c612d81ea08c91689cda69bb876448}} 
 \index{Airline@{Airline}!addFlightToPlane@{addFlightToPlane}}
 \index{addFlightToPlane@{addFlightToPlane}!Airline@{Airline}}
 \doxysubsubsection{\texorpdfstring{addFlightToPlane()}{addFlightToPlane()}}
-{\footnotesize\ttfamily bool Airline\+::add\+Flight\+To\+Plane (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_plane}{Plane}} \&}]{plane,  }\item[{const \mbox{\hyperlink{class_flight}{Flight}} \&}]{flight }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Airline\+::add\+Flight\+To\+Plane (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plane}{Plane}} $\ast$}]{plane,  }\item[{\mbox{\hyperlink{class_flight}{Flight}} $\ast$}]{flight }\end{DoxyParamCaption})}
 
 Add a flight to a plane\textquotesingle{}s flight plan 
 \begin{DoxyParams}{Parameters}
@@ -105,13 +147,13 @@ Add a flight to a plane\textquotesingle{}s flight plan
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{airline_8cpp_source_l00172}{172}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00231}{231}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
 
-\mbox{\Hypertarget{class_airline_ac4bb6239c10e79396faf35711b2511c5}\label{class_airline_ac4bb6239c10e79396faf35711b2511c5}} 
+\mbox{\Hypertarget{class_airline_a6b23c27bead5999e05efae98be426402}\label{class_airline_a6b23c27bead5999e05efae98be426402}} 
 \index{Airline@{Airline}!addPlaneToAirlineFleet@{addPlaneToAirlineFleet}}
 \index{addPlaneToAirlineFleet@{addPlaneToAirlineFleet}!Airline@{Airline}}
 \doxysubsubsection{\texorpdfstring{addPlaneToAirlineFleet()}{addPlaneToAirlineFleet()}}
-{\footnotesize\ttfamily bool Airline\+::add\+Plane\+To\+Airline\+Fleet (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_plane}{Plane}} \&}]{plane }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Airline\+::add\+Plane\+To\+Airline\+Fleet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plane}{Plane}} $\ast$}]{plane }\end{DoxyParamCaption})}
 
 Add a new plane to the currently owned planes 
 \begin{DoxyParams}{Parameters}
@@ -123,25 +165,30 @@ true if added successfully (this plane wasn\textquotesingle{}t owned already) el
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{airline_8cpp_source_l00162}{162}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00218}{218}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
 
-\mbox{\Hypertarget{class_airline_a131c34af4942421c3695b99ef569804c}\label{class_airline_a131c34af4942421c3695b99ef569804c}} 
+\mbox{\Hypertarget{class_airline_a87f968625f42326afbd0388218ad6db1}\label{class_airline_a87f968625f42326afbd0388218ad6db1}} 
 \index{Airline@{Airline}!cancelFlight@{cancelFlight}}
 \index{cancelFlight@{cancelFlight}!Airline@{Airline}}
 \doxysubsubsection{\texorpdfstring{cancelFlight()}{cancelFlight()}}
-{\footnotesize\ttfamily bool Airline\+::cancel\+Flight (\begin{DoxyParamCaption}\item[{long}]{flight\+Number }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Airline\+::cancel\+Flight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Cancel a flight (essentially deleting it) 
-\begin{DoxyParams}{Parameters}
-{\em flight\+Number} & identification number of the flight to be canceled \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true if cancelled successfully (flight\+Number corresponded to an existing flight) else false 
+Cancel a flight (essentially deleting it) \begin{DoxyReturn}{Returns}
+true if cancelled successfully (deleted an existing flight) else false 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{airline_8cpp_source_l00194}{194}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00253}{253}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+
+\mbox{\Hypertarget{class_airline_ad15656f5cacb531434948235083e0a2d}\label{class_airline_ad15656f5cacb531434948235083e0a2d}} 
+\index{Airline@{Airline}!createFlight@{createFlight}}
+\index{createFlight@{createFlight}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{createFlight()}{createFlight()}}
+{\footnotesize\ttfamily void Airline\+::create\+Flight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Schedule a new flight 
+
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00305}{305}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
 
 \mbox{\Hypertarget{class_airline_a9d81923c678a752f699143feea484f52}\label{class_airline_a9d81923c678a752f699143feea484f52}} 
 \index{Airline@{Airline}!getInstance@{getInstance}}
@@ -151,7 +198,7 @@ Definition at line \mbox{\hyperlink{airline_8cpp_source_l00194}{194}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{airline_8h_source_l00077}{77}} of file \mbox{\hyperlink{airline_8h_source}{airline.\+h}}.
+Definition at line \mbox{\hyperlink{airline_8h_source_l00113}{113}} of file \mbox{\hyperlink{airline_8h_source}{airline.\+h}}.
 
 \mbox{\Hypertarget{class_airline_a1f7bb4dd93f040dcda30eaa607c9e139}\label{class_airline_a1f7bb4dd93f040dcda30eaa607c9e139}} 
 \index{Airline@{Airline}!getName@{getName}}
@@ -159,9 +206,12 @@ Definition at line \mbox{\hyperlink{airline_8h_source_l00077}{77}} of file \mbox
 \doxysubsubsection{\texorpdfstring{getName()}{getName()}}
 {\footnotesize\ttfamily const std\+::string \& Airline\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
+\begin{DoxyReturn}{Returns}
+the name of this airline 
+\end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{airline_8h_source_l00102}{102}} of file \mbox{\hyperlink{airline_8h_source}{airline.\+h}}.
+Definition at line \mbox{\hyperlink{airline_8h_source_l00185}{185}} of file \mbox{\hyperlink{airline_8h_source}{airline.\+h}}.
 
 \mbox{\Hypertarget{class_airline_a4f1ef620bef5fe12e36b37d759f63398}\label{class_airline_a4f1ef620bef5fe12e36b37d759f63398}} 
 \index{Airline@{Airline}!listCurrentFlights@{listCurrentFlights}}
@@ -171,7 +221,7 @@ Definition at line \mbox{\hyperlink{airline_8h_source_l00102}{102}} of file \mbo
 
 Print all scheduled flights 
 
-Definition at line \mbox{\hyperlink{airline_8cpp_source_l00204}{204}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00348}{348}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
 
 \mbox{\Hypertarget{class_airline_a1fb1650a8d78a899d71811e1248538d3}\label{class_airline_a1fb1650a8d78a899d71811e1248538d3}} 
 \index{Airline@{Airline}!listCurrentPlanes@{listCurrentPlanes}}
@@ -186,7 +236,17 @@ Print all owned planes
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{airline_8cpp_source_l00214}{214}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00358}{358}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+
+\mbox{\Hypertarget{class_airline_a4a9fff543eb9e02b2b719bca90f4704a}\label{class_airline_a4a9fff543eb9e02b2b719bca90f4704a}} 
+\index{Airline@{Airline}!listTransportPlaces@{listTransportPlaces}}
+\index{listTransportPlaces@{listTransportPlaces}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{listTransportPlaces()}{listTransportPlaces()}}
+{\footnotesize\ttfamily void Airline\+::list\+Transport\+Places (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Used by clients to list the transport places near any airport 
+
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00571}{571}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
 
 \mbox{\Hypertarget{class_airline_a5ecddee30302f3609e6fd8e15a0917c9}\label{class_airline_a5ecddee30302f3609e6fd8e15a0917c9}} 
 \index{Airline@{Airline}!purchasePlane@{purchasePlane}}
@@ -196,7 +256,27 @@ Definition at line \mbox{\hyperlink{airline_8cpp_source_l00214}{214}} of file \m
 
 Add a new plane to the owned planes 
 
-Definition at line \mbox{\hyperlink{airline_8cpp_source_l00227}{227}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00371}{371}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+
+\mbox{\Hypertarget{class_airline_a9acf41d412c59d8f6adfd9c987054555}\label{class_airline_a9acf41d412c59d8f6adfd9c987054555}} 
+\index{Airline@{Airline}!purchaseTicket@{purchaseTicket}}
+\index{purchaseTicket@{purchaseTicket}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{purchaseTicket()}{purchaseTicket()}}
+{\footnotesize\ttfamily void Airline\+::purchase\+Ticket (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Purchase tickets for one or more passengers 
+
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00522}{522}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+
+\mbox{\Hypertarget{class_airline_ab971d091b141132afa34e3c9481eb9c0}\label{class_airline_ab971d091b141132afa34e3c9481eb9c0}} 
+\index{Airline@{Airline}!registerAirport@{registerAirport}}
+\index{registerAirport@{registerAirport}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{registerAirport()}{registerAirport()}}
+{\footnotesize\ttfamily void Airline\+::register\+Airport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Register a new airport 
+
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00407}{407}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
 
 \mbox{\Hypertarget{class_airline_ac6f6fc6af5d435191ad318287fbdd116}\label{class_airline_ac6f6fc6af5d435191ad318287fbdd116}} 
 \index{Airline@{Airline}!registerTransportPlace@{registerTransportPlace}}
@@ -204,9 +284,22 @@ Definition at line \mbox{\hyperlink{airline_8cpp_source_l00227}{227}} of file \m
 \doxysubsubsection{\texorpdfstring{registerTransportPlace()}{registerTransportPlace()}}
 {\footnotesize\ttfamily void Airline\+::register\+Transport\+Place (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Register a new transport place 
+
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00415}{415}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+
+\mbox{\Hypertarget{class_airline_a14bf743b39c88afb79b683346e015388}\label{class_airline_a14bf743b39c88afb79b683346e015388}} 
+\index{Airline@{Airline}!rescheduleFlight@{rescheduleFlight}}
+\index{rescheduleFlight@{rescheduleFlight}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{rescheduleFlight()}{rescheduleFlight()}}
+{\footnotesize\ttfamily bool Airline\+::reschedule\+Flight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reschedule a flight, updating it\textquotesingle{}s departure date \begin{DoxyReturn}{Returns}
+true if rescheduled successfully (updated an existing flight) else false 
+\end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{airline_8cpp_source_l00255}{255}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00278}{278}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
 
 \mbox{\Hypertarget{class_airline_a4af85b4b1a7b50cdfcb1e9105dc8610c}\label{class_airline_a4af85b4b1a7b50cdfcb1e9105dc8610c}} 
 \index{Airline@{Airline}!setInstance@{setInstance}}
@@ -216,7 +309,7 @@ Definition at line \mbox{\hyperlink{airline_8cpp_source_l00255}{255}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{airline_8h_source_l00072}{72}} of file \mbox{\hyperlink{airline_8h_source}{airline.\+h}}.
+Definition at line \mbox{\hyperlink{airline_8h_source_l00108}{108}} of file \mbox{\hyperlink{airline_8h_source}{airline.\+h}}.
 
 
 

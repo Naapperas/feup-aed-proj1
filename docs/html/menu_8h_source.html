@@ -110,36 +110,52 @@ $(document).ready(function(){initNavTree('menu_8h_source.html',''); initResizabl
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keyword">enum</span> AdminMenuOption {</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            PURCHASE_PLANE = 1,</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            ADMIN_CREATE_FLIGHT,</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            ADMIN_PLANES,</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            ADMIN_LAND_TRANSPORT_PLACE,</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            ADMIN_BACK</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        };</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">enum</span> ClientMenuOption {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            TICKET = 1,</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            BOARD,</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            CLIENT_FLIGHTS,</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            CLIENT_BACK</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>       };</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> waitForPrompt(<span class="keyword">const</span> std::string&amp; prompt);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            ADMIN_DELETE_FLIGHT,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            ADMIN_RESCHEDULE_FLIGHT,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            ADMIN_PLANES,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            ADMIN_AIRPORT_REGISTER,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            ADMIN_LAND_TRANSPORT_PLACE,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            ADMIN_CLEANING_SERVICE,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            ADMIN_BACK</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        };</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keyword">enum</span> ClientMenuOption {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            TICKET = 1,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            CLIENT_FLIGHTS,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            CLIENT_TRANSPORTS,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            CLIENT_BACK</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>       };</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> init();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> waitForPrompt(<span class="keyword">const</span> std::string&amp; prompt);</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keyword">static</span> <span class="keywordtype">int</span> showInitialMenu(<span class="keyword">const</span> std::string&amp; airlineName);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keyword">static</span> <span class="keywordtype">int</span> showAdminMenu();</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keyword">static</span> <span class="keywordtype">int</span> showClientMenu();</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> endProgram();</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> listFlights();</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> listPlanes();</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> purchasePlane();</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> registerTransportPlace();</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#endif </span><span class="comment">//AED2122PROJ_MENU_H</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#a342d2a526a850dbf2d1aecd830b91287">init</a>();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_menu.html#a5a610a2a76e81faf1aa22a75f6d713a8">showInitialMenu</a>(<span class="keyword">const</span> std::string&amp; airlineName);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_menu.html#ab35af53d6cbd32f6edb09203de657e9b">showAdminMenu</a>();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_menu.html#a33f7495ebfd9ea8a21c93b7494f911db">showClientMenu</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#aec0055490dfaee186759448d59972f61">endProgram</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> buyTickets();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> listFlights();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> listTransportPlaces();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> listPlanes();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> purchasePlane();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> registerAirport();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> registerTransportPlace();</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> createFlight();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> cancelFlight();</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> rescheduleFlight();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> addCleaningService();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#endif </span><span class="comment">//AED2122PROJ_MENU_H</span></div>
 <div class="ttc" id="aclass_menu_html"><div class="ttname"><a href="class_menu.html">Menu</a></div><div class="ttdef"><b>Definition:</b> <a href="menu_8h_source.html#l00010">menu.h:10</a></div></div>
+<div class="ttc" id="aclass_menu_html_a33f7495ebfd9ea8a21c93b7494f911db"><div class="ttname"><a href="class_menu.html#a33f7495ebfd9ea8a21c93b7494f911db">Menu::showClientMenu</a></div><div class="ttdeci">static int showClientMenu()</div><div class="ttdef"><b>Definition:</b> <a href="menu_8cpp_source.html#l00125">menu.cpp:125</a></div></div>
+<div class="ttc" id="aclass_menu_html_a342d2a526a850dbf2d1aecd830b91287"><div class="ttname"><a href="class_menu.html#a342d2a526a850dbf2d1aecd830b91287">Menu::init</a></div><div class="ttdeci">static void init()</div><div class="ttdef"><b>Definition:</b> <a href="menu_8cpp_source.html#l00012">menu.cpp:12</a></div></div>
+<div class="ttc" id="aclass_menu_html_a5a610a2a76e81faf1aa22a75f6d713a8"><div class="ttname"><a href="class_menu.html#a5a610a2a76e81faf1aa22a75f6d713a8">Menu::showInitialMenu</a></div><div class="ttdeci">static int showInitialMenu(const std::string &amp;airlineName)</div><div class="ttdef"><b>Definition:</b> <a href="menu_8cpp_source.html#l00142">menu.cpp:142</a></div></div>
+<div class="ttc" id="aclass_menu_html_ab35af53d6cbd32f6edb09203de657e9b"><div class="ttname"><a href="class_menu.html#ab35af53d6cbd32f6edb09203de657e9b">Menu::showAdminMenu</a></div><div class="ttdeci">static int showAdminMenu()</div><div class="ttdef"><b>Definition:</b> <a href="menu_8cpp_source.html#l00094">menu.cpp:94</a></div></div>
+<div class="ttc" id="aclass_menu_html_aec0055490dfaee186759448d59972f61"><div class="ttname"><a href="class_menu.html#aec0055490dfaee186759448d59972f61">Menu::endProgram</a></div><div class="ttdeci">static void endProgram()</div><div class="ttdef"><b>Definition:</b> <a href="menu_8cpp_source.html#l00159">menu.cpp:159</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -7,9 +7,9 @@
 \item 
 void \mbox{\hyperlink{class_luggage_transport_ae2ccd76a1d3a952bcc1538cc5f9f6d06}{add\+Carriage}} ()
 \item 
-void \mbox{\hyperlink{class_luggage_transport_a24d51c378b52308dfe6b9ada18692eaf}{add\+Luggage}} (const \mbox{\hyperlink{class_luggage}{Luggage}} \&luggage)
+void \mbox{\hyperlink{class_luggage_transport_a187d1df7ef8e836580c2540fe71875fd}{add\+Luggage}} (\mbox{\hyperlink{class_luggage}{Luggage}} $\ast$luggage)
 \item 
-std\+::list$<$ \mbox{\hyperlink{class_luggage}{Luggage}} $>$ \mbox{\hyperlink{class_luggage_transport_afa0f687db639dae41f149776cb6d8f72}{get\+Cargo}} ()
+std\+::list$<$ \mbox{\hyperlink{class_luggage}{Luggage}} $\ast$ $>$ \mbox{\hyperlink{class_luggage_transport_a4e5e7a92c2e6db5dfb1ca248556449b7}{get\+Cargo}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -43,6 +43,16 @@ Creates a new luggage transport system
 
 Definition at line \mbox{\hyperlink{luggage_transport_8h_source_l00026}{26}} of file \mbox{\hyperlink{luggage_transport_8h_source}{luggage\+Transport.\+h}}.
 
+\mbox{\Hypertarget{class_luggage_transport_a76eb4ae61af6176c93b49e9e0002077b}\label{class_luggage_transport_a76eb4ae61af6176c93b49e9e0002077b}} 
+\index{LuggageTransport@{LuggageTransport}!````~LuggageTransport@{$\sim$LuggageTransport}}
+\index{````~LuggageTransport@{$\sim$LuggageTransport}!LuggageTransport@{LuggageTransport}}
+\doxysubsubsection{\texorpdfstring{$\sim$LuggageTransport()}{~LuggageTransport()}}
+{\footnotesize\ttfamily Luggage\+Transport\+::$\sim$\+Luggage\+Transport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{luggage_transport_8h_source_l00030}{30}} of file \mbox{\hyperlink{luggage_transport_8h_source}{luggage\+Transport.\+h}}.
+
 
 
 \doxysubsection{Member Function Documentation}
@@ -56,21 +66,26 @@ When the luggage transport system gets full, add a new carriage
 
 Definition at line \mbox{\hyperlink{luggage_transport_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{luggage_transport_8cpp_source}{luggage\+Transport.\+cpp}}.
 
-\mbox{\Hypertarget{class_luggage_transport_a24d51c378b52308dfe6b9ada18692eaf}\label{class_luggage_transport_a24d51c378b52308dfe6b9ada18692eaf}} 
+\mbox{\Hypertarget{class_luggage_transport_a187d1df7ef8e836580c2540fe71875fd}\label{class_luggage_transport_a187d1df7ef8e836580c2540fe71875fd}} 
 \index{LuggageTransport@{LuggageTransport}!addLuggage@{addLuggage}}
 \index{addLuggage@{addLuggage}!LuggageTransport@{LuggageTransport}}
 \doxysubsubsection{\texorpdfstring{addLuggage()}{addLuggage()}}
-{\footnotesize\ttfamily void Luggage\+Transport\+::add\+Luggage (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_luggage}{Luggage}} \&}]{luggage }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Luggage\+Transport\+::add\+Luggage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_luggage}{Luggage}} $\ast$}]{luggage }\end{DoxyParamCaption})}
 
+Adds luggage to be transported to the plane coming from an airport\textquotesingle{}s transport belt 
+\begin{DoxyParams}{Parameters}
+{\em luggage} & \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{luggage_transport_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{luggage_transport_8cpp_source}{luggage\+Transport.\+cpp}}.
 
-\mbox{\Hypertarget{class_luggage_transport_afa0f687db639dae41f149776cb6d8f72}\label{class_luggage_transport_afa0f687db639dae41f149776cb6d8f72}} 
+\mbox{\Hypertarget{class_luggage_transport_a4e5e7a92c2e6db5dfb1ca248556449b7}\label{class_luggage_transport_a4e5e7a92c2e6db5dfb1ca248556449b7}} 
 \index{LuggageTransport@{LuggageTransport}!getCargo@{getCargo}}
 \index{getCargo@{getCargo}!LuggageTransport@{LuggageTransport}}
 \doxysubsubsection{\texorpdfstring{getCargo()}{getCargo()}}
-{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{class_luggage}{Luggage}} $>$ Luggage\+Transport\+::get\+Cargo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{class_luggage}{Luggage}} $\ast$ $>$ Luggage\+Transport\+::get\+Cargo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Besides clearing each carriage the system uses, it only leaves the system with one empty carriage \begin{DoxyReturn}{Returns}
 Returns the luggage of the passengers so it can be loaded into the plane 
@@ -90,7 +105,7 @@ Definition at line \mbox{\hyperlink{luggage_transport_8cpp_source_l00025}{25}} o
 
 
 
-Definition at line \mbox{\hyperlink{luggage_transport_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{luggage_transport_8cpp_source}{luggage\+Transport.\+cpp}}.
+Definition at line \mbox{\hyperlink{luggage_transport_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{luggage_transport_8cpp_source}{luggage\+Transport.\+cpp}}.
 
 
 

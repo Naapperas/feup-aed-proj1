@@ -11,35 +11,44 @@
 \DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00007}00007 \textcolor{preprocessor}{\#include "{}../includes/luggageTransport.h"{}}}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00008}00008 }
 \DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00009}\mbox{\hyperlink{class_luggage_transport_ae2ccd76a1d3a952bcc1538cc5f9f6d06}{00009}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_luggage_transport_ae2ccd76a1d3a952bcc1538cc5f9f6d06}{LuggageTransport::addCarriage}}() \{}
-\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00010}00010     carriages.push\_back(\mbox{\hyperlink{class_carriage}{Carriage}}(numberStacks, stackCapacity));}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00010}00010     carriages.push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_carriage}{Carriage}}(numberStacks, stackCapacity));}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00011}00011 \}}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00012}00012 }
-\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00013}00013 \textcolor{keywordtype}{void} LuggageTransport::addLuggage(\textcolor{keyword}{const} \mbox{\hyperlink{class_luggage}{Luggage}}\& luggage)\{}
-\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00014}00014     \mbox{\hyperlink{class_carriage}{Carriage}}\& lastCarriage = carriages.back();}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00013}\mbox{\hyperlink{class_luggage_transport_a187d1df7ef8e836580c2540fe71875fd}{00013}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_luggage_transport_a187d1df7ef8e836580c2540fe71875fd}{LuggageTransport::addLuggage}}(\mbox{\hyperlink{class_luggage}{Luggage}}* luggage)\{}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00014}00014     \mbox{\hyperlink{class_carriage}{Carriage}}* lastCarriage = carriages.back();}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00015}00015 }
-\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00016}00016     \textcolor{keywordflow}{if} (lastCarriage.\mbox{\hyperlink{class_carriage_a41c021d78f08cd40c7de3e574b00d480}{carriageFull}}()) \{}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00016}00016     \textcolor{keywordflow}{if} (lastCarriage-\/>\mbox{\hyperlink{class_carriage_a41c021d78f08cd40c7de3e574b00d480}{carriageFull}}()) \{}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00017}00017         this-\/>\mbox{\hyperlink{class_luggage_transport_ae2ccd76a1d3a952bcc1538cc5f9f6d06}{addCarriage}}();}
-\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00018}00018         carriages.back().addLuggage(luggage);}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00018}00018         carriages.back()-\/>addLuggage(luggage);}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00019}00019     \}}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00020}00020     \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00021}00021         lastCarriage.addLuggage(luggage);}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00021}00021         lastCarriage-\/>\mbox{\hyperlink{class_carriage_a969adeeaa1252a81325db5f1c1221e3a}{addLuggage}}(luggage);}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00022}00022     \}}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00023}00023 \}}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00024}00024 }
-\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00025}\mbox{\hyperlink{class_luggage_transport_afa0f687db639dae41f149776cb6d8f72}{00025}} std::list<Luggage> \mbox{\hyperlink{class_luggage_transport_afa0f687db639dae41f149776cb6d8f72}{LuggageTransport::getCargo}}() \{}
-\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00026}00026     std::list<Luggage> tmp;}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00025}\mbox{\hyperlink{class_luggage_transport_a4e5e7a92c2e6db5dfb1ca248556449b7}{00025}} std::list<Luggage*> \mbox{\hyperlink{class_luggage_transport_a4e5e7a92c2e6db5dfb1ca248556449b7}{LuggageTransport::getCargo}}() \{}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00026}00026     std::list<Luggage*> tmp;}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00027}00027 }
 \DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00028}00028     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& carriage : this-\/>carriages) \{}
-\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00029}00029         carriage.removeLuggage(tmp);}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00029}00029         carriage-\/>removeLuggage(tmp);}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00030}00030     \}}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00031}00031 }
-\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00032}00032     carriages.erase(carriages.begin()++, carriages.end());}
-\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00033}00033     \textcolor{keywordflow}{return} tmp;}
-\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00034}00034 \};}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00032}00032     \textcolor{keyword}{auto} coiso = carriages.begin()++;}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00034}00034     \textcolor{keywordflow}{while} (coiso != carriages.end()) \{}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00035}00035 }
-\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00036}00036 std::ostream\& operator <<(std::ostream\& out , \textcolor{keyword}{const} \mbox{\hyperlink{class_luggage_transport}{LuggageTransport}} \&a) \{}
-\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00037}00037     out << \textcolor{stringliteral}{"{}Each carriage has "{}} << a.numberStacks << \textcolor{stringliteral}{"{} stacks, each stack can fit up to "{}} << a.stackCapacity << \textcolor{stringliteral}{"{}pieces off luggage."{}}<< \textcolor{charliteral}{'\(\backslash\)n'};}
-\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00038}00038     \textcolor{keywordflow}{return} out;}
-\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00039}00039 \}}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00036}00036         \textcolor{keyword}{auto} carriage = *coiso++;}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00038}00038         \textcolor{keyword}{delete} carriage;}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00039}00039     \}}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00041}00041     carriages.erase(carriages.begin()++, carriages.end());}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00042}00042     \textcolor{keywordflow}{return} tmp;}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00043}00043 \};}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00045}00045 std::ostream\& operator <<(std::ostream\& out , \textcolor{keyword}{const} \mbox{\hyperlink{class_luggage_transport}{LuggageTransport}} \&a) \{}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00046}00046     out << \textcolor{stringliteral}{"{}Each carriage has "{}} << a.numberStacks << \textcolor{stringliteral}{"{} stacks, each stack can fit up to "{}} << a.stackCapacity << \textcolor{stringliteral}{"{}pieces off luggage."{}}<< \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00047}00047     \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8cpp_source_l00048}00048 \}}
 
 \end{DoxyCode}

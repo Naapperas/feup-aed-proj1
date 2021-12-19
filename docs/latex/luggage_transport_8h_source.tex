@@ -17,7 +17,7 @@
 \DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00013}00013 }
 \DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00014}\mbox{\hyperlink{class_luggage_transport}{00014}} \textcolor{keyword}{class }\mbox{\hyperlink{class_luggage_transport}{LuggageTransport}} \{}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00015}00015     \textcolor{keywordtype}{unsigned} numberStacks, stackCapacity;}
-\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00016}00016     std::list<Carriage> carriages;}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00016}00016     std::list<Carriage*> carriages;}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00017}00017     \textcolor{keywordtype}{unsigned} numberCarriages;}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00018}00018     \textcolor{keyword}{friend} ostream\& operator <<(std::ostream\& out , \textcolor{keyword}{const} \mbox{\hyperlink{class_luggage_transport}{LuggageTransport}} \&a);}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00019}00019 \textcolor{keyword}{public}:}
@@ -26,14 +26,18 @@
 \DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00027}00027         \mbox{\hyperlink{class_luggage_transport_ae2ccd76a1d3a952bcc1538cc5f9f6d06}{addCarriage}}();}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00028}00028     \}}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00029}00029 }
-\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00033}00033     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_luggage_transport_ae2ccd76a1d3a952bcc1538cc5f9f6d06}{addCarriage}}();}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00030}00030     \mbox{\hyperlink{class_luggage_transport}{\string~LuggageTransport}}() \{}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00031}00031         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} carriage : this-\/>carriages)}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00032}00032             \textcolor{keyword}{delete} carriage;}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00033}00033     \}}
 \DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00034}00034 }
-\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00035}00035 }
-\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00036}00036     \textcolor{keywordtype}{void} addLuggage(\textcolor{keyword}{const} \mbox{\hyperlink{class_luggage}{Luggage}}\& luggage);}
-\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00037}00037 }
-\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00042}00042     std::list<Luggage> \mbox{\hyperlink{class_luggage_transport_afa0f687db639dae41f149776cb6d8f72}{getCargo}}();}
-\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00043}00043 \};}
-\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00044}00044 }
-\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00045}00045 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AED2122PROJ\_LUGGAGETRANSPORT\_H}}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00038}00038     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_luggage_transport_ae2ccd76a1d3a952bcc1538cc5f9f6d06}{addCarriage}}();}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00044}00044     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_luggage_transport_a187d1df7ef8e836580c2540fe71875fd}{addLuggage}}(\mbox{\hyperlink{class_luggage}{Luggage}}* luggage);}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00050}00050     std::list<Luggage*> \mbox{\hyperlink{class_luggage_transport_a4e5e7a92c2e6db5dfb1ca248556449b7}{getCargo}}();}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00051}00051 \};}
+\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{luggage_transport_8h_source_l00053}00053 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AED2122PROJ\_LUGGAGETRANSPORT\_H}}
 
 \end{DoxyCode}

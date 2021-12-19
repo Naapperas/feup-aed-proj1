@@ -9,13 +9,15 @@
 \item 
 \mbox{\hyperlink{class_passenger_a9410c1aaf8354d4c0582b3792d71df43}{Passenger}} (const std\+::string \&name, unsigned age)
 \item 
-\mbox{\hyperlink{class_passenger_ae7a567fcd89304f9835936552c13eee5}{Passenger}} (const std\+::string \&name, unsigned age, const \mbox{\hyperlink{class_luggage}{Luggage}} \&luggage)
+\mbox{\hyperlink{class_passenger_a8d42febfb6e91d3b78880a2e83979731}{Passenger}} (const std\+::string \&name, unsigned age, \mbox{\hyperlink{class_luggage}{Luggage}} $\ast$luggage)
 \item 
 std\+::string \mbox{\hyperlink{class_passenger_a7c919f6947817ff1c6a4ee51923c116f}{get\+Name}} () const
 \item 
 unsigned \mbox{\hyperlink{class_passenger_a428f19c2333d85cff5cc7e2be98479e5}{get\+Age}} () const
 \item 
-const \mbox{\hyperlink{class_luggage}{Luggage}} \& \mbox{\hyperlink{class_passenger_ad32b55e5f44987d6c563f46ee7728c34}{get\+Luggage}} () const
+\mbox{\hyperlink{class_luggage}{Luggage}} $\ast$ \mbox{\hyperlink{class_passenger_ae7de6e1730b1899aa83cfc645858cab8}{get\+Luggage}} () const
+\item 
+bool \mbox{\hyperlink{class_passenger_a6598f54d9ba05993a595c113e24b2794}{has\+Luggage}} () const
 \end{DoxyCompactItemize}
 
 
@@ -46,11 +48,11 @@ Creates a passenger without luggage.
 
 Definition at line \mbox{\hyperlink{passenger_8h_source_l00028}{28}} of file \mbox{\hyperlink{passenger_8h_source}{passenger.\+h}}.
 
-\mbox{\Hypertarget{class_passenger_ae7a567fcd89304f9835936552c13eee5}\label{class_passenger_ae7a567fcd89304f9835936552c13eee5}} 
+\mbox{\Hypertarget{class_passenger_a8d42febfb6e91d3b78880a2e83979731}\label{class_passenger_a8d42febfb6e91d3b78880a2e83979731}} 
 \index{Passenger@{Passenger}!Passenger@{Passenger}}
 \index{Passenger@{Passenger}!Passenger@{Passenger}}
 \doxysubsubsection{\texorpdfstring{Passenger()}{Passenger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Passenger\+::\+Passenger (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{unsigned}]{age,  }\item[{const \mbox{\hyperlink{class_luggage}{Luggage}} \&}]{luggage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Passenger\+::\+Passenger (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{unsigned}]{age,  }\item[{\mbox{\hyperlink{class_luggage}{Luggage}} $\ast$}]{luggage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Creates a passenger witrh the given luggage.
 
@@ -66,6 +68,16 @@ Creates a passenger witrh the given luggage.
 
 
 Definition at line \mbox{\hyperlink{passenger_8h_source_l00037}{37}} of file \mbox{\hyperlink{passenger_8h_source}{passenger.\+h}}.
+
+\mbox{\Hypertarget{class_passenger_a6a6747cafd45d2c85db2ec4e873be3c7}\label{class_passenger_a6a6747cafd45d2c85db2ec4e873be3c7}} 
+\index{Passenger@{Passenger}!````~Passenger@{$\sim$Passenger}}
+\index{````~Passenger@{$\sim$Passenger}!Passenger@{Passenger}}
+\doxysubsubsection{\texorpdfstring{$\sim$Passenger()}{~Passenger()}}
+{\footnotesize\ttfamily Passenger\+::$\sim$\+Passenger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{passenger_8h_source_l00041}{41}} of file \mbox{\hyperlink{passenger_8h_source}{passenger.\+h}}.
 
 
 
@@ -83,24 +95,22 @@ the age of this passenger
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{passenger_8h_source_l00055}{55}} of file \mbox{\hyperlink{passenger_8h_source}{passenger.\+h}}.
+Definition at line \mbox{\hyperlink{passenger_8h_source_l00060}{60}} of file \mbox{\hyperlink{passenger_8h_source}{passenger.\+h}}.
 
-\mbox{\Hypertarget{class_passenger_ad32b55e5f44987d6c563f46ee7728c34}\label{class_passenger_ad32b55e5f44987d6c563f46ee7728c34}} 
+\mbox{\Hypertarget{class_passenger_ae7de6e1730b1899aa83cfc645858cab8}\label{class_passenger_ae7de6e1730b1899aa83cfc645858cab8}} 
 \index{Passenger@{Passenger}!getLuggage@{getLuggage}}
 \index{getLuggage@{getLuggage}!Passenger@{Passenger}}
 \doxysubsubsection{\texorpdfstring{getLuggage()}{getLuggage()}}
-{\footnotesize\ttfamily const \mbox{\hyperlink{class_luggage}{Luggage}} \& Passenger\+::get\+Luggage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_luggage}{Luggage}} $\ast$ Passenger\+::get\+Luggage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 Returns the luggage owned by this pasenger.
-
-Note\+: since the default constructor for \mbox{\hyperlink{class_luggage}{Luggage}} is called if no luggage is present in
 
 \begin{DoxyReturn}{Returns}
 the luggage owned by this passenger 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{passenger_8h_source_l00066}{66}} of file \mbox{\hyperlink{passenger_8h_source}{passenger.\+h}}.
+Definition at line \mbox{\hyperlink{passenger_8h_source_l00069}{69}} of file \mbox{\hyperlink{passenger_8h_source}{passenger.\+h}}.
 
 \mbox{\Hypertarget{class_passenger_a7c919f6947817ff1c6a4ee51923c116f}\label{class_passenger_a7c919f6947817ff1c6a4ee51923c116f}} 
 \index{Passenger@{Passenger}!getName@{getName}}
@@ -115,7 +125,22 @@ the name of this passenger
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{passenger_8h_source_l00046}{46}} of file \mbox{\hyperlink{passenger_8h_source}{passenger.\+h}}.
+Definition at line \mbox{\hyperlink{passenger_8h_source_l00051}{51}} of file \mbox{\hyperlink{passenger_8h_source}{passenger.\+h}}.
+
+\mbox{\Hypertarget{class_passenger_a6598f54d9ba05993a595c113e24b2794}\label{class_passenger_a6598f54d9ba05993a595c113e24b2794}} 
+\index{Passenger@{Passenger}!hasLuggage@{hasLuggage}}
+\index{hasLuggage@{hasLuggage}!Passenger@{Passenger}}
+\doxysubsubsection{\texorpdfstring{hasLuggage()}{hasLuggage()}}
+{\footnotesize\ttfamily bool Passenger\+::has\+Luggage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks if this passanger has luggage assined to him.
+
+\begin{DoxyReturn}{Returns}
+weather this passenger has luggage or not 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{passenger_8h_source_l00078}{78}} of file \mbox{\hyperlink{passenger_8h_source}{passenger.\+h}}.
 
 
 
