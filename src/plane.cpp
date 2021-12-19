@@ -64,7 +64,10 @@ void Plane::offLoadCargo() {
 void Plane::performServices() {
     if (this->upcomingCleaningTasks.empty())
         return;
-    while(isPast(this->upcomingCleaningTasks.front().getDate()))
+    while (isPast(this->upcomingCleaningTasks.front().getDate())) {
         this->finishedCleaningService();
-}
+        if (upcomingCleaningTasks.empty())
+            break;
+    }
 
+}
