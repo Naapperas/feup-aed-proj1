@@ -67,6 +67,10 @@ public:
      */
     unsigned freeStack() const;
 
+    /**
+     * Place luggage on this carriage
+     * @param luggage Luggage to be added
+     */
     void addLuggage(Luggage* luggage);
 
     /**

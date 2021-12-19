@@ -41,12 +41,31 @@ class Menu {
         static void waitForPrompt(const std::string& prompt);
 
     public:
-
+        /**
+         * Initialize the program
+         */
         static void init();
 
+        /**
+         * Shows the initial menu on screen
+         * @param airlineName Name of the airline we are managing (displayed on screen)
+         * @return User option (Client/Admin/EXit)
+         */
         static int showInitialMenu(const std::string& airlineName);
+        /**
+         * Shows the administrator menu on screen
+         * @return User option (from the admin functionalities available)
+         */
         static int showAdminMenu();
+        /**
+         * Shows the administrator menu on screen
+         * @return User option (from the client functionalities available)
+         */
         static int showClientMenu();
+
+        /**
+         * Close the program
+         */
         static void endProgram();
         static void buyTickets();
         static void listFlights();

@@ -37,7 +37,10 @@ public:
      */
     void addCarriage();
 
-
+    /**
+     * Adds luggage to be transported to the plane coming from an airport's transport belt
+     * @param luggage
+     */
     void addLuggage(Luggage* luggage);
 
     /**

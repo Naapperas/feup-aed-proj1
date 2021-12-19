@@ -37,6 +37,10 @@ class CleaningService {
         CleaningService(ServiceType serviceType, const std::string& serviceDate, const std::string& employee) :
         serviceType(serviceType), serviceDate(serviceDate), employee(employee) {}
 
+        /**
+         * Get the date of this service
+         * @return the date of this service
+         */
         std::string getDate() const{
             return this->serviceDate;
         }
@@ -122,8 +126,16 @@ class Plane {
             upcomingCleaningTasks.pop();
         }
 
-
+        /**
+         * Add luggage that will be carried in this flight
+         * @param planeLuggage luggage that will be carried in this flight
+         */
         void addLuggage(Luggage* planeLuggage);
+
+        /**
+         * Add a passenger that will be boarding this flight
+         * @param passenger passenger that will be boarding this flight
+         */
         void addPassenger(Passenger* passenger);
 
         /**

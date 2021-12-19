@@ -218,7 +218,7 @@ public:
         }
 
         /**
-         * Emplaces some luggage on this airport's transport belt to be carried to a plane by the Luggage Transportation Service
+         * Places some luggage on this airport's transport belt to be carried to a plane by the Luggage Transportation Service
          *
          * @param l the luggage to transport
          */

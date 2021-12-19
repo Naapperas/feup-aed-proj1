@@ -18,6 +18,10 @@ class Ticket {
                 delete p;
         }
 
+        /**
+         * Get the passenger that owns this ticket
+         * @return passenger that owns this ticket
+         */
         Passenger* getPassenger() const {
             return this->p;
         };

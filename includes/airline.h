@@ -25,12 +25,32 @@ class Airline {
 
         static Airline* instance;
 
+        /**
+         * Store the plane's information on the dedicated text file
+         */
         void storePlanes() const;
+        /**
+         * Store the cleaning service's information on the dedicated text file
+         */
         void storeCleaningServices(Plane* plane) const;
+        /**
+         * Store the airport's information on the dedicated text file
+         */
         void storeAirports() const;
+        /**
+         * Store the land transport place's information from an airport on the dedicated text file
+         * @param airport
+         */
         void storeTransportPlaces(Airport* airport) const;
-        void listAirports() const;
+        /**
+         * Store the flight's information on the dedicated text file
+         */
         void storeFlights() const;
+        /**
+         * List airports on screen
+         */
+        void listAirports() const;
+
 
         std::vector<Flight*> getValidFlights() const;
 
@@ -137,23 +157,23 @@ class Airline {
         bool rescheduleFlight();
 
         /**
-         *
+         * Schedule a new flight
          */
         void createFlight();
 
         /**
-         *
+         * Purchase tickets for one or more passengers
          */
         void purchaseTicket();
 
         /**
-         *
+         * Used by clients to list the transport places near any airport
          */
         void listTransportPlaces() const;
 
         /**
          *
-         * @return
+         * @return the name of this airline
          */
         const std::string& getName() const {
             return this->airlineName;
@@ -161,7 +181,7 @@ class Airline {
 
 
         /**
-         *
+         * Register a new cleaning service for any plane
          */
         void addCleaningService();
 
