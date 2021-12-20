@@ -179,6 +179,11 @@ class Airline {
         void registerTransportPlace();
 
         /**
+         * Update open and closing times of a transport place
+         */
+        void updateTransportPlace();
+
+        /**
          * Cancel a flight (essentially deleting it)
          * @return true if cancelled successfully (deleted an existing flight) else false
          */

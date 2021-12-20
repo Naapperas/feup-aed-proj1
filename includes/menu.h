@@ -27,6 +27,7 @@ class Menu {
             ADMIN_PLANES,
             ADMIN_AIRPORT_REGISTER,
             ADMIN_LAND_TRANSPORT_PLACE,
+            ADMIN_LAND_TRANSPORT_PLACE_UPDATE,
             ADMIN_CLEANING_SERVICE,
             ADMIN_BACK
         };
@@ -38,6 +39,10 @@ class Menu {
             CLIENT_BACK
        };
 
+        /**
+         * Waits for user input (new line) to progress
+         * @param prompt
+         */
         static void waitForPrompt(const std::string& prompt);
 
     public:
@@ -67,6 +72,7 @@ class Menu {
          * Close the program
          */
         static void endProgram();
+
         static void buyTickets();
         static void listFlights();
         static void listTransportPlaces();
@@ -74,6 +80,7 @@ class Menu {
         static void purchasePlane();
         static void registerAirport();
         static void registerTransportPlace();
+        static void updateTransportPlace();
         static void createFlight();
         static void cancelFlight();
         static void rescheduleFlight();

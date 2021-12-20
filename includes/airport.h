@@ -306,6 +306,13 @@ public:
          * @param ltp land transport place to be added/registered
          */
         void registerTransportPlace(const LandTransportPlace& ltp);
+
+        /**
+         * Change open and/or close time for transport place (effectively replaces the transport place with a new version)
+         * @param ltp
+         * @return true if updated successfully (ltp is an existing transport place)
+         */
+        bool updateTransportPlace(const LandTransportPlace& ltp);
 };
 
 #endif //AED2122PROJ_AIRPORT_H

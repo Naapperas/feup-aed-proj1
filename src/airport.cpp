@@ -88,8 +88,6 @@ void Airport::loadCargo(Plane *plane) {
 }
 
 void Airport::offloadCargo(Plane *plane) {
-
-    //TODO: to be implemented
     plane->offLoadCargo();
 }
 
@@ -105,6 +103,21 @@ void Airport::storeTransportPlaces(ofstream &file) const {
 
 void Airport::registerTransportPlace(const LandTransportPlace &ltp) {
     this->transportPlaces.insert(ltp);
+}
+
+bool Airport::updateTransportPlace(const LandTransportPlace &ltp) {
+    iteratorBST<LandTransportPlace> it1;
+    for (auto it = transportPlaces.begin(); it!=transportPlaces.end(); it++) {
+        it1=it;
+        if ((*it).getType() == ltp.getType() && (*it).getDistance() == ltp.getDistance())
+            break;
+    }
+    it1++;
+    if (it1==transportPlaces.end())
+        return false;
+    this->transportPlaces.remove(this->transportPlaces.find((*it1)));
+    this->transportPlaces.insert(ltp);
+    return true;
 }
 
 const std::vector<std::string> LandTransportPlace::typePrint = {"Subway", "Train", "Bus"};
