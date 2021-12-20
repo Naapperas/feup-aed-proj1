@@ -28,6 +28,8 @@ void \mbox{\hyperlink{class_airport_a0b33b398866bb76f49efe4a8b8731c37}{offload\+
 void \mbox{\hyperlink{class_airport_a2d853b1fc2a6b798363e976260193048}{store\+Transport\+Places}} (ofstream \&file) const
 \item 
 void \mbox{\hyperlink{class_airport_ae542ada5c709934519bd81aecf5942d0}{register\+Transport\+Place}} (const \mbox{\hyperlink{class_land_transport_place}{Land\+Transport\+Place}} \&ltp)
+\item 
+bool \mbox{\hyperlink{class_airport_a6e2a02bbc289aea895596dee23f0f6a6}{update\+Transport\+Place}} (const \mbox{\hyperlink{class_land_transport_place}{Land\+Transport\+Place}} \&ltp)
 \end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -211,7 +213,7 @@ Add a new land transport place to transport\+Places.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{airport_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
 
 \mbox{\Hypertarget{class_airport_a2d853b1fc2a6b798363e976260193048}\label{class_airport_a2d853b1fc2a6b798363e976260193048}} 
 \index{Airport@{Airport}!storeTransportPlaces@{storeTransportPlaces}}
@@ -226,7 +228,25 @@ Store this airport\textquotesingle{}s land transport places info in the dedicate
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{airport_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00094}{94}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
+
+\mbox{\Hypertarget{class_airport_a6e2a02bbc289aea895596dee23f0f6a6}\label{class_airport_a6e2a02bbc289aea895596dee23f0f6a6}} 
+\index{Airport@{Airport}!updateTransportPlace@{updateTransportPlace}}
+\index{updateTransportPlace@{updateTransportPlace}!Airport@{Airport}}
+\doxysubsubsection{\texorpdfstring{updateTransportPlace()}{updateTransportPlace()}}
+{\footnotesize\ttfamily bool Airport\+::update\+Transport\+Place (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_land_transport_place}{Land\+Transport\+Place}} \&}]{ltp }\end{DoxyParamCaption})}
+
+Change open and/or close time for transport place (effectively replaces the transport place with a new version) 
+\begin{DoxyParams}{Parameters}
+{\em ltp} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if updated successfully (ltp is an existing transport place) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{airport_8cpp_source_l00108}{108}} of file \mbox{\hyperlink{airport_8cpp_source}{airport.\+cpp}}.
 
 
 

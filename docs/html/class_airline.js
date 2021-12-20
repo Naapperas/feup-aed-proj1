@@ -16,5 +16,6 @@ var class_airline =
     [ "purchaseTicket", "class_airline.html#a9acf41d412c59d8f6adfd9c987054555", null ],
     [ "registerAirport", "class_airline.html#ab971d091b141132afa34e3c9481eb9c0", null ],
     [ "registerTransportPlace", "class_airline.html#ac6f6fc6af5d435191ad318287fbdd116", null ],
-    [ "rescheduleFlight", "class_airline.html#a14bf743b39c88afb79b683346e015388", null ]
+    [ "rescheduleFlight", "class_airline.html#a14bf743b39c88afb79b683346e015388", null ],
+    [ "updateTransportPlace", "class_airline.html#a89b45efdc21679f2cb0d5bee09209eee", null ]
 ];

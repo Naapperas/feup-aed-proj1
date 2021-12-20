@@ -10,5 +10,6 @@ var class_airport =
     [ "planeIsLanded", "class_airport.html#ab1c69210f288b5390ee07ed70380cce9", null ],
     [ "printTransportPlaces", "class_airport.html#a280f9ed21c4907f405fe472a11e1bf04", null ],
     [ "registerTransportPlace", "class_airport.html#ae542ada5c709934519bd81aecf5942d0", null ],
-    [ "storeTransportPlaces", "class_airport.html#a2d853b1fc2a6b798363e976260193048", null ]
+    [ "storeTransportPlaces", "class_airport.html#a2d853b1fc2a6b798363e976260193048", null ],
+    [ "updateTransportPlace", "class_airport.html#a6e2a02bbc289aea895596dee23f0f6a6", null ]
 ];

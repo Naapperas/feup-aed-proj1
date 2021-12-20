@@ -27,6 +27,8 @@ void \mbox{\hyperlink{class_airline_ab971d091b141132afa34e3c9481eb9c0}{register\
 \item 
 void \mbox{\hyperlink{class_airline_ac6f6fc6af5d435191ad318287fbdd116}{register\+Transport\+Place}} ()
 \item 
+void \mbox{\hyperlink{class_airline_a89b45efdc21679f2cb0d5bee09209eee}{update\+Transport\+Place}} ()
+\item 
 bool \mbox{\hyperlink{class_airline_a87f968625f42326afbd0388218ad6db1}{cancel\+Flight}} ()
 \item 
 bool \mbox{\hyperlink{class_airline_a14bf743b39c88afb79b683346e015388}{reschedule\+Flight}} ()
@@ -114,7 +116,7 @@ Definition at line \mbox{\hyperlink{airline_8cpp_source_l00402}{402}} of file \m
 
 Register a new cleaning service for any plane 
 
-Definition at line \mbox{\hyperlink{airline_8cpp_source_l00607}{607}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00657}{657}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
 
 \mbox{\Hypertarget{class_airline_aa027a84d3027eeb833fb6a6df0ada631}\label{class_airline_aa027a84d3027eeb833fb6a6df0ada631}} 
 \index{Airline@{Airline}!addFlightsToPlane@{addFlightsToPlane}}
@@ -229,7 +231,7 @@ the name of this airline
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{airline_8h_source_l00212}{212}} of file \mbox{\hyperlink{airline_8h_source}{airline.\+h}}.
+Definition at line \mbox{\hyperlink{airline_8h_source_l00217}{217}} of file \mbox{\hyperlink{airline_8h_source}{airline.\+h}}.
 
 \mbox{\Hypertarget{class_airline_a4f1ef620bef5fe12e36b37d759f63398}\label{class_airline_a4f1ef620bef5fe12e36b37d759f63398}} 
 \index{Airline@{Airline}!listCurrentFlights@{listCurrentFlights}}
@@ -264,7 +266,7 @@ Definition at line \mbox{\hyperlink{airline_8cpp_source_l00361}{361}} of file \m
 
 Used by clients to list the transport places near any airport 
 
-Definition at line \mbox{\hyperlink{airline_8cpp_source_l00574}{574}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00624}{624}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
 
 \mbox{\Hypertarget{class_airline_a5ecddee30302f3609e6fd8e15a0917c9}\label{class_airline_a5ecddee30302f3609e6fd8e15a0917c9}} 
 \index{Airline@{Airline}!purchasePlane@{purchasePlane}}
@@ -284,7 +286,7 @@ Definition at line \mbox{\hyperlink{airline_8cpp_source_l00374}{374}} of file \m
 
 Purchase tickets for one or more passengers 
 
-Definition at line \mbox{\hyperlink{airline_8cpp_source_l00525}{525}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00575}{575}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
 
 \mbox{\Hypertarget{class_airline_ab971d091b141132afa34e3c9481eb9c0}\label{class_airline_ab971d091b141132afa34e3c9481eb9c0}} 
 \index{Airline@{Airline}!registerAirport@{registerAirport}}
@@ -335,6 +337,16 @@ Since there is olny one airline per application, this method serves as the entry
 
 
 Definition at line \mbox{\hyperlink{airline_8h_source_l00130}{130}} of file \mbox{\hyperlink{airline_8h_source}{airline.\+h}}.
+
+\mbox{\Hypertarget{class_airline_a89b45efdc21679f2cb0d5bee09209eee}\label{class_airline_a89b45efdc21679f2cb0d5bee09209eee}} 
+\index{Airline@{Airline}!updateTransportPlace@{updateTransportPlace}}
+\index{updateTransportPlace@{updateTransportPlace}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{updateTransportPlace()}{updateTransportPlace()}}
+{\footnotesize\ttfamily void Airline\+::update\+Transport\+Place (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Update open and closing times of a transport place 
+
+Definition at line \mbox{\hyperlink{airline_8cpp_source_l00468}{468}} of file \mbox{\hyperlink{airline_8cpp_source}{airline.\+cpp}}.
 
 
 

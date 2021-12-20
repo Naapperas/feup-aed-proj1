@@ -117,6 +117,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2d853b1fc2a6b798363e976260193048"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae542ada5c709934519bd81aecf5942d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#ae542ada5c709934519bd81aecf5942d0">registerTransportPlace</a> (const <a class="el" href="class_land_transport_place.html">LandTransportPlace</a> &amp;ltp)</td></tr>
 <tr class="separator:ae542ada5c709934519bd81aecf5942d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e2a02bbc289aea895596dee23f0f6a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a6e2a02bbc289aea895596dee23f0f6a6">updateTransportPlace</a> (const <a class="el" href="class_land_transport_place.html">LandTransportPlace</a> &amp;ltp)</td></tr>
+<tr class="separator:a6e2a02bbc289aea895596dee23f0f6a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -401,7 +403,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00106">106</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00104">104</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
 
 </div>
 </div>
@@ -427,7 +429,34 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00096">96</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00094">94</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6e2a02bbc289aea895596dee23f0f6a6" name="a6e2a02bbc289aea895596dee23f0f6a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e2a02bbc289aea895596dee23f0f6a6">&#9670;&nbsp;</a></span>updateTransportPlace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Airport::updateTransportPlace </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_land_transport_place.html">LandTransportPlace</a> &amp;&#160;</td>
+          <td class="paramname"><em>ltp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Change open and/or close time for transport place (effectively replaces the transport place with a new version) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ltp</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if updated successfully (ltp is an existing transport place) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00108">108</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
 
 </div>
 </div>

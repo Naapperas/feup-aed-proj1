@@ -92,50 +92,63 @@
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00088}00088 \}}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00089}00089 }
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00090}\mbox{\hyperlink{class_airport_a0b33b398866bb76f49efe4a8b8731c37}{00090}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airport_a0b33b398866bb76f49efe4a8b8731c37}{Airport::offloadCargo}}(\mbox{\hyperlink{class_plane}{Plane}} *plane) \{}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00091}00091 }
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00092}00092     \textcolor{comment}{//TODO: to be implemented}}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00093}00093     plane-\/>\mbox{\hyperlink{class_plane_ae1d9748619838d9771ae0ec8b26ecffa}{offLoadCargo}}();}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00094}00094 \}}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00091}00091     plane-\/>\mbox{\hyperlink{class_plane_ae1d9748619838d9771ae0ec8b26ecffa}{offLoadCargo}}();}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00092}00092 \}}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00094}\mbox{\hyperlink{class_airport_a2d853b1fc2a6b798363e976260193048}{00094}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airport_a2d853b1fc2a6b798363e976260193048}{Airport::storeTransportPlaces}}(ofstream \&file)\textcolor{keyword}{ const }\{}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00095}00095 }
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00096}\mbox{\hyperlink{class_airport_a2d853b1fc2a6b798363e976260193048}{00096}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airport_a2d853b1fc2a6b798363e976260193048}{Airport::storeTransportPlaces}}(ofstream \&file)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00096}00096     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} itr = this-\/>transportPlaces.begin(); itr != this-\/>transportPlaces.end(); itr++) \{}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00097}00097 }
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00098}00098     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} itr = this-\/>transportPlaces.begin(); itr != this-\/>transportPlaces.end(); itr++) \{}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00098}00098         \textcolor{keyword}{auto} transportPlace = *itr;}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00099}00099 }
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00100}00100         \textcolor{keyword}{auto} transportPlace = *itr;}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00101}00101 }
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00102}00102         file << this-\/>\mbox{\hyperlink{class_airport_aa5be38443c1de176e52c4f5f5252c956}{getName}}() << \textcolor{charliteral}{' '} << transportPlace.getType() << \textcolor{charliteral}{' '} << transportPlace.getDistance() << \textcolor{charliteral}{' '} << transportPlace.getOpenTime() << \textcolor{charliteral}{' '} << transportPlace.getCloseTime() << \textcolor{charliteral}{'\(\backslash\)n'};}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00103}00103     \}}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00104}00104 \}}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00105}00105 }
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00106}\mbox{\hyperlink{class_airport_ae542ada5c709934519bd81aecf5942d0}{00106}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airport_ae542ada5c709934519bd81aecf5942d0}{Airport::registerTransportPlace}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_land_transport_place}{LandTransportPlace}} \&ltp) \{}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00107}00107     this-\/>transportPlaces.insert(ltp);}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00108}00108 \}}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00109}00109 }
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00110}00110 \textcolor{keyword}{const} std::vector<std::string> \mbox{\hyperlink{class_land_transport_place_a6621b14506e05b72e9596b9503c9b5f7}{LandTransportPlace::typePrint}} = \{\textcolor{stringliteral}{"{}Subway"{}}, \textcolor{stringliteral}{"{}Train"{}}, \textcolor{stringliteral}{"{}Bus"{}}\};}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00111}00111 }
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00112}00112 \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{class_land_transport_place}{LandTransportPlace}} \&a, \textcolor{keyword}{const} \mbox{\hyperlink{class_land_transport_place}{LandTransportPlace}} \&b) \{}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00113}00113     \textcolor{keywordflow}{return} (a.distance < b.distance);}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00114}00114 \}}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00115}00115 }
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00116}00116 ostream\& operator <<(ostream\& out , \textcolor{keyword}{const} \mbox{\hyperlink{class_land_transport_place}{LandTransportPlace}} \&a) \{}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00117}00117     out << \mbox{\hyperlink{class_land_transport_place_a6621b14506e05b72e9596b9503c9b5f7}{LandTransportPlace::typePrint}}.at(a.type) << \textcolor{charliteral}{' '} << a.distance << \textcolor{stringliteral}{"{}m "{}} << \textcolor{stringliteral}{"{}Open from: "{}} << a.openTime << \textcolor{stringliteral}{"{} to "{}} << a.closeTime;}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00118}00118     \textcolor{keywordflow}{return} out;}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00119}00119 \}}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00120}00120 }
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00121}\mbox{\hyperlink{class_flight_plan_a8580ee2eb8dc2cbc48ce452a2c9470ff}{00121}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_flight_plan_a8580ee2eb8dc2cbc48ce452a2c9470ff}{FlightPlan::performFlights}}() \{}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00100}00100         file << this-\/>\mbox{\hyperlink{class_airport_aa5be38443c1de176e52c4f5f5252c956}{getName}}() << \textcolor{charliteral}{' '} << transportPlace.getType() << \textcolor{charliteral}{' '} << transportPlace.getDistance() << \textcolor{charliteral}{' '} << transportPlace.getOpenTime() << \textcolor{charliteral}{' '} << transportPlace.getCloseTime() << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00101}00101     \}}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00102}00102 \}}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00104}\mbox{\hyperlink{class_airport_ae542ada5c709934519bd81aecf5942d0}{00104}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_airport_ae542ada5c709934519bd81aecf5942d0}{Airport::registerTransportPlace}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_land_transport_place}{LandTransportPlace}} \&ltp) \{}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00105}00105     this-\/>transportPlaces.insert(ltp);}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00106}00106 \}}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00107}00107 }
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00108}\mbox{\hyperlink{class_airport_a6e2a02bbc289aea895596dee23f0f6a6}{00108}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_airport_a6e2a02bbc289aea895596dee23f0f6a6}{Airport::updateTransportPlace}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_land_transport_place}{LandTransportPlace}} \&ltp) \{}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00109}00109     \mbox{\hyperlink{classiterator_b_s_t}{iteratorBST<LandTransportPlace>}} it1;}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00110}00110     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = transportPlaces.begin(); it!=transportPlaces.end(); it++) \{}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00111}00111         it1=it;}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00112}00112         \textcolor{keywordflow}{if} ((*it).getType() == ltp.\mbox{\hyperlink{class_land_transport_place_acf6598458361bf2168e84786d331cf3a}{getType}}() \&\& (*it).getDistance() == ltp.\mbox{\hyperlink{class_land_transport_place_a591b6d2f3dab577444be409513f93501}{getDistance}}())}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00113}00113             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00114}00114     \}}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00115}00115     it1++;}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00116}00116     \textcolor{keywordflow}{if} (it1==transportPlaces.end())}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00117}00117         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00118}00118     this-\/>transportPlaces.remove(this-\/>transportPlaces.find((*it1)));}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00119}00119     this-\/>transportPlaces.insert(ltp);}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00120}00120     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00121}00121 \}}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00122}00122 }
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00123}00123     \textcolor{keyword}{auto} flight = this-\/>plan.begin();}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00123}00123 \textcolor{keyword}{const} std::vector<std::string> \mbox{\hyperlink{class_land_transport_place_a6621b14506e05b72e9596b9503c9b5f7}{LandTransportPlace::typePrint}} = \{\textcolor{stringliteral}{"{}Subway"{}}, \textcolor{stringliteral}{"{}Train"{}}, \textcolor{stringliteral}{"{}Bus"{}}\};}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00124}00124 }
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00125}00125     \textcolor{keywordflow}{while} (flight != this-\/>plan.end()) \{}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00126}00126 }
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00127}00127         \textcolor{comment}{// execute past flights}}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00128}00128         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_flight_plan_aa93e0c043d3f7fe4e8a0bb53e429436e}{isPast}}((*flight)-\/>getDepartureDate())) \{}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00129}00129             (*flight)-\/>execute();}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00130}00130 }
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00131}00131             flight = this-\/>plan.erase(flight);}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00132}00132         \} \textcolor{keywordflow}{else}}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00133}00133             flight++;}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00134}00134     \}}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00135}00135 \}}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00125}00125 \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{class_land_transport_place}{LandTransportPlace}} \&a, \textcolor{keyword}{const} \mbox{\hyperlink{class_land_transport_place}{LandTransportPlace}} \&b) \{}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00126}00126     \textcolor{keywordflow}{return} (a.distance < b.distance);}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00127}00127 \}}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00128}00128 }
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00129}00129 ostream\& operator <<(ostream\& out , \textcolor{keyword}{const} \mbox{\hyperlink{class_land_transport_place}{LandTransportPlace}} \&a) \{}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00130}00130     out << \mbox{\hyperlink{class_land_transport_place_a6621b14506e05b72e9596b9503c9b5f7}{LandTransportPlace::typePrint}}.at(a.type) << \textcolor{charliteral}{' '} << a.distance << \textcolor{stringliteral}{"{}m "{}} << \textcolor{stringliteral}{"{}Open from: "{}} << a.openTime << \textcolor{stringliteral}{"{} to "{}} << a.closeTime;}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00131}00131     \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00132}00132 \}}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00133}00133 }
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00134}\mbox{\hyperlink{class_flight_plan_a8580ee2eb8dc2cbc48ce452a2c9470ff}{00134}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_flight_plan_a8580ee2eb8dc2cbc48ce452a2c9470ff}{FlightPlan::performFlights}}() \{}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00135}00135 }
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00136}00136     \textcolor{keyword}{auto} flight = this-\/>plan.begin();}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00137}00137 }
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00138}00138     \textcolor{keywordflow}{while} (flight != this-\/>plan.end()) \{}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00139}00139 }
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00140}00140         \textcolor{comment}{// execute past flights}}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00141}00141         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_flight_plan_aa93e0c043d3f7fe4e8a0bb53e429436e}{isPast}}((*flight)-\/>getDepartureDate())) \{}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00142}00142             (*flight)-\/>execute();}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00144}00144             flight = this-\/>plan.erase(flight);}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00145}00145         \} \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00146}00146             flight++;}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00147}00147     \}}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00148}00148 \}}
 
 \end{DoxyCode}
