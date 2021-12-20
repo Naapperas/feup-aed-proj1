@@ -7,10 +7,19 @@
 
 #include "./passenger.h"
 
+/**
+ * Class representing a buyable ticket to a flight.
+ */
 class Ticket {
 
         Passenger* p = nullptr;
     public:
+
+        /**
+         * Creates a ticket that was bought by the given passenger.
+         *
+         * @param p the passenger that bought this ticket
+         */
         Ticket(Passenger* p) : p(p) {}
 
         ~Ticket() {
@@ -19,7 +28,8 @@ class Ticket {
         }
 
         /**
-         * Get the passenger that owns this ticket
+         * Get the passenger that owns this ticket.
+         *
          * @return passenger that owns this ticket
          */
         Passenger* getPassenger() const {

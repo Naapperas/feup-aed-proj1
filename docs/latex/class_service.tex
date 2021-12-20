@@ -1,0 +1,104 @@
+\hypertarget{class_service}{}\doxysection{Service Class Reference}
+\label{class_service}\index{Service@{Service}}
+
+
+{\ttfamily \#include $<$plane.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_service_a39cdc345255da84baa56782678c9a509}{Service\+Type}} \{ {\bfseries MAINTENANCE}
+, {\bfseries CLEANING}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_service_acfdd211703228d833b7c7795d64ecfe7}{Service}} (\mbox{\hyperlink{class_service_a39cdc345255da84baa56782678c9a509}{Service\+Type}} service\+Type, const std\+::string \&service\+Date, const std\+::string \&employee)
+\item 
+std\+::string \mbox{\hyperlink{class_service_a0dc4a3ed5d5235006c2035a10455244c}{get\+Date}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_service_ae27ca39497b4cd2a79535b878bd99bcc}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{class_service}{Service}} \&a)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a maintenance/cleaning service that can be performed on a plane. 
+
+Definition at line \mbox{\hyperlink{plane_8h_source_l00024}{24}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_service_a39cdc345255da84baa56782678c9a509}\label{class_service_a39cdc345255da84baa56782678c9a509}} 
+\index{Service@{Service}!ServiceType@{ServiceType}}
+\index{ServiceType@{ServiceType}!Service@{Service}}
+\doxysubsubsection{\texorpdfstring{ServiceType}{ServiceType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_service_a39cdc345255da84baa56782678c9a509}{Service\+::\+Service\+Type}}}
+
+Reperesents the type of service that can be performed on this aircraft. 
+
+Definition at line \mbox{\hyperlink{plane_8h_source_l00031}{31}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_service_acfdd211703228d833b7c7795d64ecfe7}\label{class_service_acfdd211703228d833b7c7795d64ecfe7}} 
+\index{Service@{Service}!Service@{Service}}
+\index{Service@{Service}!Service@{Service}}
+\doxysubsubsection{\texorpdfstring{Service()}{Service()}}
+{\footnotesize\ttfamily Service\+::\+Service (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_service_a39cdc345255da84baa56782678c9a509}{Service\+Type}}}]{service\+Type,  }\item[{const std\+::string \&}]{service\+Date,  }\item[{const std\+::string \&}]{employee }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new service of the specified type, to be performed by the given employee on the given date.
+
+
+\begin{DoxyParams}{Parameters}
+{\em service\+Type} & the type of service to perform \\
+\hline
+{\em service\+Date} & the date to erform the given service \\
+\hline
+{\em employee} & the person responsible for performing the given service \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{plane_8h_source_l00049}{49}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_service_a0dc4a3ed5d5235006c2035a10455244c}\label{class_service_a0dc4a3ed5d5235006c2035a10455244c}} 
+\index{Service@{Service}!getDate@{getDate}}
+\index{getDate@{getDate}!Service@{Service}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily std\+::string Service\+::get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the date of this service \begin{DoxyReturn}{Returns}
+the date of this service 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plane_8h_source_l00056}{56}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_service_ae27ca39497b4cd2a79535b878bd99bcc}\label{class_service_ae27ca39497b4cd2a79535b878bd99bcc}} 
+\index{Service@{Service}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Service@{Service}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_service}{Service}} \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{plane_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{plane_8cpp_source}{plane.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/naapperas/workspace/uni/2-\/ano/aed/project/includes/plane.\+h\item 
+/home/naapperas/workspace/uni/2-\/ano/aed/project/src/plane.\+cpp\end{DoxyCompactItemize}

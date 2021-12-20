@@ -1,5 +1,6 @@
 var class_airline =
 [
+    [ "Airline", "class_airline.html#a458d846029cfbec3d3b1fe0f75b70792", null ],
     [ "addAirport", "class_airline.html#a6234faebc1820bca5402c81ad775ae5c", null ],
     [ "addCleaningService", "class_airline.html#a0eb397df7627978cc94efc8f6b59b438", null ],
     [ "addFlightsToPlane", "class_airline.html#aa027a84d3027eeb833fb6a6df0ada631", null ],

@@ -1,5 +1,9 @@
 \hypertarget{class_ticket}{}\doxysection{Ticket Class Reference}
 \label{class_ticket}\index{Ticket@{Ticket}}
+
+
+{\ttfamily \#include $<$ticket.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -10,9 +14,9 @@
 
 
 \doxysubsection{Detailed Description}
+Class representing a buyable ticket to a flight. 
 
-
-Definition at line \mbox{\hyperlink{ticket_8h_source_l00010}{10}} of file \mbox{\hyperlink{ticket_8h_source}{ticket.\+h}}.
+Definition at line \mbox{\hyperlink{ticket_8h_source_l00013}{13}} of file \mbox{\hyperlink{ticket_8h_source}{ticket.\+h}}.
 
 
 
@@ -23,9 +27,16 @@ Definition at line \mbox{\hyperlink{ticket_8h_source_l00010}{10}} of file \mbox{
 \doxysubsubsection{\texorpdfstring{Ticket()}{Ticket()}}
 {\footnotesize\ttfamily Ticket\+::\+Ticket (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_passenger}{Passenger}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+Creates a ticket that was bought by the given passenger.
 
 
-Definition at line \mbox{\hyperlink{ticket_8h_source_l00014}{14}} of file \mbox{\hyperlink{ticket_8h_source}{ticket.\+h}}.
+\begin{DoxyParams}{Parameters}
+{\em p} & the passenger that bought this ticket \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ticket_8h_source_l00023}{23}} of file \mbox{\hyperlink{ticket_8h_source}{ticket.\+h}}.
 
 \mbox{\Hypertarget{class_ticket_a0acf9e1d74f108768d9d5a22f065da2d}\label{class_ticket_a0acf9e1d74f108768d9d5a22f065da2d}} 
 \index{Ticket@{Ticket}!````~Ticket@{$\sim$Ticket}}
@@ -35,7 +46,7 @@ Definition at line \mbox{\hyperlink{ticket_8h_source_l00014}{14}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{ticket_8h_source_l00016}{16}} of file \mbox{\hyperlink{ticket_8h_source}{ticket.\+h}}.
+Definition at line \mbox{\hyperlink{ticket_8h_source_l00025}{25}} of file \mbox{\hyperlink{ticket_8h_source}{ticket.\+h}}.
 
 
 
@@ -46,12 +57,14 @@ Definition at line \mbox{\hyperlink{ticket_8h_source_l00016}{16}} of file \mbox{
 \doxysubsubsection{\texorpdfstring{getPassenger()}{getPassenger()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_passenger}{Passenger}} $\ast$ Ticket\+::get\+Passenger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Get the passenger that owns this ticket \begin{DoxyReturn}{Returns}
+Get the passenger that owns this ticket.
+
+\begin{DoxyReturn}{Returns}
 passenger that owns this ticket 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{ticket_8h_source_l00025}{25}} of file \mbox{\hyperlink{ticket_8h_source}{ticket.\+h}}.
+Definition at line \mbox{\hyperlink{ticket_8h_source_l00035}{35}} of file \mbox{\hyperlink{ticket_8h_source}{ticket.\+h}}.
 
 
 

@@ -47,6 +47,11 @@ class FlightPlan {
                 return year < (1900 + currentDateTime->tm_year);
         }
 
+        /**
+         * Creates a FLight plan for the given plane
+         *
+         * @param p the plane with this flight plan
+         */
         FlightPlan(Plane* p) : plane(p) {}
 
         /**
@@ -95,13 +100,27 @@ class FlightPlan {
  */
 class LandTransportPlace {
     public:
+
+        /**
+         * The type of transport that a given transport place can have.
+         */
         enum TypeOfTransport{
             SUBWAY,
             TRAIN,
             BUS
         };
+
+        /**
+         * Vector of strings that serves as a map of TypeOfTransport to std::string.
+         */
         static const std::vector<std::string> typePrint;
 
+        /**
+         * Gets the transportataion tye corresponding to the given number.
+         *
+         * @param i an index corresponding to a transport type
+         * @return the corresponding enum value
+         */
         static TypeOfTransport getTypeOfTransport(unsigned i) {
             switch (i) {
                 case 0:
@@ -124,6 +143,7 @@ class LandTransportPlace {
 
         /**
          * Creates a new LandTransportPlace
+         *
          * @param type Type of transport (SUBWAY, TRAIN or BUS)
          * @param distance Distance from the nearby airport
          * @param openTime Time of first departure (first train leaving at 6:00 for example)
@@ -132,7 +152,8 @@ class LandTransportPlace {
         LandTransportPlace(TypeOfTransport type, unsigned distance, const std::string& openTime, const std::string& closeTime): type(type), distance(distance), openTime(openTime), closeTime(closeTime) {}
 
         /**
-         * Return this place's transport type (SUBWAY, TRAIN or BUS)
+         * Return this place's transport type (SUBWAY, TRAIN or BUS).
+         *
          * @return this place's transport type (SUBWAY, TRAIN or BUS)
          */
         TypeOfTransport getType() const{
@@ -140,7 +161,8 @@ class LandTransportPlace {
         }
 
         /**
-         * Return this place's transport type as a string (the corresponding strings to each type are stored in typePrint)
+         * Return this place's transport type as a string (the corresponding strings to each type are stored in typePrint).
+         *
          * @return this place's transport type as a string
          */
         std::string getTypeString() const{
@@ -148,7 +170,8 @@ class LandTransportPlace {
         }
 
         /**
-         * Return this place's distance to it's nearby airport
+         * Return this place's distance to it's nearby airport.
+         *
          * @return this place's distance to it's nearby airport
          */
         unsigned int getDistance() const{
@@ -156,7 +179,8 @@ class LandTransportPlace {
         }
 
         /**
-         * Return this place's open time (time of first departure)
+         * Return this place's open time (time of first departure).
+         *
          * @return this place's open time (time of first departure)
          */
         std::string getOpenTime() const{
@@ -164,7 +188,8 @@ class LandTransportPlace {
         }
 
         /**
-         * Return this place's close time (time of last departure)
+         * Return this place's close time (time of last departure).
+         *
          * @return this place's close time (time of last departure)
          */
         std::string getCloseTime() const{
@@ -206,44 +231,51 @@ class Airport {
 public:
 
         /**
-         * Creates a new airport
+         * Creates a new airport using the given name.
+         *
          * @param name Name of the airport
          */
         Airport(std::string name) : name(name), transportPlaces(LandTransportPlace(LandTransportPlace::SUBWAY, 0, "", "")) {};
 
         /**
-         * Print the information in transportPlaces to the console
+         * Print the information in transportPlaces to the console.
          */
         void printTransportPlaces() const;
 
+        /**
+         * Returns this airport's name.
+         *
+         * @return this airports name
+         */
         const std::string& getName() const {
             return this->name;
         }
 
         /**
-         * Places some luggage on this airport's transport belt to be carried to a plane by the Luggage Transportation Service
+         * Places some luggage on this airport's transport belt to be carried to a plane by the Luggage Transportation Service.
          *
          * @param l the luggage to transport
          */
         void addLuggageToTransportBelt(Luggage* l);
 
         /**
-         *  Lands a plane at this airport
+         * Lands a plane at this airport.
          *
          * @param plane the plane to land
          */
         void landPlane(Plane* plane);
 
         /**
-         * Makes a plane take off from this location
+         * Makes a plane take off from this location.
          *
          * @param plane the plane taking off
          */
         void planeDeparture(Plane* plane);
 
         /**
-         * Checks if a plane is currently landed in this airport
-         * @param plane
+         * Checks if a plane is currently landed in this airport.
+         *
+         * @param plane the plane to verify
          * @return true if the plane is landed else false
          */
         bool planeIsLanded(Plane* plane);
@@ -256,7 +288,7 @@ public:
         void loadCargo(Plane* plane);
 
         /**
-         * Offloads this plane's cargo to be delivered at this airport
+         * Offloads this plane's cargo to be delivered at this airport.
          *
          * @param plane the plane whose cargo should be offloaded
          */
@@ -269,7 +301,8 @@ public:
         void storeTransportPlaces(ofstream& file) const;
 
         /**
-         * Add a new land transport place to transportPlaces
+         * Add a new land transport place to transportPlaces.
+         *
          * @param ltp land transport place to be added/registered
          */
         void registerTransportPlace(const LandTransportPlace& ltp);

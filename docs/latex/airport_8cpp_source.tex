@@ -103,7 +103,7 @@
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00099}00099 }
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00100}00100         \textcolor{keyword}{auto} transportPlace = *itr;}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00101}00101 }
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00102}00102         file << this-\/>getName() << \textcolor{charliteral}{' '} << transportPlace.getType() << \textcolor{charliteral}{' '} << transportPlace.getDistance() << \textcolor{charliteral}{' '} << transportPlace.getOpenTime() << \textcolor{charliteral}{' '} << transportPlace.getCloseTime() << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00102}00102         file << this-\/>\mbox{\hyperlink{class_airport_aa5be38443c1de176e52c4f5f5252c956}{getName}}() << \textcolor{charliteral}{' '} << transportPlace.getType() << \textcolor{charliteral}{' '} << transportPlace.getDistance() << \textcolor{charliteral}{' '} << transportPlace.getOpenTime() << \textcolor{charliteral}{' '} << transportPlace.getCloseTime() << \textcolor{charliteral}{'\(\backslash\)n'};}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00103}00103     \}}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00104}00104 \}}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00105}00105 }
@@ -111,14 +111,14 @@
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00107}00107     this-\/>transportPlaces.insert(ltp);}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00108}00108 \}}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00109}00109 }
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00110}00110 \textcolor{keyword}{const} std::vector<std::string> LandTransportPlace::typePrint = \{\textcolor{stringliteral}{"{}Subway"{}}, \textcolor{stringliteral}{"{}Train"{}}, \textcolor{stringliteral}{"{}Bus"{}}\};}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00110}00110 \textcolor{keyword}{const} std::vector<std::string> \mbox{\hyperlink{class_land_transport_place_a6621b14506e05b72e9596b9503c9b5f7}{LandTransportPlace::typePrint}} = \{\textcolor{stringliteral}{"{}Subway"{}}, \textcolor{stringliteral}{"{}Train"{}}, \textcolor{stringliteral}{"{}Bus"{}}\};}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00111}00111 }
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00112}00112 \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{class_land_transport_place}{LandTransportPlace}} \&a, \textcolor{keyword}{const} \mbox{\hyperlink{class_land_transport_place}{LandTransportPlace}} \&b) \{}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00113}00113     \textcolor{keywordflow}{return} (a.distance < b.distance);}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00114}00114 \}}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00115}00115 }
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00116}00116 ostream\& operator <<(ostream\& out , \textcolor{keyword}{const} \mbox{\hyperlink{class_land_transport_place}{LandTransportPlace}} \&a) \{}
-\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00117}00117     out << LandTransportPlace::typePrint.at(a.type) << \textcolor{charliteral}{' '} << a.distance << \textcolor{stringliteral}{"{}m "{}} << \textcolor{stringliteral}{"{}Open from: "{}} << a.openTime << \textcolor{stringliteral}{"{} to "{}} << a.closeTime;}
+\DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00117}00117     out << \mbox{\hyperlink{class_land_transport_place_a6621b14506e05b72e9596b9503c9b5f7}{LandTransportPlace::typePrint}}.at(a.type) << \textcolor{charliteral}{' '} << a.distance << \textcolor{stringliteral}{"{}m "{}} << \textcolor{stringliteral}{"{}Open from: "{}} << a.openTime << \textcolor{stringliteral}{"{} to "{}} << a.closeTime;}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00118}00118     \textcolor{keywordflow}{return} out;}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00119}00119 \}}
 \DoxyCodeLine{\Hypertarget{airport_8cpp_source_l00120}00120 }

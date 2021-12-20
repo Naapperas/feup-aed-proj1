@@ -165,6 +165,13 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Creates the <a class="el" href="class_airline.html">Airline</a> object with the given name.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>the name of this airline </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00012">12</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
@@ -193,7 +200,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="airline_8h_source.html#l00066">66</a> of file <a class="el" href="airline_8h_source.html">airline.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8h_source.html#l00080">80</a> of file <a class="el" href="airline_8h_source.html">airline.h</a>.</p>
 
 </div>
 </div>
@@ -221,7 +228,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if added successfully (this airport didn't exist before) else false </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00399">399</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00402">402</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -241,7 +248,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p >Register a new cleaning service for any plane </p>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00604">604</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00607">607</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -270,16 +277,17 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Add a list of flights to a plane's flight plan </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Add a list of flights to a plane's flight plan.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">plane</td><td>plane that will perform these flights </td></tr>
-    <tr><td class="paramname">flight</td><td>list of flights to be added </td></tr>
+    <tr><td class="paramname">flights</td><td>list of flights to be added </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>weather the plane alreay existed in the fleet or not </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00241">241</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00244">244</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -308,16 +316,17 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Add a flight to a plane's flight plan </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Add a flight to a plane's flight plan.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">plane</td><td>plane that will perform this flight </td></tr>
     <tr><td class="paramname">flight</td><td>flight to be added </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>weather the plane already existed in the airline fleet or not </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00231">231</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00234">234</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -336,7 +345,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Add a new plane to the currently owned planes </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Add a new plane to the currently owned planes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">plane</td><td>plane to be added </td></tr>
   </table>
@@ -344,7 +354,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if added successfully (this plane wasn't owned already) else false </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00218">218</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00221">221</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -364,7 +374,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p >Cancel a flight (essentially deleting it) </p><dl class="section return"><dt>Returns</dt><dd>true if cancelled successfully (deleted an existing flight) else false </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00253">253</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00256">256</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -384,7 +394,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p >Schedule a new flight </p>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00305">305</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00308">308</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -410,8 +420,10 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Returns the <a class="el" href="class_airline.html">Airline</a> singleton.</p>
+<dl class="section return"><dt>Returns</dt><dd>the global airline instance </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="airline_8h_source.html#l00113">113</a> of file <a class="el" href="airline_8h_source.html">airline.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8h_source.html#l00140">140</a> of file <a class="el" href="airline_8h_source.html">airline.h</a>.</p>
 
 </div>
 </div>
@@ -439,7 +451,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the name of this airline </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="airline_8h_source.html#l00185">185</a> of file <a class="el" href="airline_8h_source.html">airline.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8h_source.html#l00212">212</a> of file <a class="el" href="airline_8h_source.html">airline.h</a>.</p>
 
 </div>
 </div>
@@ -459,7 +471,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p >Print all scheduled flights </p>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00348">348</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00351">351</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -485,7 +497,7 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00358">358</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00361">361</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -505,7 +517,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p >Used by clients to list the transport places near any airport </p>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00571">571</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00574">574</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -525,7 +537,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p >Add a new plane to the owned planes </p>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00371">371</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00374">374</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -545,7 +557,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p >Purchase tickets for one or more passengers </p>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00522">522</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00525">525</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -565,7 +577,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p >Register a new airport </p>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00407">407</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00410">410</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -585,7 +597,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p >Register a new transport place </p>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00415">415</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00418">418</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -605,7 +617,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p >Reschedule a flight, updating it's departure date </p><dl class="section return"><dt>Returns</dt><dd>true if rescheduled successfully (updated an existing flight) else false </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00278">278</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8cpp_source.html#l00281">281</a> of file <a class="el" href="airline_8cpp_source.html">airline.cpp</a>.</p>
 
 </div>
 </div>
@@ -632,8 +644,15 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Since there is olny one airline per application, this method serves as the entrypoint for the singleton pattern.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">instance</td><td>the airline instance that is going to be global throughout the application </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="airline_8h_source.html#l00108">108</a> of file <a class="el" href="airline_8h_source.html">airline.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airline_8h_source.html#l00130">130</a> of file <a class="el" href="airline_8h_source.html">airline.h</a>.</p>
 
 </div>
 </div>

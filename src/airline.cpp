@@ -57,17 +57,20 @@ Airline::Airline(const std::string &name) : airlineName(name) {
             std::stringstream ss(currentService);
             std::string planePlate, type, date, employee;
             ss >> planePlate >> type >> date >> employee;
-            CleaningService::ServiceType st;
+            Service::ServiceType st;
             if (type == "Maintenance")
-                st = CleaningService::MAINTENANCE;
+                st = Service::MAINTENANCE;
             else if(type == "Cleaning")
-                st = CleaningService::CLEANING;
+                st = Service::CLEANING;
             else
                 continue;
-            (*std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](Plane* p){return p->getPlate() == planePlate;}))->addCleaningService(CleaningService(st, date, employee));
+            (*std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(),
+                           [planePlate](Plane *p) { return p->getPlate() == planePlate; }))->addService(
+                    Service(st, date, employee));
             // check if service was finished prior to this execution of the program and set to finish if so
             if (!upcoming)
-                (*std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [planePlate](Plane* p){return p->getPlate() == planePlate;}))->finishedCleaningService();
+                (*std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(),
+                               [planePlate](Plane *p) { return p->getPlate() == planePlate; }))->finishedService();
         }
     }
 
@@ -611,14 +614,14 @@ void Airline::addCleaningService() {
 
     auto itr = std::find_if(this->ownedPlanes.begin(), this->ownedPlanes.end(), [option](Plane* plane){ return plane->getPlate() == option; });
 
-    CleaningService::ServiceType st;
+    Service::ServiceType st;
     std::cout << "\tWhat's the type of the service. M/C\n\t> "; // M = MAINTENANCE / C = CLEANING
     std::cin >> option;
 
     if (toupper(option[0]) == 'M')
-        st = CleaningService::MAINTENANCE;
+        st = Service::MAINTENANCE;
     else if (toupper(option[0]) == 'C')
-        st = CleaningService::CLEANING;
+        st = Service::CLEANING;
     else {
         std::cout << "\tInvalid service type, aborting operation" << std::endl;
         return;
@@ -631,7 +634,7 @@ void Airline::addCleaningService() {
     std::cout << "\tWhat's the name of the employee?\n\t> ";
     std::cin >> option;
 
-    if (!(*itr)->addCleaningService(CleaningService(st, date, option))){
+    if (!(*itr)->addService(Service(st, date, option))){
         std::cout << "\tUnable to add a service on this date, aborting operation" << std::endl;
     }
 }

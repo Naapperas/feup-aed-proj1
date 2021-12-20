@@ -2,6 +2,7 @@ var class_airport =
 [
     [ "Airport", "class_airport.html#a35768e35e87980e14067cde0f838f9be", null ],
     [ "addLuggageToTransportBelt", "class_airport.html#adda4bca8d1961bd02b1a56b113d70517", null ],
+    [ "getName", "class_airport.html#aa5be38443c1de176e52c4f5f5252c956", null ],
     [ "landPlane", "class_airport.html#a2e379bccd881d0722b55073339e27b77", null ],
     [ "loadCargo", "class_airport.html#a9bef5622bf52dd8b4dd1a2cfec47614e", null ],
     [ "offloadCargo", "class_airport.html#a0b33b398866bb76f49efe4a8b8731c37", null ],

@@ -21,7 +21,7 @@
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00017}00017 }
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00018}00018         std::cout << std::string(100, \textcolor{charliteral}{'\(\backslash\)n'});}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00019}00019 }
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00020}00020         \textcolor{keywordtype}{int} option = \mbox{\hyperlink{class_menu_a5a610a2a76e81faf1aa22a75f6d713a8}{Menu::showInitialMenu}}(Airline::getInstance().getName());}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00020}00020         \textcolor{keywordtype}{int} option = \mbox{\hyperlink{class_menu_a5a610a2a76e81faf1aa22a75f6d713a8}{Menu::showInitialMenu}}(\mbox{\hyperlink{class_airline_a9d81923c678a752f699143feea484f52}{Airline::getInstance}}().getName());}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00021}00021 }
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00022}00022         \textcolor{keywordflow}{switch} (option) \{}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00023}00023             \textcolor{keywordflow}{case} CLIENT:}
@@ -165,42 +165,42 @@
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00161}00161 \}}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00162}00162 }
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00163}00163 \textcolor{keywordtype}{void} Menu::listFlights() \{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00164}00164     Airline::getInstance().\mbox{\hyperlink{class_airline_a4f1ef620bef5fe12e36b37d759f63398}{listCurrentFlights}}(); \textcolor{comment}{// generate the call in menu, delegate it to Airline}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00164}00164     \mbox{\hyperlink{class_airline_a9d81923c678a752f699143feea484f52}{Airline::getInstance}}().\mbox{\hyperlink{class_airline_a4f1ef620bef5fe12e36b37d759f63398}{listCurrentFlights}}(); \textcolor{comment}{// generate the call in menu, delegate it to Airline}}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00165}00165     Menu::waitForPrompt(\textcolor{stringliteral}{"{}\(\backslash\)t[press ENTER to continue]"{}});}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00166}00166 \}}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00167}00167 }
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00168}00168 \textcolor{keywordtype}{void} Menu::listPlanes() \{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00169}00169     Airline::getInstance().\mbox{\hyperlink{class_airline_a1fb1650a8d78a899d71811e1248538d3}{listCurrentPlanes}}(); \textcolor{comment}{// generate the call in menu, delegate it to Airline}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00169}00169     \mbox{\hyperlink{class_airline_a9d81923c678a752f699143feea484f52}{Airline::getInstance}}().\mbox{\hyperlink{class_airline_a1fb1650a8d78a899d71811e1248538d3}{listCurrentPlanes}}(); \textcolor{comment}{// generate the call in menu, delegate it to Airline}}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00170}00170     Menu::waitForPrompt(\textcolor{stringliteral}{"{}\(\backslash\)t[press ENTER to continue]"{}});}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00171}00171 \}}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00172}00172 }
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00173}00173 \textcolor{keywordtype}{void} Menu::purchasePlane() \{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00174}00174     Airline::getInstance().\mbox{\hyperlink{class_airline_a5ecddee30302f3609e6fd8e15a0917c9}{purchasePlane}}();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00174}00174     \mbox{\hyperlink{class_airline_a9d81923c678a752f699143feea484f52}{Airline::getInstance}}().\mbox{\hyperlink{class_airline_a5ecddee30302f3609e6fd8e15a0917c9}{purchasePlane}}();}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00175}00175     Menu::waitForPrompt(\textcolor{stringliteral}{"{}\(\backslash\)t[press ENTER to continue]"{}});}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00176}00176 \}}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00177}00177 }
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00178}00178 \textcolor{keywordtype}{void} Menu::registerAirport()\{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00179}00179     Airline::getInstance().\mbox{\hyperlink{class_airline_ab971d091b141132afa34e3c9481eb9c0}{registerAirport}}();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00179}00179     \mbox{\hyperlink{class_airline_a9d81923c678a752f699143feea484f52}{Airline::getInstance}}().\mbox{\hyperlink{class_airline_ab971d091b141132afa34e3c9481eb9c0}{registerAirport}}();}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00180}00180     Menu::waitForPrompt(\textcolor{stringliteral}{"{}\(\backslash\)t[press ENTER to continue]"{}});}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00181}00181 \}}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00182}00182 }
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00183}00183 \textcolor{keywordtype}{void} Menu::registerTransportPlace() \{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00184}00184     Airline::getInstance().\mbox{\hyperlink{class_airline_ac6f6fc6af5d435191ad318287fbdd116}{registerTransportPlace}}();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00184}00184     \mbox{\hyperlink{class_airline_a9d81923c678a752f699143feea484f52}{Airline::getInstance}}().\mbox{\hyperlink{class_airline_ac6f6fc6af5d435191ad318287fbdd116}{registerTransportPlace}}();}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00185}00185     Menu::waitForPrompt(\textcolor{stringliteral}{"{}\(\backslash\)t[press ENTER to continue]"{}});}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00186}00186 \}}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00187}00187 }
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00188}00188 \textcolor{keywordtype}{void} Menu::cancelFlight() \{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00189}00189     Airline::getInstance().\mbox{\hyperlink{class_airline_a87f968625f42326afbd0388218ad6db1}{cancelFlight}}();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00189}00189     \mbox{\hyperlink{class_airline_a9d81923c678a752f699143feea484f52}{Airline::getInstance}}().\mbox{\hyperlink{class_airline_a87f968625f42326afbd0388218ad6db1}{cancelFlight}}();}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00190}00190     Menu::waitForPrompt(\textcolor{stringliteral}{"{}\(\backslash\)t[press ENTER to continue]"{}});}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00191}00191 \}}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00192}00192 }
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00193}00193 \textcolor{keywordtype}{void} Menu::createFlight() \{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00194}00194     Airline::getInstance().\mbox{\hyperlink{class_airline_ad15656f5cacb531434948235083e0a2d}{createFlight}}();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00194}00194     \mbox{\hyperlink{class_airline_a9d81923c678a752f699143feea484f52}{Airline::getInstance}}().\mbox{\hyperlink{class_airline_ad15656f5cacb531434948235083e0a2d}{createFlight}}();}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00195}00195     Menu::waitForPrompt(\textcolor{stringliteral}{"{}\(\backslash\)t[press ENTER to continue]"{}});}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00196}00196 \}}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00197}00197 }
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00198}00198 \textcolor{keywordtype}{void} Menu::rescheduleFlight() \{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00199}00199     Airline::getInstance().\mbox{\hyperlink{class_airline_a14bf743b39c88afb79b683346e015388}{rescheduleFlight}}();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00199}00199     \mbox{\hyperlink{class_airline_a9d81923c678a752f699143feea484f52}{Airline::getInstance}}().\mbox{\hyperlink{class_airline_a14bf743b39c88afb79b683346e015388}{rescheduleFlight}}();}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00200}00200     Menu::waitForPrompt(\textcolor{stringliteral}{"{}\(\backslash\)t[press ENTER to continue]"{}});}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00201}00201 \}}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00202}00202 }
@@ -211,17 +211,17 @@
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00207}00207 \}}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00208}00208 }
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00209}00209 \textcolor{keywordtype}{void} Menu::buyTickets() \{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00210}00210     Airline::getInstance().\mbox{\hyperlink{class_airline_a9acf41d412c59d8f6adfd9c987054555}{purchaseTicket}}();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00210}00210     \mbox{\hyperlink{class_airline_a9d81923c678a752f699143feea484f52}{Airline::getInstance}}().\mbox{\hyperlink{class_airline_a9acf41d412c59d8f6adfd9c987054555}{purchaseTicket}}();}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00211}00211     Menu::waitForPrompt(\textcolor{stringliteral}{"{}\(\backslash\)t[press ENTER to continue]"{}});}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00212}00212 \}}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00213}00213 }
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00214}00214 \textcolor{keywordtype}{void} Menu::listTransportPlaces() \{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00215}00215     Airline::getInstance().\mbox{\hyperlink{class_airline_a4a9fff543eb9e02b2b719bca90f4704a}{listTransportPlaces}}();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00215}00215     \mbox{\hyperlink{class_airline_a9d81923c678a752f699143feea484f52}{Airline::getInstance}}().\mbox{\hyperlink{class_airline_a4a9fff543eb9e02b2b719bca90f4704a}{listTransportPlaces}}();}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00216}00216     Menu::waitForPrompt(\textcolor{stringliteral}{"{}\(\backslash\)t[press ENTER to continue]"{}});}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00217}00217 \}}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00218}00218 }
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00219}00219 \textcolor{keywordtype}{void} Menu::addCleaningService() \{}
-\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00220}00220     Airline::getInstance().\mbox{\hyperlink{class_airline_a0eb397df7627978cc94efc8f6b59b438}{addCleaningService}}();}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00220}00220     \mbox{\hyperlink{class_airline_a9d81923c678a752f699143feea484f52}{Airline::getInstance}}().\mbox{\hyperlink{class_airline_a0eb397df7627978cc94efc8f6b59b438}{addCleaningService}}();}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00221}00221     Menu::waitForPrompt(\textcolor{stringliteral}{"{}\(\backslash\)t[press ENTER to continue]"{}});}
 \DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00222}00222 \}}
 

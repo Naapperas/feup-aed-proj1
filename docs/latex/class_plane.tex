@@ -15,9 +15,9 @@ const std\+::string \& \mbox{\hyperlink{class_plane_aaa9ae99225a188f5bff84681c53
 \item 
 unsigned int \mbox{\hyperlink{class_plane_a861dbfdf67839656d47d3179463bab77}{get\+Capacity}} () const
 \item 
-bool \mbox{\hyperlink{class_plane_a383721443f18671a4266f308cb9947e2}{add\+Cleaning\+Service}} (const \mbox{\hyperlink{class_cleaning_service}{Cleaning\+Service}} \&cleaning\+Service)
+bool \mbox{\hyperlink{class_plane_a40d09053572c668916d6da3505b8d9d5}{add\+Service}} (const \mbox{\hyperlink{class_service}{Service}} \&cleaning\+Service)
 \item 
-void \mbox{\hyperlink{class_plane_aebaeb04e9f717fc465a1f6c65e65eac6}{finished\+Cleaning\+Service}} ()
+void \mbox{\hyperlink{class_plane_a459e765126b94110bf28b53dc0bc8cfc}{finished\+Service}} ()
 \item 
 void \mbox{\hyperlink{class_plane_a70cd4337d9629882a54f4ba3cc8c1a31}{add\+Luggage}} (\mbox{\hyperlink{class_luggage}{Luggage}} $\ast$plane\+Luggage)
 \item 
@@ -50,7 +50,7 @@ std\+::ostream \& \mbox{\hyperlink{class_plane_a2397efea2c74f67e713b083f5cbd33da
 \doxysubsection{Detailed Description}
 Represents an airship that can be used to perform a flight. 
 
-Definition at line \mbox{\hyperlink{plane_8h_source_l00052}{52}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
+Definition at line \mbox{\hyperlink{plane_8h_source_l00064}{64}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
 
 
 
@@ -76,31 +76,11 @@ Creates a plane.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{plane_8h_source_l00074}{74}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
+Definition at line \mbox{\hyperlink{plane_8h_source_l00086}{86}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_plane_a383721443f18671a4266f308cb9947e2}\label{class_plane_a383721443f18671a4266f308cb9947e2}} 
-\index{Plane@{Plane}!addCleaningService@{addCleaningService}}
-\index{addCleaningService@{addCleaningService}!Plane@{Plane}}
-\doxysubsubsection{\texorpdfstring{addCleaningService()}{addCleaningService()}}
-{\footnotesize\ttfamily bool Plane\+::add\+Cleaning\+Service (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cleaning_service}{Cleaning\+Service}} \&}]{cleaning\+Service }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-Adds a cleaning service to be performed on this plane.
-
-
-\begin{DoxyParams}{Parameters}
-{\em cleaning\+Service} & the cleaning service to be performed on this plane \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true if added successfully (date is after the last added service\textquotesingle{}s date 
-\end{DoxyReturn}
-
-
-Definition at line \mbox{\hyperlink{plane_8h_source_l00109}{109}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
-
 \mbox{\Hypertarget{class_plane_a70cd4337d9629882a54f4ba3cc8c1a31}\label{class_plane_a70cd4337d9629882a54f4ba3cc8c1a31}} 
 \index{Plane@{Plane}!addLuggage@{addLuggage}}
 \index{addLuggage@{addLuggage}!Plane@{Plane}}
@@ -131,6 +111,26 @@ Add a passenger that will be boarding this flight
 
 Definition at line \mbox{\hyperlink{plane_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{plane_8cpp_source}{plane.\+cpp}}.
 
+\mbox{\Hypertarget{class_plane_a40d09053572c668916d6da3505b8d9d5}\label{class_plane_a40d09053572c668916d6da3505b8d9d5}} 
+\index{Plane@{Plane}!addService@{addService}}
+\index{addService@{addService}!Plane@{Plane}}
+\doxysubsubsection{\texorpdfstring{addService()}{addService()}}
+{\footnotesize\ttfamily bool Plane\+::add\+Service (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_service}{Service}} \&}]{cleaning\+Service }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a cleaning service to be performed on this plane.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cleaning\+Service} & the cleaning service to be performed on this plane \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if added successfully (date is after the last added service\textquotesingle{}s date 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{plane_8h_source_l00121}{121}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
+
 \mbox{\Hypertarget{class_plane_a4232eccc503260278cfe1ec4c7034980}\label{class_plane_a4232eccc503260278cfe1ec4c7034980}} 
 \index{Plane@{Plane}!boardPassengers@{boardPassengers}}
 \index{boardPassengers@{boardPassengers}!Plane@{Plane}}
@@ -148,15 +148,15 @@ Boards the given collection of passengers on the plane.
 
 Definition at line \mbox{\hyperlink{plane_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{plane_8cpp_source}{plane.\+cpp}}.
 
-\mbox{\Hypertarget{class_plane_aebaeb04e9f717fc465a1f6c65e65eac6}\label{class_plane_aebaeb04e9f717fc465a1f6c65e65eac6}} 
-\index{Plane@{Plane}!finishedCleaningService@{finishedCleaningService}}
-\index{finishedCleaningService@{finishedCleaningService}!Plane@{Plane}}
-\doxysubsubsection{\texorpdfstring{finishedCleaningService()}{finishedCleaningService()}}
-{\footnotesize\ttfamily void Plane\+::finished\+Cleaning\+Service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\Hypertarget{class_plane_a459e765126b94110bf28b53dc0bc8cfc}\label{class_plane_a459e765126b94110bf28b53dc0bc8cfc}} 
+\index{Plane@{Plane}!finishedService@{finishedService}}
+\index{finishedService@{finishedService}!Plane@{Plane}}
+\doxysubsubsection{\texorpdfstring{finishedService()}{finishedService()}}
+{\footnotesize\ttfamily void Plane\+::finished\+Service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Finishes a pre-\/scheduled cleaning service. 
 
-Definition at line \mbox{\hyperlink{plane_8h_source_l00123}{123}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
+Definition at line \mbox{\hyperlink{plane_8h_source_l00135}{135}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
 
 \mbox{\Hypertarget{class_plane_a861dbfdf67839656d47d3179463bab77}\label{class_plane_a861dbfdf67839656d47d3179463bab77}} 
 \index{Plane@{Plane}!getCapacity@{getCapacity}}
@@ -171,7 +171,7 @@ the capacity of this plane
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{plane_8h_source_l00099}{99}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
+Definition at line \mbox{\hyperlink{plane_8h_source_l00111}{111}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
 
 \mbox{\Hypertarget{class_plane_aaa9ae99225a188f5bff84681c53530ee}\label{class_plane_aaa9ae99225a188f5bff84681c53530ee}} 
 \index{Plane@{Plane}!getPlate@{getPlate}}
@@ -186,7 +186,7 @@ the plate of this airplane
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{plane_8h_source_l00090}{90}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
+Definition at line \mbox{\hyperlink{plane_8h_source_l00102}{102}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
 
 \mbox{\Hypertarget{class_plane_a9c13345caf0d5c6a66cfafbfca1a2be0}\label{class_plane_a9c13345caf0d5c6a66cfafbfca1a2be0}} 
 \index{Plane@{Plane}!getType@{getType}}
@@ -201,7 +201,7 @@ the type of this airship
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{plane_8h_source_l00081}{81}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
+Definition at line \mbox{\hyperlink{plane_8h_source_l00093}{93}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
 
 \mbox{\Hypertarget{class_plane_a0fb7ab1335b5eec9ec9915b83032d182}\label{class_plane_a0fb7ab1335b5eec9ec9915b83032d182}} 
 \index{Plane@{Plane}!isPast@{isPast}}
@@ -221,7 +221,7 @@ true if the given date is prior to the current date
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{plane_8h_source_l00175}{175}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
+Definition at line \mbox{\hyperlink{plane_8h_source_l00187}{187}} of file \mbox{\hyperlink{plane_8h_source}{plane.\+h}}.
 
 \mbox{\Hypertarget{class_plane_ae1d9748619838d9771ae0ec8b26ecffa}\label{class_plane_ae1d9748619838d9771ae0ec8b26ecffa}} 
 \index{Plane@{Plane}!offLoadCargo@{offLoadCargo}}
@@ -239,7 +239,7 @@ Definition at line \mbox{\hyperlink{plane_8cpp_source_l00060}{60}} of file \mbox
 \doxysubsubsection{\texorpdfstring{performServices()}{performServices()}}
 {\footnotesize\ttfamily void Plane\+::perform\+Services (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-
+Performs the past services sheduled for this plane. 
 
 Definition at line \mbox{\hyperlink{plane_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{plane_8cpp_source}{plane.\+cpp}}.
 
@@ -249,11 +249,11 @@ Definition at line \mbox{\hyperlink{plane_8cpp_source_l00064}{64}} of file \mbox
 \doxysubsubsection{\texorpdfstring{storeCleaningServices()}{storeCleaningServices()}}
 {\footnotesize\ttfamily void Plane\+::store\+Cleaning\+Services (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{ofstream }\end{DoxyParamCaption})}
 
-Serializes this plane\textquotesingle{}s cleaning services to the given file.
+Serializes this plane\textquotesingle{}s services to the given file.
 
 
 \begin{DoxyParams}{Parameters}
-{\em ofstream} & \\
+{\em ofstream} & the file stream to which the services are written \\
 \hline
 \end{DoxyParams}
 

@@ -21,9 +21,13 @@
 /**
  * Represents a maintenance/cleaning service that can be performed on a plane.
  */
-class CleaningService {
+class Service {
 
     public:
+
+        /**
+         * Reperesents the type of service that can be performed on this aircraft.
+         */
         enum ServiceType {
             MAINTENANCE,
             CLEANING
@@ -32,9 +36,17 @@ class CleaningService {
         ServiceType serviceType;
         std::string serviceDate, employee;
         static const std::vector<std::string> typePrint;
-        friend std::ostream& operator <<(std::ostream& out ,const CleaningService & a);
+        friend std::ostream& operator <<(std::ostream& out ,const Service & a);
     public:
-        CleaningService(ServiceType serviceType, const std::string& serviceDate, const std::string& employee) :
+
+        /**
+         * Creates a new service of the specified type, to be performed by the given employee on the given date.
+         *
+         * @param serviceType the type of service to perform
+         * @param serviceDate the date to erform the given service
+         * @param employee the person responsible for performing the given service
+         */
+        Service(ServiceType serviceType, const std::string& serviceDate, const std::string& employee) :
         serviceType(serviceType), serviceDate(serviceDate), employee(employee) {}
 
         /**
@@ -54,7 +66,7 @@ class Plane {
         std::string type, plate;
         unsigned capacity, cargoCapacity;
 
-        std::queue<CleaningService> upcomingCleaningTasks, pastCleaningTasks;
+        std::queue<Service> upcomingTasks, pastTasks;
 
         // this should provide fast insertion removal (simulating transporting passengers + cargo, we don't care about searching them)
         std::list<Passenger*> planePassengers;
@@ -106,12 +118,12 @@ class Plane {
          * @param cleaningService the cleaning service to be performed on this plane
          * @return true if added successfully (date is after the last added service's date
          */
-        bool addCleaningService(const CleaningService& cleaningService) {
-            if (upcomingCleaningTasks.empty()){
-                upcomingCleaningTasks.push(cleaningService);
+        bool addService(const Service& cleaningService) {
+            if (upcomingTasks.empty()){
+                upcomingTasks.push(cleaningService);
                 return true;
-            } else if (cleaningService.getDate() > upcomingCleaningTasks.back().getDate()) {
-                upcomingCleaningTasks.push(cleaningService);
+            } else if (cleaningService.getDate() > upcomingTasks.back().getDate()) {
+                upcomingTasks.push(cleaningService);
                 return true;
             } else
                 return false;
@@ -120,9 +132,9 @@ class Plane {
         /**
          * Finishes a pre-scheduled cleaning service.
          */
-        void finishedCleaningService() {
-            pastCleaningTasks.push(upcomingCleaningTasks.front());
-            upcomingCleaningTasks.pop();
+        void finishedService() {
+            pastTasks.push(upcomingTasks.front());
+            upcomingTasks.pop();
         }
 
         /**
@@ -155,14 +167,14 @@ class Plane {
         void offLoadCargo();
 
         /**
-         * Serializes this plane's cleaning services to the given file.
+         * Serializes this plane's services to the given file.
          *
-         * @param ofstream
+         * @param ofstream the file stream to which the services are written
          */
         void storeCleaningServices(std::ofstream& ofstream);
 
         /**
-         *
+         * Performs the past services sheduled for this plane.
          */
         void performServices();
 

@@ -10,9 +10,9 @@
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00006}00006 }
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00007}00007 \textcolor{preprocessor}{\#include "{}../includes/plane.h"{}}}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00008}00008 }
-\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00009}00009 \textcolor{keyword}{const} std::vector<std::string> CleaningService::typePrint = \{\textcolor{stringliteral}{"{}Maintenance"{}}, \textcolor{stringliteral}{"{}Cleaning"{}}\};}
+\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00009}00009 \textcolor{keyword}{const} std::vector<std::string> Service::typePrint = \{\textcolor{stringliteral}{"{}Maintenance"{}}, \textcolor{stringliteral}{"{}Cleaning"{}}\};}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00010}00010 }
-\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00011}00011 std::ostream\& operator <<(std::ostream\& out , \textcolor{keyword}{const} \mbox{\hyperlink{class_cleaning_service}{CleaningService}} \&a) \{}
+\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00011}00011 std::ostream\& operator <<(std::ostream\& out , \textcolor{keyword}{const} \mbox{\hyperlink{class_service}{Service}} \&a) \{}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00012}00012     out << a.typePrint.at(a.serviceType) << \textcolor{stringliteral}{"{} "{}} << a.serviceDate << \textcolor{stringliteral}{"{} "{}} << a.employee << \textcolor{charliteral}{'\(\backslash\)n'};}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00013}00013     \textcolor{keywordflow}{return} out;}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00014}00014 \}}
@@ -45,18 +45,18 @@
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00041}00041 }
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00042}\mbox{\hyperlink{class_plane_a3ef867188c70b6acb5f6d70ad3063b82}{00042}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plane_a3ef867188c70b6acb5f6d70ad3063b82}{Plane::storeCleaningServices}}(std::ofstream\& ofstream) \{}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00043}00043 }
-\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00044}00044     \textcolor{keywordtype}{unsigned} pastSize = this-\/>pastCleaningTasks.size(), upcomingSize = upcomingCleaningTasks.size();}
+\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00044}00044     \textcolor{keywordtype}{unsigned} pastSize = this-\/>pastTasks.size(), upcomingSize = upcomingTasks.size();}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00045}00045     ofstream << \textcolor{stringliteral}{"{}[PAST CLEANING TASKS]\(\backslash\)n"{}};}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00046}00046     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} i = 0; i < pastSize; i++) \{}
-\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00047}00047         \textcolor{keyword}{const} \mbox{\hyperlink{class_cleaning_service}{CleaningService}}\& service = pastCleaningTasks.front();}
-\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00048}00048         pastCleaningTasks.pop();}
+\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00047}00047         \textcolor{keyword}{const} \mbox{\hyperlink{class_service}{Service}}\& service = pastTasks.front();}
+\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00048}00048         pastTasks.pop();}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00049}00049         ofstream << this-\/>\mbox{\hyperlink{class_plane_aaa9ae99225a188f5bff84681c53530ee}{getPlate}}() << \textcolor{charliteral}{' '} << service;}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00050}00050     \}}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00051}00051 }
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00052}00052     ofstream << \textcolor{stringliteral}{"{}[UPCOMING CLEANING TASKS]\(\backslash\)n"{}};}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00053}00053     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} i = 0; i < upcomingSize; i++) \{}
-\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00054}00054         \textcolor{keyword}{const} \mbox{\hyperlink{class_cleaning_service}{CleaningService}}\& service = upcomingCleaningTasks.front();}
-\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00055}00055         upcomingCleaningTasks.pop();}
+\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00054}00054         \textcolor{keyword}{const} \mbox{\hyperlink{class_service}{Service}}\& service = upcomingTasks.front();}
+\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00055}00055         upcomingTasks.pop();}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00056}00056         ofstream << this-\/>\mbox{\hyperlink{class_plane_aaa9ae99225a188f5bff84681c53530ee}{getPlate}}() << \textcolor{charliteral}{' '} << service;}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00057}00057     \}}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00058}00058 \}}
@@ -65,12 +65,12 @@
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00061}00061     this-\/>planeLuggage.clear();}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00062}00062 \}}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00063}00063 }
-\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00064}00064 \textcolor{keywordtype}{void} Plane::performServices() \{}
-\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00065}00065     \textcolor{keywordflow}{if} (this-\/>upcomingCleaningTasks.empty())}
+\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00064}\mbox{\hyperlink{class_plane_abfad00cf75bb6fc17f6a4eb2c8847322}{00064}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plane_abfad00cf75bb6fc17f6a4eb2c8847322}{Plane::performServices}}() \{}
+\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00065}00065     \textcolor{keywordflow}{if} (this-\/>upcomingTasks.empty())}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00066}00066         \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00067}00067     \textcolor{keywordflow}{while} (\mbox{\hyperlink{class_plane_a0fb7ab1335b5eec9ec9915b83032d182}{isPast}}(this-\/>upcomingCleaningTasks.front().getDate())) \{}
-\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00068}00068         this-\/>\mbox{\hyperlink{class_plane_aebaeb04e9f717fc465a1f6c65e65eac6}{finishedCleaningService}}();}
-\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00069}00069         \textcolor{keywordflow}{if} (upcomingCleaningTasks.empty())}
+\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00067}00067     \textcolor{keywordflow}{while} (\mbox{\hyperlink{class_plane_a0fb7ab1335b5eec9ec9915b83032d182}{isPast}}(this-\/>upcomingTasks.front().getDate())) \{}
+\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00068}00068         this-\/>\mbox{\hyperlink{class_plane_a459e765126b94110bf28b53dc0bc8cfc}{finishedService}}();}
+\DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00069}00069         \textcolor{keywordflow}{if} (upcomingTasks.empty())}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00070}00070             \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00071}00071     \}}
 \DoxyCodeLine{\Hypertarget{plane_8cpp_source_l00072}00072 }

@@ -29,19 +29,23 @@ class Airline {
          * Store the plane's information on the dedicated text file
          */
         void storePlanes() const;
+
         /**
          * Store the cleaning service's information on the dedicated text file
          */
         void storeCleaningServices(Plane* plane) const;
+
         /**
          * Store the airport's information on the dedicated text file
          */
         void storeAirports() const;
+
         /**
          * Store the land transport place's information from an airport on the dedicated text file
          * @param airport
          */
         void storeTransportPlaces(Airport* airport) const;
+
         /**
          * Store the flight's information on the dedicated text file
          */
@@ -59,9 +63,19 @@ class Airline {
          */
         void storePassengers(Flight* flight) const;
 
+        /**
+         * Returns a filtered view of all the flights made by this airline: the applied filter removes the flights that have already been done
+         *
+         * @return the flights that will occur in the future.
+         */
         [[nodiscard]] std::vector<Flight*> getValidFlights() const;
 
     public:
+        /**
+         * Creates the Airline object with the given name.
+         *
+         * @param name the name of this airline
+         */
         explicit Airline(const std::string& name);
         ~Airline() {
             this->storePlanes();
@@ -83,33 +97,46 @@ class Airline {
         }
 
         /**
-         * Add a new plane to the currently owned planes
+         * Add a new plane to the currently owned planes.
+         *
          * @param plane plane to be added
          * @return true if added successfully (this plane wasn't owned already) else false
          */
         bool addPlaneToAirlineFleet(Plane* plane);
 
         /**
-         * Add a flight to a plane's flight plan
+         * Add a flight to a plane's flight plan.
+         *
          * @param plane plane that will perform this flight
          * @param flight flight to be added
-         * @return
+         * @return weather the plane already existed in the airline fleet or not
          */
         bool addFlightToPlane(Plane* plane, Flight* flight);
 
         /**
-         * Add a list of flights to a plane's flight plan
+         * Add a list of flights to a plane's flight plan.
+         *
          * @param plane plane that will perform these flights
-         * @param flight list of flights to be added
-         * @return
+         * @param flights list of flights to be added
+         * @return weather the plane alreay existed in the fleet or not
          */
         bool addFlightsToPlane(Plane* plane, const std::list<Flight*>& flights);
 
+        /**
+         * Since there is olny one airline per application, this method serves as the entrypoint for the singleton pattern.
+         *
+         * @param instance the airline instance that is going to be global throughout the application
+         */
         static void setInstance(Airline* instance) {
             if (Airline::instance == NULL)
                 Airline::instance = instance;
         }
 
+        /**
+         * Returns the Airline singleton.
+         *
+         * @return the global airline instance
+         */
         static Airline& getInstance() {
 
             if (Airline::instance == NULL)

@@ -128,7 +128,7 @@ Friends</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Represents an <a class="el" href="class_airport.html">Airport</a> where planes can land and passengers can buy tickets for flights </p>
 
-<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00178">178</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00203">203</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a35768e35e87980e14067cde0f838f9be" name="a35768e35e87980e14067cde0f838f9be"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a35768e35e87980e14067cde0f838f9be">&#9670;&nbsp;</a></span>Airport()</h2>
@@ -153,14 +153,15 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Creates a new airport </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Creates a new airport using the given name.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>Name of the airport </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00212">212</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00238">238</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
 
 </div>
 </div>
@@ -180,7 +181,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Places some luggage on this airport's transport belt to be carried to a plane by the <a class="el" href="class_luggage.html">Luggage</a> Transportation Service</p>
+<p >Places some luggage on this airport's transport belt to be carried to a plane by the <a class="el" href="class_luggage.html">Luggage</a> Transportation <a class="el" href="class_service.html">Service</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">l</td><td>the luggage to transport </td></tr>
@@ -214,8 +215,10 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Returns this airport's name.</p>
+<dl class="section return"><dt>Returns</dt><dd>this airports name </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00219">219</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00250">250</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
 
 </div>
 </div>
@@ -234,7 +237,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Lands a plane at this airport</p>
+<p >Lands a plane at this airport.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">plane</td><td>the plane to land </td></tr>
@@ -288,7 +291,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Offloads this plane's cargo to be delivered at this airport</p>
+<p >Offloads this plane's cargo to be delivered at this airport.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">plane</td><td>the plane whose cargo should be offloaded </td></tr>
@@ -315,7 +318,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Makes a plane take off from this location</p>
+<p >Makes a plane take off from this location.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">plane</td><td>the plane taking off </td></tr>
@@ -342,9 +345,10 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Checks if a plane is currently landed in this airport </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Checks if a plane is currently landed in this airport.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">plane</td><td></td></tr>
+    <tr><td class="paramname">plane</td><td>the plane to verify </td></tr>
   </table>
   </dd>
 </dl>
@@ -368,7 +372,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Print the information in transportPlaces to the console </p>
+<p >Print the information in transportPlaces to the console. </p>
 
 <p class="definition">Definition at line <a class="el" href="airport_8cpp_source.html#l00039">39</a> of file <a class="el" href="airport_8cpp_source.html">airport.cpp</a>.</p>
 
@@ -389,7 +393,8 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Add a new land transport place to transportPlaces </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Add a new land transport place to transportPlaces.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ltp</td><td>land transport place to be added/registered </td></tr>
   </table>
@@ -461,7 +466,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00193">193</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00218">218</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
 
 </div>
 </div>
@@ -499,7 +504,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00201">201</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="airport_8h_source.html#l00226">226</a> of file <a class="el" href="airport_8h_source.html">airport.h</a>.</p>
 
 </div>
 </div>
