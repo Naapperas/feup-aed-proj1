@@ -486,6 +486,7 @@ void Airline::updateTransportPlace() {
 
     std::string type, openTime, closeTime;
     unsigned distance;
+    a->printTransportPlaces();
 
     std::cout << "\tWhich is the type of transport? (can be one of Train, Bus or Subway)\n\t> ";
     std::cin >> type;
