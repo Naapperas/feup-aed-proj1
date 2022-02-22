@@ -14,6 +14,10 @@ This repository holds the files submitted for the 1st AED project.
 
 ## Project grade: 16.18/20
 
+## Proposed problem
+
+The problem proposed for this project was for us to build a tool to aid in the management of resources and flights of an Air Company, using for that various data structures and algorithms to be performed on those data strucutres, all of which have been taught during our lectures.
+
 ## Disclaimer
 
 This repository (and all others with the name format `feup-*`) are for archival and educational purposes only.
